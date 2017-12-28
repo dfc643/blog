@@ -1,0 +1,1705 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Server &#8211; Norckon&#039;s blog</title>
+	<atom:link href="/category/network/server/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>Norckon&#039;s blog</description>
+	<lastBuildDate>Thu, 24 Aug 2017 14:09:08 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.1</generator>
+	<item>
+		<title>How To Use Redis For Queuing In Laravel 5</title>
+		<link>/2017/01/use-redis-queuing-laravel-5.html</link>
+		<comments>/2017/01/use-redis-queuing-laravel-5.html#comments</comments>
+		<pubDate>Tue, 17 Jan 2017 03:29:10 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Server]]></category>
+		<category><![CDATA[SQL]]></category>
+		<category><![CDATA[SYNC]]></category>
+
+		<guid isPermaLink="false">/?p=1816</guid>
+		<description><![CDATA[What is Redis? Redis is an in-memory but persistent on disk database, that represents a different trade-off where very high write and read speed is achieved with the limitation of data sets that can’t be larger than the memory. Once larger than memory, it starts trading the data from the backend SQL databases by pushing [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><img class="aligncenter size-full wp-image-1817" src="/wp-content/uploads/2017/01/laravel1-1.jpg" alt="laravel1-1" width="800" height="420" srcset="/wp-content/uploads/2017/01/laravel1-1.jpg 800w, /wp-content/uploads/2017/01/laravel1-1-768x403.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /></p>
+<h2>What is Redis?</h2>
+<p>Redis is an in-memory but persistent on disk database, that represents a different trade-off where very high write and read speed is achieved with the limitation of data sets that can’t be larger than the memory. Once larger than memory, it starts trading the data from the backend SQL databases by pushing and pulling the data. This, in some scenarios, can bring out great speed to the overall system.</p>
+<p>For example, a number of people are liking or commenting on a post. While concurrent requests reach the server, it’s impossible to process all of them simultaneously at high speed because accessing the database requires a little section of the overall process time.</p>
+<p>We tackle this by pushing the customer’s “like” request in a queue and show him the updated page while database is not updated. After sometime when the jobs in the queues start firing, his job will then be fulfilled and database will be updated at the back-end servers.</p>
+<p>This doesn’t explain the whole queuing structure, but the example was just to give an idea of how Redis can be used.</p>
+<h2>How To Setup Redis</h2>
+<p>Make sure you have Redis installed at your local server. You can check it by following the steps below, but if you are working on Cloudways, you can skip this step and follow the next one.</p>
+<pre>wget http://download.redis.io/redis-stable.tat.gz
+tar xvzf redis-stable.tat.gz
+cd redis-stable
+make</pre>
+<p>Now to check whether your Redis server is working or not.</p>
+<pre>$redis-clifol</pre>
+<p><img class="aligncenter size-full wp-image-1818" src="/wp-content/uploads/2017/01/Screenshotfrom2016-01-01124351.png" alt="Screenshotfrom2016-01-01124351" width="522" height="40" /></p>
+<p>or if you are connected you will get this:</p>
+<p><img class="aligncenter size-full wp-image-1819" src="/wp-content/uploads/2017/01/Screenshotfrom2016-01-01124435.png" alt="Screenshotfrom2016-01-01124435" width="382" height="57" /></p>
+<p>This shows the Redis is working fine.</p>
+<h2>Changes Required to Your Project</h2>
+<p>Make sure composer.json that is in your root directory has mentioned the package required for Redis.</p>
+<pre>"require": {
+
+         ''',
+
+         ''',
+
+         ''',
+
+         "predis/predis":"~1.0",
+
+         ''',
+
+         '''
+
+         },
+</pre>
+<p>While deploying your code on git and pulling it on your server, make sure you deploy the empty project first and run composer install/update before deploying your code.</p>
+<p>Some conflicts were found while running the composer update with codes that are already using dependencies found in composer.</p>
+<h2>How to Make Changes to Your Project</h2>
+<p>nano the (dot)env file that is in the root directory of your project and change these settings:</p>
+<pre>CACHE_DRIVER=redis
+SESSION_DRIVER=redis
+QUEUE_DRIVER=redis</pre>
+<p>nano the queue.php file in the directory /config.. and make following changes</p>
+<pre>'default' =&gt; env('QUEUE_DRIVER', 'redis'),</pre>
+<p>nano the session.php file</p>
+<pre>'driver' =&gt; env('SESSION_DRIVER', 'redis'),</pre>
+<p>Some changes will occur on your code where you are calling the Redis class. So every time you get connection to Redis class you have to declare the location, and here it is:</p>
+<pre>use Illuminate\Support\Facades\Redis;</pre>
+<p>You can use functions to make Queues for example in routes.php I configured my code like this:</p>
+<pre>Route::get('/que',function (){                                                     // route from /que
+   $queue = Queue::push('LogMessage', array('message' =&gt; 'Time: '.time()));               // this will push job in queue
+                               // OR
+   //$queue = Queue::later($delay,'LogMessage', array('message' =&gt; 'Time: '.time()));     // this will push job in queue after $delay 
+   //sleep(5);    //you can add delay here too
+   
+   print_r(" ".$queue." ".time());            //prints queue_id and time stamp
+});
+
+
+class LogMessage{                                                                //bad practice to deploy code here :p
+
+
+      public function fire($job,$data){                                         //takes data and performs action.
+           
+           File::append(app_path().'/queue.txt',$data['message'].PHP_EOL);
+           $job-&gt;delete();
+
+
+       }
+}
+</pre>
+<h2>Now Let&#8217;s See If Our Queue Is Working</h2>
+<p>Make sure your application is pushing the jobs in the queue, you can take examples from the above codes.</p>
+<p>Open Up two terminals, In one of them run:</p>
+<pre>$redis-cli
+127.0.0.1:6379&gt;lrange queues:default 0 -1</pre>
+<p>You will get the number of jobs present in the queue</p>
+<p><img class="aligncenter size-full wp-image-1820" src="/wp-content/uploads/2017/01/Screenshotfrom2016-01-01130919-768x50.png" alt="Screenshotfrom2016-01-01130919-768x50" width="768" height="50" /></p>
+<p>Now on the other terminal</p>
+<pre>$php artisan queue:work</pre>
+<p>You will get this as an output</p>
+<p><img class="aligncenter size-full wp-image-1821" src="/wp-content/uploads/2017/01/Screenshotfrom2016-01-01131103.png" alt="Screenshotfrom2016-01-01131103" width="464" height="36" /></p>
+<p>Now run lrange command again</p>
+<p><img class="aligncenter size-full wp-image-1822" src="/wp-content/uploads/2017/01/Screenshotfrom2016-01-01131442-768x39.png" alt="Screenshotfrom2016-01-01131442-768x39" width="768" height="39" /></p>
+<p>Here you go! You’re done setting up your Redis queue successfully on Laravel 5.2. One can see the jobs moving up the queue as you call up the worker.</p>
+<h2>By Default</h2>
+<p>Laravel offers “SYNC” queuing driver by default. It needs no installation, no changes in your code but if you are switching back from the above configurations make sure you make following changes.</p>
+<p>nano the (dot)env file that is in the root directory of your project and change these settings:</p>
+<pre>CACHE_DRIVER=sync
+SESSION_DRIVER=sync
+QUEUE_DRIVER=sync</pre>
+<p>nano the queue.php file in the directory /config.. and make following changes</p>
+<pre>'default' =&gt; env('QUEUE_DRIVER', 'sync'),</pre>
+<p>Note that if you run the lrange command in your redis command line interface you won’t be seeing any more jobs entering the queue (As sync driver will be handling all of them)</p>
+<p>To generate database queue drivers you have to look up for the documentation of Laravel <a href="https://laravel.com/docs/5.1/queues" target="_blank">click here</a>.</p>
+<h2><span style="color: #ff0000;">REFERENCED FROM</span></h2>
+<p><a href="https://www.cloudways.com/blog/redis-for-queuing-in-laravel-5/">https://www.cloudways.com/blog/redis-for-queuing-in-laravel-5/</a></p>
+]]></content:encoded>
+			<wfw:commentRss>/2017/01/use-redis-queuing-laravel-5.html/feed</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Enable both ECC and RSA on nginx</title>
+		<link>/2017/01/enable-ecc-rsa-nginx.html</link>
+		<comments>/2017/01/enable-ecc-rsa-nginx.html#respond</comments>
+		<pubDate>Tue, 17 Jan 2017 02:47:15 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Server]]></category>
+		<category><![CDATA[Certificate Transparency]]></category>
+		<category><![CDATA[ECC]]></category>
+		<category><![CDATA[HPKP]]></category>
+		<category><![CDATA[RSA]]></category>
+
+		<guid isPermaLink="false">/?p=1813</guid>
+		<description><![CDATA[INTRODUCTION ECDSA as known as ECC, is more safer and faster than RSA, and its more suitable for use on mobile devices. But ECC not compatible with older devices, such as Windows XP or Android 2.3. Enable both ECC and RSA on nginx will get better security and compatible with older devices.  nginx will automatically [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><span style="color: #222222; font-size: 18px;"><a href="/wp-content/uploads/2017/01/1484621208-9831-https-icon.png"><img class="attachment-full size-full aligncenter" src="/wp-content/uploads/2017/01/1484621208-9831-https-icon.png" sizes="(max-width: 800px) 100vw, 800px" srcset="/wp-content/uploads/2017/01/1484621208-9831-https-icon.png 800w, /wp-content/uploads/2017/01/1484621208-9831-https-icon-768x384.png 768w" alt="1484621208-9831-https-icon" width="800" height="400" /></a></span></p>
+<h2><span style="color: #222222; font-size: 18px;">INTRODUCTION</span></h2>
+<p>ECDSA as known as ECC, is more safer and faster than RSA, and its more suitable for use on mobile devices. But ECC not compatible with older devices, such as Windows XP or Android 2.3.</p>
+<p>Enable both ECC and RSA on nginx will get better security and compatible with older devices.  nginx will automatically select a encrypt method for client when handshake with client via TLS protocol.</p>
+<h2>UPGRADING NGINX</h2>
+<p>You need enable <code>openssl 1.0.2g or above</code> when compile nginx, because Chrome 51 above is only supported with ALPN in HTTP/2.</p>
+<p>But openssl is a very important part of Linux system, if upgrade openssl directly maybe cause system unstable. So I recommend you to compile nginx manually with parameter <code>--with-openssl</code> to manually specify openssl.</p>
+<pre>wget https://github.com/openssl/openssl/archive/OpenSSL_1_0_2h.tar.gz  
+tar xzvf OpenSSL_1_0_2h.tar.gz
+
+wget http://nginx.org/download/nginx-1.11.1.tar.gz  
+tar xzvf nginx-1.11.1.tar.gz  
+cd nginx-1.11.1/  
+nginx -V  
+./configure --prefix=/usr/share/nginx --conf-path=/etc/nginx/nginx.conf --http-log-path=/var/log/nginx/access.log --error-log-path=/var/log/nginx/error.log --lock-path=/var/lock/nginx.lock --pid-path=/run/nginx.pid --http-client-body-temp-path=/var/lib/nginx/body --http-fastcgi-temp-path=/var/lib/nginx/fastcgi --http-proxy-temp-path=/var/lib/nginx/proxy --http-scgi-temp-path=/var/lib/nginx/scgi --http-uwsgi-temp-path=/var/lib/nginx/uwsgi --add-module=../nginx-ct-1.2.0 --with-openssl=../OpenSSL_1_0_2h --with-http_v2_module --with-http_ssl_module
+make  
+make install  
+service nginx restart</pre>
+<p><strong>Notice</strong>: The above configure is for reference only. To add <code>nginx-ct</code> is preparing for enable Certificate Transparency only.</p>
+<h2>ENABLE DOUBLE CERTIFICATE</h2>
+<p>Before enable double certificate, please make sure your domain has both ECC and RSA certificate.</p>
+<p>My ECC certificate is signed by Let&#8217;s Encrypt which used newest X3 intermediate certificate. RSA is universal certificate signed by AlphaSSL.</p>
+<p>Here is my nginx configuration:</p>
+<pre>ssl_certificate ssl/letsencrypt-ecc/chained.pem;  
+ssl_certificate_key ssl/letsencrypt-ecc/domain.key;  
+ssl_certificate ssl/all.zeroling.com.crt;  
+ssl_certificate_key ssl/all.zeroling.com.key;
+
+ssl_prefer_server_ciphers on;  
+ssl_ciphers EECDH+CHACHA20:EECDH+ECDSA+AESGCM:EECDH+ECDSA+SHA384:EECDH+ECDSA+SHA256:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;</pre>
+<p>Added support both for BCDSA and RSA in ssl_ciphers.</p>
+<h2>SOME OTHERS</h2>
+<h3>HPKP</h3>
+<p>In header of HPKP need to specify intermediate certificate both for ECC and RSA certificate. because the certificate issuer is not same.</p>
+<pre>Public-Key-Pins 'pin-sha256="YLh1dUR9y6Kja30RrAn7JKnbQG/uEtLMkBgFF2Fuihg="; pin-sha256="amMeV6gb9QNx0Zf7FtJ19Wa/t2B7KpCF/1n2Js3UuSU="; max-age=2592000; includeSubDomains';</pre>
+<p>If your certificate is issued by the same issuer, you&#8217;d just specify once in HPKP header. in other words, you may need not modify this line.</p>
+<h3>HSTS</h3>
+<p>No influence.</p>
+<h3>CT (Certificate Transparency)</h3>
+<p>I added nginx-ct module when I compile nginx. This module is more easily to help you enable Certificate Transparency. For more information about how to enable CT, plz google it <img src="https://s.w.org/images/core/emoji/2.3/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p>By the way, If your web server in mainland China, please visit the article in the end of this post.</p>
+<p>For a website which enabled double certificate, you&#8217;d just put all <code>sct</code> files of both certificate to same directory. and set path of the directory to <code>ssl_ct_static_scts</code> in nginx configuration file.</p>
+<pre>ssl_ct on;  
+ssl_ct_static_scts ssl/sct;</pre>
+<h3>OCSP stapling</h3>
+<p>Here may some issues. for detail please read:<br />
+<a href="https://imququ.com/post/why-can-not-turn-on-ocsp-stapling.html">https://imququ.com/post/why-can-not-turn-on-ocsp-stapling.html</a></p>
+<p>Conclusions:</p>
+<blockquote><p>Using Let&#8217;s Encrypt certificate need not enable OCSP Stapling and ssl_trusted_certificate, because the OCSP service of Let&#8217;s Encrypt returned nothing.</p>
+<p>Please make sure <code>ssl_trusted_certificate</code> has configured correctly when OCSP Response returned certificate information and configured <code>ssl_stapling_verify on</code>.</p>
+<p><code>ssl_trusted_certificate</code> need point to a file which included Root Certificate, Intermediate Certificate. If configured incorrectly, nginx will show error message in error log file.</p></blockquote>
+<pre>It seems using fullchain for "ssl_trusted_certificate" doesn't work. That field should be the "Root CA and Intermediate certs", and should not include the site certificate.</pre>
+<p>So here is my configuration, If your certificate both issued by Let&#8217;s Encrypt, you can ignore <code>ssl_stapling_verify</code> and <code>ssl_trusted_certificate</code>.</p>
+<pre>ssl_stapling             on;  
+ssl_stapling_verify      on;  
+ssl_trusted_certificate ssl/all.zeroling.com.server-middle-root.crt;</pre>
+<h2>TESTING</h2>
+<p>When finished, you can test your configuration on ssllab.</p>
+<p>In section of Handshake Simulation, If seem ECC and RSA shown on different device means your configuration has no problem and works fine.</p>
+<p>Here is a report of <a href="https://www.ssllabs.com/ssltest/analyze.html?d=zeroling.com">zeroling.com</a></p>
+<h2>REFERENCE</h2>
+<p><a href="https://www.zeroling.com/nginx-kai-qi-https-shuang-zheng-shu-zhi-nan/">https://www.zeroling.com/nginx-kai-qi-https-shuang-zheng-shu-zhi-nan/</a></p>
+<p>&nbsp;</p>
+]]></content:encoded>
+			<wfw:commentRss>/2017/01/enable-ecc-rsa-nginx.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>How To Upgrade to Ubuntu 16.04 LTS</title>
+		<link>/2016/10/upgrade-ubuntu-16-04-lts.html</link>
+		<comments>/2016/10/upgrade-ubuntu-16-04-lts.html#comments</comments>
+		<pubDate>Thu, 20 Oct 2016 11:05:31 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Server]]></category>
+		<category><![CDATA[Continue Details]]></category>
+		<category><![CDATA[LTS]]></category>
+		<category><![CDATA[PHP]]></category>
+		<category><![CDATA[SSH]]></category>
+
+		<guid isPermaLink="false">/?p=1806</guid>
+		<description><![CDATA[Introduction Warning: An earlier version of this guide included mention of Ubuntu 14.04 systems. While an upgrade from 14.04 may successfully complete, upgrades between LTS releases are not enabled by default until the first point release, and it is recommended to wait until the 16.04.1 point release to upgrade. On DigitalOcean systems, an upgraded Ubuntu [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/10/1476961501-1126-ubuntu16.04-Blog.png"><img class="attachment-full size-full aligncenter" src="/wp-content/uploads/2016/10/1476961501-1126-ubuntu16.04-Blog.png" alt="1476961501-1126-ubuntu16.04-Blog" width="750" height="401" /></a></p>
+<h3 id="introduction">Introduction</h3>
+<p><span class="warning"><strong>Warning:</strong> An earlier version of this guide included mention of Ubuntu 14.04 systems. While an upgrade from 14.04 <em>may</em> successfully complete, upgrades between LTS releases are not enabled by default until the first point release, and it is recommended to wait until the 16.04.1 point release to upgrade. On DigitalOcean systems, an upgraded Ubuntu 14.04 system will be left with an older kernel which may not be upgradeable for some time.<br />
+</span></p>
+<p>The Ubuntu operating system&#8217;s next Long Term Support release, version 16.04 (Xenial Xerus), is due to be released on April 21, 2016.</p>
+<p>Although it hasn&#8217;t yet been released at the time of this writing, it&#8217;s already possible to upgrade a 15.10 system to the development version of 16.04. This may be useful for testing both the upgrade process and the features of 16.04 itself in advance of the official release date.</p>
+<p>This guide will explain the process for systems including (but not limited to) DigitalOcean Droplets running Ubuntu 15.10.</p>
+<p><span class="warning"><strong>Warning:</strong> As with almost any upgrade between major releases of an operating system, this process carries an inherent risk of failure, data loss, or broken software configuration. Comprehensive backups and extensive testing are strongly advised.<br />
+</span></p>
+<div data-unique="prerequisites"></div>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This guide assumes that you have a system running Ubuntu 15.10, configured with a non-root user with<code>sudo</code> privileges for administrative tasks.</p>
+<div data-unique="potential-pitfalls"></div>
+<h2 id="potential-pitfalls">Potential Pitfalls</h2>
+<p>Although many systems can be upgraded in place without incident, it is often safer and more predictable to migrate to a major new release by installing the distribution from scratch, configuring services with careful testing along the way, and migrating application or user data as a separate step.</p>
+<p>You should never upgrade a production system without first testing all of your deployed software and services against the upgrade in a staging environment. Keep in mind that libraries, languages, and system services may have changed substantially. In Ubuntu 16.04, important changes since the preceding LTS release include a transition to the systemd init system in place of Upstart, an emphasis on Python 3 support, and PHP 7 in place of PHP 5.</p>
+<p>Before upgrading, consider reading the <a href="https://wiki.ubuntu.com/XenialXerus/ReleaseNotes">Xenial Xerus Release Notes</a>.</p>
+<div data-unique="step-1-–-back-up-your-system"></div>
+<h2 id="step-1-–-back-up-your-system">Step 1 – Back Up Your System</h2>
+<p>Before attempting a major upgrade on any system, you should make sure you won&#8217;t lose data if the upgrade goes awry. The best way to accomplish this is to make a backup of your entire filesystem. Failing that, ensure that you have copies of user home directories, any custom configuration files, and data stored by services such as relational databases.</p>
+<p>On a DigitalOcean Droplet, the easiest approach is to power down the system and take a snapshot (powering down ensures that the filesystem will be more consistent). See <a href="https://www.digitalocean.com/community/tutorials/how-to-use-digitalocean-snapshots-to-automatically-backup-your-droplets">How To Use DigitalOcean Snapshots to Automatically Backup your Droplets</a> for more details on the snapshot process. When you have verified that the update was successful, you can delete the snapshot so that you will no longer be charged for it.</p>
+<p>For backup methods which will work on most Ubuntu systems, see <a href="https://www.digitalocean.com/community/tutorials/how-to-choose-an-effective-backup-strategy-for-your-vps">How To Choose an Effective Backup Strategy for your VPS</a>.</p>
+<div data-unique="step-2-–-upgrade-currently-installed-packages"></div>
+<h2 id="step-2-–-upgrade-currently-installed-packages">Step 2 – Upgrade Currently Installed Packages</h2>
+<p>Before beginning the release upgrade, it&#8217;s safest to install the latest versions of all packages <em>for the current release</em>. Begin by updating the package list:</p>
+<ul class="prefixed">
+<li class="line">sudo apt-get update</li>
+</ul>
+<p>Next, upgrade installed packages to their latest available versions:</p>
+<ul class="prefixed">
+<li class="line">sudo apt-get upgrade</li>
+</ul>
+<p>You will be shown a list of upgrades, and prompted to continue. Answer <strong>y</strong> for yes and press <strong>Enter</strong>.</p>
+<p>This process may take some time. Once it finishes, use the <code>dist-upgrade</code> command, which will perform upgrades involving changing dependencies, adding or removing new packages as necessary. This will handle a set of upgrades which may have been held back by <code>apt-get upgrade</code>:</p>
+<ul class="prefixed">
+<li class="line">sudo apt-get dist-upgrade</li>
+</ul>
+<p>Again, answer <strong>y</strong> when prompted to continue, and wait for upgrades to finish.</p>
+<p>Now that you have an up-to-date installation of Ubuntu 15.10, you can use <code>do-release-upgrade</code> to upgrade to the 16.04 release.</p>
+<div data-unique="step-3-–-use-ubuntu's-do-release-upgrade-tool-to-perform-upgrade"></div>
+<h2 id="step-3-–-use-ubuntu-39-s-do-release-upgrade-tool-to-perform-upgrade">Step 3 – Use Ubuntu&#8217;s do-release-upgrade Tool to Perform Upgrade</h2>
+<p>First, make sure you have the <code>update-manager-core</code> package installed:</p>
+<ul class="prefixed">
+<li class="line">sudo apt-get install update-manager-core</li>
+</ul>
+<p>Traditionally, Debian releases have been upgradeable by changing Apt&#8217;s <code>/etc/apt/sources.list</code>, which specifies package repositories, and using <code>apt-get dist-upgrade</code> to perform the upgrade itself. Ubuntu is still a Debian-derived distribution, so this process would likely still work. Instead, however, we&#8217;ll use <code>do-release-upgrade</code>, a tool provided by the Ubuntu project, which handles checking for a new release, updating <code>sources.list</code>, and a range of other tasks. This is the officially recommended upgrade path for server upgrades which must be performed over a remote connection.</p>
+<p>Start by running <code>do-release-upgrade</code> with no options:</p>
+<ul class="prefixed">
+<li class="line">sudo do-release-upgrade</li>
+</ul>
+<p>If Ubuntu 16.04 has not been released yet, you should see the following:</p>
+<div class="code-label " title="Sample Output">Sample Output</div>
+<pre class="code-pre "><code>Checking for a new Ubuntu release
+No new release found
+</code></pre>
+<p>In order to upgrade to 16.04 before its official release, specify the <code>-d</code> option in order to use the<em>development</em> release:</p>
+<ul class="prefixed">
+<li class="line">sudo do-release-upgrade -d</li>
+</ul>
+<p>If you&#8217;re connected to your system over SSH, as is likely with a DigitalOcean Droplet, you&#8217;ll be asked whether you wish to continue.</p>
+<p>On a Droplet, it&#8217;s safe to upgrade over SSH. Although <code>do-upgrade-release</code> has not informed us of this, you can use the console available from the DigitalOcean Control Panel to connect to your Droplet without running SSH.</p>
+<p>For virtual machines or managed servers hosted by other providers, you should keep in mind that losing SSH connectivity is a risk, particularly if you don&#8217;t have another means of remotely connecting to the system&#8217;s console. For other systems under your control, remember that it&#8217;s safest to perform major operating system upgrades only when you have direct physical access to the machine.</p>
+<p>At the prompt, type <strong>y</strong> and press <strong>Enter</strong> to continue:</p>
+<pre class="code-pre "><code>Reading cache
+
+Checking package manager
+
+Continue running under SSH?
+
+This session appears to be running under ssh. It is not recommended
+to perform a upgrade over ssh currently because in case of failure it
+is harder to recover.
+
+If you continue, an additional ssh daemon will be started at port
+'1022'.
+Do you want to continue?
+
+Continue [yN] <span class="highlight">y</span>
+</code></pre>
+<p>Next, you&#8217;ll be informed that <code>do-release-upgrade</code> is starting a new instance of <code>sshd</code> on port 1022:</p>
+<pre class="code-pre "><code>Starting additional sshd 
+
+To make recovery in case of failure easier, an additional sshd will 
+be started on port '1022'. If anything goes wrong with the running 
+ssh you can still connect to the additional one. 
+If you run a firewall, you may need to temporarily open this port. As 
+this is potentially dangerous it's not done automatically. You can 
+open the port with e.g.: 
+'iptables -I INPUT -p tcp --dport 1022 -j ACCEPT' 
+
+To continue please press [ENTER]
+</code></pre>
+<p>Press <strong>Enter</strong>. Next, you may be warned that a mirror entry was not found. On DigitalOcean systems, it is safe to ignore this warning and proceed with the upgrade, since a local mirror for 16.04 is in fact available. Enter <strong>y</strong>:</p>
+<pre class="code-pre "><code>Updating repository information
+
+No valid mirror found 
+
+While scanning your repository information no mirror entry for the 
+upgrade was found. This can happen if you run an internal mirror or 
+if the mirror information is out of date. 
+
+Do you want to rewrite your 'sources.list' file anyway? If you choose 
+'Yes' here it will update all 'trusty' to 'xenial' entries. 
+If you select 'No' the upgrade will cancel. 
+
+Continue [yN] <span class="highlight">y</span>
+</code></pre>
+<p>Once new package lists have been downloaded and changes calculated, you&#8217;ll be asked if you want to start the upgrade. Again, enter <strong>y</strong> to continue:</p>
+<pre class="code-pre "><code>Do you want to start the upgrade?
+
+
+6 installed packages are no longer supported by Canonical. You can
+still get support from the community.
+
+9 packages are going to be removed. 104 new packages are going to be
+installed. 399 packages are going to be upgraded.
+
+You have to download a total of 232 M. This download will take about
+46 seconds with your connection.
+
+Installing the upgrade can take several hours. Once the download has
+finished, the process cannot be canceled.
+
+ Continue [yN]  Details [d]<span class="highlight">y</span>
+</code></pre>
+<p>New packages will now be retrieved, then unpacked and installed. Even if your system is on a fast connection, this will take a while.</p>
+<p>During the installation, you may be presented with interactive dialogs for various questions. For example, you may be asked if you want to automatically restart services when required:</p>
+<p class="growable"><a href="/wp-content/uploads/2016/10/1476961501-8671-ow-to-upgrade-to-ubuntu-1604.png"><img class="attachment-full size-full" src="/wp-content/uploads/2016/10/1476961501-8671-ow-to-upgrade-to-ubuntu-1604.png" sizes="(max-width: 1903px) 100vw, 1903px" srcset="/wp-content/uploads/2016/10/1476961501-8671-ow-to-upgrade-to-ubuntu-1604.png 1903w, /wp-content/uploads/2016/10/1476961501-8671-ow-to-upgrade-to-ubuntu-1604-768x167.png 768w" alt="1476961501-8671-ow-to-upgrade-to-ubuntu-1604" width="1903" height="414" /></a></p>
+<p>In this case, it is safe to answer &#8220;Yes&#8221;. In other cases, you may be asked if you wish to replace a configuration file that you have modified with the default version from the package that is being installed. This is often a judgment call, and is likely to require knowledge about specific software that is outside the scope of this tutorial.</p>
+<p>Once new packages have finished installing, you&#8217;ll be asked whether you&#8217;re ready to remove obsolete packages. On a stock system with no custom configuration, it should be safe to enter <strong>y</strong> here. On a system you have modified heavily, you may wish to enter <strong>d</strong> and inspect the list of packages to be removed, in case it includes anything you&#8217;ll need to reinstall later.</p>
+<pre class="code-pre "><code>Remove obsolete packages? 
+
+
+53 packages are going to be removed. 
+
+ Continue [yN]  Details [d]<span class="highlight">y</span>
+</code></pre>
+<p>Finally, assuming all has gone well, you&#8217;ll be informed that the upgrade is complete and a restart is required. Enter <strong>y</strong> to continue:</p>
+<pre class="code-pre "><code>System upgrade is complete.
+
+Restart required 
+
+To finish the upgrade, a restart is required. 
+If you select 'y' the system will be restarted. 
+
+Continue [yN] <span class="highlight">y</span>
+</code></pre>
+<p>On an SSH session, you&#8217;ll likely see something like the following:</p>
+<pre class="code-pre "><code>=== Command detached from window (Thu Apr  7 13:13:33 2016) ===
+=== Command terminated normally (Thu Apr  7 13:13:43 2016) ===
+</code></pre>
+<p>You may need to press a key here to exit to your local prompt, since your SSH session will have terminated on the server end. Wait a moment for your system to reboot, and reconnect. On login, you should be greeted by a message confirming that you&#8217;re now on Xenial Xerus:</p>
+<pre class="code-pre "><code>Welcome to Ubuntu Xenial Xerus (development branch) (GNU/Linux 4.4.0-17-generic x86_64)
+</code></pre>
+<div data-unique="conclusion"></div>
+<h2 id="conclusion">Conclusion</h2>
+<p>You should now have a working Ubuntu 16.04 installation. From here, you likely need to investigate necessary configuration changes to services and deployed applications. In the coming weeks, we&#8217;ll begin posting DigitalOcean guides specific to Ubuntu 16.04 on a wide range of topics.</p>
+<h2>REFERENCE</h2>
+<p>https://www.digitalocean.com/community/tutorials/how-to-upgrade-to-ubuntu-16-04-lts</p>
+]]></content:encoded>
+			<wfw:commentRss>/2016/10/upgrade-ubuntu-16-04-lts.html/feed</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>OpenShift bind multiple domains</title>
+		<link>/2016/10/openshift-bind-multiple-domains.html</link>
+		<comments>/2016/10/openshift-bind-multiple-domains.html#respond</comments>
+		<pubDate>Thu, 20 Oct 2016 11:02:59 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Server]]></category>
+		<category><![CDATA[ENV]]></category>
+		<category><![CDATA[Redirect Top-domain]]></category>
+		<category><![CDATA[TRANSLATE]]></category>
+
+		<guid isPermaLink="false">/?p=1801</guid>
+		<description><![CDATA[INTRODUCE OpenShift default using the Apache web server and user cannot modify the virtual host configuration file. Is there any way to allow OpenShift support multiple domains? The answer is yes. You can just only using Apache htaccess rule to get multiple domain supports. STEP BY STEP 1. BIND YOUR DOMAINS OR SUB-DOMAINS TO OPENSHIFT [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/10/1476961369-8108-maxresdefault.jpg"><img class="attachment-full size-full aligncenter" src="/wp-content/uploads/2016/10/1476961369-8108-maxresdefault.jpg" sizes="(max-width: 1674px) 100vw, 1674px" srcset="/wp-content/uploads/2016/10/1476961369-8108-maxresdefault.jpg 1674w, /wp-content/uploads/2016/10/1476961369-8108-maxresdefault-768x415.jpg 768w" alt="1476961369-8108-maxresdefault" width="1674" height="904" /></a></p>
+<h2>INTRODUCE</h2>
+<p>OpenShift default using the Apache web server and user cannot modify the virtual host configuration file. Is there any way to allow OpenShift support multiple domains? The answer is yes. You can just only using Apache htaccess rule to get multiple domain supports.</p>
+<h2>STEP BY STEP</h2>
+<h3>1. BIND YOUR DOMAINS OR SUB-DOMAINS TO OPENSHIFT</h3>
+<p>First please bind your domains or your sub-domains to your OpenShift cloud host. For example, I have 3 sub-domains and a root domain need bind to OpenShift. I did those changes in my domain control panel.</p>
+<p><a href="/wp-content/uploads/2016/10/1476961332-9254-dns.png"><img class="attachment-full size-full" src="/wp-content/uploads/2016/10/1476961332-9254-dns.png" sizes="(max-width: 794px) 100vw, 794px" srcset="/wp-content/uploads/2016/10/1476961332-9254-dns.png 794w, /wp-content/uploads/2016/10/1476961332-9254-dns-768x388.png 768w" alt="1476961332-9254-dns" width="794" height="401" /></a></p>
+<h3>2. ADDING YOUR DOMAINS OR SUB-DOMAINS IN OPENSHIFT</h3>
+<p>After binding domains, If you want access OpenShift from this domain, you need add your domain to OpenShift Cloud Host control panel. Just for example:</p>
+<p><a href="/wp-content/uploads/2016/10/1476961332-8574-alias.png"><img class="attachment-full size-full" src="/wp-content/uploads/2016/10/1476961332-8574-alias.png" alt="1476961332-8574-alias" width="622" height="357" /></a></p>
+<h3>3. CREATE A HTACCESS FILE IN WEBROOT</h3>
+<p>Create a .htaccess file in your OpenShift web-root, and puts domain and directory relationship in it. Before do that please confirm those directory is in your web-root, if not please create it first.</p>
+<p>The sample .htaccess file:</p>
+<pre>RewriteEngine On
+#----------BEGIN----------
+DirectoryIndex index.php index.html index.htm
+# Redirect Top-domain to www sub-domains
+RewriteCond %{HTTP_HOST} ^raineggplant\.com$ [NC]
+RewriteRule ^(.*)$ http://www.raineggplant.com$1/ [R=301,L]
+
+# Directory of sub-domain: www
+RewriteCond %{HTTP_HOST} ^www\.raineggplant\.com$ [NC]
+RewriteRule ^(.*)$ /www/$1 [L]
+
+# Directory of sub-domain: bbs
+RewriteCond %{HTTP_HOST} ^bbs\.raineggplant\.com$ [NC]
+RewriteRule ^(.*)$ /bbs/$1 [L]
+
+# Directory of sub-domain: app
+RewriteCond %{HTTP_HOST} app\.raineggplant\.com$ [NC]
+RewriteRule ^(.*)$ /app/$1 [L]
+#----------END----------</pre>
+<h3>4. CREATE HTACCESS FILE IN DIRECTORY OF EACH DOMAIN</h3>
+<p>Create a .htaccess file in directory of each domain or sub-domain for let which known and accept access from domains.</p>
+<p>The sample .htaccess file:</p>
+<pre>RewriteEngine On
+RewriteBase /app/</pre>
+<h3>5. SOLVE REDIRECT WRONG OF SUCH /APP/APP REQUESTION</h3>
+<p>After step 1 to 4, You just can access your website via other domains or sub-domains, but there a problem.</p>
+<p>Just like the sub-domain app has redirected to directory app, but there still have an app directory in the app. If you access from http://app.example.com/app will redirect to http://app.example.com./</p>
+<p>Following code can solve this problem:</p>
+<pre># Get prefix of domain, and save to %{ENV:sdn}
+RewriteCond %{HTTP_HOST} ^(.*)\.raineggplant\.com$ [NC]
+RewriteRule ^(.*)$ - [E=sdn:%1]
+
+# If domain is app.raineggplant.com
+RewriteCond %{HTTP_HOST} ^app\.raineggplant\.com$ [NC]
+RewriteCond %{THE_REQUEST} ^[ACDEGHILNOPRST]+\ /app/
+RewriteCond %{REQUEST_URI} !^/app/app/
+RewriteRule ^(.*)$ /app/app/$1 [L]
+
+# If domain is not app.raineggplant.com
+RewriteCond %{HTTP_HOST} !^app\.raineggplant\.com$ [NC]
+RewriteCond %{THE_REQUEST} ^[ACDEGHILNOPRST]+\ /app/
+RewriteCond %{REQUEST_URI} !^/%{ENV:sdn}/app/
+RewriteRule ^(.*)$ /%{ENV:sdn}/app/$1 [L]</pre>
+<h3>6. SOLVE REDIRECT WRONG OF / MISSING IN THE END OF URL</h3>
+<p>If you do a request such as http://app.example.com/dir1, will not redirect to dir1 in app but app root will be redirected. Replacing following code:</p>
+<pre>RewriteCond %{HTTP_HOST} ^app\.raineggplant\.com$ [NC]
+RewriteCond %{THE_REQUEST} ^[ACDEGHILNOPRST]+\ /app/
+RewriteCond %{REQUEST_URI} !^/app/app/
+RewriteRule ^(.*)$ /app/app/$1 [L]</pre>
+<p>to:</p>
+<pre># if domain is app.raineggplant.com
+RewriteCond %{HTTP_HOST} ^app\.raineggplant\.com$ [NC]
+RewriteCond %{THE_REQUEST} ^[ACDEGHILNOPRST]+\ /app/
+RewriteCond %{REQUEST_URI} !^/app/app/|^/app/qr/
+RewriteRule ^(.*)$ /app/app/$1 [L]
+
+# Do a process
+RewriteCond %{HTTP_HOST} ^app\.raineggplant\.com$ [NC]
+RewriteCond %{REQUEST_URI} ^/app/qr/
+RewriteCond %{THE_REQUEST} ^[ACDEGHILNOPRST]+\ /app/
+RewriteRule ^(.*)$ http://app.raineggplant.com/$1 [L]</pre>
+<p>will solve this problem.</p>
+<h2>REFERENCE</h2>
+<blockquote data-secret="QCj1A7t3q4" class="wp-embedded-content"><p><a href="http://www.raineggplant.com/os-subdomain2.html">OpenShift添加子域名子站教程（二）.htaccess文件法</a></p></blockquote>
+<p><iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" src="http://www.raineggplant.com/os-subdomain2.html/embed#?secret=QCj1A7t3q4" data-secret="QCj1A7t3q4" width="500" height="282" title="《OpenShift添加子域名子站教程（二）.htaccess文件法》—RainEggplant" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></p>
+<h2>TRANSLATE</h2>
+<p>Pekaikon Norckon<br />
+2016-10-10</p>
+]]></content:encoded>
+			<wfw:commentRss>/2016/10/openshift-bind-multiple-domains.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>OpenShift Environment Variables</title>
+		<link>/2016/10/openshift-environment-variables.html</link>
+		<comments>/2016/10/openshift-environment-variables.html#respond</comments>
+		<pubDate>Thu, 20 Oct 2016 09:19:48 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Server]]></category>
+		<category><![CDATA[HTTP]]></category>
+
+		<guid isPermaLink="false">/?p=1794</guid>
+		<description><![CDATA[INTRODUCE Environment variables are placeholders for values that are provided to a software program at runtime. They are particularly useful when the values are likely to be different from one host system to the next, or from one run to the next. Including these placeholders in applications makes the application code more portable and flexible. [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/10/1476955176-1488-Open-shift-enerprise.jpg"><img class="attachment-full size-full aligncenter" src="/wp-content/uploads/2016/10/1476955176-1488-Open-shift-enerprise.jpg" sizes="(max-width: 800px) 100vw, 800px" srcset="/wp-content/uploads/2016/10/1476955176-1488-Open-shift-enerprise.jpg 800w, /wp-content/uploads/2016/10/1476955176-1488-Open-shift-enerprise-768x480.jpg 768w" alt="1476955176-1488-Open-shift-enerprise" width="800" height="500" /></a></p>
+<h2>INTRODUCE</h2>
+<p>Environment variables are placeholders for values that are provided to a software program at runtime. They are particularly useful when the values are likely to be different from one host system to the next, or from one run to the next. Including these placeholders in applications makes the application code more portable and flexible. This flexibility is critical for writing applications that are easily deployed and scaled on OpenShift Online.</p>
+<h2>SERVER VARS</h2>
+<table>
+<thead>
+<tr>
+<td style="min-width: 250px;"><strong>Name</strong></td>
+<td><strong>Value</strong></td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OPENSHIFT_SECRET_TOKEN</td>
+<td>YNuPjaaPl4_o_L226cJgY63cqoj9DlJySMPD5u8sDqnguYnRR5PJAnfqpiG1d6jpahHoFaTCEa0AOTPXOdsesCuVvZ4Vyzmu50NI7xn6QPW82FNaMsyf0DMXohWvjeE6</td>
+</tr>
+<tr>
+<td>MANPATH</td>
+<td>/opt/rh/mysql55/root/usr/share/man::</td>
+</tr>
+<tr>
+<td>OPENSHIFT_GEAR_MEMORY_MB</td>
+<td>512</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHP_IDENT</td>
+<td>redhat:php:5.3:0.0.28</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/mysql/</td>
+</tr>
+<tr>
+<td>GEM_HOME</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/.gem</td>
+</tr>
+<tr>
+<td>OPENSHIFT_DEPLOYMENT_TYPE</td>
+<td>git</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHP_LOG_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/logs/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_LOG_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/logs/</td>
+</tr>
+<tr>
+<td>TMPDIR</td>
+<td>/tmp/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_DEPLOYMENTS_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-deployments/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_TMP_DIR</td>
+<td>/tmp/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_DB_PORT</td>
+<td>3306</td>
+</tr>
+<tr>
+<td>OPENSHIFT_HOMEDIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_REPO_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/runtime/repo/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_GEAR_NAME</td>
+<td>openskills</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHPMYADMIN_IP</td>
+<td>127.2.133.131</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PYPI_MIRROR_URL</td>
+<td>http://mirror1.ops.rhcloud.com/mirror/python/web/simple</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_DB_HOST</td>
+<td>127.2.133.130</td>
+</tr>
+<tr>
+<td>PHPRC</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/php/configuration/etc/php.ini</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_DB_PASSWORD</td>
+<td>WrgPdNimQNfm</td>
+</tr>
+<tr>
+<td>OPENSHIFT_CLOUD_DOMAIN</td>
+<td>rhcloud.com</td>
+</tr>
+<tr>
+<td>OPENSHIFT_APP_SSH_PUBLIC_KEY</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/.openshift_ssh/id_rsa.pub</td>
+</tr>
+<tr>
+<td>PHP_INI_SCAN_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/php/configuration/etc/php.d</td>
+</tr>
+<tr>
+<td>LD_LIBRARY_PATH</td>
+<td>/opt/rh/mysql55/root/usr/lib64</td>
+</tr>
+<tr>
+<td>TMP_DIR</td>
+<td>/tmp/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_IDENT</td>
+<td>redhat:mysql:5.5:0.2.20</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHPMYADMIN_VERSION</td>
+<td>4</td>
+</tr>
+<tr>
+<td>OPENSHIFT_BUILD_DEPENDENCIES_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/runtime/build-dependencies/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_DB_USERNAME</td>
+<td>adminybg1xsX</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_DB_SOCKET</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/mysql//socket/mysql.sock</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHP_PATH_ELEMENT</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/php/phplib/pear/pear:/var/lib/openshift/539fdface0b8cde5800003e8/php/usr/bin</td>
+</tr>
+<tr>
+<td>PATH</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/php/phplib/pear/pear:/var/lib/openshift/539fdface0b8cde5800003e8/php/usr/bin:/bin:/usr/bin:/usr/sbin</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHP_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/php/</td>
+</tr>
+<tr>
+<td>PWD</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/php</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_DB_URL</td>
+<td>mysql://adminybg1xsX:WrgPdNimQNfm@127.2.133.130:3306/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHPMYADMIN_LOG_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/logs/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_APP_DNS</td>
+<td>openskills-example42.rhcloud.com</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHPMYADMIN_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/phpmyadmin/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PRIMARY_CARTRIDGE_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/php/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_GEAR_DNS</td>
+<td>openskills-example42.rhcloud.com</td>
+</tr>
+<tr>
+<td>OPENSHIFT_CARTRIDGE_SDK_BASH</td>
+<td>/usr/lib/openshift/cartridge_sdk/bash/sdk</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_VERSION</td>
+<td>5.5</td>
+</tr>
+<tr>
+<td>OPENSHIFT_APP_SSH_KEY</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/.openshift_ssh/id_rsa</td>
+</tr>
+<tr>
+<td>HOME</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8</td>
+</tr>
+<tr>
+<td>OPENSHIFT_DEPLOYMENT_BRANCH</td>
+<td>master</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHP_PORT</td>
+<td>8080</td>
+</tr>
+<tr>
+<td>SHLVL</td>
+<td>3</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHPMYADMIN_IDENT</td>
+<td>redhat:phpmyadmin:4:0.0.13</td>
+</tr>
+<tr>
+<td>OPENSHIFT_DEPENDENCIES_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/runtime/dependencies/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHP_VERSION</td>
+<td>5.3</td>
+</tr>
+<tr>
+<td>OPENSHIFT_KEEP_DEPLOYMENTS</td>
+<td>1</td>
+</tr>
+<tr>
+<td>OPENSHIFT_APP_NAME</td>
+<td>openskills</td>
+</tr>
+<tr>
+<td>OPENSHIFT_DATA_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/data/</td>
+</tr>
+<tr>
+<td>TMP</td>
+<td>/tmp/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_DB_LOG_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/logs/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_GEAR_UUID</td>
+<td>539fdface0b8cde5800003e8</td>
+</tr>
+<tr>
+<td>OPENSHIFT_AUTO_DEPLOY</td>
+<td>true</td>
+</tr>
+<tr>
+<td>OPENSHIFT_NAMESPACE</td>
+<td>example42</td>
+</tr>
+<tr>
+<td>OPENSHIFT_BROKER_HOST</td>
+<td>openshift.redhat.com</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_LD_LIBRARY_PATH_ELEMENT</td>
+<td>/opt/rh/mysql55/root/usr/lib64</td>
+</tr>
+<tr>
+<td>OPENSHIFT_APP_UUID</td>
+<td>539fdface0b8cde5800003e8</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHPMYADMIN_PORT</td>
+<td>8080</td>
+</tr>
+<tr>
+<td>OPENSHIFT_UMASK</td>
+<td>077</td>
+</tr>
+<tr>
+<td>OPENSHIFT_CARTRIDGE_SDK_RUBY</td>
+<td>/usr/lib/openshift/cartridge_sdk/ruby/sdk.rb</td>
+</tr>
+<tr>
+<td>HISTFILE</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/data/.bash_history</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHP_IP</td>
+<td>127.2.133.129</td>
+</tr>
+<tr>
+<td>HTTP_HOST</td>
+<td>openskill.info</td>
+</tr>
+<tr>
+<td>HTTP_ACCEPT_LANGUAGE</td>
+<td>zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4</td>
+</tr>
+<tr>
+<td>HTTP_ACCEPT</td>
+<td>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</td>
+</tr>
+<tr>
+<td>HTTP_UPGRADE_INSECURE_REQUESTS</td>
+<td>1</td>
+</tr>
+<tr>
+<td>HTTP_DNT</td>
+<td>1</td>
+</tr>
+<tr>
+<td>HTTP_X_CLOUD_TRACE_CONTEXT</td>
+<td>ef2a9be25588b44c461f652dfdae51a9/15839540012770001650;o=1</td>
+</tr>
+<tr>
+<td>HTTP_ACCEPT_ENCODING</td>
+<td>gzip, deflate, sdch, gzip,deflate,br</td>
+</tr>
+<tr>
+<td>HTTP_USER_AGENT</td>
+<td>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.89 Safari/537.36 AppEngine-Google; (+http://code.google.com/appengine; appid: s~dfcproxy8)</td>
+</tr>
+<tr>
+<td>HTTP_X_FORWARDED_PROTO</td>
+<td>http</td>
+</tr>
+<tr>
+<td>HTTP_X_FORWARDED_PORT</td>
+<td>80</td>
+</tr>
+<tr>
+<td>HTTP_X_REQUEST_START</td>
+<td>t=1476954082635473</td>
+</tr>
+<tr>
+<td>HTTP_X_CLIENT_IP</td>
+<td>107.178.195.222</td>
+</tr>
+<tr>
+<td>HTTP_X_FORWARDED_FOR</td>
+<td>107.178.195.222</td>
+</tr>
+<tr>
+<td>HTTP_X_FORWARDED_HOST</td>
+<td>openskill.info</td>
+</tr>
+<tr>
+<td>HTTP_X_FORWARDED_SERVER</td>
+<td>openskills-example42.rhcloud.com</td>
+</tr>
+<tr>
+<td>HTTP_CONNECTION</td>
+<td>Keep-Alive</td>
+</tr>
+<tr>
+<td>SERVER_SIGNATURE</td>
+<td>Apache/2.2.15 (Red Hat) Server at openskill.info Port 80</td>
+</tr>
+<tr>
+<td>SERVER_SOFTWARE</td>
+<td>Apache/2.2.15 (Red Hat)</td>
+</tr>
+<tr>
+<td>SERVER_NAME</td>
+<td>openskill.info</td>
+</tr>
+<tr>
+<td>SERVER_ADDR</td>
+<td>127.2.133.129</td>
+</tr>
+<tr>
+<td>SERVER_PORT</td>
+<td>80</td>
+</tr>
+<tr>
+<td>REMOTE_ADDR</td>
+<td>127.2.133.129</td>
+</tr>
+<tr>
+<td>DOCUMENT_ROOT</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/runtime/repo/</td>
+</tr>
+<tr>
+<td>SERVER_ADMIN</td>
+<td>root@localhost</td>
+</tr>
+<tr>
+<td>SCRIPT_FILENAME</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/runtime/repo/pages/enviro.php</td>
+</tr>
+<tr>
+<td>REMOTE_PORT</td>
+<td>30378</td>
+</tr>
+<tr>
+<td>GATEWAY_INTERFACE</td>
+<td>CGI/1.1</td>
+</tr>
+<tr>
+<td>SERVER_PROTOCOL</td>
+<td>HTTP/1.1</td>
+</tr>
+<tr>
+<td>REQUEST_METHOD</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>QUERY_STRING</td>
+<td></td>
+</tr>
+<tr>
+<td>REQUEST_URI</td>
+<td>/pages/enviro.php</td>
+</tr>
+<tr>
+<td>SCRIPT_NAME</td>
+<td>/pages/enviro.php</td>
+</tr>
+<tr>
+<td>PHP_SELF</td>
+<td>/pages/enviro.php</td>
+</tr>
+<tr>
+<td>REQUEST_TIME</td>
+<td>1476954082</td>
+</tr>
+</tbody>
+</table>
+<p>ENVIRTONMENT VARS</p>
+<table>
+<thead>
+<tr>
+<td style="min-width: 250px;"><strong>Name</strong></td>
+<td><strong>Value</strong></td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OPENSHIFT_SECRET_TOKEN</td>
+<td>YNuPjaaPl4_o_L226cJgY63cqoj9DlJySMPD5u8sDqnguYnRR5PJAnfqpiG1d6jpahHoFaTCEa0AOTPXOdsesCuVvZ4Vyzmu50NI7xn6QPW82FNaMsyf0DMXohWvjeE6</td>
+</tr>
+<tr>
+<td>MANPATH</td>
+<td>/opt/rh/mysql55/root/usr/share/man::</td>
+</tr>
+<tr>
+<td>OPENSHIFT_GEAR_MEMORY_MB</td>
+<td>512</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHP_IDENT</td>
+<td>redhat:php:5.3:0.0.28</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/mysql/</td>
+</tr>
+<tr>
+<td>GEM_HOME</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/.gem</td>
+</tr>
+<tr>
+<td>OPENSHIFT_DEPLOYMENT_TYPE</td>
+<td>git</td>
+</tr>
+<tr>
+<td>SHELL</td>
+<td>/bin/sh</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHP_LOG_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/logs/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_LOG_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/logs/</td>
+</tr>
+<tr>
+<td>TMPDIR</td>
+<td>/tmp/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_DEPLOYMENTS_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-deployments/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_TMP_DIR</td>
+<td>/tmp/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_DB_PORT</td>
+<td>3306</td>
+</tr>
+<tr>
+<td>OPENSHIFT_HOMEDIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_REPO_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/runtime/repo/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_GEAR_NAME</td>
+<td>openskills</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHPMYADMIN_IP</td>
+<td>127.2.133.131</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PYPI_MIRROR_URL</td>
+<td>http://mirror1.ops.rhcloud.com/mirror/python/web/simple</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_DB_HOST</td>
+<td>127.2.133.130</td>
+</tr>
+<tr>
+<td>PHPRC</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/php/configuration/etc/php.ini</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_DB_PASSWORD</td>
+<td>WrgPdNimQNfm</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>539fdface0b8cde5800003e8</td>
+</tr>
+<tr>
+<td>OPENSHIFT_CLOUD_DOMAIN</td>
+<td>rhcloud.com</td>
+</tr>
+<tr>
+<td>OPENSHIFT_APP_SSH_PUBLIC_KEY</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/.openshift_ssh/id_rsa.pub</td>
+</tr>
+<tr>
+<td>PHP_INI_SCAN_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/php/configuration/etc/php.d</td>
+</tr>
+<tr>
+<td>LD_LIBRARY_PATH</td>
+<td>/opt/rh/mysql55/root/usr/lib64</td>
+</tr>
+<tr>
+<td>TMP_DIR</td>
+<td>/tmp/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_IDENT</td>
+<td>redhat:mysql:5.5:0.2.20</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHPMYADMIN_VERSION</td>
+<td>4</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHP_DOCUMENT_ROOT</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/runtime/repo/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_BUILD_DEPENDENCIES_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/runtime/build-dependencies/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_DB_USERNAME</td>
+<td>adminybg1xsX</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_DB_SOCKET</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/mysql//socket/mysql.sock</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHP_PATH_ELEMENT</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/php/phplib/pear/pear:/var/lib/openshift/539fdface0b8cde5800003e8/php/usr/bin</td>
+</tr>
+<tr>
+<td>PATH</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/php/phplib/pear/pear:/var/lib/openshift/539fdface0b8cde5800003e8/php/usr/bin:/bin:/usr/bin:/usr/sbin</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHP_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/php/</td>
+</tr>
+<tr>
+<td>PWD</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/php</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_DB_URL</td>
+<td>mysql://adminybg1xsX:WrgPdNimQNfm@127.2.133.130:3306/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHPMYADMIN_LOG_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/logs/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_APP_DNS</td>
+<td>openskills-example42.rhcloud.com</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHPMYADMIN_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/phpmyadmin/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PRIMARY_CARTRIDGE_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/php/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_GEAR_DNS</td>
+<td>openskills-example42.rhcloud.com</td>
+</tr>
+<tr>
+<td>OPENSHIFT_CARTRIDGE_SDK_BASH</td>
+<td>/usr/lib/openshift/cartridge_sdk/bash/sdk</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_VERSION</td>
+<td>5.5</td>
+</tr>
+<tr>
+<td>OPENSHIFT_APP_SSH_KEY</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/.openshift_ssh/id_rsa</td>
+</tr>
+<tr>
+<td>HOME</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8</td>
+</tr>
+<tr>
+<td>OPENSHIFT_DEPLOYMENT_BRANCH</td>
+<td>master</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHP_PORT</td>
+<td>8080</td>
+</tr>
+<tr>
+<td>SHLVL</td>
+<td>3</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHPMYADMIN_IDENT</td>
+<td>redhat:phpmyadmin:4:0.0.13</td>
+</tr>
+<tr>
+<td>OPENSHIFT_DEPENDENCIES_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/runtime/dependencies/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHP_VERSION</td>
+<td>5.3</td>
+</tr>
+<tr>
+<td>OPENSHIFT_KEEP_DEPLOYMENTS</td>
+<td>1</td>
+</tr>
+<tr>
+<td>OPENSHIFT_APP_NAME</td>
+<td>openskills</td>
+</tr>
+<tr>
+<td>LOGNAME</td>
+<td>539fdface0b8cde5800003e8</td>
+</tr>
+<tr>
+<td>OPENSHIFT_DATA_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/data/</td>
+</tr>
+<tr>
+<td>TMP</td>
+<td>/tmp/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_DB_LOG_DIR</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/logs/</td>
+</tr>
+<tr>
+<td>OPENSHIFT_GEAR_UUID</td>
+<td>539fdface0b8cde5800003e8</td>
+</tr>
+<tr>
+<td>OPENSHIFT_AUTO_DEPLOY</td>
+<td>true</td>
+</tr>
+<tr>
+<td>OPENSHIFT_NAMESPACE</td>
+<td>example42</td>
+</tr>
+<tr>
+<td>OPENSHIFT_BROKER_HOST</td>
+<td>openshift.redhat.com</td>
+</tr>
+<tr>
+<td>OPENSHIFT_MYSQL_LD_LIBRARY_PATH_ELEMENT</td>
+<td>/opt/rh/mysql55/root/usr/lib64</td>
+</tr>
+<tr>
+<td>OPENSHIFT_APP_UUID</td>
+<td>539fdface0b8cde5800003e8</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHPMYADMIN_PORT</td>
+<td>8080</td>
+</tr>
+<tr>
+<td>OPENSHIFT_UMASK</td>
+<td>077</td>
+</tr>
+<tr>
+<td>OPENSHIFT_CARTRIDGE_SDK_RUBY</td>
+<td>/usr/lib/openshift/cartridge_sdk/ruby/sdk.rb</td>
+</tr>
+<tr>
+<td>HISTFILE</td>
+<td>/var/lib/openshift/539fdface0b8cde5800003e8/app-root/data/.bash_history</td>
+</tr>
+<tr>
+<td>OPENSHIFT_PHP_IP</td>
+<td>127.2.133.129</td>
+</tr>
+<tr>
+<td>_</td>
+<td>/usr/bin/nohup</td>
+</tr>
+</tbody>
+</table>
+<h2>REFERENCE</h2>
+<ul>
+<li><a href="http://openskill.info/pages/enviro.php">HTTP ENVIRONMENT VARIABLES</a></li>
+<li><a href="https://developers.openshift.com/managing-your-applications/environment-variables.html">Using Environment Variables</a></li>
+</ul>
+]]></content:encoded>
+			<wfw:commentRss>/2016/10/openshift-environment-variables.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>How To Create A .deb Package From Source &#038; Install It Automatically</title>
+		<link>/2016/06/create-deb-package-source-install-automatically.html</link>
+		<comments>/2016/06/create-deb-package-source-install-automatically.html#respond</comments>
+		<pubDate>Sun, 26 Jun 2016 06:14:26 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Server]]></category>
+		<category><![CDATA[PC]]></category>
+
+		<guid isPermaLink="false">/?p=1776</guid>
+		<description><![CDATA[INTRODUCE Usually, we install a opensource software from source code directly. But if we want to transplant a opensource software from develop environment to server environment there have 2 ways: Build and install opensource software on server Build from development PC and install on server Install on server is a very easy way to do [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><img class="aligncenter size-full wp-image-1777" src="/wp-content/uploads/2016/06/ubuntu-deb-package.png" alt="ubuntu-deb-package" width="480" height="300" /></p>
+<h2>INTRODUCE</h2>
+<p>Usually, we install a opensource software from source code directly. But if we want to transplant a opensource software from develop environment to server environment there have 2 ways:</p>
+<ul>
+<li>Build and install opensource software on server</li>
+<li>Build from development PC and install on server</li>
+</ul>
+<p>Install on server is a very easy way to do that, but it will takes more resource from server system, is very dangerous for server. I recommend build it from development PC and transplant to server. But how to do it?</p>
+<h2>INSTALL DEPENDENCIES</h2>
+<p>To build a package from source code need some tools and libraries.</p>
+<p>Install dependency tools:</p>
+<pre>$ sudo apt-get install -y build-essential automake autoconf libtool pkg-config intltool checkinstall</pre>
+<p>Install dependency libraries:</p>
+<pre>$ sudo apt-get install -y libcurl4-openssl-dev libxml2-dev libgtk2.0-dev libnotify-dev libglib2.0-dev libevent-dev</pre>
+<h2>MAKE SOURCE CODE</h2>
+<p>Same as install from source code, need configure and make first, but needn&#8217;t make install it.</p>
+<p>For example install wget from source code:</p>
+<pre># wget 
+# tar -zxf wget-1.18.tar.gz
+# cd wget-1.18/
+# ./configure
+# make</pre>
+<p><strong>STOP IN HERE, <span style="color: #ff0000;">DONOT </span>RUN <code>make install</code> COMMAND !!!</strong></p>
+<h2>BUILD A PACKAGE AND INSTALL IT</h2>
+<p>Keep in wget work directory, and run <code>checkinstall</code> to build a package, After build package, <code>checkinstall</code> will install package automatically.</p>
+<p>Run <code>checkinstall</code> and follow guide to build a package, new package stored in your work directory (<em>e.g. <span style="color: #999999;">~/wget-1.18/wget_1.18-1_amd64.deb</span></em>)</p>
+<pre>root@localhost:~/wget-1.18# checkinstall</pre>
+<p>After guide, package has been installed in your system, to remove it:</p>
+<pre># dpkg -r wget</pre>
+<h2>REFERENCE</h2>
+<ul>
+<li><a href="https://community.linuxmint.com/tutorial/view/162">How To Create A .deb Package From Source &amp; Install It Automatically<br />
+</a></li>
+</ul>
+<h2>AUTHOR</h2>
+<p>Pekaikon Norckon<br />
+2016-06-26 (SUN)</p>
+]]></content:encoded>
+			<wfw:commentRss>/2016/06/create-deb-package-source-install-automatically.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Hide OpenSSH system version from nmap and other scanners</title>
+		<link>/2016/06/hide-openssh-system-version-nmap-scanners.html</link>
+		<comments>/2016/06/hide-openssh-system-version-nmap-scanners.html#respond</comments>
+		<pubDate>Sun, 26 Jun 2016 05:21:19 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Server]]></category>
+		<category><![CDATA[Ubuntu Debian]]></category>
+
+		<guid isPermaLink="false">/?p=1770</guid>
+		<description><![CDATA[INTRODUCE In Ubuntu or Debian, a default OpenSSH server will display OpenSSH version alongside with Ubuntu/Debian distribution banner: $ telnet repeater.my 172.16.91.20 22 Trying 172.16.91.20... Connected to 172.16.91.20. Escape character is '^]'. SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2 HOW TO HIDE You can hide the identifying part of Ubuntu-2ubuntu2 from the server banner by editing /etc/ssh/sshd_configfile, and adding “DebianBanner [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><img class="aligncenter size-full wp-image-1771" src="/wp-content/uploads/2016/06/ssh-logo.png" alt="ssh-logo" width="720" height="340" /></p>
+<h2>INTRODUCE</h2>
+<p>In Ubuntu or Debian, a default OpenSSH server will display OpenSSH version alongside with Ubuntu/Debian distribution banner:</p>
+<pre>$ telnet repeater.my 172.16.91.20 22 
+Trying 172.16.91.20...
+Connected to 172.16.91.20.
+Escape character is '^]'.
+SSH-2.0-OpenSSH_6.6.1p1 <em>Ubuntu-2ubuntu2</em>
+</pre>
+<h2>HOW TO HIDE</h2>
+<p>You can hide the identifying part of <em>Ubuntu-2ubuntu2</em> from the server banner by editing <em>/etc/ssh/sshd_config</em>file, and adding “DebianBanner no” either at the end of the file, or just under “Port 22” configuration in “<em>/etc/ssh/sshd_config</em>”</p>
+<pre>#/etc/ssh/sshd_config 
+# What ports, IPs and protocols we listen for
+Port 22
+DebianBanner no
+</pre>
+<p>Save and restart OpenSSH server by typing</p>
+<pre>sudo service ssh restart
+</pre>
+<p>Now the response will just be:</p>
+<pre>Trying 172.16.91.20...
+Connected to 172.16.91.20.
+Escape character is '^]'.
+SSH-2.0-OpenSSH_6.6.1p1
+</pre>
+<p>Happy trying!</p>
+<h2><span style="color: #ff0000;">REFERENCED FROM</span></h2>
+<p><strong>mypapit gnu/linux blog &#8211; HOW TO HIDE OPENSSH UBUNTU VERSION FROM NMAP AND OTHER SCANNERS</strong></p>
+<blockquote data-secret="sb1CqMyiHH" class="wp-embedded-content"><p><a href="https://blog.mypapit.net/2015/08/how-to-hide-openssh-ubuntu-release-from-nmap-and-other-scanners.html">How to Hide OpenSSH Ubuntu version from Nmap and other scanners</a></p></blockquote>
+<p><iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" src="https://blog.mypapit.net/2015/08/how-to-hide-openssh-ubuntu-release-from-nmap-and-other-scanners.html/embed#?secret=sb1CqMyiHH" data-secret="sb1CqMyiHH" width="500" height="282" title="&#8220;How to Hide OpenSSH Ubuntu version from Nmap and other scanners&#8221; &#8212; mypapit  gnu/linux  blog" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></p>
+]]></content:encoded>
+			<wfw:commentRss>/2016/06/hide-openssh-system-version-nmap-scanners.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>How To Protect SSH with Fail2Ban on Ubuntu 14.04</title>
+		<link>/2016/06/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04.html</link>
+		<comments>/2016/06/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04.html#respond</comments>
+		<pubDate>Sun, 26 Jun 2016 05:01:48 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Server]]></category>
+		<category><![CDATA[INPUT]]></category>
+		<category><![CDATA[IP]]></category>
+		<category><![CDATA[Service Settings]]></category>
+		<category><![CDATA[SSH]]></category>
+
+		<guid isPermaLink="false">/?p=1767</guid>
+		<description><![CDATA[Introduction While connecting to your server through SSH can be very secure, the SSH daemon itself is a service that must be exposed to the internet to function properly. This comes with some inherent risk and creates a vector of attack for would-be assailants. Any service that is exposed to the network is a potential [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/06/1466917166-7151-Login-Attack-in-Juniper-SRX.png"><img class="attachment-full size-full aligncenter" src="/wp-content/uploads/2016/06/1466917166-7151-Login-Attack-in-Juniper-SRX.png" alt="1466917166-7151-Login-Attack-in-Juniper-SRX" width="500" height="375" /></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>While connecting to your server through SSH can be very secure, the SSH daemon itself is a service that must be exposed to the internet to function properly. This comes with some inherent risk and creates a vector of attack for would-be assailants.</p>
+<p>Any service that is exposed to the network is a potential target in this way. If you pay attention to application logs for these services, you will often see repeated, systematic login attempts that represent brute force attacks by users and bots alike.</p>
+<p>A service called <strong>fail2ban</strong> can mitigate this problem by creating rules that can automatically alter your<code>iptables</code> firewall configuration based on a predefined number of unsuccessful login attempts. This will allow your server to respond to illegitimate access attempts without intervention from you.</p>
+<p>In this guide, we&#8217;ll cover how to install and use fail2ban on an Ubuntu 14.04 server.</p>
+<div data-unique="install-fail2ban-on-ubuntu-1404"></div>
+<h2 id="install-fail2ban-on-ubuntu-14-04">Install Fail2Ban on Ubuntu 14.04</h2>
+<p>The installation process for this tool is simple because the Ubuntu packaging team maintains a package in the default repositories.</p>
+<p>First, we need to update our local package index and then we can use <code>apt</code> to download and install the package:</p>
+<pre class="code-pre "><code>sudo apt-get update
+sudo apt-get install fail2ban
+</code></pre>
+<p>As you can see, the installation is trivial. We can now begin configuring the utility for our own use.</p>
+<div data-unique="configure-fail2ban-with-your-service-settings"></div>
+<h2 id="configure-fail2ban-with-your-service-settings">Configure Fail2Ban with your Service Settings</h2>
+<p>The fail2ban service keeps its configuration files in the <code>/etc/fail2ban</code> directory. There is a file with defaults called <code>jail.conf</code>.</p>
+<p>Since this file can be modified by package upgrades, we should not edit this file in-place, but rather copy it so that we can make our changes safely.</p>
+<p>We need to copy this to a file called <code>jail.local</code> for fail2ban to find it:</p>
+<pre class="code-pre "><code>sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+</code></pre>
+<p>Once the file is copied, we can open it for editing to see how everything works:</p>
+<pre class="code-pre "><code>sudo nano /etc/fail2ban/jail.local
+</code></pre>
+<p>In this file, there are a few settings you may wish to adjust. The settings located under the <code>[DEFAULT]</code>section will be applied to all services enabled for fail2ban that are not overridden in the service&#8217;s own section.</p>
+<pre class="code-pre "><code>ignoreip = 127.0.0.1/8
+</code></pre>
+<p>You can adjust the source addresses that fail2ban ignores by adding a value to the <code>ignoreip</code> parameter. Currently, it is configured not ban any traffic coming from the local machine. You can add additional addresses to ignore by appending them to the end of the parameter, separated by a space.</p>
+<pre class="code-pre "><code>bantime = 600
+</code></pre>
+<p>The <code>bantime</code> parameter sets length of time that a client will be banned when they have failed to authenticate correctly. This is measured in seconds. By default, this is set to 600 seconds, or 10 minutes.</p>
+<pre class="code-pre "><code>findtime = 600
+maxretry = 3
+</code></pre>
+<p>The next two parameters that you want to pay attention to are <code>findtime</code> and <code>maxretry</code>. These work together to establish the conditions under which a client is found to be an illegitimate user that should be banned.</p>
+<p>The <code>maxretry</code> variable sets the number of tries a client has to authenticate within a window of time defined by <code>findtime</code>, before being banned. With the default settings, the fail2ban service will ban a client that unsuccessfully attempts to log in 3 times within a 10 minute window.</p>
+<pre class="code-pre "><code>destemail = root@localhost
+sendername = Fail2Ban
+mta = sendmail
+</code></pre>
+<p>Some other settings you may wish to are the <code>destemail</code>, <code>sendername</code>, and <code>mta</code> settings if you wish to configure email alerts. The <code>destemail</code> parameter sets the email address that should receive ban messages. The <code>sendername</code> sets the value of the &#8220;From&#8221; field in the email. The <code>mta</code> parameter configures what mail service will be used to send mail.</p>
+<pre class="code-pre "><code>action = $(action_)s
+</code></pre>
+<p>This parameter configures the action that fail2ban takes when it wants to institute a ban. The value<code>action_</code> is defined in the file shortly before this parameter. The default action is to simply configure the firewall to reject traffic from the offending host until the ban time elapses.</p>
+<p>If you would like to configure email alerts, you can change the value from <code>action_</code> to <code>action_mw</code>. If you want the email to include the relevant log lines, you can change it to <code>action_mwl</code>. Make sure you have the appropriate mail settings configured if you choose to use mail alerts.</p>
+<h3 id="individual-jail-settings">Individual Jail Settings</h3>
+<p>Finally, we get to the portion of the configuration file that deals with individual services. These are specified by the section headers, like <code>[SSH]</code>.</p>
+<p>Each of these sections can be enabled by modifying or adding the <code>enabled</code> line to be &#8220;true&#8221;:</p>
+<pre>enabled = <span class="highlight">true</span>
+</pre>
+<p>By default, the SSH service is enabled and all others are disabled.</p>
+<p>These sections work by using the default values we defined above. If you want to override any values, you can do so under the service&#8217;s section. If you want to use the defaults, you aren&#8217;t required to add anything.</p>
+<p>Some other settings that are set here are the <code>filter</code> that will be used to decide whether a line in a log indicates a failed authentication and the <code>logpath</code> which tells fail2ban where the logs for that particular service are located.</p>
+<p>The <code>filter</code> value is actually a reference to a file located in the <code>/etc/fail2ban/filter.d</code> directory, with its <code>.conf</code> extension removed. This file contains the regular expressions that determine whether a line in the log is bad. We won&#8217;t be covering this file in-depth in this guide, because it is fairly complex and the predefined settings match appropriate lines well.</p>
+<p>However, you can see what kind of filters are available by looking into that directory:</p>
+<pre class="code-pre "><code>ls /etc/fail2ban/filter.d
+</code></pre>
+<p>If you see a file that looks to be related to a service you are using, you should open it with a text editor. Most of the files are fairly well commented and you should be able to at least tell what type of condition the script was designed to guard against. Most of these filters have appropriate (disabled) sections in the<code>jail.local</code> file that we can enable if desired.</p>
+<p>For instance, pretend that we are serving a website using nginx and realize that a password-protected portion of our site is getting slammed with login attempts. We can tell fail2ban to use the <code>nginx-http-auth.conf</code> file to check for this condition within the <code>/var/log/nginx/error.log</code> file.</p>
+<p>This is actually already set up in a section called <code>[nginx-http-auth]</code> in our <code>/etc/fail2ban/jail.local</code>file. We just need to flip the <code>enabled</code> parameter to protect our service:</p>
+<pre>[nginx-http-auth]
+
+enabled = <span class="highlight">true</span>
+filter  = nginx-http-auth
+port    = http,https
+logpath = /var/log/nginx/error.log
+</pre>
+<p>If you enable this, you&#8217;ll want to restart your fail2ban service to make sure your rules are constructed correctly.</p>
+<div data-unique="putting-it-all-together"></div>
+<h2 id="putting-it-all-together">Putting It All Together</h2>
+<p>Now that you understand the basic idea behind fail2ban, let&#8217;s run through a basic setup.</p>
+<p>We&#8217;re going to configure a auto-banning policy for SSH and Nginx, just as we described above. We want fail2ban to email us when an IP is banned.</p>
+<p>First, let&#8217;s install all of the relevant software.</p>
+<p>If you don&#8217;t already have it, you&#8217;ll need nginx, since we&#8217;re going to be monitoring its logs, and you&#8217;ll need sendmail to mail us notifications. We&#8217;ll also grab <code>iptables-persistent</code> to allow the server to automatically set up our firewall rules at boot. These can be acquired from Ubuntu&#8217;s default repositories:</p>
+<pre class="code-pre "><code>sudo apt-get update
+sudo apt-get install nginx sendmail iptables-persistent
+</code></pre>
+<h3 id="establish-a-base-firewall">Establish a Base Firewall</h3>
+<p>When that is finished, we should implement a default firewall. You can learn <a href="https://www.digitalocean.com/community/articles/how-to-set-up-a-firewall-using-iptables-on-ubuntu-14-04">how to configure an iptables firewall on Ubuntu 14.04</a> here. We are going to just create a basic firewall for this guide.</p>
+<p>We&#8217;re going to tell it to allow established connections, traffic generated by the server itself, traffic destined for our SSH and web server ports. We will drop all other traffic. We can set this basic firewall up by typing:</p>
+<pre class="code-pre "><code>sudo iptables -A INPUT -i lo -j ACCEPT
+sudo iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+sudo iptables -A INPUT -j DROP
+</code></pre>
+<p>These commands will implement the above policy. We can see our current firewall rules by typing:</p>
+<pre>sudo iptables -S
+</pre>
+<pre>-P INPUT ACCEPT
+-P FORWARD ACCEPT
+-P OUTPUT ACCEPT
+<span class="highlight">-N fail2ban-ssh</span>
+<span class="highlight">-A INPUT -p tcp -m multiport --dports 22 -j fail2ban-ssh</span>
+-A INPUT -i lo -j ACCEPT
+-A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
+-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+-A INPUT -j DROP
+<span class="highlight">-A fail2ban-ssh -j RETURN</span>
+</pre>
+<p>We have our default policy for each of our chains, and then the five rules that we just established. In red, we also have the default structure set up by fail2ban since it already implements SSH banning policies by default.</p>
+<h3 id="adjusting-the-fail2ban-configuration">Adjusting the Fail2ban Configuration</h3>
+<p>Now, we need to configure fail2ban using the settings we&#8217;d like. Open the <code>jail.local</code> file:</p>
+<pre class="code-pre "><code>sudo nano /etc/fail2ban/jail.local
+</code></pre>
+<p>We can set a more severe ban time here. Under the default heading, change the <code>bantime</code> setting so that our service bans clients for half an hour:</p>
+<pre>bantime = <span class="highlight">1800</span>
+</pre>
+<p>We also need to configure our alert email information. First, find the <code>destemail</code> parameter and put in the email address that you want to use to collect these messages:</p>
+<pre>destemail = <span class="highlight">admin@example.com</span>
+</pre>
+<p>You can set the <code>sendername</code> to something else if you&#8217;d like. It&#8217;s useful to have a value that can be easily filtered using your mail service though, or else your regular inbox may get flooded with alerts if there are a lot of break in attempts from various places.</p>
+<p>Moving down, we need to adjust the <code>action</code> parameter to one of the actions that sends us email. The choices are between <code>action_mw</code> which institutes the ban and then emails us a &#8220;whois&#8221; report on the offending host, or <code>action_mwl</code> which does the above, but also emails the relevant log lines.</p>
+<p>We&#8217;re going to chose <code>action_mwl</code> because the log lines will help us troubleshoot and gather more information if there are issues:</p>
+<pre>action = %(<span class="highlight">action_mwl</span>)s
+</pre>
+<p>Moving on to our SSH section, if we want to adjust the amount of unsuccessful attempts that should be allowed before a ban is established, you can edit the <code>maxretry</code> entry. If you are using a port other than &#8220;22&#8221;, you&#8217;ll want to adjust the <code>port</code> parameter appropriately. As we said before, this service is already enabled, so we don&#8217;t need to modify that.</p>
+<p>Next, search for the <code>nginx-http-auth</code> section. Change the <code>enabled</code> parameter to read &#8220;true&#8221;:</p>
+<pre>[nginx-http-auth]
+
+enabled = <span class="highlight">true</span>
+. . .
+</pre>
+<p>This should be all you have to do this section unless your web server is operating on non-standard ports or if you moved the default error log path.</p>
+<h3 id="restarting-the-fail2ban-service">Restarting the Fail2ban Service</h3>
+<p>When you are finished, save and close the file.</p>
+<p>Now, start or restart your fail2ban service. Sometimes, it&#8217;s better to completely shut down the service and then start it again:</p>
+<pre class="code-pre "><code>sudo service fail2ban stop
+</code></pre>
+<p>Now we can restart it by typing:</p>
+<pre class="code-pre "><code>sudo service fail2ban start
+</code></pre>
+<p>It may take a few moments for all of your firewall rules to be populated. However, after a time, you can check the new rules by typing:</p>
+<pre>sudo iptables -S
+</pre>
+<pre>-P INPUT ACCEPT
+-P FORWARD ACCEPT
+-P OUTPUT ACCEPT
+<span class="highlight">-N fail2ban-nginx-http-auth</span>
+<span class="highlight">-N fail2ban-ssh</span>
+<span class="highlight">-A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-nginx-http-auth</span>
+<span class="highlight">-A INPUT -p tcp -m multiport --dports 22 -j fail2ban-ssh</span>
+-A INPUT -i lo -j ACCEPT
+-A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
+-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+-A INPUT -j DROP
+<span class="highlight">-A fail2ban-nginx-http-auth -j RETURN</span>
+<span class="highlight">-A fail2ban-ssh -j RETURN</span>
+</pre>
+<p>The lines in red are the ones that our fail2ban policies have created. Right now, they are just directing traffic to new, almost empty chains and then letting the traffic flow right back into the INPUT chain.</p>
+<p>However, these new chains are where the banning rules will be added.</p>
+<h3 id="testing-the-banning-policies">Testing the Banning Policies</h3>
+<p>From another server, one that won&#8217;t need to log into your fail2ban server with, we can test the rules by getting our second server banned.</p>
+<p>After logging into your second server, try to SSH into the fail2ban server. You can try to connect using a non-existent name for instance:</p>
+<pre>ssh blah@<span class="highlight">fail2ban_server_IP</span>
+</pre>
+<p>Enter random characters into the password prompt. Repeat this a few times. At some point, the fail2ban server will stop responding with the <code>Permission denied</code> message. This signals that your second server has been banned from the fail2ban server.</p>
+<p>On your fail2ban server, you can see the new rule by checking our iptables again:</p>
+<pre>sudo iptables -S
+</pre>
+<pre>-P INPUT ACCEPT
+-P FORWARD ACCEPT
+-P OUTPUT ACCEPT
+-N fail2ban-nginx-http-auth
+-N fail2ban-ssh
+-A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-nginx-http-auth
+-A INPUT -p tcp -m multiport --dports 22 -j fail2ban-ssh
+-A INPUT -i lo -j ACCEPT
+-A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
+-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+-A INPUT -j DROP
+-A fail2ban-nginx-http-auth -j RETURN
+<span class="highlight">-A fail2ban-ssh -s 11.111.111.11/32 -j REJECT --reject-with icmp-port-unreachable</span>
+-A fail2ban-ssh -j RETURN
+</pre>
+<p>As you can see in the highlighted line, we have a new rule in our configuration which rejects traffic to the SSH port coming from our second server&#8217;s IP address. You should have also gotten an email about the ban in the account you configured.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>You should now be able to configure some basic banning policies for your services. Fail2ban is very easy to set up, and is a great way to protect any kind of service that uses authentication.</p>
+<p>If you want to learn more about how fail2ban works, you can check out our tutorial on <a href="https://www.digitalocean.com/community/articles/how-fail2ban-works-to-protect-services-on-a-linux-server">how fail2ban rules and files work</a>.</p>
+<p>For information about how to use fail2ban to protect other services, try these links:</p>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-protect-an-nginx-server-with-fail2ban-on-ubuntu-14-04">How To Protect an Nginx Server with Fail2Ban on Ubuntu 14.04</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-protect-an-apache-server-with-fail2ban-on-ubuntu-14-04">How To Protect an Apache Server with Fail2Ban on Ubuntu 14.04</a></li>
+</ul>
+<h2><span style="color: #ff0000;"><strong>REFERENCED FROM</strong></span></h2>
+<p><strong>Digital Ocean &#8211; How To Protect SSH with Fail2Ban on Ubuntu 14.04</strong><br />
+https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04</p>
+]]></content:encoded>
+			<wfw:commentRss>/2016/06/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>How to set up automatic deployment website with Git</title>
+		<link>/2016/06/set-automatic-deployment-website-git.html</link>
+		<comments>/2016/06/set-automatic-deployment-website-git.html#respond</comments>
+		<pubDate>Sun, 26 Jun 2016 04:56:01 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Server]]></category>
+		<category><![CDATA[Allow User]]></category>
+		<category><![CDATA[HOOKS]]></category>
+		<category><![CDATA[Tell Git]]></category>
+		<category><![CDATA[VPS]]></category>
+
+		<guid isPermaLink="false">/?p=1764</guid>
+		<description><![CDATA[INTRODUCE This article will teach you how to use Git when you want to deploy your application. While there are many ways to use Git to deploy our application, this tutorial will focus on the one that is most straightforward. I assume you already know how to create and use a repository on your local [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/06/1466916309-3077-gitd.1.jpg"><img class="attachment-full size-full aligncenter" src="/wp-content/uploads/2016/06/1466916309-3077-gitd.1.jpg" alt="1466916309-3077-gitd.1" width="609" height="240" /></a></p>
+<h2>INTRODUCE</h2>
+<p>This article will teach you how to use Git when you want to deploy your application. While there are many ways to use Git to deploy our application, this tutorial will focus on the one that is most straightforward. I assume you already know how to create and use a repository on your local machine.</p>
+<p>When you use Git, the workflow generally is toward version control only. You have a local repository where you work and a remote repository where you keep everything in sync and can work with a team and different machines. But you can also use Git to move your application to production.</p>
+<h2>SERVER SETUP</h2>
+<p>Our fictitious workspace:</p>
+<ul>
+<li>Your server live directory: /var/www/domain.com</li>
+<li>Your server repository: /var/repo/site.git</li>
+</ul>
+<p>What should we do if we want to push to site.git and at the same time make all the content available at /var/www/domain.com?</p>
+<h3>CREATING OUR REPOSITORY</h3>
+<p>Login to your server from command line and type the following:</p>
+<pre>cd /var
+mkdir repo &amp;&amp; cd repo
+mkdir site.git &amp;&amp; cd site.git
+git init --bare</pre>
+<p><code>--bare</code>means that our folder will have no source files, just the version control.</p>
+<h3>HOOKS</h3>
+<p>Git repositories have a folder called &#8216;hooks&#8217;. This folder contains some sample files for possible actions that you can hook and perform custom actions set by you.</p>
+<p><a href="http://git-scm.com/book/en/Customizing-Git-Git-Hooks">Git documentation </a>define three possible server hooks: &#8216;pre-receive&#8217;, &#8216;post-receive&#8217; and &#8216;update&#8217;. &#8216;Pre-receive&#8217; is executed as soon as the server receives a &#8216;push&#8217;, &#8216;update&#8217; is similar but it executes once for each branch, and &#8216;post-receive&#8217; is executed when a &#8216;push&#8217; is completely finished and it&#8217;s the one we are interested in.</p>
+<p>In our repository if you type:</p>
+<pre>ls</pre>
+<p>You will see a few files and folders, including the <i>&#8216;hooks&#8217;</i> folder. So let&#8217;s go to <i>&#8216;hooks&#8217;</i> folder:</p>
+<pre>cd hooks</pre>
+<p>Now, create the file <i>&#8216;post-receive&#8217;</i> by typing:</p>
+<pre>cat &gt; post-receive</pre>
+<p>When you execute this command, you will have a blank line indicating that everything you type will be saved to this file. So let&#8217;s type:</p>
+<pre>#!/bin/sh
+git --work-tree=/var/www/domain.com --git-dir=/var/repo/site.git checkout -f</pre>
+<p>When you finish typing, press <i>&#8216;control-d&#8217;</i> to save. In order to execute the file, we need to set the proper permissions using:</p>
+<pre>chmod +x post-receive</pre>
+<p>You can see on the <a href="https://www.kernel.org/pub/software/scm/git/docs/">documentation </a>that &#8216;git-dir&#8217; is the path to the repository. With &#8216;work-tree&#8217;, you can define a different path to where your files will actually be transferred to.</p>
+<p>The &#8216;post-receive&#8217; file will be looked into every time a push is completed and it&#8217;s saying that your files need to be in /var/www/domain.com.</p>
+<h2>LOCAL MACHINE</h2>
+<p>Let&#8217;s create our local repository. You should change the path and name to whichever you choose. If you are on a server, just type:</p>
+<pre>exit</pre>
+<p>And create your repo:</p>
+<pre>cd /my/workspace
+mkdir project &amp;&amp; cd project
+git init</pre>
+<p>Then we need to configure the remote path of our repository. Tell Git to add a remote called <i>&#8216;live&#8217;</i>:</p>
+<pre>git remote add live ssh://user@mydomain.com/var/repo/site.git</pre>
+<p>Here we should give the repository link and not the live folder.</p>
+<p>Let&#8217;s assume that we have some great work ready in this folder. We should do the usual steps of adding the files and commit with a message:</p>
+<pre>git add .
+git commit -m "My project is ready"</pre>
+<p>Just to remember, the dot after <i>&#8216;git add&#8217;</i> means you are adding all files to stage. After <i>&#8216;git commit&#8217;</i> we have <i>&#8216;-m&#8217;</i> which means we will type a message. To complete, we just <i>&#8216;push&#8217;</i> everything to the server. We use the<i>&#8216;live&#8217;</i> alias that we used when setting the remote.</p>
+<pre>git push live master
+Counting objects: 7, done.Delta compression using up to 4 threads.Compressing objects: 100% (7/7), done.Writing objects: 100% (7/7), 10.56 KiB, done.Total 7 (delta 0), reused 0 (delta 0)To ssh://user@mydomain.com/var/repo/site.git* [new branch]      master -&gt; master</pre>
+<p>Here we tell Git to push to the &#8216;live&#8217; remote on the &#8216;master&#8217; branch.</p>
+<h2>ADVANCED SCRIPT</h2>
+<p>In normally, Linux server run git and web service as different users. Here are some permissions problem.</p>
+<h3>SCRIPT CODE</h3>
+<p>Copy the following code as <code>post-receive.d</code> script to re solve:</p>
+<pre>#!/bin/sh
+GIT_TIMMER=`date +%s%N`
+#------------- Modify by your repo ----------------
+GIT_BRANCH=master
+WEB_GIT_DIR=/var/git/repositories/git-test.git
+WEB_WWW_DIR=/var/www/www.exmaple.com
+#--------------------------------------------------
+WEB_TMP_DIR=/tmp/git.web.$GIT_TIMMER
+
+mkdir $WEB_TMP_DIR
+sudo -u www-data rm -rf $WEB_WWW_DIR/*
+git --work-tree=$WEB_TMP_DIR --git-dir=$WEB_GIT_DIR checkout $GIT_BRANCH -f
+sudo -u www-data cp -R $WEB_TMP_DIR/* $WEB_WWW_DIR/
+rm -rf $WEB_TMP_DIR/
+
+echo Website has been up to date.</pre>
+<h3>SCRIPT USAGE</h3>
+<p>For more information about how to set sudoer, read <a href="http://serverfault.com/questions/269359/allow-user-git-to-run-git-pull-as-www-data-via-sudo">this</a> post.</p>
+<ol>
+<li>Create a new file in your repositeory&#8217;s <code>hooks/post-receive.d</code> folder.</li>
+<li>Copy the above script to the new file.</li>
+<li>Modify your repo path and website path in the script.</li>
+<li>Give this script executable permission.</li>
+<li>Using <code>visudo</code> allow user git use <code>rm</code> and <code>cp</code> command by user www-data</li>
+</ol>
+<h2>REFERENCE</h2>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-automatic-deployment-with-git-with-a-vps">How To Set Up Automatic Deployment with Git with a VPS</a></li>
+<li><a href="http://serverfault.com/questions/269359/allow-user-git-to-run-git-pull-as-www-data-via-sudo">Allow User &#8216;git&#8217; to run &#8216;git pull&#8217; as &#8216;www-data&#8217; via sudo</a></li>
+<li><a href="https://github.com/dfc643/git-auto-checkout-to-wwwroot">Auto-checkout website from repo to wwwroot</a></li>
+</ul>
+]]></content:encoded>
+			<wfw:commentRss>/2016/06/set-automatic-deployment-website-git.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Fix force HTTPS to HTTP connection error &#8220;too many redirects&#8221;</title>
+		<link>/2016/06/fix-force-https-http-connection-error-many-redirects.html</link>
+		<comments>/2016/06/fix-force-https-http-connection-error-many-redirects.html#respond</comments>
+		<pubDate>Sun, 26 Jun 2016 04:24:47 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Server]]></category>
+		<category><![CDATA[Browser Go]]></category>
+		<category><![CDATA[HSTS]]></category>
+		<category><![CDATA[HTTPS]]></category>
+		<category><![CDATA[NGINX]]></category>
+
+		<guid isPermaLink="false">/?p=1761</guid>
+		<description><![CDATA[INTRODUCE In some reason, HTTPS cannot using in everywhere. For example, a website has so many users are using an older system or browser does not support TLS protocol, or other hand reasons. But If configure nginx force redirect HTTPS traffics to HTTP, in newer version browser will cause an error &#8220;too many redirects&#8221;. Because newer browser [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/06/1466915066-5807-301-redirect-in-nginx.png"><img class="attachment-full size-full aligncenter" src="/wp-content/uploads/2016/06/1466915066-5807-301-redirect-in-nginx.png" sizes="(max-width: 800px) 100vw, 800px" srcset="/wp-content/uploads/2016/06/1466915066-5807-301-redirect-in-nginx.png 800w, /wp-content/uploads/2016/06/1466915066-5807-301-redirect-in-nginx-768x384.png 768w" alt="1466915066-5807-301-redirect-in-nginx" width="800" height="400" /></a></p>
+<h2>INTRODUCE</h2>
+<p>In some reason, HTTPS cannot using in everywhere. For example, a website has so many users are using an older system or browser does not support TLS protocol, or other hand reasons.</p>
+<p>But If configure nginx force redirect HTTPS traffics to HTTP, in newer version browser will cause an error &#8220;too many redirects&#8221;. Because newer browser prefer HTTPS if two protocols both available, Then the following will be shown up:</p>
+<ul>
+<li>Browser: Go example.com, but I wanna try HTTPS prefer.</li>
+<li>Server: No, you should access from HTTP!</li>
+<li>Browser: I found your HTTPS has been opened, Still try HTTPS.</li>
+<li>Server: No, you must access from HTTP!</li>
+</ul>
+<p><em><span style="color: #999999;"><strong>A LOOP HAS OCCURRED</strong></span></em></p>
+<h2>FAILED CONFIGURATION CODE</h2>
+<p>The following configuration code will cause error &#8220;too many redirects&#8221; in newer version browser, but work fine with older browsers.</p>
+<pre>server {
+	listen 80;
+	listen 443 ssl;
+	server_name example.com;
+
+	# Force redirect https to http
+	if ($ssl_protocol != "") {
+		rewrite ^ http://$server_name$request_uri/? permanent;
+	}
+	.... ....
+}</pre>
+<h2>HOW TO SOLVE IT</h2>
+<p>The LOOP caused by HSTS which supported by newer browsers. HSTS force try HTTPS but never try HTTP if server supports.</p>
+<p>To solve the problem is <strong><em>DISABLE</em> </strong>the function HSTS in server side. or force set HSTS <code>max-age</code> to <em>ZERO</em>. Here is code:</p>
+<pre>add_header  Strict-Transport-Security max-age=0;</pre>
+<p>So, the final correctly code is:</p>
+<pre>server {
+	listen 80;
+	listen 443 ssl;
+	server_name example.com;
+	add_header  Strict-Transport-Security max-age=0;
+
+	# Force redirect https to http
+	if ($ssl_protocol != "") {
+		rewrite ^ http://$server_name$request_uri/? permanent;
+	}
+	.... ....
+}</pre>
+<h2>REFERENCE</h2>
+<ul>
+<li><a href="https://forum.nginx.org/read.php?2,257458,257470#msg-257470">https to http error &#8220;too many redirects&#8221;</a></li>
+<li><a href="https://kamaradski.com/2858/nginx-disable-hsts-https-strict-transport-security">NGINX disable HSTS (HTTPS Strict-Transport-Security)</a></li>
+</ul>
+<h2>AUTHOR</h2>
+<p>Pekaikon Norckon<br />
+2016-06-26 (SUN)</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+			<wfw:commentRss>/2016/06/fix-force-https-http-connection-error-many-redirects.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

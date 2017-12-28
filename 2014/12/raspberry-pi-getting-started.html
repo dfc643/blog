@@ -1,0 +1,710 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=10,IE=9,IE=8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title>Raspberry Pi &#8211; Getting Started &#8211; </title>
+<script>
+window._deel = {name: 'Norckon&#039;s blog',url: 'http://b.fcsys.org/wp-content/themes/yusi_cache1.0', ajaxpager: 'on', commenton: 1, roll: [3,4]}
+</script>
+<link rel='dns-prefetch' href='//cdn.bootcss.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/b.fcsys.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56794,8205,9794,65039],[55358,56794,8203,9794,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='style-css'  href='/wp-content/themes/yusi_cache1.0/style.css?ver=1.0' type='text/css' media='all' />
+<script type='text/javascript' src='//cdn.bootcss.com/jquery/1.8.3/jquery.min.js?ver=1.0'></script>
+<link rel='https://api.w.org/' href='/wp-json/' />
+<link rel='prev' title='Change Ubuntu screenshot save location' href='/2014/11/change-ubuntu-screenshot-save-location.html' />
+<link rel='next' title='Raspberry Pi &#8211; Driver for RTL8179/8188EU' href='/2014/12/raspberry-pi-driver-for-rtl81798188eu.html' />
+<link rel="canonical" href="/2014/12/raspberry-pi-getting-started.html" />
+<link rel='shortlink' href='/?p=1408' />
+<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F12%2Fraspberry-pi-getting-started.html" />
+<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F12%2Fraspberry-pi-getting-started.html&#038;format=xml" />
+<meta name="keywords" content="Download Raspbian, Raspberry Pi, SD, Hardware">
+<meta name="description" content="WHAT IS A RASPBERRY PI The Raspberry Pi is a low cost, credit-card sized computer that plugs into a computer monitor or TV, and uses a standard keyboard and mouse. It is a capable little device that enables people of all">
+<!--[if lt IE 9]><script src="http://b.fcsys.org/wp-content/themes/yusi_cache1.0/js/html5.js"></script><![endif]-->
+<!-- GOOGLE FONT -->
+<link href='//fonts.lug.ustc.edu.cn/css?family=Josefin+Sans|Cinzel+Decorative' rel='stylesheet' type='text/css'>
+</head>
+<body class="post-template-default single single-post postid-1408 single-format-standard">
+
+<header id="header" class="header">
+<div id="nav-header" class="navbar">
+    
+    <ul class="nav">
+        <li class="title">Norckon</li>
+        <li id="menu-item-1262" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1262"><a href="http://fcsys.org/">Top</a></li>
+<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1046"><a href="/category/software">Soft</a>
+<ul class="sub-menu">
+	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1064"><a href="/category/software">Software</a></li>
+	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1062"><a href="/category/software/os">OS</a></li>
+	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1049"><a href="/category/software/programming">Programming</a></li>
+</ul>
+</li>
+<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1050"><a href="/category/hardware">Hard</a></li>
+<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1047"><a href="/category/network">Net</a>
+<ul class="sub-menu">
+	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1063"><a href="/category/network">Network</a></li>
+	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1496"><a href="/category/network/server">Server</a></li>
+	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="/category/network/website">Web</a></li>
+</ul>
+</li>
+<li id="menu-item-1220" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1220"><a>Tool</a>
+<ul class="sub-menu">
+	<li id="menu-item-1221" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1221"><a href="http://ru.fcsys.org/wigle">WlanColle</a></li>
+	<li id="menu-item-1223" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1223"><a href="http://file.dfc643.tk/%E6%B8%B8%E6%88%8F%E5%8A%A8%E6%BC%AB/%E8%97%8D%E6%BE%A4%E5%85%89/xmas/default.htm">Hikaru</a></li>
+	<li id="menu-item-1225" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1225"><a href="https://apps.fcsys.org/com.fcsys.tieba.sign/">TiebaSign</a></li>
+	<li id="menu-item-1226" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1226"><a href="https://apps.fcsys.org/com.fcsys.3gqq.online/">QQ</a></li>
+</ul>
+</li>
+<li id="menu-item-1042" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1042"><a>Links</a>
+<ul class="sub-menu">
+	<li id="menu-item-1043" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1043"><a href="http://mos.moe/">MOS-MOE</a></li>
+	<li id="menu-item-1158" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1158"><a href="http://www.purpleroc.com/">Tracy梓朋</a></li>
+	<li id="menu-item-1838" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1838"><a href="http://ymsys.cn/">Yemao</a></li>
+	<li id="menu-item-1785" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1785"><a href="http://negim.me/">葱ちゃん</a></li>
+	<li id="menu-item-1219" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1219"><a href="https://xcroot.com/">CRoot</a></li>
+	<li id="menu-item-1246" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1246"><a href="http://blog.sina.com.cn/celeron533">celeron533</a></li>
+	<li id="menu-item-1150" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1150"><a href="http://www.aillen.org/">Chaos</a></li>
+	<li id="menu-item-1825" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1825"><a href="http://mybeibei.net/">Guge&#8217;s blog</a></li>
+	<li id="menu-item-1162" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1162"><a href="http://www.yjsys.tk/">寂写心灵之幽</a></li>
+	<li id="menu-item-1045" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1045"><a href="http://hanicc.com/">HoneyCC</a></li>
+	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="/add-link">+ Add Link</a></li>
+</ul>
+</li>
+<li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="/">Blog</a></li>
+<li style="float:right;">
+                <div class="toggle-search"><i class="fa fa-search"></i></div>
+<div class="search-expand" style="display: none;"><div class="search-expand-inner"><form method="get" class="searchform themeform" onsubmit="location.href='http://b.fcsys.org/?s=' + encodeURIComponent(this.s.value).replace(/%20/g, '+'); return false;" action="/"><div> <input type="ext" class="search" name="s" onblur="if(this.value=='')this.value='search...';" onfocus="if(this.value=='search...')this.value='';" value="search..."></div></form></div></div>
+</li>
+    </ul>
+</div>
+</div>
+
+<div class="container-inner" style="display:none">
+ <div class="yusi-logo">
+<a href="/">
+<h1>
+<span class="yusi-mono">Norckon&#039;s blog</span>
+<span class="yusi-bloger">Norckon&#039;s blog</span>
+</h1>
+</a>
+</div>
+</div>
+</header>
+
+
+
+
+<section class="container"><div class="speedbar">
+				<div class="toptip"><strong class="text-success"><i class="fa fa-volume-up"></i> </strong> </div>
+	</div>
+	<div class="content-wrap">
+	<div class="content">
+
+				<header class="article-header">
+			<h1 class="article-title"><a href="/2014/12/raspberry-pi-getting-started.html">Raspberry Pi &#8211; Getting Started</a></h1>
+			<div class="meta">
+				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="/category/hardware"> Hardware</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="/author/dfc643">Norckon</a></span>
+				<time class="muted"><i class="fa fa-clock-o"></i> 2014-12-06</time>
+				<span class="muted"><i class="fa fa-eye"></i> 1447℃</span>
+				<span class="muted"><i class="fa fa-comments-o"></i> <a href="/2014/12/raspberry-pi-getting-started.html#comments">0评论</a></span>							</div>
+		</header>
+		<article class="article-content">
+			<h2>WHAT IS A RASPBERRY PI</h2>
+<p>The Raspberry Pi is a low cost, credit-card sized computer that plugs into a computer monitor or TV, and uses a standard keyboard and mouse. It is a capable little device that enables people of all ages to explore computing, and to learn how to program in languages like Scratch and Python. It’s capable of doing everything you’d expect a desktop computer to do, from browsing the internet and playing high-definition video, to making spreadsheets, word-processing, and playing games.</p>
+<h2>PREVIEW</h2>
+<p><a href="/wp-content/uploads/2014/12/raspberry_pi_b_plus2.jpg"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/raspberry_pi_b_plus2.jpg" alt="raspberry_pi_b_plus2" width="444" height="252" /></a></p>
+<p style="text-align: center;">Raspberry Pi Model B+</p>
+<h2>PARAMETERS</h2>
+<p>&nbsp;</p>
+<table>
+<tbody>
+<tr>
+<th colspan="2">Raspberry Pi (Model B+)</th>
+</tr>
+<tr>
+<td>CPU</td>
+<td>Broadcom BCM2835 (ARM1176JZFS, 700MHz &#8211; 1GHz)</td>
+</tr>
+<tr>
+<td>GPU</td>
+<td>Dual Core VideoCore IV (OpenGL ES 1.1/2.0)</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>512MB (Model A/+ 256MB)</td>
+</tr>
+<tr>
+<td>USB</td>
+<td>4 Ports (Model A/+ 1 Port; Model B 2 Ports)</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>10/100 Base-T Ethernet</td>
+</tr>
+<tr>
+<td>Size</td>
+<td>85.60mm x 53.98mm x 17mm above</td>
+</tr>
+<tr>
+<td>Power Supply</td>
+<td>5V 700mA</td>
+</tr>
+<tr>
+<td>Electric Power</td>
+<td>3 watts</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h2>ABOUT OPERATING SYSTEM</h2>
+<p>Raspberry Pi using Linux as operating system, Raspbian is distribution of Debian Wheezy(Debian 7.0) that optimized for Raspberry Pi(ARMv6 + VFPv2).</p>
+<p>Download Raspbian SD image from<a href="http://www.raspberrypi.org/downloads/"><strong> official dowanload page</strong> </a>and write into SD card. Power on Raspberry Pi will boot Raspbian.</p>
+<h2>PREPARING YOUR SD CARD</h2>
+<h3>DOWNLOAD THE IMAGE</h3>
+<p>Official images for recommended Operating Systems are available to download from the Raspberry Pi website: <a href="/2014/12/raspberrypi.org/downloads">raspberrypi.org/downloads</a> Alternative distributions are available from third party vendors.</p>
+<h3>WRITING AN IMAGE TO THE SD CARD</h3>
+<h4>For Windows</h4>
+<ol>
+<li>Download Raspbian image from official website.</li>
+<li>Download <a href="http://sourceforge.net/projects/win32diskimager/">Win32 Disk Imager</a> from sourceforge.</li>
+<li>Select image file and SD card, click <strong>Write</strong> and wait for progress.</li>
+<li>Plug-out your SD card reader.</li>
+</ol>
+<p><a href="/wp-content/uploads/2014/12/tumblr_inline_mm9nzcUU2c1qz4rgp2.png"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/tumblr_inline_mm9nzcUU2c1qz4rgp2.png" alt="tumblr_inline_mm9nzcUU2c1qz4rgp2" width="425" height="211" /></a></p>
+<h4>For Linux</h4>
+<ul>
+<li>Run <code>df -h</code> command to list all of disks you mounted before mount your SD Card</li>
+</ul>
+<pre class="nums:false decode-attributes:false lang:default highlight:0 decode:false">$ df -h
+Filesystem      Size   Used  Avail Capacity  Mounted on
+/dev/sda1      698Gi   94Gi  604Gi    14%    /
+devfs          182Ki  182Ki    0Bi   100%    /dev</pre>
+<ul>
+<li>Run <code>df -h</code> again when plugged in SD card reader, SD card will be listed.</li>
+</ul>
+<pre class="nums:false decode-attributes:false lang:default highlight:0 decode:false">$ df -h
+Filesystem      Size   Used  Avail Capacity  Mounted on
+/dev/sda1      698Gi   94Gi  604Gi    14%    /
+devfs          184Ki  184Ki    0Bi   100%    /dev
+/dev/sdb1       15Gi  2.2Mi   15Gi     1%    /Volumes/NO NAME</pre>
+<ul>
+<li>Check SD card device is <code>/dev/sdb1</code>and <code>umount</code> this device.</li>
+</ul>
+<pre class="nums:false decode-attributes:false lang:default highlight:0 decode:false">$ unmount /dev/sdb1
+Volume NO NAME on disk1s1 unmounted</pre>
+<ul>
+<li>Run <code>dd</code> command and write Raspbian into your SD card.</li>
+</ul>
+<pre class="nums:false decode-attributes:false lang:default highlight:0 decode:false">$ sudo dd if=/home/a1/2014-09-09-wheezy-raspbian.img if=/dev/sdb1 bs=2M
+1850+0 records in
+1850+0 records out
+1939865600 bytes transferred in 104.871126 secs (18497614 bytes/sec)
+      104.97 real         0.00 user         0.94 sys</pre>
+<ul>
+<li>This operate will take a long time, please wait for finish.</li>
+<li>When finished, run <code>df -h</code> again check SD card information.</li>
+</ul>
+<pre class="nums:false decode-attributes:false lang:default highlight:0 decode:false">$ df -h
+Filesystem      Size   Used  Avail Capacity  Mounted on
+/dev/sda1      698Gi   94Gi  604Gi    14%    /
+devfs          184Ki  184Ki    0Bi   100%    /dev
+/dev/sdb1       56Mi   34Mi   22Mi    61%    /Volumes/Untitled</pre>
+<h4>For Linux / Mac OS X</h4>
+<ul>
+<li>Linux Desktop: <a href="https://bugs.launchpad.net/usb-imagewriter/+bug/1013834">USB ImageWriter</a></li>
+<li>Linux Gnome: Using <a href="https://apps.ubuntu.com/cat/applications/precise/gnome-disk-utility/">Disk Utility</a> or <a href="https://wiki.gnome.org/Design/Apps/Disks">Gnome Disks Guide</a></li>
+<li>Mac OS X: <a href="http://www.raspberrypi.org/documentation/installation/installing-images/mac.md">Raspberry Wiki</a></li>
+</ul>
+<h2>BOOT YOUR RASPBERRY PI</h2>
+<h3>For HDMI</h3>
+<ul>
+<li>Raspberry Pi can connect HDMI directly, This way will be simple than using SSH. If you want to connect to Display or Television.</li>
+<li>Using HDMI cable connect Raspberry and Display or TV, Then power on Raspberry Pi.</li>
+<li>If your display does not supports HDMI interface, Converter will be very usefully. like VGA converter or DVI converter.</li>
+<li><span style="color: #ff0000;"><strong>If using VGA converter</strong></span>, please using VGA converter with power supply, because VGA converter without power supply will damage Raspberry Pi.</li>
+</ul>
+<p><a href="/wp-content/uploads/2014/12/tumblr_inline_mm9nlodATy1qz4rgp2.jpg"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/tumblr_inline_mm9nlodATy1qz4rgp2.jpg" alt="tumblr_inline_mm9nlodATy1qz4rgp2" width="410" height="516" /></a></p>
+<h3>For PuTTY / SSH</h3>
+<p>If do not have TV or Display, also can access Raspberry Pi thought SSH and VNC. but there some different between HDMI way.</p>
+<ul>
+<li>Using LAN cable connect Raspberry LAN interface and router and Power on Raspberry Pi.</li>
+<li>Open Router management webpage, find DHCP client list, find out <strong>raspberrypi</strong> IP address, this is Raspberry Pi IP address.</li>
+<li>Download PuTTY program from <a href="http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe">this link</a> and open it.</li>
+</ul>
+<p><a href="/wp-content/uploads/2014/12/putty-window2.png"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/putty-window2.png" alt="putty-window2" width="466" height="449" /></a></p>
+<ul>
+<li>Enter the Raspberry Pi IP address, select SSH as connection type and under the menu item <strong>Window –&gt; Translation</strong> select <strong>UTF-8</strong></li>
+</ul>
+<p><a href="/wp-content/uploads/2014/12/putty-utf-82.png"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/putty-utf-82.png" alt="putty-utf-82" width="466" height="449" /></a></p>
+<ul>
+<li>Click <strong>Open</strong> and youre ready to log on. Standard user <strong>pi</strong>, Standard password <strong>raspberry</strong>.</li>
+</ul>
+<h2>RASPBERRY BASE CONFIGURATION</h2>
+<p>If you boot Raspbian first time, Raspi-config will show on your screen, If doesnt show on screen, please run command <code>sudo raspi-config</code>.</p>
+<p><a href="/wp-content/uploads/2014/12/52b0a966757b7f7f2b8b456a2.png"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/52b0a966757b7f7f2b8b456a2.png" alt="52b0a966757b7f7f2b8b456a2" width="808" height="644" /></a></p>
+<p>If youre booting Raspbian first time, please select <strong>Expand Filesystem</strong> and reboot your Raspberry Pi take effect. If you do not do this, Your Raspberry will no spce left on disk and be unstable.</p>
+<p>If you connected a display and want show desktop after boot, please change<strong> Enable Boot to Desktop/Scratch</strong> value to <strong>Desktop Log in as user pi at the graphical desktop</strong>.</p>
+<p>If you does not connect a display or TV, and want get more available memory, please change <strong>Advanced Options -&gt; Memory Split</strong> value to 16.</p>
+<p>If you want change current user <strong>pi</strong> password, please select <strong>Change User Password</strong>, System will let you enter new password.</p>
+<h3>About Expand Filesystem</h3>
+<pre class="nums:false decode-attributes:false lang:default highlight:0 decode:false"># fdisk -l /dev/sda
+
+Disk /dev/sda: 16.0 GB, 16021192704 bytes
+64 heads, 32 sectors/track, 15279 cylinders, total 31291392 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x000714e9
+
+   Device Boot        Start         End      Blocks   Id  System
+/dev/sda1              8192      122879       57344    c  W95 FAT32 (LBA)
+/dev/sda2            122880     3788799     1832960   83  Linux</pre>
+<p><em>Before Expand Filesystem, 3,788,800 selectors are unavailable, After expand, all selectors are available.</em></p>
+<pre class="nums:false decode-attributes:false lang:default highlight:0 decode:false"># fdisk -l /dev/mmcblk0
+
+Disk /dev/mmcblk0: 16.0 GB, 16021192704 bytes
+4 heads, 16 sectors/track, 488928 cylinders, total 31291392 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x000714e9
+
+        Device Boot   Start         End      Blocks   Id  System
+/dev/mmcblk0p1         8192      122879       57344    c  W95 FAT32 (LBA)
+/dev/mmcblk0p2       122880    31291391    15584256   83  Linux</pre>
+<h2>ENABLE VNC REMOTE ACCESS</h2>
+<p>SSH can only provide console remote access, If want access Raspbian desktop remotely or run GUI applications remotely, even dont have display want control Raspberry Desktop.</p>
+<ul>
+<li>Run command <code>sudo apt-get install tightvncserver</code> to install Tight VNC Server.</li>
+</ul>
+<p><a href="/wp-content/uploads/2014/12/tumblr_inline_mm9oblBSJ21qz4rgp2.png"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/tumblr_inline_mm9oblBSJ21qz4rgp2.png" alt="tumblr_inline_mm9oblBSJ21qz4rgp2" width="500" height="203" /></a></p>
+<ul>
+<li>Run command <code>vncpasswd</code> to setup vnc remote access password. If ask for you <em>view-only password</em>, can skip it.</li>
+<li>Run command <code>vncserver :0 -geometry 800x600</code> or <code>vncserver :0</code> to startup vnc server.</li>
+</ul>
+<p><span style="text-decoration: underline;">In this command</span>, <strong>:0</strong> means<strong> No.0</strong> desktop, and No.0 desktop port is <strong>5900</strong>, <strong>:1</strong> means <strong>No.1</strong> desktop, and No.1 desktop port is <strong>5901</strong>, etc. Geometry means desktop resolution, like 1024&#215;768, 1440&#215;900 etc.</p>
+<p>If you want using windows to access your remote Raspbian, Please download <a href="http://www.realvnc.com/download/viewer/">RealVNC </a>and enter your Raspbian <span style="text-decoration: underline;">IP address <strong>and</strong> port</span>, click <strong>Connect</strong> to start new session.</p>
+<p><a href="/wp-content/uploads/2014/12/tumblr_inline_mm9odaE8901qz4rgp2.png"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/tumblr_inline_mm9odaE8901qz4rgp2.png" alt="tumblr_inline_mm9odaE8901qz4rgp2" width="354" height="193" /></a></p>
+<p><a href="/wp-content/uploads/2014/12/tumblr_inline_mm9ofmftkZ1qz4rgp2.png"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/tumblr_inline_mm9ofmftkZ1qz4rgp2.png" alt="tumblr_inline_mm9ofmftkZ1qz4rgp2" width="500" height="388" /></a></p>
+<h2>REFERENCES</h2>
+<ul>
+<li><a href="http://www.raspberrypi.org/help/what-is-a-raspberry-pi/">WHAT IS A RASPBERRY PI?</a></li>
+<li><a href="http://www.raspberrypi.org/documentation/installation/installing-images/README.md">INSTALLING OPERATING SYSTEM IMAGES</a></li>
+<li><a href="http://ltext.tumblr.com/post/49580927299">树莓派无显示器上手步骤</a></li>
+<li><a href="http://www.mztn.org/rpi/rpi00.html">Raspberry Pi(ラズベリーパイ) メモ</a></li>
+<li><a href="http://aurorax.org/644/">raspberry pi在ubuntu/linux下的系统烧录</a></li>
+<li><a href="http://raspberrypi4dummies.wordpress.com/2013/03/17/connect-to-the-raspberry-pi-via-ssh-putty/">Connect to the Raspberry Pi via SSH / Putty</a></li>
+</ul>
+<h2>AUTHOR</h2>
+<p>Pekaikon Norckon<br />
+6-12-2014 [SAT]</p>
+
+
+      
+<div class="article-social">
+			<a href="javascript:;" data-action="ding" data-id="1408" id="Addlike" class="action"><i class="fa fa-heart-o"></i>喜欢 (<span class="count">0</span>)</a>	
+</div>
+	</article>	
+				<footer class="article-footer">
+			<div class="article-tags"><i class="fa fa-tags"></i><a href="/tag/download-raspbian" rel="tag">Download Raspbian</a><a href="/tag/raspberry-pi" rel="tag">Raspberry Pi</a><a href="/tag/sd" rel="tag">SD</a></div></footer>
+	<nav class="article-nav">
+			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="/2014/11/change-ubuntu-screenshot-save-location.html" rel="prev">Change Ubuntu screenshot save location</a></span>
+			<span class="article-nav-next"><a href="/2014/12/raspberry-pi-driver-for-rtl81798188eu.html" rel="next">Raspberry Pi &#8211; Driver for RTL8179/8188EU</a>  <i class="fa fa-angle-double-right"></i></span>
+		</nav>
+
+		<div class="related_top">
+			<div class="related_posts"><ul class="related_img">
+
+	<li class="related_box"  >
+		<a href="/2015/01/raspberry-pi-installing-the-freenx-client-and-server.html" title="Raspberry Pi &#8211; Installing the FreeNX client and server" target="_blank">
+		<img src="/wp-content/uploads/2015/01/NX_Settings.jpg" alt="Raspberry Pi &#8211; Installing the FreeNX client and server" /><br><span class="r_title">Raspberry Pi &#8211; Installing the FreeNX client and server</span></a>
+		</li>
+	
+	<li class="related_box"  >
+		<a href="/2014/12/raspberry-pi-turned-your-pi-as-router.html" title="Raspberry Pi &#8211; Turned your Pi as Router" target="_blank">
+		<img src="/wp-content/uploads/2014/12/d2xtlbzuah9vavwt4utq.jpg" alt="Raspberry Pi &#8211; Turned your Pi as Router" /><br><span class="r_title">Raspberry Pi &#8211; Turned your Pi as Router</span></a>
+		</li>
+	
+	<li class="related_box"  >
+		<a href="/2014/12/raspberry-pi-gpio-hacking.html" title="Raspberry Pi &#8211; GPIO Hacking" target="_blank">
+		<img src="/wp-content/uploads/2014/12/Raspi_Iso_Blue.png" alt="Raspberry Pi &#8211; GPIO Hacking" /><br><span class="r_title">Raspberry Pi &#8211; GPIO Hacking</span></a>
+		</li>
+	
+	<li class="related_box"  >
+		<a href="/2014/12/raspberry-pi-control-by-android.html" title="Raspberry Pi &#8211; Control by Android" target="_blank">
+		<img src="/wp-content/uploads/2014/12/imagesqtbnANd9GcQEKlLIIgvhtDyOjCgBUGgTlEnv4sJNGFNA33J6H8e-YitQG5A9" alt="Raspberry Pi &#8211; Control by Android" /><br><span class="r_title">Raspberry Pi &#8211; Control by Android</span></a>
+		</li>
+	</ul>
+
+<div class="relates">
+<ul>
+<li><i class="fa fa-minus"></i><a target="_blank" href="/2015/01/raspberry-pi-installing-the-freenx-client-and-server.html">Raspberry Pi &#8211; Installing the FreeNX client and server</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/12/raspberry-pi-turned-your-pi-as-router.html">Raspberry Pi &#8211; Turned your Pi as Router</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/12/raspberry-pi-gpio-hacking.html">Raspberry Pi &#8211; GPIO Hacking</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/12/raspberry-pi-control-by-android.html">Raspberry Pi &#8211; Control by Android</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/12/raspberry-pi-driver-for-rtl81798188eu.html">Raspberry Pi &#8211; Driver for RTL8179/8188EU</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/03/ups%E7%94%B5%E6%BA%90%E7%94%B5%E6%B1%A0%E4%BE%9B%E7%94%B5%E6%97%B6%E9%97%B4%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E8%BD%AC.html">UPS电源电池供电时间计算方法[转]</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2013/08/w3000r%E8%B7%AF%E7%94%B1%E5%99%A8%E7%A1%AC%E4%BB%B6%E6%94%B9%E5%8A%A8%E6%8F%90%E9%AB%98%E5%8F%91%E5%B0%84%E5%8A%9F%E7%8E%87%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C%E5%8F%8A%E6%94%B9%E9%80%A0%E6%96%B9.html">W3000R路由器硬件改动提高发射功率测试结果及改造方法</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2013/08/%E8%B4%B4%E7%89%87%E7%94%B5%E9%98%BB%E7%9A%84%E8%AF%BB%E6%95%B0%E6%96%B9%E6%B3%95.html">贴片电阻的读数方法</a></li>
+</ul></div></div>		</div>
+						<div id="respond" class="no_webshot">
+		<form action="/wp-comments-post.php" method="post" id="commentform">
+		
+		<div class="comt-title">
+			<div class="comt-avatar pull-left">
+				<img src="https://secure.gravatar.com/avatar/?s=108" class="avatar avatar-108" height="108" width="108">			</div>
+			<div class="comt-author pull-left">
+			COMMENT			</div>
+			<a id="cancel-comment-reply-link" class="pull-right" href="javascript:;">Cancel Comment</a>
+		</div>
+		
+		<div class="comt">
+			<div class="comt-box">
+				<textarea placeholder="What do you want to say ..." class="input-block-level comt-area" name="comment" id="comment" cols="100%" rows="3" tabindex="1" onkeydown="if(event.ctrlKey&amp;&amp;event.keyCode==13){document.getElementById('submit').click();return false};"></textarea>
+				<div class="comt-ctrl">
+					<button class="btn btn-primary pull-right" type="submit" name="submit" id="submit" tabindex="5"><i class="fa fa-check-square-o"></i> POST</button>
+					<div class="comt-tips pull-right"><input type='hidden' name='comment_post_ID' value='1408' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</div>
+					<span data-type="comment-insert-smilie" class="muted comt-smilie"><i class="fa fa-smile-o"></i> EMOJI</span>
+					<span class="muted comt-mailme"><label for="comment_mail_notify" class="checkbox inline" style="padding-top:0"><input type="checkbox" name="comment_mail_notify" id="comment_mail_notify" value="comment_mail_notify" checked="checked"/>有人回复时邮件通知我</label></span>
+				</div>
+			</div>
+
+												<div class="comt-comterinfo" id="comment-author-info" >
+						<h4>Hi, We need some information</h4>
+						<ul>
+							<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" type="text" name="author" id="author" value="" tabindex="2" placeholder="Nickname"><span class="help-inline">Nickname (*)</span></li>
+							<li class="form-inline"><label class="hide" for="email">E-Mail</label><input class="ipt" type="text" name="email" id="email" value="" tabindex="3" placeholder="E-Mail Address"><span class="help-inline">E-Mail (*)</span></li>
+							<li class="form-inline"><label class="hide" for="url">Website</label><input class="ipt" type="text" name="url" id="url" value="" tabindex="4" placeholder="Website (Optional)"><span class="help-inline">Website</span></li>
+						</ul>
+					</div>
+									</div>
+
+		
+	</form>
+	</div>
+<div id="postcomments">
+	<div id="comments">
+		<i class="fa fa-comments-o"></i> <b> 1 </b>Comments
+	</div>
+	<ol class="commentlist">
+		<li class="comment even thread-even depth-1" id="comment-26127"><div class="c-avatar"><img data-original="https://secure.gravatar.com/avatar/db3b549f86a6f1522f40618131d8efc5?s=108" class="avatar avatar-108" height="108" width="108"><div class="c-main" id="div-comment-26127">Before we install the tightvncserver, we'd better excute " sudo apt-get update".<div class="c-meta"><span class="c-author">keymao</span>2015-01-17 15:20 <a rel='nofollow' class='comment-reply-link' href='/2014/12/raspberry-pi-getting-started.html?replytocom=26127#respond' onclick='return addComment.moveForm( "div-comment-26127", "26127", "respond", "1408" )' aria-label='Reply to keymao'>Reply</a></div></div></div></li><!-- #comment-## -->
+	</ol>
+	<div class="commentnav"	>
+			</div>
+</div>
+			</div>
+</div>
+<aside class="sidebar">	
+<div class="widget widget_text"><div class="textwidget text-social"><div class="social">
+
+<a href="http://weibo.com/dfc643" rel="external nofollow" title="Weibo" target="_blank"><i class="sinaweibo fa fa-weibo"></i></a><a  href="http://t.qq.com/dfc643" rel="external nofollow" title="t.qq.com" target="_blank"><i class="tencentweibo fa fa-tencent-weibo"></i></a><a href="https://twitter.com/dfc643" rel="external nofollow" title="Twitter" target="_blank"><i class="twitter fa fa-twitter"></i></a><a href="https://www.facebook.com/Norckon" rel="external nofollow" title="Facebook" target="_blank"><i class="facebook fa fa-facebook"></i></a><a href="http://mail.fcsys.org/" rel="external nofollow" title="Email" target="_blank"><i class="email fa fa-envelope-o"></i></a><a href="/?feed=rss2" rel="external nofollow" target="_blank"  title="RSS Feed"><i class="rss fa fa-rss"></i></a>
+</div></div></div>
+
+<div class="widget widget_text"><div class="title"><h2>Staticized</h2></div>			<div class="textwidget"><p><strong>WARNING</strong>: This blog has been <strong>Staticized</strong>. All comment, like or other function will not working.</p>
+</div>
+		</div><div class="widget widget_calendar"><div class="title"><h2>Calendar</h2></div><div id="calendar_wrap" class="calendar_wrap"><table id="wp-calendar">
+	<caption>December 2014</caption>
+	<thead>
+	<tr>
+		<th scope="col" title="Monday">M</th>
+		<th scope="col" title="Tuesday">T</th>
+		<th scope="col" title="Wednesday">W</th>
+		<th scope="col" title="Thursday">T</th>
+		<th scope="col" title="Friday">F</th>
+		<th scope="col" title="Saturday">S</th>
+		<th scope="col" title="Sunday">S</th>
+	</tr>
+	</thead>
+
+	<tfoot>
+	<tr>
+		<td colspan="3" id="prev"><a href="/2014/11">&laquo; Nov</a></td>
+		<td class="pad">&nbsp;</td>
+		<td colspan="3" id="next"><a href="/2015/01">Jan &raquo;</a></td>
+	</tr>
+	</tfoot>
+
+	<tbody>
+	<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td><a href="/2014/12/06" aria-label="Posts published on December 6, 2014">6</a></td><td><a href="/2014/12/07" aria-label="Posts published on December 7, 2014">7</a></td>
+	</tr>
+	<tr>
+		<td>8</td><td>9</td><td>10</td><td><a href="/2014/12/11" aria-label="Posts published on December 11, 2014">11</a></td><td>12</td><td>13</td><td>14</td>
+	</tr>
+	<tr>
+		<td>15</td><td>16</td><td><a href="/2014/12/17" aria-label="Posts published on December 17, 2014">17</a></td><td>18</td><td>19</td><td>20</td><td>21</td>
+	</tr>
+	<tr>
+		<td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td>
+	</tr>
+	<tr>
+		<td>29</td><td>30</td><td>31</td>
+		<td class="pad" colspan="4">&nbsp;</td>
+	</tr>
+	</tbody>
+	</table></div></div><div class="widget widget_categories"><div class="title"><h2>Categories</h2></div>		<ul>
+	<li class="cat-item cat-item-10"><a href="/category/hardware" >Hardware</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/network" >Network</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/software/os" >Operating System</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/software/programming" >Programming</a>
+</li>
+	<li class="cat-item cat-item-106"><a href="/category/network/server" >Server</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/software" >Software</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/uncategorized" >Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="/category/network/website" >Website</a>
+</li>
+		</ul>
+</div><div class="widget widget_archive"><div class="title"><h2>Archives</h2></div>		<ul>
+			<li><a href='/2017/06'>June 2017</a></li>
+	<li><a href='/2017/01'>January 2017</a></li>
+	<li><a href='/2016/10'>October 2016</a></li>
+	<li><a href='/2016/06'>June 2016</a></li>
+	<li><a href='/2016/05'>May 2016</a></li>
+	<li><a href='/2015/11'>November 2015</a></li>
+	<li><a href='/2015/10'>October 2015</a></li>
+	<li><a href='/2015/07'>July 2015</a></li>
+	<li><a href='/2015/05'>May 2015</a></li>
+	<li><a href='/2015/04'>April 2015</a></li>
+	<li><a href='/2015/01'>January 2015</a></li>
+	<li><a href='/2014/12'>December 2014</a></li>
+	<li><a href='/2014/11'>November 2014</a></li>
+	<li><a href='/2014/10'>October 2014</a></li>
+	<li><a href='/2014/09'>September 2014</a></li>
+	<li><a href='/2014/08'>August 2014</a></li>
+	<li><a href='/2014/07'>July 2014</a></li>
+	<li><a href='/2014/06'>June 2014</a></li>
+	<li><a href='/2014/05'>May 2014</a></li>
+	<li><a href='/2014/04'>April 2014</a></li>
+	<li><a href='/2014/03'>March 2014</a></li>
+	<li><a href='/2014/02'>February 2014</a></li>
+	<li><a href='/2014/01'>January 2014</a></li>
+	<li><a href='/2013/12'>December 2013</a></li>
+	<li><a href='/2013/11'>November 2013</a></li>
+	<li><a href='/2013/10'>October 2013</a></li>
+	<li><a href='/2013/09'>September 2013</a></li>
+	<li><a href='/2013/08'>August 2013</a></li>
+	<li><a href='/2013/07'>July 2013</a></li>
+	<li><a href='/2013/06'>June 2013</a></li>
+	<li><a href='/2013/05'>May 2013</a></li>
+	<li><a href='/2013/03'>March 2013</a></li>
+	<li><a href='/2013/02'>February 2013</a></li>
+	<li><a href='/2012/07'>July 2012</a></li>
+	<li><a href='/1994/12'>December 1994</a></li>
+		</ul>
+		</div><div class="widget ilwp_widget_tag_cloud"><div class="title"><h2>Tag Cloud</h2></div><div class='colored-tag-cloud'><a href='/tag/inbox' class='tag-link-38' title='1 post is tagged with &ldquo;INBOX&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>INBOX</a>
+<a href='/tag/sd' class='tag-link-58' title='1 post is tagged with &ldquo;SD&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>SD</a>
+<a href='/tag/reply-nothing' class='tag-link-214' title='1 post is tagged with &ldquo;Reply Nothing&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Reply Nothing</a>
+<a href='/tag/preparing' class='tag-link-83' title='1 post is tagged with &ldquo;PREPARING&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>PREPARING</a>
+<a href='/tag/ascii' class='tag-link-164' title='1 post is tagged with &ldquo;ASCII&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>ASCII</a>
+<a href='/tag/http' class='tag-link-137' title='2 posts are tagged with &ldquo;HTTP&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: purple;'>HTTP</a>
+<a href='/tag/wlan' class='tag-link-76' title='1 post is tagged with &ldquo;WLAN&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>WLAN</a>
+<a href='/tag/vps' class='tag-link-207' title='1 post is tagged with &ldquo;VPS&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>VPS</a>
+<a href='/tag/https' class='tag-link-170' title='2 posts are tagged with &ldquo;HTTPS&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: silver;'>HTTPS</a>
+<a href='/tag/install-samba' class='tag-link-80' title='1 post is tagged with &ldquo;Install Samba&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>Install Samba</a>
+<a href='/tag/input' class='tag-link-213' title='1 post is tagged with &ldquo;INPUT&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>INPUT</a>
+<a href='/tag/notes-every' class='tag-link-198' title='1 post is tagged with &ldquo;Notes Every&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>Notes Every</a>
+<a href='/tag/username-pictures' class='tag-link-53' title='1 post is tagged with &ldquo;Username Pictures&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>Username Pictures</a>
+<a href='/tag/gmt' class='tag-link-191' title='1 post is tagged with &ldquo;GMT&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>GMT</a>
+<a href='/tag/wpad' class='tag-link-153' title='1 post is tagged with &ldquo;WPAD&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>WPAD</a>
+<a href='/tag/tcp' class='tag-link-136' title='1 post is tagged with &ldquo;TCP&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>TCP</a>
+<a href='/tag/sta' class='tag-link-174' title='1 post is tagged with &ldquo;STA&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>STA</a>
+<a href='/tag/nginx' class='tag-link-202' title='1 post is tagged with &ldquo;NGINX&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>NGINX</a>
+<a href='/tag/donwload' class='tag-link-194' title='1 post is tagged with &ldquo;DONWLOAD&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>DONWLOAD</a>
+<a href='/tag/hooks' class='tag-link-204' title='1 post is tagged with &ldquo;HOOKS&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>HOOKS</a>
+<a href='/tag/certificate-transparency' class='tag-link-231' title='1 post is tagged with &ldquo;Certificate Transparency&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>Certificate Transparency</a>
+<a href='/tag/donot' class='tag-link-189' title='1 post is tagged with &ldquo;DONOT&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>DONOT</a>
+<a href='/tag/bcm' class='tag-link-74' title='1 post is tagged with &ldquo;BCM&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>BCM</a>
+<a href='/tag/dhcp' class='tag-link-77' title='1 post is tagged with &ldquo;DHCP&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>DHCP</a>
+<a href='/tag/ntp' class='tag-link-39' title='1 post is tagged with &ldquo;NTP&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>NTP</a>
+<a href='/tag/enabled-checked' class='tag-link-40' title='1 post is tagged with &ldquo;Enabled Checked&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>Enabled Checked</a>
+<a href='/tag/exact-match' class='tag-link-199' title='1 post is tagged with &ldquo;Exact Match&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>Exact Match</a>
+<a href='/tag/run' class='tag-link-42' title='1 post is tagged with &ldquo;RUN&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>RUN</a>
+<a href='/tag/bsd' class='tag-link-101' title='1 post is tagged with &ldquo;BSD&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>BSD</a>
+<a href='/tag/icmp' class='tag-link-215' title='1 post is tagged with &ldquo;ICMP&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>ICMP</a>
+<a href='/tag/security-catalog' class='tag-link-237' title='1 post is tagged with &ldquo;Security Catalog&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>Security Catalog</a>
+<a href='/tag/redirect-top-domain' class='tag-link-223' title='1 post is tagged with &ldquo;Redirect Top-domain&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>Redirect Top-domain</a>
+<a href='/tag/step' class='tag-link-125' title='1 post is tagged with &ldquo;STEP&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>STEP</a>
+<a href='/tag/installation' class='tag-link-100' title='1 post is tagged with &ldquo;INSTALLATION&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>INSTALLATION</a>
+<a href='/tag/eax' class='tag-link-242' title='1 post is tagged with &ldquo;EAX&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>EAX</a>
+<a href='/tag/right-click-trusted-publishers' class='tag-link-235' title='1 post is tagged with &ldquo;Right-click Trusted Publishers&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>Right-click Trusted Publishers</a>
+<a href='/tag/ftp' class='tag-link-129' title='1 post is tagged with &ldquo;FTP&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>FTP</a>
+<a href='/tag/cidr' class='tag-link-95' title='1 post is tagged with &ldquo;CIDR&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>CIDR</a>
+<a href='/tag/ess' class='tag-link-178' title='1 post is tagged with &ldquo;ESS&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>ESS</a>
+<a href='/tag/title-raspberry-pi' class='tag-link-115' title='1 post is tagged with &ldquo;Title Raspberry Pi&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>Title Raspberry Pi</a>
+<a href='/tag/root' class='tag-link-108' title='1 post is tagged with &ldquo;ROOT&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>ROOT</a>
+<a href='/tag/username-screenshots' class='tag-link-52' title='1 post is tagged with &ldquo;Username Screenshots&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>Username Screenshots</a>
+<a href='/tag/install-tengine' class='tag-link-187' title='1 post is tagged with &ldquo;Install Tengine&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>Install Tengine</a>
+<a href='/tag/php' class='tag-link-130' title='2 posts are tagged with &ldquo;PHP&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: maroon;'>PHP</a>
+<a href='/tag/imap' class='tag-link-34' title='1 post is tagged with &ldquo;IMAP&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>IMAP</a>
+<a href='/tag/error' class='tag-link-195' title='1 post is tagged with &ldquo;ERROR&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>ERROR</a>
+<a href='/tag/workgroup' class='tag-link-81' title='1 post is tagged with &ldquo;WORKGROUP&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>WORKGROUP</a>
+<a href='/tag/usb' class='tag-link-78' title='1 post is tagged with &ldquo;USB&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>USB</a>
+<a href='/tag/compile-tengine' class='tag-link-188' title='1 post is tagged with &ldquo;Compile Tengine&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Compile Tengine</a>
+<a href='/tag/gtk' class='tag-link-45' title='1 post is tagged with &ldquo;GTK&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>GTK</a>
+<a href='/tag/example' class='tag-link-50' title='1 post is tagged with &ldquo;EXAMPLE&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>EXAMPLE</a>
+<a href='/tag/killing-xvnc4' class='tag-link-128' title='1 post is tagged with &ldquo;Killing Xvnc4&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>Killing Xvnc4</a>
+<a href='/tag/tts' class='tag-link-26' title='1 post is tagged with &ldquo;TTS&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>TTS</a>
+<a href='/tag/introcude' class='tag-link-89' title='1 post is tagged with &ldquo;INTROCUDE&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>INTROCUDE</a>
+<a href='/tag/ssl' class='tag-link-127' title='2 posts are tagged with &ldquo;SSL&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: teal;'>SSL</a>
+<a href='/tag/translate' class='tag-link-224' title='1 post is tagged with &ldquo;TRANSLATE&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>TRANSLATE</a>
+<a href='/tag/steps' class='tag-link-120' title='1 post is tagged with &ldquo;STEPS&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>STEPS</a>
+<a href='/tag/nginx-discuz' class='tag-link-138' title='1 post is tagged with &ldquo;Nginx Discuz&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>Nginx Discuz</a>
+<a href='/tag/url' class='tag-link-151' title='1 post is tagged with &ldquo;URL&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>URL</a>
+<a href='/tag/description-gaming' class='tag-link-148' title='1 post is tagged with &ldquo;Description Gaming&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>Description Gaming</a>
+<a href='/tag/internet-explorer' class='tag-link-156' title='1 post is tagged with &ldquo;Internet Explorer&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>Internet Explorer</a>
+<a href='/tag/ok' class='tag-link-154' title='2 posts are tagged with &ldquo;OK&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: purple;'>OK</a>
+<a href='/tag/raspberry-control' class='tag-link-69' title='1 post is tagged with &ldquo;Raspberry Control&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>Raspberry Control</a>
+<a href='/tag/environment' class='tag-link-147' title='1 post is tagged with &ldquo;ENVIRONMENT&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>ENVIRONMENT</a>
+<a href='/tag/kernel-configuration' class='tag-link-107' title='1 post is tagged with &ldquo;Kernel Configuration&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>Kernel Configuration</a>
+<a href='/tag/ajax-form-plugin' class='tag-link-221' title='1 post is tagged with &ldquo;Ajax Form Plugin&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>Ajax Form Plugin</a>
+<a href='/tag/raspberry-pis' class='tag-link-93' title='1 post is tagged with &ldquo;Raspberry Pis&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>Raspberry Pis</a>
+<a href='/tag/global-redirection' class='tag-link-169' title='1 post is tagged with &ldquo;Global Redirection&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>Global Redirection</a>
+<a href='/tag/tell-git' class='tag-link-206' title='1 post is tagged with &ldquo;Tell Git&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>Tell Git</a>
+<a href='/tag/hpkp' class='tag-link-228' title='1 post is tagged with &ldquo;HPKP&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>HPKP</a>
+<a href='/tag/lirc' class='tag-link-71' title='1 post is tagged with &ldquo;LIRC&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>LIRC</a>
+<a href='/tag/uc' class='tag-link-183' title='1 post is tagged with &ldquo;UC&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>UC</a>
+<a href='/tag/time-zone-name' class='tag-link-41' title='1 post is tagged with &ldquo;Time Zone Name&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>Time Zone Name</a>
+<a href='/tag/%e5%ae%89%e8%a3%85' class='tag-link-20' title='1 post is tagged with &ldquo;安装&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>安装</a>
+<a href='/tag/zeroconf' class='tag-link-98' title='1 post is tagged with &ldquo;ZEROCONF&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>ZEROCONF</a>
+<a href='/tag/setup-dnsmasq' class='tag-link-99' title='1 post is tagged with &ldquo;Setup Dnsmasq&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>Setup Dnsmasq</a>
+<a href='/tag/json' class='tag-link-219' title='1 post is tagged with &ldquo;JSON&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>JSON</a>
+<a href='/tag/allowednets' class='tag-link-97' title='1 post is tagged with &ldquo;ALLOWEDNETS&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>ALLOWEDNETS</a>
+<a href='/tag/rsa' class='tag-link-230' title='1 post is tagged with &ldquo;RSA&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>RSA</a>
+<a href='/tag/id' class='tag-link-67' title='3 posts are tagged with &ldquo;ID&rdquo;' rel="tag" style='font-size: 29.333333333333px;  color: gray;'>ID</a>
+<a href='/tag/install-gitolite' class='tag-link-192' title='1 post is tagged with &ldquo;Install Gitolite&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>Install Gitolite</a>
+<a href='/tag/kernel-version' class='tag-link-143' title='1 post is tagged with &ldquo;Kernel Version&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>Kernel Version</a>
+<a href='/tag/src' class='tag-link-122' title='1 post is tagged with &ldquo;SRC&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>SRC</a>
+<a href='/tag/ubuntu-unity' class='tag-link-43' title='1 post is tagged with &ldquo;Ubuntu Unity&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>Ubuntu Unity</a>
+<a href='/tag/png' class='tag-link-184' title='1 post is tagged with &ldquo;PNG&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>PNG</a>
+<a href='/tag/raspberry-pi' class='tag-link-56' title='1 post is tagged with &ldquo;Raspberry Pi&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Raspberry Pi</a>
+<a href='/tag/reboot-raspberry' class='tag-link-72' title='1 post is tagged with &ldquo;Reboot Raspberry&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Reboot Raspberry</a>
+<a href='/tag/mic' class='tag-link-177' title='1 post is tagged with &ldquo;MIC&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>MIC</a>
+<a href='/tag/service-settings' class='tag-link-212' title='1 post is tagged with &ldquo;Service Settings&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>Service Settings</a>
+<a href='/tag/elementary-tweak' class='tag-link-44' title='1 post is tagged with &ldquo;Elementary Tweak&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>Elementary Tweak</a>
+<a href='/tag/snmp' class='tag-link-114' title='1 post is tagged with &ldquo;SNMP&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>SNMP</a>
+<a href='/tag/cpu' class='tag-link-112' title='2 posts are tagged with &ldquo;CPU&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: silver;'>CPU</a>
+<a href='/tag/continue-details' class='tag-link-225' title='1 post is tagged with &ldquo;Continue Details&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>Continue Details</a>
+<a href='/tag/reason' class='tag-link-113' title='1 post is tagged with &ldquo;REASON&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>REASON</a>
+<a href='/tag/goarch' class='tag-link-124' title='1 post is tagged with &ldquo;GOARCH&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>GOARCH</a>
+<a href='/tag/free-build-environment' class='tag-link-236' title='1 post is tagged with &ldquo;Free Build Environment&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>Free Build Environment</a>
+<a href='/tag/lts' class='tag-link-226' title='1 post is tagged with &ldquo;LTS&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>LTS</a>
+<a href='/tag/windows-server' class='tag-link-103' title='1 post is tagged with &ldquo;Windows Server&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>Windows Server</a>
+<a href='/tag/mon' class='tag-link-82' title='2 posts are tagged with &ldquo;MON&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: aqua;'>MON</a>
+<a href='/tag/footer-example' class='tag-link-141' title='1 post is tagged with &ldquo;Footer Example&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>Footer Example</a>
+<a href='/tag/make-ubuntu' class='tag-link-145' title='1 post is tagged with &ldquo;Make Ubuntu&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>Make Ubuntu</a>
+<a href='/tag/important' class='tag-link-65' title='1 post is tagged with &ldquo;IMPORTANT&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>IMPORTANT</a>
+<a href='/tag/modify-tengine' class='tag-link-186' title='1 post is tagged with &ldquo;Modify Tengine&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>Modify Tengine</a>
+<a href='/tag/check-symbolic' class='tag-link-193' title='1 post is tagged with &ldquo;Check Symbolic&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>Check Symbolic</a>
+<a href='/tag/%e5%8a%a0%e8%bd%bd%e9%a9%b1%e5%8a%a8%e5%a4%b1%e8%b4%a5' class='tag-link-22' title='1 post is tagged with &ldquo;加载驱动失败&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>加载驱动失败</a>
+<a href='/tag/full-path' class='tag-link-200' title='1 post is tagged with &ldquo;Full Path&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Full Path</a>
+<a href='/tag/udp' class='tag-link-216' title='1 post is tagged with &ldquo;UDP&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>UDP</a>
+<a href='/tag/windows' class='tag-link-21' title='3 posts are tagged with &ldquo;Windows&rdquo;' rel="tag" style='font-size: 29.333333333333px;  color: lime;'>Windows</a>
+<a href='/tag/date-fri' class='tag-link-190' title='1 post is tagged with &ldquo;Date Fri&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>Date Fri</a>
+<a href='/tag/dpt' class='tag-link-119' title='1 post is tagged with &ldquo;DPT&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>DPT</a>
+<a href='/tag/macbook' class='tag-link-19' title='1 post is tagged with &ldquo;Macbook&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>Macbook</a>
+<a href='/tag/qq' class='tag-link-182' title='1 post is tagged with &ldquo;QQ&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>QQ</a>
+<a href='/tag/apt' class='tag-link-54' title='1 post is tagged with &ldquo;APT&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>APT</a>
+<a href='/tag/configuration-example' class='tag-link-140' title='1 post is tagged with &ldquo;Configuration Example&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>Configuration Example</a>
+<a href='/tag/allow-user' class='tag-link-205' title='1 post is tagged with &ldquo;Allow User&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>Allow User</a>
+<a href='/tag/env' class='tag-link-222' title='1 post is tagged with &ldquo;ENV&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>ENV</a>
+<a href='/tag/virtual-machine' class='tag-link-240' title='1 post is tagged with &ldquo;Virtual Machine&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>Virtual Machine</a>
+<a href='/tag/xml' class='tag-link-220' title='1 post is tagged with &ldquo;XML&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>XML</a>
+<a href='/tag/pc' class='tag-link-87' title='2 posts are tagged with &ldquo;PC&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: blue;'>PC</a>
+<a href='/tag/rss' class='tag-link-181' title='1 post is tagged with &ldquo;RSS&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>RSS</a>
+<a href='/tag/ieee' class='tag-link-173' title='1 post is tagged with &ldquo;IEEE&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>IEEE</a>
+<a href='/tag/gpio' class='tag-link-68' title='2 posts are tagged with &ldquo;GPIO&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: lime;'>GPIO</a>
+<a href='/tag/change-ubuntu' class='tag-link-51' title='1 post is tagged with &ldquo;Change Ubuntu&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>Change Ubuntu</a>
+<a href='/tag/check-run' class='tag-link-91' title='1 post is tagged with &ldquo;Check Run&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>Check Run</a>
+<a href='/tag/ppm' class='tag-link-166' title='1 post is tagged with &ldquo;PPM&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>PPM</a>
+<a href='/tag/api' class='tag-link-25' title='1 post is tagged with &ldquo;API&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>API</a>
+<a href='/tag/hsts' class='tag-link-203' title='1 post is tagged with &ldquo;HSTS&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>HSTS</a>
+<a href='/tag/deb' class='tag-link-105' title='1 post is tagged with &ldquo;DEB&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>DEB</a>
+<a href='/tag/ico' class='tag-link-185' title='1 post is tagged with &ldquo;ICO&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>ICO</a>
+<a href='/tag/open' class='tag-link-146' title='1 post is tagged with &ldquo;OPEN&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>OPEN</a>
+<a href='/tag/pgm' class='tag-link-167' title='1 post is tagged with &ldquo;PGM&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>PGM</a>
+<a href='/tag/cpuid' class='tag-link-241' title='1 post is tagged with &ldquo;CPUID&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>CPUID</a>
+<a href='/tag/xrandr' class='tag-link-48' title='1 post is tagged with &ldquo;XRANDR&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>XRANDR</a>
+<a href='/tag/sync' class='tag-link-233' title='1 post is tagged with &ldquo;SYNC&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>SYNC</a>
+<a href='/tag/rgb' class='tag-link-165' title='1 post is tagged with &ldquo;RGB&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>RGB</a>
+<a href='/tag/ecc' class='tag-link-229' title='1 post is tagged with &ldquo;ECC&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>ECC</a>
+<a href='/tag/ecx' class='tag-link-243' title='1 post is tagged with &ldquo;ECX&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>ECX</a>
+<a href='/tag/uid' class='tag-link-37' title='1 post is tagged with &ldquo;UID&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>UID</a>
+<a href='/tag/browser-go' class='tag-link-201' title='1 post is tagged with &ldquo;Browser Go&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>Browser Go</a>
+<a href='/tag/goos' class='tag-link-126' title='1 post is tagged with &ldquo;GOOS&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>GOOS</a>
+<a href='/tag/attentions' class='tag-link-75' title='1 post is tagged with &ldquo;ATTENTIONS&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>ATTENTIONS</a>
+<a href='/tag/ubuntu-debian' class='tag-link-162' title='1 post is tagged with &ldquo;Ubuntu Debian&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>Ubuntu Debian</a>
+<a href='/tag/ie' class='tag-link-180' title='2 posts are tagged with &ldquo;IE&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: gray;'>IE</a>
+<a href='/tag/sql' class='tag-link-232' title='1 post is tagged with &ldquo;SQL&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>SQL</a>
+<a href='/tag/ip' class='tag-link-90' title='4 posts are tagged with &ldquo;IP&rdquo;' rel="tag" style='font-size: 40px;  color: maroon;'>IP</a>
+<a href='/tag/domain-redirection' class='tag-link-168' title='1 post is tagged with &ldquo;Domain Redirection&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>Domain Redirection</a>
+<a href='/tag/google' class='tag-link-27' title='1 post is tagged with &ldquo;Google&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>Google</a>
+<a href='/tag/lan' class='tag-link-149' title='1 post is tagged with &ldquo;LAN&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>LAN</a>
+<a href='/tag/linux-unix' class='tag-link-79' title='1 post is tagged with &ldquo;Linux Unix&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>Linux Unix</a>
+<a href='/tag/ssh' class='tag-link-62' title='2 posts are tagged with &ldquo;SSH&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: fuchsia;'>SSH</a>
+<a href='/tag/open-internet-explorer' class='tag-link-152' title='1 post is tagged with &ldquo;Open Internet Explorer&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>Open Internet Explorer</a>
+<a href='/tag/nul' class='tag-link-85' title='1 post is tagged with &ldquo;NUL&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>NUL</a>
+<a href='/tag/download-raspbian' class='tag-link-59' title='1 post is tagged with &ldquo;Download Raspbian&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>Download Raspbian</a>
+<a href='/tag/recent' class='tag-link-36' title='1 post is tagged with &ldquo;RECENT&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>RECENT</a>
+<a href='/tag/tos' class='tag-link-121' title='1 post is tagged with &ldquo;TOS&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>TOS</a></div>
+</div>
+
+<div class="widget widget_text"><div class="title"><h2>Subsite</h2></div>			<div class="textwidget"><center>
+<img src="//fcsys.org/logo/fbab.png" style="box-shadow: 0 0px 0px rgba(0, 0, 0, 0);"><br>
+<p><font size="1" color="gray">This site is part of FC-System Computer Inc, Maintained by Norckon</font></p>
+</center></div>
+		</div></aside></section>
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="copyright pull-left">
+         Copyright © 2011-2017 FC-System Computer Inc All Rights Reserved.
+        </div>
+        <div class="trackcode pull-right">
+            <!--CNZZ-->
+<div style="display:none"><script src="https://s11.cnzz.com/stat.php?id=1254094017&web_id=1254094017" language="JavaScript"></script></div>
+
+<!--百度统计-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?8b03fbe181f1821cbcbb22c52a2336da";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!--GOOGLE统计-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-49020483-2', 'auto');
+  ga('send', 'pageview');
+</script>        </div>
+    </div>
+</footer>
+
+<script type='text/javascript' src='/wp-content/themes/yusi_cache1.0/js/jquery.js?ver=1.0'></script>
+<script type='text/javascript' src='/wp-includes/js/wp-embed.min.js?ver=4.9.1'></script>
+</body>
+</html>

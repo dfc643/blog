@@ -1,0 +1,733 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=10,IE=9,IE=8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title>Make Ubuntu as port redirect server for your routers &#8211; </title>
+<script>
+window._deel = {name: 'Norckon&#039;s blog',url: 'http://b.fcsys.org/wp-content/themes/yusi_cache1.0', ajaxpager: 'on', commenton: 1, roll: [3,4]}
+</script>
+<link rel='dns-prefetch' href='//cdn.bootcss.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/b.fcsys.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56794,8205,9794,65039],[55358,56794,8203,9794,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='style-css'  href='/wp-content/themes/yusi_cache1.0/style.css?ver=1.0' type='text/css' media='all' />
+<script type='text/javascript' src='//cdn.bootcss.com/jquery/1.8.3/jquery.min.js?ver=1.0'></script>
+<link rel='https://api.w.org/' href='/wp-json/' />
+<link rel='prev' title='Enable customization index page for nginx' href='/2015/07/enable-customization-index-page-for-nginx.html' />
+<link rel='next' title='Optimized queue script for MikroTik RouterOS' href='/2015/10/gaming-and-download-optimized-queue-script-for-mikrotik-routeros.html' />
+<link rel="canonical" href="/2015/10/make-ubuntu-as-port-redirect-server-for-your-routers.html" />
+<link rel='shortlink' href='/?p=1570' />
+<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2015%2F10%2Fmake-ubuntu-as-port-redirect-server-for-your-routers.html" />
+<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2015%2F10%2Fmake-ubuntu-as-port-redirect-server-for-your-routers.html&#038;format=xml" />
+<meta name="keywords" content="IP, Make Ubuntu, OPEN, Server">
+<meta name="description" content="INTRODUCE As we know, If your router behind a firewall or in ISP internal network, you can't access your router on internet. Fortunately, you can use a server with Public IP (such as VPS) to help you redirect router to I">
+<!--[if lt IE 9]><script src="http://b.fcsys.org/wp-content/themes/yusi_cache1.0/js/html5.js"></script><![endif]-->
+<!-- GOOGLE FONT -->
+<link href='//fonts.lug.ustc.edu.cn/css?family=Josefin+Sans|Cinzel+Decorative' rel='stylesheet' type='text/css'>
+</head>
+<body class="post-template-default single single-post postid-1570 single-format-standard">
+
+<header id="header" class="header">
+<div id="nav-header" class="navbar">
+    
+    <ul class="nav">
+        <li class="title">Norckon</li>
+        <li id="menu-item-1262" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1262"><a href="http://fcsys.org/">Top</a></li>
+<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1046"><a href="/category/software">Soft</a>
+<ul class="sub-menu">
+	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1064"><a href="/category/software">Software</a></li>
+	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1062"><a href="/category/software/os">OS</a></li>
+	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1049"><a href="/category/software/programming">Programming</a></li>
+</ul>
+</li>
+<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="/category/hardware">Hard</a></li>
+<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-1047"><a href="/category/network">Net</a>
+<ul class="sub-menu">
+	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-1063"><a href="/category/network">Network</a></li>
+	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1496"><a href="/category/network/server">Server</a></li>
+	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="/category/network/website">Web</a></li>
+</ul>
+</li>
+<li id="menu-item-1220" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1220"><a>Tool</a>
+<ul class="sub-menu">
+	<li id="menu-item-1221" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1221"><a href="http://ru.fcsys.org/wigle">WlanColle</a></li>
+	<li id="menu-item-1223" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1223"><a href="http://file.dfc643.tk/%E6%B8%B8%E6%88%8F%E5%8A%A8%E6%BC%AB/%E8%97%8D%E6%BE%A4%E5%85%89/xmas/default.htm">Hikaru</a></li>
+	<li id="menu-item-1225" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1225"><a href="https://apps.fcsys.org/com.fcsys.tieba.sign/">TiebaSign</a></li>
+	<li id="menu-item-1226" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1226"><a href="https://apps.fcsys.org/com.fcsys.3gqq.online/">QQ</a></li>
+</ul>
+</li>
+<li id="menu-item-1042" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1042"><a>Links</a>
+<ul class="sub-menu">
+	<li id="menu-item-1043" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1043"><a href="http://mos.moe/">MOS-MOE</a></li>
+	<li id="menu-item-1158" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1158"><a href="http://www.purpleroc.com/">Tracy梓朋</a></li>
+	<li id="menu-item-1838" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1838"><a href="http://ymsys.cn/">Yemao</a></li>
+	<li id="menu-item-1785" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1785"><a href="http://negim.me/">葱ちゃん</a></li>
+	<li id="menu-item-1219" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1219"><a href="https://xcroot.com/">CRoot</a></li>
+	<li id="menu-item-1246" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1246"><a href="http://blog.sina.com.cn/celeron533">celeron533</a></li>
+	<li id="menu-item-1150" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1150"><a href="http://www.aillen.org/">Chaos</a></li>
+	<li id="menu-item-1825" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1825"><a href="http://mybeibei.net/">Guge&#8217;s blog</a></li>
+	<li id="menu-item-1162" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1162"><a href="http://www.yjsys.tk/">寂写心灵之幽</a></li>
+	<li id="menu-item-1045" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1045"><a href="http://hanicc.com/">HoneyCC</a></li>
+	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="/add-link">+ Add Link</a></li>
+</ul>
+</li>
+<li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="/">Blog</a></li>
+<li style="float:right;">
+                <div class="toggle-search"><i class="fa fa-search"></i></div>
+<div class="search-expand" style="display: none;"><div class="search-expand-inner"><form method="get" class="searchform themeform" onsubmit="location.href='http://b.fcsys.org/?s=' + encodeURIComponent(this.s.value).replace(/%20/g, '+'); return false;" action="/"><div> <input type="ext" class="search" name="s" onblur="if(this.value=='')this.value='search...';" onfocus="if(this.value=='search...')this.value='';" value="search..."></div></form></div></div>
+</li>
+    </ul>
+</div>
+</div>
+
+<div class="container-inner" style="display:none">
+ <div class="yusi-logo">
+<a href="/">
+<h1>
+<span class="yusi-mono">Norckon&#039;s blog</span>
+<span class="yusi-bloger">Norckon&#039;s blog</span>
+</h1>
+</a>
+</div>
+</div>
+</header>
+
+
+
+
+<section class="container"><div class="speedbar">
+				<div class="toptip"><strong class="text-success"><i class="fa fa-volume-up"></i> </strong> </div>
+	</div>
+	<div class="content-wrap">
+	<div class="content">
+
+				<header class="article-header">
+			<h1 class="article-title"><a href="/2015/10/make-ubuntu-as-port-redirect-server-for-your-routers.html">Make Ubuntu as port redirect server for your routers</a></h1>
+			<div class="meta">
+				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="/category/network/server"> Server</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="/author/dfc643">Norckon</a></span>
+				<time class="muted"><i class="fa fa-clock-o"></i> 2015-09-30</time>
+				<span class="muted"><i class="fa fa-eye"></i> 989℃</span>
+				<span class="muted"><i class="fa fa-comments-o"></i> <a href="/2015/10/make-ubuntu-as-port-redirect-server-for-your-routers.html#respond">0评论</a></span>							</div>
+		</header>
+		<article class="article-content">
+			<p><a href="/wp-content/uploads/2015/10/Mikrotik-RB2011uas-2hnd-in-.jpg"><img class="attachment-full aligncenter" src="/wp-content/uploads/2015/10/Mikrotik-RB2011uas-2hnd-in-.jpg" alt="Mikrotik-RB2011uas-2hnd-in-" width="453" height="358" /></a></p>
+<h2>INTRODUCE</h2>
+<p>As we know, If your router behind a firewall or in ISP internal network, you can&#8217;t access your router on internet. Fortunately, you can use a server with Public IP (such as VPS) to help you redirect router to Internet through PPTP service.</p>
+<h2>ENVIRONMENT</h2>
+<table>
+<tbody>
+<tr>
+<td><strong>Side</strong></td>
+<td><strong>OS / Firmware</strong></td>
+<td><strong>Software</strong></td>
+</tr>
+<tr>
+<td>Server Side</td>
+<td>Ubuntu 14.04.1 64bit</td>
+<td>pptpd v1.3.4</td>
+</tr>
+<tr>
+<td>Client Side</td>
+<td>Tomato 1.28 Shibby Mod</td>
+<td>pppd 2.4.5</td>
+</tr>
+</tbody>
+</table>
+<p><strong><span style="color: #ff0000;">*NOTICE:</span></strong> <span style="color: #000000;"><em>Following steps are based on </em><strong>THIS</strong> <em>environment. Some OS or Firmware have some different.</em></span></p>
+<h2>SERVER SIDE PPTP SERVICE STEP</h2>
+<p><span style="color: #808080;"><em>Follow these steps, help you to build PPTP service.</em></span></p>
+<p><strong>1.</strong> Update your system software database, and then install package <strong>pptpd</strong>.</p>
+<pre>sudo apt-get update
+sudo apt-get install pptpd</pre>
+<p><strong>2.</strong> Edit pptpd configuration file, use editor to open file <code>sudo vi /etc/pptpd.conf</code>, modify the corresponding values.</p>
+<pre>option /etc/ppp/pptpd-options             # Specify pptpd options file path
+debug                                     # Enable debug mode if you want
+localip 192.168.0.1                       # Specify server side (gateway) IP
+remoteip 192.168.0.200-238,192.168.0.245  # Specify client side IP (DHCP enabled)</pre>
+<p><strong>3.</strong> Edit pptpd option file, use editor to open file <code>sudo vi /etc/ppp/pptpd-options</code>, modify the corresponding values.</p>
+<pre>name pptpd                    # Service Name
+refuse-pap                    # Refuse PAP authentication mode
+refuse-chap                   # Refuse CHAP authentication mode
+refuse-mschap                 # Refuse MS-CHAP v1 authentication mode
+#require-mschap-v2            # Require MS-CHAP v2 authentication mode
+#require-mppe-128             # Require MPPE-128 encryption mode
++chap                         # Using CHAP as encryption mode
+
+#Notice: Some router firmware not support MSCHAP-V2 and MPPE-128, So I disabled it,
+#        I used CHAP to replace it. If you make sure know your router support it ,
+#        delete character "#" before the line, and delete "+chap" to enable mschap
+#        v2 and mppe-128 mode.
+ms-dns 8.8.8.8                # Set primary DNS server
+ms-dns 8.8.4.4                # Set secondary DNS server
+proxyarp                      # Enable proxy arp mode
+debug                         # Enable debug mode if you want
+dump                          # Print completely information at startup
+lock                          # Lock tty devices
+nobsdcomp                     # Disable BSD compression mode
+logfile /var/log/pptpd.log    # Logging to file</pre>
+<p><strong>4.</strong> Add users to pptpd service, use editor to open file <code>sudo vi /etc/ppp/chap-secrets</code>, add user in new line.</p>
+<pre># Secrets for authentication using CHAP
+# client        server  secret                  IP addresses
+user1           pptpd   user1_password          192.168.0.100
+user2           pptpd   user2_password          192.168.0.200
+user3           pptpd   user3_password          *</pre>
+<p>Description for every columns:</p>
+<table>
+<tbody>
+<tr>
+<td><strong>Column</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr>
+<td>First</td>
+<td>User&#8217;s username</td>
+</tr>
+<tr>
+<td>Second</td>
+<td>Service type, here should be &#8220;pptpd&#8221;</td>
+</tr>
+<tr>
+<td>Thrid</td>
+<td>User&#8217;s password</td>
+</tr>
+<tr>
+<td>Fourth</td>
+<td><span style="color: #999999;">&lt;</span><strong>IP</strong><span style="color: #999999;">&gt;</span>: Specifies IP addresses for users</p>
+<p><span style="color: #999999;">&lt;</span><strong>*</strong><span style="color: #999999;">&gt;</span>: <span id="result_box" class="short_text" lang="en"><span class="hps">Assign</span> <span class="hps">IP</span> address <span class="hps">via</span> <span class="hps">DHCP</span></span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>5.</strong> Limit every account only one user. use command <code>touch /etc/ppp/auth-up</code> create file <strong>auth-up</strong>, then use command <code>chmod a+x /etc/ppp/auth-up</code> change file <strong>auth-up</strong> permissions, then use editor open file <code>sudo vi /etc/ppp/auth-up</code>, add following code.</p>
+<pre>#!/bin/sh
+# get the username/ppp line number from the parameters
+  REALDEVICE=$1
+  USER=$2
+# create the directory to keep pid files per user
+  mkdir -p /var/run/pptpd-users
+# if there is a session already for this user, terminate the old one
+  if [ -f /var/run/pptpd-users/$USER ]; then
+    kill -HUP `cat /var/run/pptpd-users/$USER`
+  fi
+# copy the pid file of current user to /var/run/pptpd-users
+  cp "/var/run/$REALDEVICE.pid" /var/run/pptpd-users/$USER</pre>
+<p><strong>6.</strong> Restart pptpd service by command <code>sudo service pptpd restart</code>.</p>
+<h2>CLIENT SIDE CONFIGURATION STEP</h2>
+<p><em><span style="color: #808080;">Following steps are based on Tomato firmware, others may have different.</span></em></p>
+<p><strong>1.</strong> Login your router administration page and find PPTP (or VPN) settings.</p>
+<p><strong>2.</strong> Put following values to your router VPN settings.</p>
+<table>
+<tbody>
+<tr>
+<td><strong>Parameter</strong></td>
+<td><strong>Value</strong></td>
+</tr>
+<tr>
+<td>Server Address</td>
+<td>Your pptp server&#8217;s public IP address, <strong>e.g.</strong> 220.111.252.172</td>
+</tr>
+<tr>
+<td>Server Port</td>
+<td>default: 1723, <span style="color: #808080;"><em>If you modified please fill it.</em></span></td>
+</tr>
+<tr>
+<td>Username</td>
+<td>User&#8217;s username <span style="color: #808080;"><em>saved in /etc/ppp/chap-secrets</em></span></td>
+</tr>
+<tr>
+<td>Password</td>
+<td>User&#8217;s <em>password </em><span style="color: #808080;"><em>saved in /etc/ppp/chap-secrets</em></span></td>
+</tr>
+<tr>
+<td>Encrypt (MPPE)</td>
+<td>None,<span style="color: #808080;"><em> If you enabled mschapv2 or mppe, please select</em></span></td>
+</tr>
+<tr>
+<td>Remote Network</td>
+<td>192.168.0.0 / 255.255.255.0</td>
+</tr>
+<tr>
+<td>NAT Mode</td>
+<td>None / Disabled</td>
+</tr>
+</tbody>
+</table>
+<p><strong>3.</strong> Please check router web interface port is open from <em>Server side</em>.  If <strong>OPEN</strong> skip next steps, If <strong>NOT</strong> please continue.</p>
+<p><strong>4.</strong> Some router not bind web interface to VPN interface, we can&#8217;t access web interface through VPN. If you are using Tomato firmware please do following steps, If others please contact your router manufacturer.</p>
+<ul>
+<li>Format and enable your tomato JFFS function.</li>
+<li>Create file <code>/jffs/redirect-http.sh</code> and give executable  permission.</li>
+<li>Set schedule task per minute for <code>/jffs/redirect-http.sh</code>.</li>
+</ul>
+<p><strong>FILE /jffs/redirect-http.sh</strong></p>
+<pre>#!/bin/sh 
+export PATH=/bin:/usr/bin:/sbin:/usr/sbin:/home/root:/mmc/sbin:/mmc/bin:/mmc/usr/sbin:/mmc/usr/bin:/opt/sbin:/opt/bin:/opt/usr/sbin:/opt/usr/bin: 
+export ISEXIST=$(iptables -t nat -L|grep -c "tcp dpt:`nvram get http_lanport` to:`nvram get lan_ipaddr`:`nvram get http_lanport`") 
+ 
+if [ $ISEXIST -lt 1 ] ; then 
+    iptables -tnat -APREROUTING -p tcp --dport `nvram get http_lanport` -j DNAT --to-destination `nvram get lan_ipaddr`:`nvram get http_lanport` 
+fi 
+ 
+exit</pre>
+<p><strong>5.</strong> Some router can&#8217;t keep VPN connection, If VPN interface have no traffic, VPN connection break. Create new schedule task <strong>per minute </strong>for command <code>/jffs/pptpd-ipt.sh</code> to solve issue.</p>
+<p><strong>FILE /jffs/pptpd-ipt.sh</strong></p>
+<pre>#!/bin/sh
+export PATH=/bin:/usr/bin:/sbin:/usr/sbin:/home/root:/mmc/sbin:/mmc/bin:/mmc/usr/sbin:/mmc/usr/bin:/opt/sbin:/opt/bin:/opt/usr/sbin:/opt/usr/bin:
+export IS_IN_EXIST=$(iptables -L INPUT -v|grep -c "ACCEPT     all  --  ppp1   any     anywhere             anywhere")
+export IS_OUT_EXIST=$(iptables -L OUTPUT -v|grep -c "ACCEPT     all  --  any    ppp1    anywhere             anywhere")
+
+if [ $IS_IN_EXIST -lt 1 ] ; then
+    iptables -I INPUT 1 -i ppp1 -j ACCEPT
+fi
+
+if [ $IS_OUT_EXIST -lt 1 ] ; then
+    iptables -I OUTPUT 1 -o ppp1 -j ACCEPT
+fi
+
+exit</pre>
+<p><strong>6.</strong> Reboot your router and wait for 2 minutes, Let your router connect to pptp server.</p>
+<h2>SERVER SIDE PORT REDIRECT STEP</h2>
+<p><span style="color: #808080;"><em>Through the previous steps, you can access your router in server terminal or browser through VPN IP address. But can&#8217;t access on Internet. Following steps help you to redirect port to Internet.</em></span></p>
+<p><strong>1.</strong> Install rinetd port mapping tool by command <code>sudo apt-get install rinted</code>.</p>
+<p><strong>2.</strong> Edit rinetd options, use editor to open file <code>sudo vi /etc/rinetd.conf</code>, add forwarding rule.</p>
+<pre>  ... ... ...
+# bindadress    bindport  connectaddress  connectport
+  0.0.0.0       8081      192.168.0.100   80
+  0.0.0.0       8082      192.168.0.200   80
+  0.0.0.0       8083      192.168.0.300   80
+  ... ... ...</pre>
+<table>
+<tbody>
+<tr>
+<td><strong>Column</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr>
+<td>bindadress</td>
+<td>default: 0.0.0.0 <span style="color: #808080;">means open for any interface</span></td>
+</tr>
+<tr>
+<td>bindport</td>
+<td>Port you want redirect to.</td>
+</tr>
+<tr>
+<td>connectaddress</td>
+<td>Router&#8217;s VPN client IP address.</td>
+</tr>
+<tr>
+<td>connectport</td>
+<td>Router&#8217;s web interface port.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>3.</strong> Restart rinetd service by command <code>sudo service rinetd restart</code> to take effect.</p>
+<p>Now you can using your pptp server&#8217;s public IP address to access your internal network routers.</p>
+<h2>REFERENCE</h2>
+<ul>
+<li><a href="http://blog.fens.me/ubuntu-vpn-pptp/">在Ubuntu上安装PPTP VPN服务</a></li>
+<li><a href="http://www.ttlsa.com/linux/pptpd-vpn-can-not-online/">pptpd vpn手动分配IP部分用户无法上网</a></li>
+<li><a href="http://www.dreamflier.net/blog/user1/3/2225.html">ubuntu下的端口映射程序与配置方法</a></li>
+<li><a href="http://www.linksysinfo.org/index.php?threads/solved-making-httpd-listen-on-the-vpn-tun-interface.69457/">Making httpd listen on the VPN (tun) interface</a></li>
+</ul>
+<h2>AUTHOR</h2>
+<p>Pekaikon Norckon<br />
+2015-10-01 (Thu)</p>
+
+
+      
+<div class="article-social">
+			<a href="javascript:;" data-action="ding" data-id="1570" id="Addlike" class="action"><i class="fa fa-heart-o"></i>喜欢 (<span class="count">0</span>)</a>	
+</div>
+	</article>	
+				<footer class="article-footer">
+			<div class="article-tags"><i class="fa fa-tags"></i><a href="/tag/ip" rel="tag">IP</a><a href="/tag/make-ubuntu" rel="tag">Make Ubuntu</a><a href="/tag/open" rel="tag">OPEN</a></div></footer>
+	<nav class="article-nav">
+			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="/2015/07/enable-customization-index-page-for-nginx.html" rel="prev">Enable customization index page for nginx</a></span>
+			<span class="article-nav-next"><a href="/2015/10/gaming-and-download-optimized-queue-script-for-mikrotik-routeros.html" rel="next">Optimized queue script for MikroTik RouterOS</a>  <i class="fa fa-angle-double-right"></i></span>
+		</nav>
+
+		<div class="related_top">
+			<div class="related_posts"><ul class="related_img">
+
+		<li class="related_box"  >
+		<a href="/2016/06/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04.html" title="How To Protect SSH with Fail2Ban on Ubuntu 14.04" target="_blank">
+<img src="/wp-content/uploads/2016/06/1466917166-7151-Login-Attack-in-Juniper-SRX.png" alt="How To Protect SSH with Fail2Ban on Ubuntu 14.04" />	<br><span class="r_title">How To Protect SSH with Fail2Ban on Ubuntu 14.04</span></a>
+		</li>
+	
+		<li class="related_box"  >
+		<a href="/2015/01/raspberry-pi-installing-the-freenx-client-and-server.html" title="Raspberry Pi &#8211; Installing the FreeNX client and server" target="_blank">
+<img src="/wp-content/uploads/2015/01/NX_Settings.jpg" alt="Raspberry Pi &#8211; Installing the FreeNX client and server" />	<br><span class="r_title">Raspberry Pi &#8211; Installing the FreeNX client and server</span></a>
+		</li>
+	
+		<li class="related_box"  >
+		<a href="/2014/02/%E5%85%B3%E4%BA%8E%E7%94%B5%E4%BF%A1%E8%81%94%E9%80%9A%E7%AD%89%E4%B8%80%E7%BA%BFisp%E5%88%86%E9%85%8D%E7%A7%81%E7%BD%91ip%E5%9C%B0%E5%9D%80.html" title="关于电信联通等一线ISP分配私网IP地址" target="_blank">
+<img src="/wp-content/uploads/2014/02/1460170358-2726-china-telecom.jpg" alt="关于电信联通等一线ISP分配私网IP地址" />	<br><span class="r_title">关于电信联通等一线ISP分配私网IP地址</span></a>
+		</li>
+	
+	<li class="related_box"  >
+		<a href="/2017/01/use-redis-queuing-laravel-5.html" title="How To Use Redis For Queuing In Laravel 5" target="_blank">
+		<img src="/wp-content/uploads/2017/01/laravel1-1.jpg" alt="How To Use Redis For Queuing In Laravel 5" /><br><span class="r_title">How To Use Redis For Queuing In Laravel 5</span></a>
+		</li>
+	</ul>
+
+<div class="relates">
+<ul>
+<li><i class="fa fa-minus"></i><a href="/2016/06/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04.html">How To Protect SSH with Fail2Ban on Ubuntu 14.04</a></li><li><i class="fa fa-minus"></i><a href="/2015/01/raspberry-pi-installing-the-freenx-client-and-server.html">Raspberry Pi &#8211; Installing the FreeNX client and server</a></li><li><i class="fa fa-minus"></i><a href="/2014/02/%E5%85%B3%E4%BA%8E%E7%94%B5%E4%BF%A1%E8%81%94%E9%80%9A%E7%AD%89%E4%B8%80%E7%BA%BFisp%E5%88%86%E9%85%8D%E7%A7%81%E7%BD%91ip%E5%9C%B0%E5%9D%80.html">关于电信联通等一线ISP分配私网IP地址</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2017/01/use-redis-queuing-laravel-5.html">How To Use Redis For Queuing In Laravel 5</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2017/01/enable-ecc-rsa-nginx.html">Enable both ECC and RSA on nginx</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2016/10/upgrade-ubuntu-16-04-lts.html">How To Upgrade to Ubuntu 16.04 LTS</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2016/10/openshift-bind-multiple-domains.html">OpenShift bind multiple domains</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2016/10/openshift-environment-variables.html">OpenShift Environment Variables</a></li>
+</ul></div></div>		</div>
+						<div id="respond" class="no_webshot">
+		<form action="/wp-comments-post.php" method="post" id="commentform">
+		
+		<div class="comt-title">
+			<div class="comt-avatar pull-left">
+				<img src="https://secure.gravatar.com/avatar/?s=108" class="avatar avatar-108" height="108" width="108">			</div>
+			<div class="comt-author pull-left">
+			COMMENT			</div>
+			<a id="cancel-comment-reply-link" class="pull-right" href="javascript:;">Cancel Comment</a>
+		</div>
+		
+		<div class="comt">
+			<div class="comt-box">
+				<textarea placeholder="What do you want to say ..." class="input-block-level comt-area" name="comment" id="comment" cols="100%" rows="3" tabindex="1" onkeydown="if(event.ctrlKey&amp;&amp;event.keyCode==13){document.getElementById('submit').click();return false};"></textarea>
+				<div class="comt-ctrl">
+					<button class="btn btn-primary pull-right" type="submit" name="submit" id="submit" tabindex="5"><i class="fa fa-check-square-o"></i> POST</button>
+					<div class="comt-tips pull-right"><input type='hidden' name='comment_post_ID' value='1570' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</div>
+					<span data-type="comment-insert-smilie" class="muted comt-smilie"><i class="fa fa-smile-o"></i> EMOJI</span>
+					<span class="muted comt-mailme"><label for="comment_mail_notify" class="checkbox inline" style="padding-top:0"><input type="checkbox" name="comment_mail_notify" id="comment_mail_notify" value="comment_mail_notify" checked="checked"/>有人回复时邮件通知我</label></span>
+				</div>
+			</div>
+
+												<div class="comt-comterinfo" id="comment-author-info" >
+						<h4>Hi, We need some information</h4>
+						<ul>
+							<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" type="text" name="author" id="author" value="" tabindex="2" placeholder="Nickname"><span class="help-inline">Nickname (*)</span></li>
+							<li class="form-inline"><label class="hide" for="email">E-Mail</label><input class="ipt" type="text" name="email" id="email" value="" tabindex="3" placeholder="E-Mail Address"><span class="help-inline">E-Mail (*)</span></li>
+							<li class="form-inline"><label class="hide" for="url">Website</label><input class="ipt" type="text" name="url" id="url" value="" tabindex="4" placeholder="Website (Optional)"><span class="help-inline">Website</span></li>
+						</ul>
+					</div>
+									</div>
+
+		
+	</form>
+	</div>
+			</div>
+</div>
+<aside class="sidebar">	
+<div class="widget widget_text"><div class="textwidget text-social"><div class="social">
+
+<a href="http://weibo.com/dfc643" rel="external nofollow" title="Weibo" target="_blank"><i class="sinaweibo fa fa-weibo"></i></a><a  href="http://t.qq.com/dfc643" rel="external nofollow" title="t.qq.com" target="_blank"><i class="tencentweibo fa fa-tencent-weibo"></i></a><a href="https://twitter.com/dfc643" rel="external nofollow" title="Twitter" target="_blank"><i class="twitter fa fa-twitter"></i></a><a href="https://www.facebook.com/Norckon" rel="external nofollow" title="Facebook" target="_blank"><i class="facebook fa fa-facebook"></i></a><a href="http://mail.fcsys.org/" rel="external nofollow" title="Email" target="_blank"><i class="email fa fa-envelope-o"></i></a><a href="/?feed=rss2" rel="external nofollow" target="_blank"  title="RSS Feed"><i class="rss fa fa-rss"></i></a>
+</div></div></div>
+
+<div class="widget widget_text"><div class="title"><h2>Staticized</h2></div>			<div class="textwidget"><p><strong>WARNING</strong>: This blog has been <strong>Staticized</strong>. All comment, like or other function will not working.</p>
+</div>
+		</div><div class="widget widget_calendar"><div class="title"><h2>Calendar</h2></div><div id="calendar_wrap" class="calendar_wrap"><table id="wp-calendar">
+	<caption>October 2015</caption>
+	<thead>
+	<tr>
+		<th scope="col" title="Monday">M</th>
+		<th scope="col" title="Tuesday">T</th>
+		<th scope="col" title="Wednesday">W</th>
+		<th scope="col" title="Thursday">T</th>
+		<th scope="col" title="Friday">F</th>
+		<th scope="col" title="Saturday">S</th>
+		<th scope="col" title="Sunday">S</th>
+	</tr>
+	</thead>
+
+	<tfoot>
+	<tr>
+		<td colspan="3" id="prev"><a href="/2015/07">&laquo; Jul</a></td>
+		<td class="pad">&nbsp;</td>
+		<td colspan="3" id="next"><a href="/2015/11">Nov &raquo;</a></td>
+	</tr>
+	</tfoot>
+
+	<tbody>
+	<tr>
+		<td colspan="3" class="pad">&nbsp;</td><td><a href="/2015/10/01" aria-label="Posts published on October 1, 2015">1</a></td><td>2</td><td>3</td><td>4</td>
+	</tr>
+	<tr>
+		<td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td>
+	</tr>
+	<tr>
+		<td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td><a href="/2015/10/18" aria-label="Posts published on October 18, 2015">18</a></td>
+	</tr>
+	<tr>
+		<td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td>
+	</tr>
+	<tr>
+		<td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td>
+		<td class="pad" colspan="1">&nbsp;</td>
+	</tr>
+	</tbody>
+	</table></div></div><div class="widget widget_categories"><div class="title"><h2>Categories</h2></div>		<ul>
+	<li class="cat-item cat-item-10"><a href="/category/hardware" >Hardware</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/network" >Network</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/software/os" >Operating System</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/software/programming" >Programming</a>
+</li>
+	<li class="cat-item cat-item-106"><a href="/category/network/server" >Server</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/software" >Software</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/uncategorized" >Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="/category/network/website" >Website</a>
+</li>
+		</ul>
+</div><div class="widget widget_archive"><div class="title"><h2>Archives</h2></div>		<ul>
+			<li><a href='/2017/06'>June 2017</a></li>
+	<li><a href='/2017/01'>January 2017</a></li>
+	<li><a href='/2016/10'>October 2016</a></li>
+	<li><a href='/2016/06'>June 2016</a></li>
+	<li><a href='/2016/05'>May 2016</a></li>
+	<li><a href='/2015/11'>November 2015</a></li>
+	<li><a href='/2015/10'>October 2015</a></li>
+	<li><a href='/2015/07'>July 2015</a></li>
+	<li><a href='/2015/05'>May 2015</a></li>
+	<li><a href='/2015/04'>April 2015</a></li>
+	<li><a href='/2015/01'>January 2015</a></li>
+	<li><a href='/2014/12'>December 2014</a></li>
+	<li><a href='/2014/11'>November 2014</a></li>
+	<li><a href='/2014/10'>October 2014</a></li>
+	<li><a href='/2014/09'>September 2014</a></li>
+	<li><a href='/2014/08'>August 2014</a></li>
+	<li><a href='/2014/07'>July 2014</a></li>
+	<li><a href='/2014/06'>June 2014</a></li>
+	<li><a href='/2014/05'>May 2014</a></li>
+	<li><a href='/2014/04'>April 2014</a></li>
+	<li><a href='/2014/03'>March 2014</a></li>
+	<li><a href='/2014/02'>February 2014</a></li>
+	<li><a href='/2014/01'>January 2014</a></li>
+	<li><a href='/2013/12'>December 2013</a></li>
+	<li><a href='/2013/11'>November 2013</a></li>
+	<li><a href='/2013/10'>October 2013</a></li>
+	<li><a href='/2013/09'>September 2013</a></li>
+	<li><a href='/2013/08'>August 2013</a></li>
+	<li><a href='/2013/07'>July 2013</a></li>
+	<li><a href='/2013/06'>June 2013</a></li>
+	<li><a href='/2013/05'>May 2013</a></li>
+	<li><a href='/2013/03'>March 2013</a></li>
+	<li><a href='/2013/02'>February 2013</a></li>
+	<li><a href='/2012/07'>July 2012</a></li>
+	<li><a href='/1994/12'>December 1994</a></li>
+		</ul>
+		</div><div class="widget ilwp_widget_tag_cloud"><div class="title"><h2>Tag Cloud</h2></div><div class='colored-tag-cloud'><a href='/tag/reason' class='tag-link-113' title='1 post is tagged with &ldquo;REASON&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>REASON</a>
+<a href='/tag/installation' class='tag-link-100' title='1 post is tagged with &ldquo;INSTALLATION&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>INSTALLATION</a>
+<a href='/tag/macbook' class='tag-link-19' title='1 post is tagged with &ldquo;Macbook&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>Macbook</a>
+<a href='/tag/notes-every' class='tag-link-198' title='1 post is tagged with &ldquo;Notes Every&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>Notes Every</a>
+<a href='/tag/tts' class='tag-link-26' title='1 post is tagged with &ldquo;TTS&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>TTS</a>
+<a href='/tag/username-pictures' class='tag-link-53' title='1 post is tagged with &ldquo;Username Pictures&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>Username Pictures</a>
+<a href='/tag/ssh' class='tag-link-62' title='2 posts are tagged with &ldquo;SSH&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: teal;'>SSH</a>
+<a href='/tag/translate' class='tag-link-224' title='1 post is tagged with &ldquo;TRANSLATE&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>TRANSLATE</a>
+<a href='/tag/example' class='tag-link-50' title='1 post is tagged with &ldquo;EXAMPLE&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>EXAMPLE</a>
+<a href='/tag/run' class='tag-link-42' title='1 post is tagged with &ldquo;RUN&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>RUN</a>
+<a href='/tag/redirect-top-domain' class='tag-link-223' title='1 post is tagged with &ldquo;Redirect Top-domain&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>Redirect Top-domain</a>
+<a href='/tag/raspberry-pi' class='tag-link-56' title='1 post is tagged with &ldquo;Raspberry Pi&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>Raspberry Pi</a>
+<a href='/tag/service-settings' class='tag-link-212' title='1 post is tagged with &ldquo;Service Settings&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Service Settings</a>
+<a href='/tag/donwload' class='tag-link-194' title='1 post is tagged with &ldquo;DONWLOAD&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>DONWLOAD</a>
+<a href='/tag/free-build-environment' class='tag-link-236' title='1 post is tagged with &ldquo;Free Build Environment&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>Free Build Environment</a>
+<a href='/tag/php' class='tag-link-130' title='2 posts are tagged with &ldquo;PHP&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: black;'>PHP</a>
+<a href='/tag/goos' class='tag-link-126' title='1 post is tagged with &ldquo;GOOS&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>GOOS</a>
+<a href='/tag/inbox' class='tag-link-38' title='1 post is tagged with &ldquo;INBOX&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>INBOX</a>
+<a href='/tag/make-ubuntu' class='tag-link-145' title='1 post is tagged with &ldquo;Make Ubuntu&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>Make Ubuntu</a>
+<a href='/tag/%e5%ae%89%e8%a3%85' class='tag-link-20' title='1 post is tagged with &ldquo;安装&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>安装</a>
+<a href='/tag/tell-git' class='tag-link-206' title='1 post is tagged with &ldquo;Tell Git&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>Tell Git</a>
+<a href='/tag/ssl' class='tag-link-127' title='2 posts are tagged with &ldquo;SSL&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: gray;'>SSL</a>
+<a href='/tag/windows-server' class='tag-link-103' title='1 post is tagged with &ldquo;Windows Server&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>Windows Server</a>
+<a href='/tag/pc' class='tag-link-87' title='2 posts are tagged with &ldquo;PC&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: lime;'>PC</a>
+<a href='/tag/nul' class='tag-link-85' title='1 post is tagged with &ldquo;NUL&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>NUL</a>
+<a href='/tag/attentions' class='tag-link-75' title='1 post is tagged with &ldquo;ATTENTIONS&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>ATTENTIONS</a>
+<a href='/tag/install-tengine' class='tag-link-187' title='1 post is tagged with &ldquo;Install Tengine&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>Install Tengine</a>
+<a href='/tag/killing-xvnc4' class='tag-link-128' title='1 post is tagged with &ldquo;Killing Xvnc4&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Killing Xvnc4</a>
+<a href='/tag/lan' class='tag-link-149' title='1 post is tagged with &ldquo;LAN&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>LAN</a>
+<a href='/tag/reboot-raspberry' class='tag-link-72' title='1 post is tagged with &ldquo;Reboot Raspberry&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>Reboot Raspberry</a>
+<a href='/tag/xrandr' class='tag-link-48' title='1 post is tagged with &ldquo;XRANDR&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>XRANDR</a>
+<a href='/tag/ubuntu-unity' class='tag-link-43' title='1 post is tagged with &ldquo;Ubuntu Unity&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>Ubuntu Unity</a>
+<a href='/tag/reply-nothing' class='tag-link-214' title='1 post is tagged with &ldquo;Reply Nothing&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>Reply Nothing</a>
+<a href='/tag/http' class='tag-link-137' title='2 posts are tagged with &ldquo;HTTP&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: silver;'>HTTP</a>
+<a href='/tag/elementary-tweak' class='tag-link-44' title='1 post is tagged with &ldquo;Elementary Tweak&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>Elementary Tweak</a>
+<a href='/tag/raspberry-control' class='tag-link-69' title='1 post is tagged with &ldquo;Raspberry Control&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>Raspberry Control</a>
+<a href='/tag/step' class='tag-link-125' title='1 post is tagged with &ldquo;STEP&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>STEP</a>
+<a href='/tag/cpuid' class='tag-link-241' title='1 post is tagged with &ldquo;CPUID&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>CPUID</a>
+<a href='/tag/install-gitolite' class='tag-link-192' title='1 post is tagged with &ldquo;Install Gitolite&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>Install Gitolite</a>
+<a href='/tag/allow-user' class='tag-link-205' title='1 post is tagged with &ldquo;Allow User&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>Allow User</a>
+<a href='/tag/udp' class='tag-link-216' title='1 post is tagged with &ldquo;UDP&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>UDP</a>
+<a href='/tag/json' class='tag-link-219' title='1 post is tagged with &ldquo;JSON&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>JSON</a>
+<a href='/tag/modify-tengine' class='tag-link-186' title='1 post is tagged with &ldquo;Modify Tengine&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Modify Tengine</a>
+<a href='/tag/sd' class='tag-link-58' title='1 post is tagged with &ldquo;SD&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>SD</a>
+<a href='/tag/environment' class='tag-link-147' title='1 post is tagged with &ldquo;ENVIRONMENT&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>ENVIRONMENT</a>
+<a href='/tag/windows' class='tag-link-21' title='3 posts are tagged with &ldquo;Windows&rdquo;' rel="tag" style='font-size: 29.333333333333px;  color: maroon;'>Windows</a>
+<a href='/tag/tcp' class='tag-link-136' title='1 post is tagged with &ldquo;TCP&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>TCP</a>
+<a href='/tag/username-screenshots' class='tag-link-52' title='1 post is tagged with &ldquo;Username Screenshots&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>Username Screenshots</a>
+<a href='/tag/zeroconf' class='tag-link-98' title='1 post is tagged with &ldquo;ZEROCONF&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>ZEROCONF</a>
+<a href='/tag/sta' class='tag-link-174' title='1 post is tagged with &ldquo;STA&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>STA</a>
+<a href='/tag/footer-example' class='tag-link-141' title='1 post is tagged with &ldquo;Footer Example&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>Footer Example</a>
+<a href='/tag/ess' class='tag-link-178' title='1 post is tagged with &ldquo;ESS&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>ESS</a>
+<a href='/tag/virtual-machine' class='tag-link-240' title='1 post is tagged with &ldquo;Virtual Machine&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>Virtual Machine</a>
+<a href='/tag/ajax-form-plugin' class='tag-link-221' title='1 post is tagged with &ldquo;Ajax Form Plugin&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>Ajax Form Plugin</a>
+<a href='/tag/wpad' class='tag-link-153' title='1 post is tagged with &ldquo;WPAD&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>WPAD</a>
+<a href='/tag/mic' class='tag-link-177' title='1 post is tagged with &ldquo;MIC&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>MIC</a>
+<a href='/tag/input' class='tag-link-213' title='1 post is tagged with &ldquo;INPUT&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>INPUT</a>
+<a href='/tag/tos' class='tag-link-121' title='1 post is tagged with &ldquo;TOS&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>TOS</a>
+<a href='/tag/dhcp' class='tag-link-77' title='1 post is tagged with &ldquo;DHCP&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>DHCP</a>
+<a href='/tag/icmp' class='tag-link-215' title='1 post is tagged with &ldquo;ICMP&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>ICMP</a>
+<a href='/tag/https' class='tag-link-170' title='2 posts are tagged with &ldquo;HTTPS&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: maroon;'>HTTPS</a>
+<a href='/tag/vps' class='tag-link-207' title='1 post is tagged with &ldquo;VPS&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>VPS</a>
+<a href='/tag/id' class='tag-link-67' title='3 posts are tagged with &ldquo;ID&rdquo;' rel="tag" style='font-size: 29.333333333333px;  color: lime;'>ID</a>
+<a href='/tag/ftp' class='tag-link-129' title='1 post is tagged with &ldquo;FTP&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>FTP</a>
+<a href='/tag/security-catalog' class='tag-link-237' title='1 post is tagged with &ldquo;Security Catalog&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>Security Catalog</a>
+<a href='/tag/time-zone-name' class='tag-link-41' title='1 post is tagged with &ldquo;Time Zone Name&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Time Zone Name</a>
+<a href='/tag/uid' class='tag-link-37' title='1 post is tagged with &ldquo;UID&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>UID</a>
+<a href='/tag/qq' class='tag-link-182' title='1 post is tagged with &ldquo;QQ&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>QQ</a>
+<a href='/tag/ascii' class='tag-link-164' title='1 post is tagged with &ldquo;ASCII&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>ASCII</a>
+<a href='/tag/wlan' class='tag-link-76' title='1 post is tagged with &ldquo;WLAN&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>WLAN</a>
+<a href='/tag/exact-match' class='tag-link-199' title='1 post is tagged with &ldquo;Exact Match&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Exact Match</a>
+<a href='/tag/configuration-example' class='tag-link-140' title='1 post is tagged with &ldquo;Configuration Example&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>Configuration Example</a>
+<a href='/tag/install-samba' class='tag-link-80' title='1 post is tagged with &ldquo;Install Samba&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>Install Samba</a>
+<a href='/tag/full-path' class='tag-link-200' title='1 post is tagged with &ldquo;Full Path&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>Full Path</a>
+<a href='/tag/enabled-checked' class='tag-link-40' title='1 post is tagged with &ldquo;Enabled Checked&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>Enabled Checked</a>
+<a href='/tag/ppm' class='tag-link-166' title='1 post is tagged with &ldquo;PPM&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>PPM</a>
+<a href='/tag/recent' class='tag-link-36' title='1 post is tagged with &ldquo;RECENT&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>RECENT</a>
+<a href='/tag/ecc' class='tag-link-229' title='1 post is tagged with &ldquo;ECC&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>ECC</a>
+<a href='/tag/kernel-configuration' class='tag-link-107' title='1 post is tagged with &ldquo;Kernel Configuration&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>Kernel Configuration</a>
+<a href='/tag/gtk' class='tag-link-45' title='1 post is tagged with &ldquo;GTK&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>GTK</a>
+<a href='/tag/allowednets' class='tag-link-97' title='1 post is tagged with &ldquo;ALLOWEDNETS&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>ALLOWEDNETS</a>
+<a href='/tag/title-raspberry-pi' class='tag-link-115' title='1 post is tagged with &ldquo;Title Raspberry Pi&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>Title Raspberry Pi</a>
+<a href='/tag/lts' class='tag-link-226' title='1 post is tagged with &ldquo;LTS&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>LTS</a>
+<a href='/tag/eax' class='tag-link-242' title='1 post is tagged with &ldquo;EAX&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>EAX</a>
+<a href='/tag/png' class='tag-link-184' title='1 post is tagged with &ldquo;PNG&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>PNG</a>
+<a href='/tag/ip' class='tag-link-90' title='4 posts are tagged with &ldquo;IP&rdquo;' rel="tag" style='font-size: 40px;  color: aqua;'>IP</a>
+<a href='/tag/internet-explorer' class='tag-link-156' title='1 post is tagged with &ldquo;Internet Explorer&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>Internet Explorer</a>
+<a href='/tag/apt' class='tag-link-54' title='1 post is tagged with &ldquo;APT&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>APT</a>
+<a href='/tag/uc' class='tag-link-183' title='1 post is tagged with &ldquo;UC&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>UC</a>
+<a href='/tag/rsa' class='tag-link-230' title='1 post is tagged with &ldquo;RSA&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>RSA</a>
+<a href='/tag/snmp' class='tag-link-114' title='1 post is tagged with &ldquo;SNMP&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>SNMP</a>
+<a href='/tag/gmt' class='tag-link-191' title='1 post is tagged with &ldquo;GMT&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>GMT</a>
+<a href='/tag/continue-details' class='tag-link-225' title='1 post is tagged with &ldquo;Continue Details&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Continue Details</a>
+<a href='/tag/cidr' class='tag-link-95' title='1 post is tagged with &ldquo;CIDR&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>CIDR</a>
+<a href='/tag/introcude' class='tag-link-89' title='1 post is tagged with &ldquo;INTROCUDE&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>INTROCUDE</a>
+<a href='/tag/url' class='tag-link-151' title='1 post is tagged with &ldquo;URL&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>URL</a>
+<a href='/tag/right-click-trusted-publishers' class='tag-link-235' title='1 post is tagged with &ldquo;Right-click Trusted Publishers&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>Right-click Trusted Publishers</a>
+<a href='/tag/bsd' class='tag-link-101' title='1 post is tagged with &ldquo;BSD&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>BSD</a>
+<a href='/tag/google' class='tag-link-27' title='1 post is tagged with &ldquo;Google&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>Google</a>
+<a href='/tag/hsts' class='tag-link-203' title='1 post is tagged with &ldquo;HSTS&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>HSTS</a>
+<a href='/tag/global-redirection' class='tag-link-169' title='1 post is tagged with &ldquo;Global Redirection&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>Global Redirection</a>
+<a href='/tag/ecx' class='tag-link-243' title='1 post is tagged with &ldquo;ECX&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>ECX</a>
+<a href='/tag/lirc' class='tag-link-71' title='1 post is tagged with &ldquo;LIRC&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>LIRC</a>
+<a href='/tag/domain-redirection' class='tag-link-168' title='1 post is tagged with &ldquo;Domain Redirection&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Domain Redirection</a>
+<a href='/tag/ieee' class='tag-link-173' title='1 post is tagged with &ldquo;IEEE&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>IEEE</a>
+<a href='/tag/workgroup' class='tag-link-81' title='1 post is tagged with &ldquo;WORKGROUP&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>WORKGROUP</a>
+<a href='/tag/rgb' class='tag-link-165' title='1 post is tagged with &ldquo;RGB&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>RGB</a>
+<a href='/tag/pgm' class='tag-link-167' title='1 post is tagged with &ldquo;PGM&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>PGM</a>
+<a href='/tag/ok' class='tag-link-154' title='2 posts are tagged with &ldquo;OK&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: silver;'>OK</a>
+<a href='/tag/ico' class='tag-link-185' title='1 post is tagged with &ldquo;ICO&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>ICO</a>
+<a href='/tag/linux-unix' class='tag-link-79' title='1 post is tagged with &ldquo;Linux Unix&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>Linux Unix</a>
+<a href='/tag/deb' class='tag-link-105' title='1 post is tagged with &ldquo;DEB&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>DEB</a>
+<a href='/tag/ie' class='tag-link-180' title='2 posts are tagged with &ldquo;IE&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: green;'>IE</a>
+<a href='/tag/sql' class='tag-link-232' title='1 post is tagged with &ldquo;SQL&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>SQL</a>
+<a href='/tag/ntp' class='tag-link-39' title='1 post is tagged with &ldquo;NTP&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>NTP</a>
+<a href='/tag/download-raspbian' class='tag-link-59' title='1 post is tagged with &ldquo;Download Raspbian&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>Download Raspbian</a>
+<a href='/tag/open-internet-explorer' class='tag-link-152' title='1 post is tagged with &ldquo;Open Internet Explorer&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>Open Internet Explorer</a>
+<a href='/tag/open' class='tag-link-146' title='1 post is tagged with &ldquo;OPEN&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>OPEN</a>
+<a href='/tag/src' class='tag-link-122' title='1 post is tagged with &ldquo;SRC&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>SRC</a>
+<a href='/tag/check-symbolic' class='tag-link-193' title='1 post is tagged with &ldquo;Check Symbolic&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>Check Symbolic</a>
+<a href='/tag/important' class='tag-link-65' title='1 post is tagged with &ldquo;IMPORTANT&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>IMPORTANT</a>
+<a href='/tag/api' class='tag-link-25' title='1 post is tagged with &ldquo;API&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>API</a>
+<a href='/tag/nginx-discuz' class='tag-link-138' title='1 post is tagged with &ldquo;Nginx Discuz&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>Nginx Discuz</a>
+<a href='/tag/env' class='tag-link-222' title='1 post is tagged with &ldquo;ENV&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>ENV</a>
+<a href='/tag/mon' class='tag-link-82' title='2 posts are tagged with &ldquo;MON&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: aqua;'>MON</a>
+<a href='/tag/sync' class='tag-link-233' title='1 post is tagged with &ldquo;SYNC&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>SYNC</a>
+<a href='/tag/ubuntu-debian' class='tag-link-162' title='1 post is tagged with &ldquo;Ubuntu Debian&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>Ubuntu Debian</a>
+<a href='/tag/root' class='tag-link-108' title='1 post is tagged with &ldquo;ROOT&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>ROOT</a>
+<a href='/tag/description-gaming' class='tag-link-148' title='1 post is tagged with &ldquo;Description Gaming&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>Description Gaming</a>
+<a href='/tag/date-fri' class='tag-link-190' title='1 post is tagged with &ldquo;Date Fri&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>Date Fri</a>
+<a href='/tag/kernel-version' class='tag-link-143' title='1 post is tagged with &ldquo;Kernel Version&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>Kernel Version</a>
+<a href='/tag/gpio' class='tag-link-68' title='2 posts are tagged with &ldquo;GPIO&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: green;'>GPIO</a>
+<a href='/tag/usb' class='tag-link-78' title='1 post is tagged with &ldquo;USB&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>USB</a>
+<a href='/tag/nginx' class='tag-link-202' title='1 post is tagged with &ldquo;NGINX&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>NGINX</a>
+<a href='/tag/xml' class='tag-link-220' title='1 post is tagged with &ldquo;XML&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>XML</a>
+<a href='/tag/cpu' class='tag-link-112' title='2 posts are tagged with &ldquo;CPU&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: fuchsia;'>CPU</a>
+<a href='/tag/hpkp' class='tag-link-228' title='1 post is tagged with &ldquo;HPKP&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>HPKP</a>
+<a href='/tag/hooks' class='tag-link-204' title='1 post is tagged with &ldquo;HOOKS&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>HOOKS</a>
+<a href='/tag/setup-dnsmasq' class='tag-link-99' title='1 post is tagged with &ldquo;Setup Dnsmasq&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>Setup Dnsmasq</a>
+<a href='/tag/certificate-transparency' class='tag-link-231' title='1 post is tagged with &ldquo;Certificate Transparency&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>Certificate Transparency</a>
+<a href='/tag/browser-go' class='tag-link-201' title='1 post is tagged with &ldquo;Browser Go&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>Browser Go</a>
+<a href='/tag/goarch' class='tag-link-124' title='1 post is tagged with &ldquo;GOARCH&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>GOARCH</a>
+<a href='/tag/preparing' class='tag-link-83' title='1 post is tagged with &ldquo;PREPARING&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>PREPARING</a>
+<a href='/tag/compile-tengine' class='tag-link-188' title='1 post is tagged with &ldquo;Compile Tengine&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Compile Tengine</a>
+<a href='/tag/imap' class='tag-link-34' title='1 post is tagged with &ldquo;IMAP&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>IMAP</a>
+<a href='/tag/dpt' class='tag-link-119' title='1 post is tagged with &ldquo;DPT&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>DPT</a>
+<a href='/tag/rss' class='tag-link-181' title='1 post is tagged with &ldquo;RSS&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>RSS</a>
+<a href='/tag/error' class='tag-link-195' title='1 post is tagged with &ldquo;ERROR&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>ERROR</a>
+<a href='/tag/check-run' class='tag-link-91' title='1 post is tagged with &ldquo;Check Run&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>Check Run</a>
+<a href='/tag/steps' class='tag-link-120' title='1 post is tagged with &ldquo;STEPS&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>STEPS</a>
+<a href='/tag/bcm' class='tag-link-74' title='1 post is tagged with &ldquo;BCM&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>BCM</a>
+<a href='/tag/raspberry-pis' class='tag-link-93' title='1 post is tagged with &ldquo;Raspberry Pis&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>Raspberry Pis</a>
+<a href='/tag/%e5%8a%a0%e8%bd%bd%e9%a9%b1%e5%8a%a8%e5%a4%b1%e8%b4%a5' class='tag-link-22' title='1 post is tagged with &ldquo;加载驱动失败&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>加载驱动失败</a>
+<a href='/tag/donot' class='tag-link-189' title='1 post is tagged with &ldquo;DONOT&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>DONOT</a>
+<a href='/tag/change-ubuntu' class='tag-link-51' title='1 post is tagged with &ldquo;Change Ubuntu&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>Change Ubuntu</a></div>
+</div>
+
+<div class="widget widget_text"><div class="title"><h2>Subsite</h2></div>			<div class="textwidget"><center>
+<img src="//fcsys.org/logo/fbab.png" style="box-shadow: 0 0px 0px rgba(0, 0, 0, 0);"><br>
+<p><font size="1" color="gray">This site is part of FC-System Computer Inc, Maintained by Norckon</font></p>
+</center></div>
+		</div></aside></section>
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="copyright pull-left">
+         Copyright © 2011-2017 FC-System Computer Inc All Rights Reserved.
+        </div>
+        <div class="trackcode pull-right">
+            <!--CNZZ-->
+<div style="display:none"><script src="https://s11.cnzz.com/stat.php?id=1254094017&web_id=1254094017" language="JavaScript"></script></div>
+
+<!--百度统计-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?8b03fbe181f1821cbcbb22c52a2336da";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!--GOOGLE统计-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-49020483-2', 'auto');
+  ga('send', 'pageview');
+</script>        </div>
+    </div>
+</footer>
+
+<script type='text/javascript' src='/wp-content/themes/yusi_cache1.0/js/jquery.js?ver=1.0'></script>
+<script type='text/javascript' src='/wp-includes/js/wp-embed.min.js?ver=4.9.1'></script>
+</body>
+</html>

@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Website &#8211; Norckon&#039;s blog</title>
+	<atom:link href="/category/network/website/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>Norckon&#039;s blog</description>
+	<lastBuildDate>Thu, 24 Aug 2017 14:09:08 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.1</generator>
+	<item>
+		<title>Understand the Favicon</title>
+		<link>/2016/05/understand-the-favicon.html</link>
+		<comments>/2016/05/understand-the-favicon.html#respond</comments>
+		<pubDate>Wed, 25 May 2016 06:41:11 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Website]]></category>
+		<category><![CDATA[ICO]]></category>
+		<category><![CDATA[IE]]></category>
+		<category><![CDATA[Internet Explorer]]></category>
+		<category><![CDATA[PNG]]></category>
+
+		<guid isPermaLink="false">/?p=1727</guid>
+		<description><![CDATA[When Alec Rust asked the HTML5 Boilerplate project to switch to a HiDPI favicon, I realized how little I knew about favorite icons, touch icons, and tile icons. When I decided to dive in a little deeper, things got interesting. Since they were first introduced by Internet Explorer in 1999, almost nothing about favicons has [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/05/1464158577-9837-02.jpg"><img class="attachment-full size-full aligncenter" src="/wp-content/uploads/2016/05/1464158577-9837-02.jpg" alt="1464158577-9837-02" width="600" height="450" /></a></p>
+<p>When <a title="Alec Rust" href="https://twitter.com/AlecRust" target="_blank">Alec Rust</a> asked the <a href="http://html5boilerplate.com/" target="_blank">HTML5 Boilerplate</a> project to <a href="https://github.com/h5bp/html5-boilerplate/issues/1285" target="_blank">switch to a HiDPI favicon</a>, I realized how little I knew about <a href="http://www.w3.org/2005/10/howto-favicon" target="_blank">favorite icons</a>, <a href="http://developer.apple.com/library/ios/#documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html" target="_blank">touch icons</a>, and <a href="http://blogs.msdn.com/b/ie/archive/2012/06/08/high-quality-visuals-for-pinned-sites-in-windows-8.aspx" target="_blank">tile icons</a>. When I decided to dive in a little deeper, things got interesting.</p>
+<p>Since they were first introduced by Internet Explorer in 1999, almost nothing about favicons has changed. They have almost-always been <a href="http://en.wikipedia.org/wiki/ICO_(file_format)" target="_blank">ICO files</a>, either nested in the root of the domain as <code>/favicon.ico</code>, or organized by a CMS into a theme or images directory and displayed with:</p>
+<div>
+<div id="highlighter_32994">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<div>
+<div>&lt;link rel=&#8221;shortcut icon&#8221; href=&#8221;/path/to/favicon.ico&#8221;&gt;</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="http://www.jonathantneal.com/wp-content/uploads/2013/01/favicon-16.png" alt="" /> <img src="http://www.jonathantneal.com/wp-content/uploads/2013/01/favicon-32.png" alt="" /></p>
+<p>The classic favicon.ico is a 16×16 ICO file, often served in either 16-color or 24bit alpha-transparency format. More recently, favicons have been served as 32×32, which is appropriately scaled down in all major and popular-legacy browsers. In IE10 Metro, the 32×32 icon is used in the address bar.</p>
+<p><a href="/wp-content/uploads/2016/05/1464158236-7001-ie10-address-bar.png"><img class="attachment-full size-full" src="/wp-content/uploads/2016/05/1464158236-7001-ie10-address-bar.png" alt="1464158236-7001-ie10-address-bar" width="450" height="69" /></a></p>
+<p>The <strong>rel</strong> attribute of a favicon is a product of evolution. Internet Explorer 5 intended<code>shortcut icon</code> to represent the relationship between the page and the icon, but when <a href="http://tools.ietf.org/html/rfc5988" target="_blank">the specification</a> separated relationships by space, this theoretically created two relationships,<code>shortcut</code> and <code>icon</code>. It wasn’t until 2010 when the HTML5 specification declared <code>icon</code>alone to be the standard identifier. In non-IE browsers, favicons can be served without the<code>shortcut</code> property.</p>
+<div>
+<div id="highlighter_142668">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<div>
+<div>&lt;!&#8211; IE6-10 &#8211;&gt;</div>
+<div>&lt;link rel=&#8221;shortcut icon&#8221; href=&#8221;path/to/favicon.ico&#8221;&gt;</div>
+<div></div>
+<div>&lt;!&#8211; Everybody else &#8211;&gt;</div>
+<div>&lt;link rel=&#8221;icon&#8221; href=&#8221;path/to/favicon.ico&#8221;&gt;</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The <strong>type</strong> attribute of a favicon is about as useful as <a href="http://www.w3.org/html/wg/drafts/html/master/scripting-1.html#attr-script-type" target="_blank">the type attribute of a <strong>&lt;script&gt;</strong></a>. As of Janaury 16, 2013, <a href="http://en.wikipedia.org/wiki/Favicon" target="_blank">Wikipedia</a> hints that the <a href="http://en.wikipedia.org/wiki/Favicon#How_to_use" target="_blank">favicon’s type attribute</a> may effect whether or not Internet Explorer will correctly display it. In reality, Internet Explorer only cares about the server mime for the ICO file, and otherwise ignores the type attribute. The type attribute can be anything, and it can be nothing.</p>
+<div>
+<div id="highlighter_691183">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<div>
+<div>&lt;!&#8211; Still works in IE6+ &#8211;&gt;</div>
+<div>&lt;link rel=&#8221;shortcut icon&#8221; href=&#8221;path/to/favicon.ico&#8221; type=&#8221;image/vnd.microsoft.icon&#8221;&gt;</div>
+<div></div>
+<div>&lt;!&#8211; Still works in IE6+ &#8211;&gt;</div>
+<div>&lt;link rel=&#8221;shortcut icon&#8221; href=&#8221;path/to/favicon.ico&#8221; type=&#8221;image/x-icon&#8221;&gt;</div>
+<div></div>
+<div>&lt;!&#8211; Still works in IE6+ &#8211;&gt;</div>
+<div>&lt;link rel=&#8221;shortcut icon&#8221; href=&#8221;path/to/favicon.ico&#8221;&gt;</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<blockquote><p><a href="/wp-content/uploads/2016/05/1464158256-3731-happy-doctor.png"><img class="attachment-full size-full" src="/wp-content/uploads/2016/05/1464158256-3731-happy-doctor.png" alt="1464158256-3731-happy-doctor" width="175" height="160" /></a>Good news, everyone! Good browsers can use PNG favicons.</p>
+<div></div>
+</blockquote>
+<blockquote><p><a href="/wp-content/uploads/2016/05/1464158242-8226-sad-doctor.png"><img class="attachment-full size-full" src="/wp-content/uploads/2016/05/1464158242-8226-sad-doctor.png" alt="1464158242-8226-sad-doctor" width="175" height="160" /></a>Bad news, everyone! Chrome and Safari will use the ICO favicons anyway.</p>
+<div></div>
+</blockquote>
+<p>This really depresses me, because Chrome, Firefox, Opera 7+, and Safari 4+ all accept the PNG favicon, but Chrome and Safari will opt to use the ICO favicon when both are presented, regardless of the order in which they are declared. On the other hand, Internet Explorer does not support PNG favicons, but it will ignore the PNG favicon and use the ICO favicon, regardless of the order in which they are declared.</p>
+<div>
+<div id="highlighter_687369">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<div>
+<div>&lt;!&#8211; Chrome, Safari, IE &#8211;&gt;</div>
+<div>&lt;link rel=&#8221;shortcut icon&#8221; href=&#8221;path/to/favicon.ico&#8221;&gt;</div>
+<div></div>
+<div>&lt;!&#8211; Firefox, Opera (Chrome and Safari say thanks but no thanks) &#8211;&gt;</div>
+<div>&lt;link rel=&#8221;icon&#8221; href=&#8221;path/to/favicon.png&#8221;&gt;</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Since PNG favicon files do not include multiple resolutions like ICO favicons, we can write out several favicon declarations and use the <strong>sizes</strong> attribute to target each resolution.</p>
+<div>
+<div id="highlighter_215684">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<div>
+<div>&lt;link rel=&#8221;icon&#8221; href=&#8221;favicon-16.png&#8221; sizes=&#8221;16&#215;16&#8243;&gt;</div>
+<div>&lt;link rel=&#8221;icon&#8221; href=&#8221;favicon-32.png&#8221; sizes=&#8221;32&#215;32&#8243;&gt;</div>
+<div>&lt;link rel=&#8221;icon&#8221; href=&#8221;favicon-48.png&#8221; sizes=&#8221;48&#215;48&#8243;&gt;</div>
+<div>&lt;link rel=&#8221;icon&#8221; href=&#8221;favicon-64.png&#8221; sizes=&#8221;64&#215;64&#8243;&gt;</div>
+<div>&lt;link rel=&#8221;icon&#8221; href=&#8221;favicon-128.png&#8221; sizes=&#8221;128&#215;128&#8243;&gt;</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>How do these PNG-favicon-compatible browsers determine which favicon should be used? Firefox and Safari will use the favicon that comes last. Chrome for Mac will use whichever favicon is ICO formatted, otherwise the 32×32 favicon. Chrome for Windows will use the favicon that comes first if it is 16×16, otherwise the ICO. If none of the aforementioned options are available, both Chromes will use whichever favicon comes first, exactly the opposite of Firefox and Safari. Indeed, Chrome for Mac will ignore the 16×16 favicon and use the 32×32 version if only to scale it back down to 16×16 on non-retina devices. Opera, not wanting to take sides, will choose from any of the available icons at complete random. I love that Opera does this.</p>
+<p>And that’s just the beginning. Now it’s time to learn about the Internet Explorer caveats.</p>
+<p><a href="/wp-content/uploads/2016/05/1464158246-6361-lqIAj.jpg"><img class="attachment-full size-full" src="/wp-content/uploads/2016/05/1464158246-6361-lqIAj.jpg" alt="1464158246-6361-lqIAj" width="256" height="243" /></a>While IE8-10 will display the favicon on first load of the page, IE7 will skip the first load and display the favicon during repeat visits. Worse yet, IE6 will only display the favicon once the site has been bookmarked and reopened in the browser. IE6 will also drop the favicon whenever the browser cache is cleared, and it will not display the favicon again until the site is either re-bookmarked, or the favicon is somehow reloaded. If IE6 and favicons mean a lot to you, you can force this reload with a little JavaScript snippet, preferably wrapped in a conditional comment.</p>
+<div>
+<div id="highlighter_720353">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<div>
+<div>&lt;!&#8211; I &#8220;support&#8221; IE6 &#8211;&gt;</div>
+<div>&lt;!&#8211;[if IE 6]&gt;&lt;script&gt;(new Image).src=&#8221;path/to/favicon.ico&#8221;&lt;/script&gt;&lt;![endif]&#8211;&gt;</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><a href="/wp-content/uploads/2016/05/1464158239-2579-YVKiF.png"><img class="attachment-full size-full" src="/wp-content/uploads/2016/05/1464158239-2579-YVKiF.png" alt="1464158239-2579-YVKiF" width="485" height="157" /></a></p>
+<hr />
+<p>Back to <strong>HiDPI</strong>; have you asked yourself this question yet?</p>
+<blockquote><p><i>If all good browsers support PNG favicons, and IE browsers need ICO favicons, but ICO favicons throw off Chrome and Safari, why not wrap the ICO favicon in IE conditional commments?</i></p></blockquote>
+<p>That is a great question, and it leads to a great idea. PNG files are a fraction the size of ICO files. We could serve a classic 32×32 ICO favicon to IE, and a super sleek 96×96 PNG favicon to everybody else.</p>
+<div>
+<div id="highlighter_162466">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<div>
+<div>&lt;!&#8211; Just IE? &#8211;&gt;</div>
+<div>&lt;!&#8211;[if IE]&gt;&lt;link rel=&#8221;shortcut icon&#8221; href=&#8221;path/to/favicon.ico&#8221;&gt;&lt;![endif]&#8211;&gt;</div>
+<div></div>
+<div>&lt;!&#8211; Everybody else? &#8211;&gt;</div>
+<div>&lt;link rel=&#8221;icon&#8221; href=&#8221;path/to/favicon.png&#8221;&gt;</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>One. Big. Problem. <a href="http://www.sitepoint.com/microsoft-drop-ie10-conditional-comments/" target="_blank">IE10 <strong>does not</strong> support conditional comments</a>, <em>and</em> it <strong>does not</strong> support PNG favicons. Yes, with the code above, legacy IE would get a better experience than Microsoft’s brightest flagship.</p>
+<blockquote><p><i>Hey, hey — what if we stick the ICO favicon in the root directory and use <code>&lt;link rel="icon"&gt;</code> to assign the PNG favicon?</i></p></blockquote>
+<p>You. Win. The Internet! Given the limitations of Chrome, Safari, and IE, this method will give every browser the best favicon experience. IE will ignore the <code>&lt;link rel="icon"&gt;</code> and use the ICO favicon found in the root of the domain as <code>/favicon.ico</code>. All other browsers will use the PNG favicon displayed with:</p>
+<div>
+<div id="highlighter_629801">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<div>
+<div>&lt;link rel=&#8221;icon&#8221; href=&#8221;path/to/favicon.png&#8221;&gt;</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<blockquote><p><i>But what if I want multiple favicons or my CMS doesn’t like to do things this way? Is there … another way?</i></p></blockquote>
+<p>Yea, but you’re not gonna like it.</p>
+<div>
+<div id="highlighter_46413">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<div>
+<div>&lt;!&#8211; I &#8220;support&#8221; IE &#8211;&gt;</div>
+<div>&lt;script&gt;</div>
+<div>navigator.appName == &#8220;Microsoft Internet Explorer&#8221; &amp;&amp; (function (i, d, s, l) {</div>
+<div>   i.src = &#8220;favicon.ico&#8221;;</div>
+<div>   s = d.getElementsByTagName(&#8220;script&#8221;)[0];</div>
+<div>   l = s.parentNode.insertBefore(d.createElement(&#8220;link&#8221;), s);</div>
+<div>   l.rel = &#8220;shortcut icon&#8221;;</div>
+<div>   l.href = i.src;</div>
+<div>})(new Image, document);</div>
+<div>&lt;/script&gt;</div>
+<div></div>
+<div>&lt;!&#8211; Everybody else &#8211;&gt;</div>
+<div>&lt;link rel=&#8221;icon&#8221; href=&#8221;path/to/favicon.png&#8221;&gt;</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Unsatisfied with either solution? All is not lost. IE10 users are mostly Windows 8 users <a href="http://windows.microsoft.com/en-US/internet-explorer/ie-10-release-preview" target="_blank">for now</a>, and Windows 8 introduces a new kind of display icon for websites — <strong>tile icons</strong>.</p>
+<p><a href="/wp-content/uploads/2016/05/1464158245-1978-tile-icon.png"><img class="attachment-full size-full" src="/wp-content/uploads/2016/05/1464158245-1978-tile-icon.png" alt="1464158245-1978-tile-icon" width="144" height="144" /></a></p>
+<p>With IE10 Metro we can display a unique tile icon when the visitor <em>pins</em> our site to their Start screen. These tile icons are 144×144 PNG files, and for best results they use a transparent background. A background tile color can be specified using a hex RGB color (using the six-character #RRGGBB notation), a CSS color name, or the CSS rgb() function. The markup is pretty simple.</p>
+<div>
+<div id="highlighter_558663">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<div>
+<div>&lt;meta name=&#8221;msapplication-TileColor&#8221; content=&#8221;#D83434&#8243;&gt;</div>
+<div>&lt;meta name=&#8221;msapplication-TileImage&#8221; content=&#8221;path/to/tileicon.png&#8221;&gt;</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><a href="/wp-content/uploads/2016/05/1464158248-8847-tile-icon-pinnning.png"><img class="attachment-full size-full" src="/wp-content/uploads/2016/05/1464158248-8847-tile-icon-pinnning.png" alt="1464158248-8847-tile-icon-pinnning" width="286" height="292" /></a></p>
+<p>Okay, so let’s put it all together, accepting the potential limitation of IE10, and keeping the sane parts of everything else.</p>
+<div>
+<div id="highlighter_324753">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<div>
+<div>&lt;link rel=&#8221;apple-touch-icon&#8221; href=&#8221;path/to/touchicon.png&#8221;&gt;</div>
+<div>&lt;link rel=&#8221;icon&#8221; href=&#8221;path/to/favicon.png&#8221;&gt;</div>
+<div>&lt;!&#8211;[if IE]&gt;&lt;link rel=&#8221;shortcut icon&#8221; href=&#8221;path/to/favicon.ico&#8221;&gt;&lt;![endif]&#8211;&gt;</div>
+<div>&lt;!&#8211; or, set /favicon.ico for IE10 win &#8211;&gt;</div>
+<div>&lt;meta name=&#8221;msapplication-TileColor&#8221; content=&#8221;#D83434&#8243;&gt;</div>
+<div>&lt;meta name=&#8221;msapplication-TileImage&#8221; content=&#8221;path/to/tileicon.png&#8221;&gt;</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>It’s a start, at least.</p>
+<p>If you want to learn more about creating favicons, I recommend <a href="http://www.netmagazine.com/features/create-perfect-favicon" target="_blank">Create the perfect favicon</a>from Jon Hicks’ <a href="http://www.fivesimplesteps.com/products/the-icon-handbook" target="_blank">The Icon Handbook</a>, and <a href="http://snook.ca/archives/design/making_a_good_favicon" target="_blank">Making a good favicon</a> by Jonathan Snook. Also, I want to thank <a href="http://twitter.com/alrra" target="_blank">@alrra</a> for telling me about tile icons.</p>
+<h3 id="touch">Wait, I came here for touch icons.</h3>
+<p>If you want to learn more about embedding touch icons, read Mathias Bynens’ <a href="http://mathiasbynens.be/notes/touch-icons" target="_blank">Everything You Always Wanted To Know About Touch Icons</a>. Or, follow this summary of his article:</p>
+<blockquote><p>It’s perfectly possible to just create one high-resolution icon. Lower display resolutions automatically resize the icon. The downside is, this affects performance negatively whenever the site is added to the home screen.</p>
+<p>As of March 2013, if you’re lazy and don’t really care about performance when the site is added to the home screen, just use a single 152×152 icon.</p></blockquote>
+<p>And here’s the markup for that icon:</p>
+<div>
+<div id="highlighter_920799">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<div>
+<div>&lt;link rel=&#8221;apple-touch-icon-precomposed&#8221; href=&#8221;apple-touch-icon-152&#215;152-precomposed.png&#8221;&gt;</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>May all your BlackBerry – Android – iOS(7) dreams come true.</p>
+<h2>ARTICLE FROM (REFERENCE)</h2>
+<ul>
+<li><a href="http://www.jonathantneal.com/blog/understand-the-favicon/">Understand the Favicon</a></li>
+<li><a href="http://www.w3cplus.com/css/understand-the-favicon.html">弄懂Favicon (Chinese Translate)</a></li>
+</ul>
+]]></content:encoded>
+			<wfw:commentRss>/2016/05/understand-the-favicon.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>HTML5 head meta for mobile browsers</title>
+		<link>/2016/05/html5-head-meta-mobile-browsers.html</link>
+		<comments>/2016/05/html5-head-meta-mobile-browsers.html#respond</comments>
+		<pubDate>Wed, 25 May 2016 06:33:23 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Website]]></category>
+		<category><![CDATA[IE]]></category>
+		<category><![CDATA[QQ]]></category>
+		<category><![CDATA[RSS]]></category>
+		<category><![CDATA[UC]]></category>
+
+		<guid isPermaLink="false">/?p=1724</guid>
+		<description><![CDATA[INTRODUCE With the advent of HTML5, more and more meta has been supported. mostly of them are supported or designed for mobile devices. POSITION IN HTML5 CODE Meta code need insert into following position: &#60;!DOCTYPE html&#62; &#60;!-- Document type declaration --&#62; &#60;html lang="zh-cmn-Hans"&#62; &#60;!-- Document language declaration --&#62; &#60;head&#62; &#60;meta charset='utf-8'&#62; &#60;!-- Document charset declaration --&#62; [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/05/1464157994-9001-hxz0528html01.jpg"><img class="attachment-full size-full aligncenter" src="/wp-content/uploads/2016/05/1464157994-9001-hxz0528html01.jpg" alt="1464157994-9001-hxz0528html01" width="640" height="316" /></a></p>
+<h2>INTRODUCE</h2>
+<p>With the advent of HTML5, more and more meta has been supported. mostly of them are supported or designed for mobile devices.</p>
+<h2>POSITION IN HTML5 CODE</h2>
+<p>Meta code need insert into following position:</p>
+<pre>&lt;!DOCTYPE html&gt; &lt;!-- Document type declaration --&gt;
+&lt;html lang="zh-cmn-Hans"&gt; &lt;!-- Document language declaration --&gt;
+&lt;head&gt;
+ &lt;meta charset='utf-8'&gt; &lt;!-- Document charset declaration --&gt;
+ &lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/&gt;
+ &lt;meta name="description" content="Your page's description"/&gt;
+ &lt;meta name="keywords" content="Your page's keywords"/&gt;
+ &lt;meta name="author" content="name, email@gmail.com"/&gt;
+ &lt;meta name="robots" content="index,follow"/&gt; &lt;!-- For search engine --&gt;
+ 
+ ... ... meta code will be here ... ...
+ 
+ &lt;title&gt;Title of this page&lt;/title&gt;
+&lt;/head&gt;
+</pre>
+<h2>META FOR MOBILE DEVICE</h2>
+<h3>1. Viewport for all mobile devices</h3>
+<pre> &lt;meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no"&gt;
+ &lt;!-- `width=device-width` will cause iPhone 5 open website as WebApp mode with black border http://bigc.at/ios-webapp-viewport-meta.orz --&gt;</pre>
+<h3>2. Metas for iOS devices</h3>
+<pre>&lt;meta name="apple-mobile-web-app-title" content="Title"&gt;
+&lt;!-- Icon's title --&gt;
+
+&lt;meta name="apple-mobile-web-app-capable" content="yes"/&gt;
+&lt;!-- Open as webapp mode, hide toolbar and menubar --&gt;
+
+&lt;meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL"&gt;
+&lt;!-- Smart App Banner（iOS 6+ Safari） --&gt;
+
+&lt;meta name="apple-mobile-web-app-status-bar-style" content="black"/&gt;
+&lt;!-- Set toolbar color --&gt;</pre>
+<h3>3. Some compatibility mode</h3>
+<pre>&lt;meta name="format-detection" content="telphone=no, email=no"/&gt;
+&lt;!-- Ignore the page numbers identified as phone, mail identification ignored --&gt;
+
+&lt;!-- Enable 360 browser speed mode (webkit) --&gt;
+&lt;meta name="renderer" content="webkit"&gt;
+
+&lt;!-- Don't allow Compatible on IE --&gt;
+&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+
+&lt;!-- Don't allow siteApp for Baidu --&gt;
+&lt;meta http-equiv="Cache-Control" content="no-siteapp" /&gt;
+
+&lt;!-- Mobile optimizition for unsupport viewport browsers --&gt;
+&lt;meta name="HandheldFriendly" content="true"&gt;
+
+&lt;!-- Mobile optimizition for IE Mobile old version --&gt;
+&lt;meta name="MobileOptimized" content="320"&gt;
+
+&lt;!-- Forece portrait for UC browser --&gt;
+&lt;meta name="screen-orientation" content="portrait"&gt;
+
+&lt;!-- Forece portrait for QQ browser --&gt;
+&lt;meta name="x5-orientation" content="portrait"&gt;
+
+&lt;!-- Forece full screen for UC browser --&gt;
+&lt;meta name="full-screen" content="yes"&gt;
+
+&lt;!-- Forece full screen for QQ browser --&gt;
+&lt;meta name="x5-fullscreen" content="true"&gt;
+
+&lt;!-- Enable webapp mode for UC browser --&gt;
+&lt;meta name="browsermode" content="application"&gt;
+
+&lt;!-- Enable webapp mode for QQ browser --&gt;
+&lt;meta name="x5-page-mode" content="app"&gt;
+
+&lt;!-- No tap highlight for windows phone --&gt;
+&lt;meta name="msapplication-tap-highlight" content="no"&gt;</pre>
+<h3>4. WebApp icon for iOS devices</h3>
+<pre>&lt;link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-57x57-precomposed.png"/&gt;
+&lt;!-- iPhone and iTouch, default: 57x57 pixels, Required --&gt;
+
+&lt;link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114-precomposed.png"/&gt;
+&lt;!-- Retina iPhone and Retina iTouch, 114x114 pixels, Recommended --&gt;
+
+&lt;link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144-precomposed.png"/&gt;
+&lt;!-- Retina iPad, 144x144 pixels, Recommended --&gt;</pre>
+<h3>5. Splash for iPad devices</h3>
+<pre>&lt;link rel="apple-touch-startup-image" sizes="768x1004" href="/splash-screen-768x1004.png"/&gt;
+&lt;!-- iPad Portrait 768 x 1004(Standard) --&gt;
+
+&lt;link rel="apple-touch-startup-image" sizes="1536x2008" href="/splash-screen-1536x2008.png"/&gt;
+&lt;!-- iPad Portrait 1536x2008(Retina) --&gt;
+
+&lt;link rel="apple-touch-startup-image" sizes="1024x748" href="/Default-Portrait-1024x748.png"/&gt;
+&lt;!-- iPad Landscape 1024x748(Standard) --&gt;
+
+&lt;link rel="apple-touch-startup-image" sizes="2048x1496" href="/splash-screen-2048x1496.png"/&gt;
+&lt;!-- iPad Landscape 2048x1496(Retina) --&gt;</pre>
+<h3>6. Splash for iPhone and iPod devices</h3>
+<pre>&lt;link rel="apple-touch-startup-image" href="/splash-screen-320x480.png"/&gt;
+&lt;!-- iPhone/iPod Touch Portrait 320x480 (Standard) --&gt;
+
+&lt;link rel="apple-touch-startup-image" sizes="640x960" href="/splash-screen-640x960.png"/&gt;
+&lt;!-- iPhone/iPod Touch Portrait 640x960 (Retina) --&gt;
+
+&lt;link rel="apple-touch-startup-image" sizes="640x1136" href="/splash-screen-640x1136.png"/&gt;
+&lt;!-- iPhone 5/iPod Touch 5 Portrait 640x1136 (Retina) --&gt;</pre>
+<h3>7. Metas for Windows 8 Metro</h3>
+<pre>&lt;meta name="msapplication-TileColor" content="#000"/&gt;
+&lt;!-- Windows 8 Metro Color --&gt;
+
+&lt;meta name="msapplication-TileImage" content="icon.png"/&gt;
+&lt;!-- Windows 8 Metro Icon --&gt;</pre>
+<h3>8. Metas for sina weibo</h3>
+<pre>&lt;meta property="og:type" content="Type" /&gt;
+&lt;meta property="og:url" content="URL" /&gt;
+&lt;meta property="og:title" content="Title" /&gt;
+&lt;meta property="og:image" content="Picture" /&gt;
+&lt;meta property="og:description" content="Description" /&gt;</pre>
+<h3>9. Other metas</h3>
+<pre>&lt;link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml"/&gt;
+&lt;!-- Add RSS Feed --&gt;
+
+&lt;link rel="shortcut icon" type="image/ico" href="/favicon.ico"/&gt;
+&lt;!-- Add favicon icon --&gt;</pre>
+<h2>REFERENCE</h2>
+<ul>
+<li><a href="http://www.w3cfuns.com/notes/19393/74984153020c4d65bf28c82e15bb1299:storey-3.html">移动前端头部标签（HTML5 head meta）</a></li>
+</ul>
+<h2>SORTED BY</h2>
+<p>Pekaikon Norckon<br />
+2016-05-25 (WED)</p>
+]]></content:encoded>
+			<wfw:commentRss>/2016/05/html5-head-meta-mobile-browsers.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>如何理解 Javascript 中的回调函数</title>
+		<link>/2014/10/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-javascript-%E4%B8%AD%E7%9A%84%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0.html</link>
+		<comments>/2014/10/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-javascript-%E4%B8%AD%E7%9A%84%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0.html#respond</comments>
+		<pubDate>Sun, 12 Oct 2014 04:53:55 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Website]]></category>
+
+		<guid isPermaLink="false">/?p=1357</guid>
+		<description><![CDATA[定义 什么是回调函数？ 来自维基百科 Callback_(computer_programming) 条目： In computer programming, a callback is a reference to a piece of executable code that is passed as an argument to other code. 来自 JQuery 文档 How jQuery Works#Callback_and_Function 条目： A callback is a function that is passed as an argument to another function and is executed after its parent [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2014/10/node-js-callback-hell.jpg"><img class="aligncenter size-full wp-image-1464" src="/wp-content/uploads/2014/10/node-js-callback-hell.jpg" alt="node-js-callback-hell" width="616" height="324" /></a></p>
+<h2>定义</h2>
+<p><strong>什么是回调函数？</strong></p>
+<p>来自维基百科 <a title="Callback_(computer_programming)" href="http://en.wikipedia.org/wiki/Callback_(computer_programming)" target="_blank" rel="nofollow">Callback_(computer_programming)</a> 条目：</p>
+<blockquote><p>In computer programming, a callback is a reference to a piece of executable code that is passed as an argument to other code.</p></blockquote>
+<p>来自 JQuery 文档 <a title="How jQuery Works#Callback_and_Functio..." href="http://docs.jquery.com/How_jQuery_Works#Callback_and_Functions" target="_blank" rel="nofollow">How jQuery Works#Callback_and_Functio</a>n 条目：</p>
+<blockquote><p>A callback is a function that is passed as an argument to another function and is executed after its parent function has completed. The special thing about a callback is that functions that appear after the &#8220;parent&#8221; can execute before the callback executes. Another important thing to know is how to properly pass the callback. This is where I have often forgotten the proper syntax.</p></blockquote>
+<p>来自百度百科的<a title="回调函数" href="http://baike.baidu.com/view/414773.htm" target="_blank" rel="nofollow">回调函数</a>解释：</p>
+<blockquote><p>回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用为调用它所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。</p></blockquote>
+<p>因此，回调本质上是一种设计模式，并且jQuery(包括其他框架)的设计原则遵循了这个模式。</p>
+<p>在JavaScript中，回调函数具体的定义为：函数A作为参数(函数引用)传递到另一个函数B中，并且这个函数B执行函数A。我们就说函数A叫做回调函数。如果没有名称(函数表达式)，就叫做匿名回调函数。</p>
+<p>因此 callback 不一定用于异步，一般同步(阻塞)的场景下也经常用到回调，比如要求执行某些操作后执行回调函数。</p>
+<h2>例子</h2>
+<p>一个同步(阻塞)中使用回调的例子，目的是在 func1 代码执行完成后执行 func2：</p>
+<pre class="lang:default decode:true ">var func1=function(callback){
+    //do something.
+    (callback &amp;&amp; typeof(callback) === "function") &amp;&amp; callback();
+}
+
+func1(func2);
+    var func2=function(){
+}</pre>
+<p>异步回调的例子：</p>
+<pre class="lang:default decode:true ">$(document).ready(callback);
+
+$.ajax({
+  url: "test.html",
+  context: document.body
+}).done(function() { 
+  $(this).addClass("done");
+}).fail(function() { alert("error");
+}).always(function() { alert("complete"); 
+});
+/**
+注意的是，ajax请求确实是异步的,不过这请求是由浏览器新开一个线程请求,当请求的状态变更时,如果先前已设置回调,这异步线程就产生状态变更事件放到 JavaScript引擎的处理队列中等待处理。见：http://www.phpv.net/html/1700.html
+*/</pre>
+<h2>回调什么时候执行</h2>
+<p>回调函数，一般在同步情境下是最后执行的，而在异步情境下有可能不执行，因为事件没有被触发或者条件不满足。</p>
+<h2>回调函数的使用场合</h2>
+<ul>
+<li>资源加载：动态加载js文件后执行回调，加载iframe后执行回调，ajax操作回调，图片加载完成执行回调，AJAX等等。</li>
+<li>DOM事件及Node.js事件基于回调机制(Node.js回调可能会出现多层回调嵌套的问题)。</li>
+<li>setTimeout的延迟时间为0，这个hack经常被用到，settimeout调用的函数其实就是一个callback的体现</li>
+<li>链式调用：链式调用的时候，在赋值器(setter)方法中(或者本身没有返回值的方法中)很容易实现链式调用，而取值器(getter)相对来说不好实现链式调用，因为你需要取值器返回你需要的数据而不是this指针，如果要实现链式方法，可以用回调函数来实现</li>
+<li>setTimeout、setInterval的函数调用得到其返回值。由于两个函数都是异步的，即：他们的调用时序和程序的主流程是相对独立的，所以没有办法在主体里面等待它们的返回值，它们被打开的时候程序也不会停下来等待，否则也就失去了setTimeout及setInterval的意义了，所以用return已经没有意义，只能使用callback。callback的意义在于将timer执行的结果通知给代理函数进行及时处理。</li>
+</ul>
+<h2>回调函数的传递</h2>
+<p>上面说了，要将函数引用或者函数表达式作为参数传递。</p>
+<pre class="lang:default decode:true ">$.get('myhtmlpage.html', myCallBack);//这是对的
+$.get('myhtmlpage.html', myCallBack('foo', 'bar'));//这是错的，那么要带参数呢？
+$.get('myhtmlpage.html', function(){//带参数的使用函数表达式
+myCallBack('foo', 'bar');
+});</pre>
+<p>另外，最好保证回调存在且必须是函数引用或者函数表达式：</p>
+<pre class="lang:default decode:true ">(callback &amp;&amp; typeof(callback) === "function") &amp;&amp; callback();</pre>
+<h2>文章转载自</h2>
+<p>http://segmentfault.com/q/1010000000140970</p>
+]]></content:encoded>
+			<wfw:commentRss>/2014/10/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-javascript-%E4%B8%AD%E7%9A%84%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>继续为WordPress提供字体支持</title>
+		<link>/2014/06/%E7%BB%A7%E7%BB%AD%E4%B8%BAwordpress%E6%8F%90%E4%BE%9B%E5%AD%97%E4%BD%93%E6%94%AF%E6%8C%81.html</link>
+		<comments>/2014/06/%E7%BB%A7%E7%BB%AD%E4%B8%BAwordpress%E6%8F%90%E4%BE%9B%E5%AD%97%E4%BD%93%E6%94%AF%E6%8C%81.html#comments</comments>
+		<pubDate>Wed, 11 Jun 2014 11:31:26 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Website]]></category>
+
+		<guid isPermaLink="false">/?p=1250</guid>
+		<description><![CDATA[在2014年5月底，由于一些不明原因导致谷歌大部分服务器与大陆通信阻断，其中也包括了谷歌的公共资源库。而Wordpress默认采用的字体均来自谷歌资源库，由于无法访问谷歌服务器，导致浏览速度明显下降。 虽然可以采取禁用Open Sans的办法来告知Wordpress不要加载Open Sans字体可以达到加快浏览速度的目的。但是付出外观代价的前提下还是不值得作为首要解决办法。 在国内知名互联网厂商，360公司已经部署了大量公共资源库的CDN服务器。其中也涵盖了谷歌提供的公共资源库，显而易见这个问题的解决办法已经出来了。 我们只需要使用360公司提供的公共资源库CDN替代谷歌的服务器，即可直接从360公司服务器读取数据，从而不会被防火墙阻挡。既可以使得网站的字体不受到影响，又能保持原有访问速度。说了这么多，下面说说解决办法。 首先我们需要编辑Wordpress的一个文件，它位于wp-includes/script-loader.php当中。我们使用编辑器打开，然后切换至替换功能，并使用： fonts.googleapis.com 替换为： fonts.useso.com 最后保存到服务器后，刷新首页即可发现不会再从谷歌服务器读取字体文件了。而是转而从360公司的CDN服务器读取字体文件。 注意，如果你的主题的CSS样式表中也涉及到谷歌字体的话，那么需要手动按照上面的替换方法将谷歌服务器替换成为360公司的CDN服务器。最后问题解决。]]></description>
+				<content:encoded><![CDATA[<p>在2014年5月底，由于一些不明原因导致谷歌大部分服务器与大陆通信阻断，其中也包括了谷歌的公共资源库。而Wordpress默认采用的字体均来自谷歌资源库，由于无法访问谷歌服务器，导致浏览速度明显下降。</p>
+<p>虽然可以采取禁用Open Sans的办法来告知Wordpress不要加载Open Sans字体可以达到加快浏览速度的目的。但是付出外观代价的前提下还是不值得作为首要解决办法。</p>
+<p>在国内知名互联网厂商，360公司已经部署了大量公共资源库的CDN服务器。其中也涵盖了谷歌提供的公共资源库，显而易见这个问题的解决办法已经出来了。</p>
+<p>我们只需要使用360公司提供的公共资源库CDN替代谷歌的服务器，即可直接从360公司服务器读取数据，从而不会被防火墙阻挡。既可以使得网站的字体不受到影响，又能保持原有访问速度。说了这么多，下面说说解决办法。</p>
+<p>首先我们需要编辑Wordpress的一个文件，它位于wp-includes/script-loader.php当中。我们使用编辑器打开，然后切换至替换功能，并使用：</p>
+<blockquote><p>fonts.googleapis.com</p></blockquote>
+<p>替换为：</p>
+<blockquote><p><span style="color: #666666;">fonts.useso.com</span></p></blockquote>
+<p>最后保存到服务器后，刷新首页即可发现不会再从谷歌服务器读取字体文件了。而是转而从360公司的CDN服务器读取字体文件。</p>
+<p>注意，如果你的主题的CSS样式表中也涉及到谷歌字体的话，那么需要手动按照上面的替换方法将谷歌服务器替换成为360公司的CDN服务器。最后问题解决。</p>
+]]></content:encoded>
+			<wfw:commentRss>/2014/06/%E7%BB%A7%E7%BB%AD%E4%B8%BAwordpress%E6%8F%90%E4%BE%9B%E5%AD%97%E4%BD%93%E6%94%AF%E6%8C%81.html/feed</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>PHP中使用CURLOPT_POSTFIELDS参数的细节</title>
+		<link>/2014/03/php%E4%B8%AD%E4%BD%BF%E7%94%A8curlopt_postfields%E5%8F%82%E6%95%B0%E7%9A%84%E7%BB%86%E8%8A%82.html</link>
+		<comments>/2014/03/php%E4%B8%AD%E4%BD%BF%E7%94%A8curlopt_postfields%E5%8F%82%E6%95%B0%E7%9A%84%E7%BB%86%E8%8A%82.html#respond</comments>
+		<pubDate>Thu, 13 Mar 2014 09:30:36 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Website]]></category>
+
+		<guid isPermaLink="false">/?p=1175</guid>
+		<description><![CDATA[CURL确实是一个不错的好工具，不仅在PHP中还是其他的操作系统中，都是一个非常好用的。但是如果你有些参数没有用好的话，那可能会得不到自己理想中的结果。 在通常情况下，我们使用 CURL 来提交 POST 数据的时候，我们已经习惯了这样的写法： curl_setopt( $ch, CURLOPT_POSTFIELDS,$post_data); 但是这样的写法在有时候并不会很好用，可能会得到服务器返回的 500 错误。但是我们尝试在使用 Socket 方式向服务器提交数据的时候，我们会得到非常正确的结果。 例如我们在服务器上面存在一个如下的 PHP 文件： &#60;?php print_r($_SERVER);?&#62; 当我们采用 CURL 在不注意细节的前提下向服务器发送一些数据，我们可能得到下面这样的结果，这不是我们理想中的结果： [CONTENT_TYPE] =&#62; multipart/form-data; boundary=—————————-f924413ea122 但是如果我们在采用 http_build_query($post_data) 来替代 $post_data 再向这个 PHP 脚本提交数据的时候，我们就会得到和上面不同的结果，这才是我们理想中的结果： [CONTENT_TYPE] =&#62; application/x-www-form-urlencoded 从上面这个例子中不难看出，使用 CURL 并且参数为数据时，向服务器提交数据的时候，HTTP头会发送Content_type: application/x-www-form-urlencoded。这个是正常的网页&#60;form&#62;提交表单时，浏览器发送的头部。而 multipart/form-data 我们知道这是用于上传文件的表单。包括了 boundary 分界符，会多出很多字节。 官方的手册上是这样说的： The full data to post in a HTTP “POST” operation. [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>CURL确实是一个不错的好工具，不仅在PHP中还是其他的操作系统中，都是一个非常好用的。但是如果你有些参数没有用好的话，那可能会得不到自己理想中的结果。</p>
+<p>在通常情况下，我们使用 CURL 来提交 POST 数据的时候，我们已经习惯了这样的写法：</p>
+<pre class="lang:php decode:true">curl_setopt( $ch, CURLOPT_POSTFIELDS,$post_data);</pre>
+<p>但是这样的写法在有时候并不会很好用，可能会得到服务器返回的 500 错误。但是我们尝试在使用 Socket 方式向服务器提交数据的时候，我们会得到非常正确的结果。</p>
+<p>例如我们在服务器上面存在一个如下的 PHP 文件：</p>
+<pre class="lang:php decode:true">&lt;?php print_r($_SERVER);?&gt;</pre>
+<p>当我们采用 CURL 在不注意细节的前提下向服务器发送一些数据，我们可能得到下面这样的结果，这不是我们理想中的结果：</p>
+<pre class="lang:default decode:true">[CONTENT_TYPE] =&gt; multipart/form-data; boundary=—————————-f924413ea122</pre>
+<p>但是如果我们在采用 http_build_query($post_data) 来替代 $post_data 再向这个 PHP 脚本提交数据的时候，我们就会得到和上面不同的结果，这才是我们理想中的结果：</p>
+<pre class="lang:default decode:true">[CONTENT_TYPE] =&gt; application/x-www-form-urlencoded</pre>
+<p>从上面这个例子中不难看出，使用 CURL 并且参数为数据时，向服务器提交数据的时候，HTTP头会发送Content_type: application/x-www-form-urlencoded。这个是正常的网页&lt;form&gt;提交表单时，浏览器发送的头部。而 multipart/form-data 我们知道这是用于上传文件的表单。包括了 boundary 分界符，会多出很多字节。</p>
+<p>官方的手册上是这样说的：</p>
+<blockquote><p>The full data to post in a HTTP “POST” operation. To post a file, prepend a filename with @ and use the full path. This can either be passed as a urlencoded string like ‘para1=val1&amp;para2=val2&amp;…’ or as an array with the field name as key and field data as value. If value is an array, the Content-Type header will be set to multipart/form-data.</p></blockquote>
+<p>使用数组提供 post 数据时，CURL 组件大概是为了兼容 @filename 这种上传文件的写法，默认把 content_type 设为了 multipart/form-data。虽然对于大多数服务器并没有影响，但是还是有少部分服务器不兼容。</p>
+<p><strong>经过一番总结最终得出结论</strong>：在没有需要上传文件的情况下，尽量对 post 提交的数据进行 http_build_query 处理，然后再发送出去，能实现更好的兼容性，更小的请求数据包。</p>
+<p>本文章参考并修改自：<a href="http://www.huoxingfan.com/778.html">http://www.huoxingfan.com/778.html</a></p>
+]]></content:encoded>
+			<wfw:commentRss>/2014/03/php%E4%B8%AD%E4%BD%BF%E7%94%A8curlopt_postfields%E5%8F%82%E6%95%B0%E7%9A%84%E7%BB%86%E8%8A%82.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>当提交表单数据的时候不刷新页面</title>
+		<link>/2014/03/%E5%BD%93%E6%8F%90%E4%BA%A4%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE%E7%9A%84%E6%97%B6%E5%80%99%E4%B8%8D%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2.html</link>
+		<comments>/2014/03/%E5%BD%93%E6%8F%90%E4%BA%A4%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE%E7%9A%84%E6%97%B6%E5%80%99%E4%B8%8D%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2.html#comments</comments>
+		<pubDate>Wed, 05 Mar 2014 04:35:33 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Website]]></category>
+
+		<guid isPermaLink="false">/?p=1160</guid>
+		<description><![CDATA[正常情况下，当你向服务器发送数据的时候，你的浏览器将会打开ACTION页面，并且不会重回到当前页面。但是有的时候，我们因为各种各样的要求，而不希望浏览器在提交数据的时候去刷新当前的页面或者转向到新的页面。 所以我们引入一个嵌入框架来解决这个问题。具体的原理是：当表单在提交数据的时候，不将提交目标设置为当前的页面，而是当前页面中的一个嵌入框架。 首先你应该在body下面插入一个嵌入框架： &#60;iframe style="width:0; height:0; margin-top:-10px;" name="submitFrame" src="about:blank"&#62;&#60;/iframe&#62; 然后你应该设置表单的目标为这个嵌入框架，比如这样： &#60;form name="testform" method="post" action="apply.cgi" target="submitFrame"&#62; &#60;input type="submit" value="提交"&#62; &#60;/form&#62; 这样的得到了我们需要的目标。 In normal, When you submit a from to the server, your browser will turn to ACTION page and did not return current page. But sometimes or some reason, We do not hope refresh the page [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><span style="line-height: 1.714285714; font-size: 1rem;">正常情况下，当你向服务器发送数据的时候，你的浏览器将会打开ACTION页面，并且不会重回到当前页面。</span><span style="line-height: 1.714285714; font-size: 1rem;">但是有的时候，我们因为各种各样的要求，而不希望浏览器在提交数据的时候去刷新当前的页面或者转向到新的页面。</span></p>
+<p>所以我们引入一个嵌入框架来解决这个问题。具体的原理是：当表单在提交数据的时候，不将提交目标设置为当前的页面，而是当前页面中的一个嵌入框架。</p>
+<p>首先你应该在body下面插入一个嵌入框架：</p>
+<pre class="brush: html; gutter: true; first-line: 1">&lt;iframe style="width:0; height:0; margin-top:-10px;" name="submitFrame" src="about:blank"&gt;&lt;/iframe&gt;</pre>
+<p>然后你应该设置表单的目标为这个嵌入框架，比如这样：</p>
+<pre class="brush: html; gutter: true; first-line: 1">&lt;form name="testform" method="post" action="apply.cgi" target="submitFrame"&gt; 
+    &lt;input type="submit" value="提交"&gt; 
+&lt;/form&gt;</pre>
+<p>这样的得到了我们需要的目标。</p>
+<p>In normal, When you submit a from to the server, your browser will turn to ACTION page and did not return current page. But sometimes or some reason, We do not hope refresh the page or turn to new page when the browser submit data.</p>
+<p>So we import FRAMEWORK to solve the problem. Specific principle is: Set form target as FRAMEWORK but not current page when the form submitted.</p>
+<p>First, you need insert FRAMEWORK after &#8220;body&#8221;:</p>
+<pre class="brush: html; gutter: true; first-line: 1">&lt;iframe style="width:0; height:0; margin-top:-10px;" name="submitFrame" src="about:blank"&gt;&lt;/iframe&gt;</pre>
+<p>And then, you need set the form&#8217;s target as this FRAMEWORK, such this:</p>
+<pre class="brush: html; gutter: true; first-line: 1">&lt;form name="testform" method="post" action="apply.cgi" target="submitFrame"&gt; 
+    &lt;input type="submit" value="提交"&gt; 
+&lt;/form&gt;</pre>
+<p>End, we let this come true.</p>
+]]></content:encoded>
+			<wfw:commentRss>/2014/03/%E5%BD%93%E6%8F%90%E4%BA%A4%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE%E7%9A%84%E6%97%B6%E5%80%99%E4%B8%8D%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2.html/feed</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>PHP中CURL的使用与案例[转]</title>
+		<link>/2014/02/php%E4%B8%ADcurl%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E6%A1%88%E4%BE%8B%E8%BD%AC.html</link>
+		<comments>/2014/02/php%E4%B8%ADcurl%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E6%A1%88%E4%BE%8B%E8%BD%AC.html#respond</comments>
+		<pubDate>Sun, 02 Feb 2014 08:44:42 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Website]]></category>
+
+		<guid isPermaLink="false">/?p=1129</guid>
+		<description><![CDATA[我用php ，curl主要是抓取数据，当然我们可以用其他的方法来抓取，比如fsockopen,file_get_contents等。但是只能抓那些能直接访问的页面，如果要抓取有页面访问控制的页面，或者是登录以后的页面就比较困难了。 1，抓取无访问控制文件 &#60;?php $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, "http://localhost/mytest/phpinfo.php"); curl_setopt($ch, CURLOPT_HEADER, false); curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //如果把这行注释掉的话，就会直接输出 $result=curl_exec($ch); curl_close($ch); ?&#62; 2，使用代理进行抓取 为什么要使用代理进行抓取呢？以google为例吧，如果去抓google的数据，短时间内抓的很频繁的话，你就抓取不到了。google对你的ip地址做限制这个时候，你可以换代理重新抓。 &#60;?php $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, "http://blog.51yip.com/"); curl_setopt($ch, CURLOPT_HEADER, false); curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);  curl_setopt($ch, CURLOPT_HTTPPROXYTUNNEL, TRUE);  curl_setopt($ch, CURLOPT_PROXY, 125.21.23.6:8080);  //url_setopt($ch, CURLOPT_PROXYUSERPWD, 'user:password');如果要密码的话，加上这个 $result=curl_exec($ch); curl_close($ch); ?&#62; 3，post数据后，抓取数据 单独说一下数据提交数据，因为用 curl的时候，很多时候会有数据交互的，所以比较重要的。 &#60;?php $ch = curl_init(); /*在这里需要注意的是，要提交的数据不能是二维数组或者更高 [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>我用php ，curl主要是抓取数据，当然我们可以用其他的方法来抓取，比如fsockopen,file_get_contents等。但是只能抓那些能直接访问的页面，如果要抓取有页面访问控制的页面，或者是登录以后的页面就比较困难了。</p>
+<p><strong>1，抓取无访问控制文件</strong></p>
+<pre class="brush: php; gutter: true; first-line: 1">&lt;?php
+ $ch = curl_init();
+ curl_setopt($ch, CURLOPT_URL, "http://localhost/mytest/phpinfo.php");
+ curl_setopt($ch, CURLOPT_HEADER, false);
+ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //如果把这行注释掉的话，就会直接输出
+ $result=curl_exec($ch);
+ curl_close($ch);
+ ?&gt;</pre>
+<p><strong>2，使用代理进行抓取</strong></p>
+<p><strong>为什么要使用代理进行抓取呢？以google为例吧，如果去抓google的数据，短时间内抓的很频繁的话，你就抓取不到了。google对你的ip地址做限制这个时候，你可以换代理重新抓。</strong></p>
+<pre class="brush: php; gutter: true; first-line: 1">&lt;?php
+ $ch = curl_init();
+ curl_setopt($ch, CURLOPT_URL, "http://blog.51yip.com/");
+ curl_setopt($ch, CURLOPT_HEADER, false);
+ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+ curl_setopt($ch, CURLOPT_HTTPPROXYTUNNEL, TRUE);
+ curl_setopt($ch, CURLOPT_PROXY, 125.21.23.6:8080);
+ //url_setopt($ch, CURLOPT_PROXYUSERPWD, 'user:password');如果要密码的话，加上这个
+ $result=curl_exec($ch);
+ curl_close($ch);
+ ?&gt;</pre>
+<p><strong>3，post数据后，抓取数据</strong></p>
+<p><strong>单独说一下数据提交数据，因为用 curl的时候，很多时候会有数据交互的，所以比较重要的。</strong></p>
+<pre class="brush: php; gutter: true; first-line: 1">&lt;?php
+ $ch = curl_init();
+ /*在这里需要注意的是，要提交的数据不能是二维数组或者更高
+ *例如array('name'=&gt;serialize(array('tank','zhang')),'sex'=&gt;1,'birth'=&gt;'20101010')
+ *例如array('name'=&gt;array('tank','zhang'),'sex'=&gt;1,'birth'=&gt;'20101010')这样会报错的*/
+ $data = array('name' =&gt; 'test', 'sex'=&gt;1,'birth'=&gt;'20101010');
+ curl_setopt($ch, CURLOPT_URL, 'http://localhost/mytest/curl/upload.php');
+ curl_setopt($ch, CURLOPT_POST, 1);
+ curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+ curl_exec($ch);
+ ?&gt;</pre>
+<p><strong>在 upload.php文件中，print_r($_POST);</strong><strong>利用curl就能抓取出upload.php输出的内容Array ( [name] =&gt; test [sex] =&gt; 1 [birth] =&gt; 20101010 )</strong></p>
+<p><strong>4，抓取一些有页面访问控制的页面</strong></p>
+<p><strong><a href="http://blog.51yip.com/wp-content/uploads/2010/10/apache_auth1.jpg"><img title="apache_auth1" alt="" src="http://blog.51yip.com/wp-content/uploads/2010/10/apache_auth1-300x225.jpg" width="300" height="225" /></a></strong></p>
+<p><span style="line-height: 1.5;">如果用上面提到的方法抓的话，会报以下错误</span></p>
+<blockquote><p><strong>You are not authorized to view this page<br />
+You do not have permission to view this directory or page using the credentials that you supplied because your Web browser is sending a WWW-Authenticate header field that the Web server is not configured to accept.</strong></p></blockquote>
+<p>这个时候，我们就要用<strong>CURLOPT_USERPWD</strong>来进行验证了</p>
+<pre class="brush: php; gutter: true; first-line: 1">&lt;?php
+ $ch = curl_init();
+ curl_setopt($ch, CURLOPT_URL, "http://club-china/");
+ /*CURLOPT_USERPWD主要用来破解页面访问控制的
+ *例如平时我们所以htpasswd产生页面控制等。*/
+ //curl_setopt($ch, CURLOPT_USERPWD, '231144:2091XTAjmd=');
+ curl_setopt($ch, CURLOPT_HTTPGET, 1);
+ curl_setopt($ch, CURLOPT_REFERER, "http://club-china/");
+ curl_setopt($ch, CURLOPT_HEADER, 0);
+ $result=curl_exec($ch);
+ curl_close($ch);
+ ?&gt;</pre>
+<p>文章来源地址：http://blog.51yip.com/php/1039.html</p>
+]]></content:encoded>
+			<wfw:commentRss>/2014/02/php%E4%B8%ADcurl%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E6%A1%88%E4%BE%8B%E8%BD%AC.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>判断浏览器是否为IE浏览器的多种办法</title>
+		<link>/2014/01/%E5%88%A4%E6%96%AD%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%AF%E5%90%A6%E4%B8%BAie%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%A4%9A%E7%A7%8D%E5%8A%9E%E6%B3%95.html</link>
+		<comments>/2014/01/%E5%88%A4%E6%96%AD%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%AF%E5%90%A6%E4%B8%BAie%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%A4%9A%E7%A7%8D%E5%8A%9E%E6%B3%95.html#respond</comments>
+		<pubDate>Wed, 22 Jan 2014 13:25:22 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Website]]></category>
+
+		<guid isPermaLink="false">/?p=1079</guid>
+		<description><![CDATA[由于现在WebKit的浏览器日见增多，越来越多的浏览器均采用了Webkit核心，导致开发网页变得越来越简单。不错这是一个好消息，但是也有个坏消息。 现在使用IE的人数依然不少，所以你在开发网页的过程中往往还要注意到兼容IE。然而这是一个大问题，有时候实现一个功能，IE内核浏览器和WebKit浏览器之间的代码是不相同的，那么我们如何解决这一难题呢？ 幸好我能可以利用浏览器的特殊注释符号来识别，是否为IE浏览器，甚至可以具体到IE的版本号。这样我们就能解决一些IE浏览器的特殊而带来的一些问题。如果连这些特殊注释都无法解决的话，我们还有最后一条路可走，那么就是Javascript。 首先介绍通过特殊注释符号来区分浏览器版本，这些特殊注释符号分别是： 文章来源：http://www.cnblogs.com/dtdxrk/archive/2012/03/06/2381868.html &#60;!&#8211;[if !IE]&#62;&#60;!&#8211;&#62; 除IE外都可识别 &#60;!&#8211;&#60;![endif]&#8211;&#62; &#60;!&#8211;[if IE]&#62; 所有的IE可识别 &#60;![endif]&#8211;&#62; &#60;!&#8211;[if IE 6]&#62; 仅IE6可识别 &#60;![endif]&#8211;&#62; &#60;!&#8211;[if lt IE 6]&#62; IE6以及IE6以下版本可识别 &#60;![endif]&#8211;&#62; &#60;!&#8211;[if gte IE 6]&#62; IE6以及IE6以上版本可识别 &#60;![endif]&#8211;&#62; &#60;!&#8211;[if IE 7]&#62; 仅IE7可识别 &#60;![endif]&#8211;&#62; &#60;!&#8211;[if lt IE 7]&#62; IE7以及IE7以下版本可识别 &#60;![endif]&#8211;&#62; &#60;!&#8211;[if gte IE 7]&#62; IE7以及IE7以上版本可识别 &#60;![endif]&#8211;&#62; &#60;!&#8211;[if IE 8]&#62; 仅IE8可识别 &#60;![endif]&#8211;&#62; &#60;!&#8211;[if IE 9]&#62; [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>由于现在WebKit的浏览器日见增多，越来越多的浏览器均采用了Webkit核心，导致开发网页变得越来越简单。不错这是一个好消息，但是也有个坏消息。</p>
+<p>现在使用IE的人数依然不少，所以你在开发网页的过程中往往还要注意到兼容IE。然而这是一个大问题，有时候实现一个功能，IE内核浏览器和WebKit浏览器之间的代码是不相同的，那么我们如何解决这一难题呢？</p>
+<p>幸好我能可以利用浏览器的特殊注释符号来识别，是否为IE浏览器，甚至可以具体到IE的版本号。这样我们就能解决一些IE浏览器的特殊而带来的一些问题。如果连这些特殊注释都无法解决的话，我们还有最后一条路可走，那么就是Javascript。</p>
+<p>首先介绍通过特殊注释符号来区分浏览器版本，这些特殊注释符号分别是：<br />
+<em>文章来源：http://www.cnblogs.com/dtdxrk/archive/2012/03/06/2381868.html</em></p>
+<blockquote><p>&lt;!&#8211;[if !IE]&gt;&lt;!&#8211;&gt; 除IE外都可识别 &lt;!&#8211;&lt;![endif]&#8211;&gt;<br />
+&lt;!&#8211;[if IE]&gt; 所有的IE可识别 &lt;![endif]&#8211;&gt;<br />
+&lt;!&#8211;[if IE 6]&gt; 仅IE6可识别 &lt;![endif]&#8211;&gt;<br />
+&lt;!&#8211;[if lt IE 6]&gt; IE6以及IE6以下版本可识别 &lt;![endif]&#8211;&gt;<br />
+&lt;!&#8211;[if gte IE 6]&gt; IE6以及IE6以上版本可识别 &lt;![endif]&#8211;&gt;<br />
+&lt;!&#8211;[if IE 7]&gt; 仅IE7可识别 &lt;![endif]&#8211;&gt;<br />
+&lt;!&#8211;[if lt IE 7]&gt; IE7以及IE7以下版本可识别 &lt;![endif]&#8211;&gt;<br />
+&lt;!&#8211;[if gte IE 7]&gt; IE7以及IE7以上版本可识别 &lt;![endif]&#8211;&gt;<br />
+&lt;!&#8211;[if IE 8]&gt; 仅IE8可识别 &lt;![endif]&#8211;&gt;<br />
+&lt;!&#8211;[if IE 9]&gt; 仅IE9可识别 &lt;![endif]&#8211;&gt;</p></blockquote>
+<p>他们还有更加具体的用法：</p>
+<table border="2" align="center">
+<tbody>
+<tr>
+<th width="50">项目</th>
+<th width="150">范例</th>
+<th>说明</th>
+</tr>
+<tr>
+<td align="middle">!</td>
+<td>[if !IE]</td>
+<td>The NOT operator. This is placed immediately in front of the <em>feature</em>, <em>operator</em>, or <em>subexpression</em> to reverse the Boolean meaning of the expression.<br />
+NOT运算符。这是摆立即在前面的<em>功能</em>，<em>操作员</em>，或<em>子表达式</em>扭转布尔表达式的意义。</td>
+</tr>
+<tr>
+<td align="middle">lt</td>
+<td>[if lt IE 5.5]</td>
+<td>The less-than operator. Returns true if the first argument is less than the second argument.<br />
+小于运算符。如果第一个参数小于第二个参数，则返回true。</td>
+</tr>
+<tr>
+<td align="middle">lte</td>
+<td>[if lte IE 6]</td>
+<td>The less-than or equal operator. Returns true if the first argument is less than or equal to the second argument.<br />
+小于或等于运算。如果第一个参数是小于或等于第二个参数，则返回true。</td>
+</tr>
+<tr>
+<td align="middle">gt</td>
+<td>[if gt IE 5]</td>
+<td>The greater-than operator. Returns true if the first argument is greater than the second argument.<br />
+大于运算符。如果第一个参数大于第二个参数，则返回true。</td>
+</tr>
+<tr>
+<td align="middle">gte</td>
+<td>[if gte IE 7]</td>
+<td>The greater-than or equal operator. Returns true if the first argument is greater than or equal to the second argument.<br />
+大于或等于运算。如果第一个参数是大于或等于第二个参数，则返回true。</td>
+</tr>
+<tr>
+<td align="middle">( )</td>
+<td>[if !(IE 7)]</td>
+<td>Subexpression operators. Used in conjunction with boolean operators to create more complex expressions.<br />
+子表达式运营商。在与布尔运算符用于创建更复杂的表达式。</td>
+</tr>
+<tr>
+<td align="middle">&amp;</td>
+<td>[if (gt IE 5)&amp;(lt IE 7)]</td>
+<td>The AND operator. Returns true if all subexpressions evaluate to true<br />
+AND运算符。如果所有的子表达式计算结果为true，返回true</td>
+</tr>
+<tr>
+<td align="middle">|</td>
+<td>[if (IE 6)|(IE 7)]</td>
+<td>The OR operator. Returns true if any of the subexpressions evaluates to true.<br />
+OR运算符。返回true，如果子表达式计算结果为true。</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>他们的正规语法格式：</p>
+<pre class="lang:default decode:true brush: html; gutter: true; first-line: 1; highlight: [2]">&lt;!--[if lt IE 9]&gt;
+     针对IE9浏览器特殊优化过的代码
+&lt;![endif]--&gt;</pre>
+<p>另外他们还有一个不符合XHTML1.1规范的语法格式，虽然有时候可以执行，但是不推荐大家使用这种不规范的语法格式：</p>
+<pre class="lang:default decode:true brush: actionscript3; gutter: true; first-line: 1; highlight: [2,4] crayon-selected">&lt;!--[if lt IE 9]&gt;
+    此处编写针对IE9浏览器优化过的代码
+&lt;!--[else]&gt;
+    此处编写针对非IE9浏览器优化过的代码
+&lt;![endif]--&gt;</pre>
+<p>以上是通过特殊注释来解决针对IE浏览器的问题。这种方法可能不会满足大家的需求，另外可以通过JavaScript代码来解决这一问题，代码如下：<br />
+<em>文章来源：http://www.xker.com/page/e2010/0527/96514.html</em></p>
+<pre class="lang:default decode:true brush: javascript; gutter: true; first-line: 1; highlight: [3,5]">&lt;script&gt; 
+if(!+[1,]) {
+    此处填写针对IE浏览器优化过的代码
+} else {
+    此处填写针对其他浏览器优化过的代码
+}
+&lt;/script&gt;</pre>
+<p>另外还有更多的表达式可以判断是否为IE浏览器，这些表达式分别是：</p>
+<blockquote><p>1. +[1,]<br />
+2. !+&#8221;\v1&#8243;<br />
+3. !!(window.attachEvent &amp;&amp; navigator.userAgent.indexOf(&#8216;Opera&#8217;) === -1)<br />
+4. !!(!window.addEventListener&amp;&amp; navigator.userAgent.indexOf(&#8216;Opera&#8217;) === -1)<br />
+5. !!(document.all &amp;&amp; navigator.userAgent.indexOf(&#8216;Opera&#8217;) === -1)</p></blockquote>
+<p>除了本处介绍的这些方法外，应该还有更多的办法判断是否为IE浏览器了。</p>
+]]></content:encoded>
+			<wfw:commentRss>/2014/01/%E5%88%A4%E6%96%AD%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%AF%E5%90%A6%E4%B8%BAie%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%A4%9A%E7%A7%8D%E5%8A%9E%E6%B3%95.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>用PHP遍历目录下的全部文件</title>
+		<link>/2014/01/%E7%94%A8php%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E5%85%A8%E9%83%A8%E6%96%87%E4%BB%B6.html</link>
+		<comments>/2014/01/%E7%94%A8php%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E5%85%A8%E9%83%A8%E6%96%87%E4%BB%B6.html#respond</comments>
+		<pubDate>Wed, 22 Jan 2014 13:10:46 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Website]]></category>
+
+		<guid isPermaLink="false">/?p=1077</guid>
+		<description><![CDATA[有时候可能会需要通过PHP来遍历某个目录中所有的文件，比如说制作一个PHP的文件浏览器，这样的话，就需要用到文件遍历。文件夹中有两个特殊路径「.」和「..」，这是表示本目录与上级目录，我们在遍历文件的过程中也要注意避开这两个特殊路径，同时还要对文件或者文件夹做出区分，下面是引用自其他网站的一段代码。 &#60;?php /********************** 一个简单的目录递归函数 第一种实现办法：用dir返回对象 ***********************/ function tree($directory) { $mydir = dir($directory); echo "&#60;ul&#62;\n"; while($file = $mydir-&#62;read()) { if((is_dir("$directory/$file")) AND ($file!=".") AND ($file!="..")) { echo "&#60;li&#62;&#60;font color=\"#ff00cc\"&#62;&#60;b&#62;$file&#60;/b&#62;&#60;/font&#62;&#60;/li&#62;\n"; tree("$directory/$file"); } else echo "&#60;li&#62;$file&#60;/li&#62;\n"; } echo "&#60;/ul&#62;\n"; $mydir-&#62;close(); } //开始运行 echo "&#60;h2&#62;目录为粉红色&#60;/h2&#62;&#60;br&#62;\n"; tree("./nowamagic"); /*********************** 第二种实现办法：用readdir()函数 ************************/ function listDir($dir) { if(is_dir($dir)) { if ($dh = opendir($dir)) { while [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>有时候可能会需要通过PHP来遍历某个目录中所有的文件，比如说制作一个PHP的文件浏览器，这样的话，就需要用到文件遍历。文件夹中有两个特殊路径「.」和「..」，这是表示本目录与上级目录，我们在遍历文件的过程中也要注意避开这两个特殊路径，同时还要对文件或者文件夹做出区分，下面是引用自其他网站的一段代码。</p>
+<pre class="brush: php; gutter: true; first-line: 1">&lt;?php
+/**********************
+一个简单的目录递归函数
+第一种实现办法：用dir返回对象
+***********************/
+function tree($directory) 
+{ 
+	$mydir = dir($directory); 
+	echo "&lt;ul&gt;\n"; 
+	while($file = $mydir-&gt;read())
+	{ 
+		if((is_dir("$directory/$file")) AND ($file!=".") AND ($file!="..")) 
+		{
+			echo "&lt;li&gt;&lt;font color=\"#ff00cc\"&gt;&lt;b&gt;$file&lt;/b&gt;&lt;/font&gt;&lt;/li&gt;\n"; 
+			tree("$directory/$file"); 
+		} 
+		else 
+		echo "&lt;li&gt;$file&lt;/li&gt;\n"; 
+	} 
+	echo "&lt;/ul&gt;\n"; 
+	$mydir-&gt;close(); 
+} 
+//开始运行
+
+echo "&lt;h2&gt;目录为粉红色&lt;/h2&gt;&lt;br&gt;\n"; 
+tree("./nowamagic"); 
+
+/***********************
+第二种实现办法：用readdir()函数
+************************/
+function listDir($dir)
+{
+	if(is_dir($dir))
+   	{
+     	if ($dh = opendir($dir)) 
+		{
+        	while (($file = readdir($dh)) !== false)
+			{
+     			if((is_dir($dir."/".$file)) &amp;&amp; $file!="." &amp;&amp; $file!="..")
+				{
+     				echo "&lt;b&gt;&lt;font color='red'&gt;文件名：&lt;/font&gt;&lt;/b&gt;",$file,"&lt;br&gt;&lt;hr&gt;";
+     				listDir($dir."/".$file."/");
+     			}
+				else
+				{
+         			if($file!="." &amp;&amp; $file!="..")
+					{
+         				echo $file."&lt;br&gt;";
+      				}
+     			}
+        	}
+        	closedir($dh);
+     	}
+   	}
+}
+//开始运行
+listDir("./nowamagic");
+?&gt;</pre>
+<blockquote><p>文章来源：http://www.nowamagic.net/php/php_TraversalAllFilesInDir.php</p></blockquote>
+]]></content:encoded>
+			<wfw:commentRss>/2014/01/%E7%94%A8php%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E5%85%A8%E9%83%A8%E6%96%87%E4%BB%B6.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>WiGLE 在线数据分享系统 [PHP]</title>
+		<link>/2014/01/wigle-%E5%9C%A8%E7%BA%BF%E6%95%B0%E6%8D%AE%E5%88%86%E4%BA%AB%E7%B3%BB%E7%BB%9F-php.html</link>
+		<comments>/2014/01/wigle-%E5%9C%A8%E7%BA%BF%E6%95%B0%E6%8D%AE%E5%88%86%E4%BA%AB%E7%B3%BB%E7%BB%9F-php.html#respond</comments>
+		<pubDate>Wed, 22 Jan 2014 04:18:59 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Website]]></category>
+
+		<guid isPermaLink="false">/?p=1072</guid>
+		<description><![CDATA[WiGLE 是安卓版的 Wardriving 软件，可以记录详细的信息，同时支持 CSV / KML 导出。而至于什么是 Wardriving 还烦请各位自行百度或者谷歌一下。 我制作这个网页系统主要用来存储 WiGLE导出的 KML 文件，可以直接在网页上面显示出来，比较直观。但是遗憾的是不能够在线将 KML 的信息在地图上面显示出来，不过可以下载 KML 文件后直接打开。另外只兼容 WiGLE 1.5.5 版本，对于其他版本生成的 KML 数据可能不识别，因为旧版本的数据结构有点不相同。 目前的功能： 1、上传 KML 数据文件 2、下载 KML 数据文件 3、浏览 KML 数据文件 4、对数据文件排序 同时这是个开源项目，源代码下载：http://pan.baidu.com/s/1jGn060I 另外我也将这套系统上传到了我自己的服务器上面，供大家自由使用： http://fcsys.org/webapp/wigle/ 如果有什么其他问题，可以留言。 by 北极光.Norckon 2014-01-22（三）]]></description>
+				<content:encoded><![CDATA[<p>WiGLE 是安卓版的 Wardriving 软件，可以记录详细的信息，同时支持 CSV / KML 导出。而至于什么是 Wardriving 还烦请各位自行百度或者谷歌一下。</p>
+<p>我制作这个网页系统主要用来存储 WiGLE导出的 KML 文件，可以直接在网页上面显示出来，比较直观。但是遗憾的是不能够在线将 KML 的信息在地图上面显示出来，不过可以下载 KML 文件后直接打开。另外只兼容 WiGLE 1.5.5 版本，对于其他版本生成的 KML 数据可能不识别，因为旧版本的数据结构有点不相同。<br />
+目前的功能：<br />
+1、上传 KML 数据文件<br />
+2、下载 KML 数据文件<br />
+3、浏览 KML 数据文件<br />
+4、对数据文件排序</p>
+<p>同时这是个开源项目，源代码下载：http://pan.baidu.com/s/1jGn060I<br />
+另外我也将这套系统上传到了我自己的服务器上面，供大家自由使用：<br />
+http://fcsys.org/webapp/wigle/</p>
+<p>如果有什么其他问题，可以留言。</p>
+<p>by 北极光.Norckon<br />
+2014-01-22（三）</p>
+]]></content:encoded>
+			<wfw:commentRss>/2014/01/wigle-%E5%9C%A8%E7%BA%BF%E6%95%B0%E6%8D%AE%E5%88%86%E4%BA%AB%E7%B3%BB%E7%BB%9F-php.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

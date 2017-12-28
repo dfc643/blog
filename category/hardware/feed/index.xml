@@ -1,0 +1,1008 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Hardware &#8211; Norckon&#039;s blog</title>
+	<atom:link href="/category/hardware/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>Norckon&#039;s blog</description>
+	<lastBuildDate>Thu, 24 Aug 2017 14:09:08 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.1</generator>
+	<item>
+		<title>Raspberry Pi &#8211; Installing the FreeNX client and server</title>
+		<link>/2015/01/raspberry-pi-installing-the-freenx-client-and-server.html</link>
+		<comments>/2015/01/raspberry-pi-installing-the-freenx-client-and-server.html#respond</comments>
+		<pubDate>Mon, 12 Jan 2015 08:57:38 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Hardware]]></category>
+		<category><![CDATA[Check Run]]></category>
+		<category><![CDATA[INTROCUDE]]></category>
+		<category><![CDATA[IP]]></category>
+		<category><![CDATA[PC]]></category>
+
+		<guid isPermaLink="false">/?p=1480</guid>
+		<description><![CDATA[INTROCUDE This will allow you to connect to your Pi&#8217;s desktop using your PC instead of having to have a monitor, mouse and keyboard connected. It is a much more convenient way to tinker with your Pi. And this way you don&#8217;t have to sacrifice your mouse every time you want to use a USB [&#8230;]]]></description>
+				<content:encoded><![CDATA[<h2>INTROCUDE</h2>
+<p>This will allow you to connect to your Pi&#8217;s desktop using your PC instead of having to have a monitor, mouse and keyboard connected. It is a much more convenient way to tinker with your Pi. And this way you don&#8217;t have to sacrifice your mouse every time you want to use a USB port.</p>
+<h2>INSTALL</h2>
+<ul>
+<li>Connect your Raspberry Pi to the network using the ethernet port.</li>
+<li>Launch the Midori web browser (located on the desktop)</li>
+<li>Download the FreeNX Server JKIT to your home directory: <a href="http://tinyurl.com/freenxjkit">tinyurl.com/freenxjkit</a>.</li>
+<li>Launch LXTerminal and navigate to your home directory</li>
+</ul>
+<pre class="lang:sh decode:true">cd ~</pre>
+<ul>
+<li>Install FreeNX as the root user (this will take several minutes to complete and you will see a lot of text roll by in the terminal)</li>
+</ul>
+<pre class="lang:sh decode:true ">sudo mv freenx-server.jkit freenx-server.tar.gz
+sudo tar -xvf freenx-server.tar.gz
+cd freenx-server
+sudo chmod +x script
+sudo ./script</pre>
+<ul>
+<li>Reboot the Pi for the changes to take effect</li>
+<li>Install NoMachine&#8217;s NX Client to your PC</li>
+<li>On your PC, open NX Session Administrator</li>
+</ul>
+<p><a href="/wp-content/uploads/2015/01/NX_Settings.jpg"><img class="attachment-full" src="/wp-content/uploads/2015/01/NX_Settings.jpg" alt="NX_Settings" width="765" height="719" /></a></p>
+<ul>
+<li>File &#8211;&gt; New NX Session</li>
+<li>Click &#8220;Configure&#8221; and set up a session name, login and password</li>
+<li>In the &#8220;General&#8221; tab of the configuration dialog, under &#8220;Desktop&#8221;, specify &#8220;Unix&#8221; and &#8220;Custom&#8221; for the display type.</li>
+<li>click &#8220;Settings&#8221; next to those fields</li>
+<li>Check &#8220;Run the following command&#8221; and enter this into the field:
+<pre class="lang:default highlight:0 decode:true">/usr/bin/lxsession -s LXDE -e LXDE</pre>
+</li>
+<li>You can set your display height and width and connection speed to whatever is appropriate</li>
+<li>Locate your Pi on the network. There are four ways you can do this:</li>
+<li>Use a hostname to connect to instead of an IP address</li>
+<li>Use your router&#8217;s admin page to view connected devices and IP addresses.</li>
+<li>Download and install <a href="http://nmap.org/download.html">nmap </a>to scan your network for connected devices.</li>
+<li>Have your Pi tell you by opening the terminal from the Pi menu and issuing the following command:
+<pre class="lang:default highlight:0 decode:true  ">ifconfig</pre>
+</li>
+<li>Provide the Pi&#8217;s IP address for &#8220;Host&#8221; and save the profile.</li>
+<li>Note: Depending on your network, your Pi&#8217;s IP address will likely change from time to time. If you have trouble connecting in the future, verify that you still have the correct IP address. Or just set up and use a hostname.</li>
+<li>Click &#8220;Login&#8221; to connect. (The first time connecting often fails, try it again.)</li>
+</ul>
+<p><a href="/wp-content/uploads/2015/01/NX_Window.jpg"><img class="attachment-full" src="/wp-content/uploads/2015/01/NX_Window.jpg" alt="NX_Window" width="1022" height="741" /></a></p>
+<p>http://jlr-server.com/persistant/Pi_Guide/install_freenx.html</p>
+]]></content:encoded>
+			<wfw:commentRss>/2015/01/raspberry-pi-installing-the-freenx-client-and-server.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Raspberry Pi &#8211; Turned your Pi as Router</title>
+		<link>/2014/12/raspberry-pi-turned-your-pi-as-router.html</link>
+		<comments>/2014/12/raspberry-pi-turned-your-pi-as-router.html#respond</comments>
+		<pubDate>Wed, 17 Dec 2014 10:45:29 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Hardware]]></category>
+		<category><![CDATA[ATTENTIONS]]></category>
+		<category><![CDATA[DHCP]]></category>
+		<category><![CDATA[USB]]></category>
+		<category><![CDATA[WLAN]]></category>
+
+		<guid isPermaLink="false">/?p=1467</guid>
+		<description><![CDATA[INTRODUCE In some special reason, we need an advanced router. For example, we need a special dialer in Office or school. So we can using Raspberry Pi as an Advanced wired or wireless router. But Raspberry Pi has only one Ethernet port. So you can buy a USB based network adapater as Router&#8217;s LAN port. [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2014/12/d2xtlbzuah9vavwt4utq.jpg"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/d2xtlbzuah9vavwt4utq.jpg" alt="d2xtlbzuah9vavwt4utq" width="636" height="358" /></a></p>
+<h2>INTRODUCE</h2>
+<p>In some special reason, we need an advanced router. For example, we need a special dialer in Office or school. So we can using Raspberry Pi as an Advanced wired or wireless router.</p>
+<p>But Raspberry Pi has only one Ethernet port. So you can buy a USB based network adapater as Router&#8217;s LAN port. or you can buy a USB wireless adapter as WIFI hotspot.</p>
+<h2>BEFORE THAT</h2>
+<p>Before that, You need buy a USB wireless network adapter, For more information please go <a href="http://elinux.org/RPi_USB_Wi-Fi_Adapters">Compatibility List</a>. I bought <strong>Netgear WNA1000M 150M</strong> wireless adapter.</p>
+<p><span style="color: #ff0000;"><strong>ATTENTIONS</strong></span>: If you&#8217;re using RTL8179/8188EU chip adapter, please read <a href="/?p=1452">Driver for RTL8179/8188EU</a>.</p>
+<h2>EPISODE</h2>
+<p>Official provided a way to setup hotspot <em><a href="http://elinux.org/RPI-Wireless-Hotspot">RPI-Wireless-Hotspot</a></em>, But in-fact that&#8217;s always be failed. You can found your USB network adapter by command <code>lsusb</code> or <code>lsmod</code>.</p>
+<p><a href="/wp-content/uploads/2014/12/Snip20131109_1.png"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/Snip20131109_1.png" alt="Snip20131109_1" width="1454" height="232" /></a></p>
+<p>It&#8217;s shows my USB adapter based on Realtek <strong>RTL8188CUS</strong> chip. I think that problem caused by driver. Finally I found answer in <em><a href="http://www.daveconroy.com/turn-your-raspberry-pi-into-a-wifi-hotspot-with-edimax-nano-usb-ew-7811un-rtl8188cus-chipset/">Turn Your Raspberry Pi Into a WiFi Hotspot with Edimax Nano USB EW-7811Un (RTL8188CUS chipset)</a></em>.</p>
+<h2>INSTALL SYSTEM</h2>
+<p>Use newer operating system recommended. Download Official OS and then write into your SD card. For more please read <em><a title="Raspberry Pi – Getting Started" href="/?p=1408" target="_blank">Raspberry Pi – Getting Started</a></em>.</p>
+<h2>INSTALL HOTSPOT</h2>
+<p>First need install <strong>hostapd </strong>package though apt-get command.</p>
+<pre class="nums:false lang:default highlight:0 decode:true ">sudo apt-get install bridge-utils hostapd</pre>
+<p><strong>hostapd</strong> used to realize wireless networking share. If you&#8217;re using <strong>RTL8188CUS</strong> chip based wireless adapter. please do that.</p>
+<pre class="nums:false lang:default decode:true ">wget http://www.daveconroy.com/wp3/wp-content/uploads/2013/07/hostapd.zip
+unzip hostapd.zip 
+sudo mv /usr/sbin/hostapd /usr/sbin/hostapd.bak
+sudo mv hostapd /usr/sbin/hostapd.edimax 
+sudo ln -sf /usr/sbin/hostapd.edimax /usr/sbin/hostapd 
+sudo chown root.root /usr/sbin/hostapd 
+sudo chmod 755 /usr/sbin/hostapd</pre>
+<h2>CONFIGURATION</h2>
+<p>There have <strong>two</strong> way to realize wireless share. One is like wireless bridge, Another is like wireless router.</p>
+<h3>WIRELESS BRIDGE</h3>
+<p>Install <strong>bridge-utils</strong> though apt-get command.</p>
+<pre class="nums:false lang:default decode:true">sudo apt-get install bridge-utils</pre>
+<p>Modify your network configure file, Add <strong>#</strong> in following lines.</p>
+<pre class="nums:false lang:default highlight:0 decode:true ">#allow-hotplug wlan0
+#wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+#iface default inet dhcp</pre>
+<p><strong>And then</strong> add following lines in your file</p>
+<pre class="nums:false lang:default highlight:0 decode:true">auto br0
+iface br0 inet dhcp
+bridge_ports eth0 wlan0</pre>
+<p><strong>In final</strong>, should like this</p>
+<pre class="nums:false lang:default highlight:0 decode:true ">#loopback adapter
+auto lo
+iface lo inet loopback
+#wired adapter
+iface eth0 inet dhcp
+#bridge
+auto br0
+iface br0 inet dhcp
+bridge_ports eth0 wlan0</pre>
+<p>Configure <em>hostapd</em></p>
+<pre class="nums:false lang:default decode:true">sudo nano /etc/hostapd/hostapd.conf</pre>
+<p>will be like following code:</p>
+<pre class="nums:false lang:default highlight:0 decode:true ">interface=wlan0
+driver=rtl871xdrv
+bridge=br0
+ssid=My_SSID_Name
+channel=1
+wmm_enabled=0
+wpa=1
+wpa_passphrase=MYPASSWORD
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
+auth_algs=1
+macaddr_acl=0</pre>
+<p>More about hostapd configuration please search on Internet by yourself XD.</p>
+<p>Reboot your computer. After rebooting your computer run this code to test your <strong>hostapd</strong> can be use.</p>
+<pre class="nums:false lang:default decode:true ">sudo hostapd -dd /etc/hostapd/hostapd.conf</pre>
+<p>After running this code, You can use your Phone to find your WLAN name, Then press <code>Ctrl</code>+<code>C</code>to break.</p>
+<p>Then modify hostapd configure file.</p>
+<pre class="nums:false lang:default highlight:0 decode:true ">sudo nano /etc/default/hostapd</pre>
+<p>Modify it like this</p>
+<pre class="nums:false lang:default highlight:0 decode:true ">DAEMON_CONF="/etc/hostapd/hostapd.conf"</pre>
+<h3>WIRELESS ROUTER</h3>
+<p>Install <strong>udhcpd </strong>though apt-get command.</p>
+<pre class="nums:false lang:default decode:true ">sudo apt-get install udhcpd</pre>
+<p>Udhcpd usually work as DHCP server, Of-cause you can using dnsmasq or others instead.</p>
+<p>Configure udhcpd, Modify <code>/etc/udhcpd,conf</code>, like following:</p>
+<pre class="nums:false lang:default highlight:0 decode:true">start 192.168.42.2 # This is the range of IPs that the hostspot will give to client devices.
+end 192.168.42.20
+interface wlan0 # The device uDHCP listens on.
+remaining yes
+opt dns 8.8.8.8 4.2.2.2 # The DNS servers client devices will use.
+opt subnet 255.255.255.0
+opt router 192.168.42.1 # The Pi's IP address on wlan0 which we will set up shortly.
+opt lease 864000 # 10 day DHCP lease time in seconds</pre>
+<p>And then open <code>/etc/default/udhcpd</code> , Add # in line DHCPD_ENABLED like</p>
+<pre class="nums:false lang:default highlight:0 decode:true ">#DHCPD_ENABLED="no"</pre>
+<p>And then setup your wireless network IP address</p>
+<pre class="nums:false lang:default highlight:0 decode:true">sudo ifconfig wlan0 192.168.42.1</pre>
+<p>Modify /etc/network/interfaces file as</p>
+<pre class="nums:false lang:default highlight:0 decode:true">#wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+#iface default inet dhcp</pre>
+<p>Modify /etc/default/ifplugd as</p>
+<pre class="nums:false lang:default highlight:0 decode:true ">INTERFACES="eth0"
+HOTPLUG_INTERFACES="eth0"
+ARGS="-q -f -u0 -d10 -w -I"
+SUSPEND_ACTION="stop"</pre>
+<p>Keep the line <strong>allow-hotplug wlan0</strong>. Finally like:</p>
+<pre class="nums:false lang:default highlight:0 decode:true ">allow-hotplug wlan0
+iface wlan0 inet static
+  address 192.168.42.1
+  netmask 255.255.255.0</pre>
+<p>Edit hostapd configure file</p>
+<pre class="nums:false lang:default highlight:0 decode:true ">sudo nano /etc/hostapd/hostapd.conf</pre>
+<p>For example:</p>
+<pre class="nums:false lang:default highlight:0 decode:true ">interface=wlan0
+driver=rtl871xdrv
+ssid=My_SSID_Name
+hw_mode=g
+channel=6
+macaddr_acl=0
+auth_algs=1
+ignore_broadcast_ssid=0
+wpa=2
+wpa_passphrase=MYPASSWORD
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP</pre>
+<p>Enable NAT function</p>
+<pre class="nums:false lang:default highlight:0 decode:true ">sudo sh -c "echo 1 &gt; /proc/sys/net/ipv4/ip_forward"</pre>
+<p>Edit file /etc/sysctl.conf as:</p>
+<pre class="nums:false lang:default highlight:0 decode:true ">net.ipv4.ip_forward=1</pre>
+<p>Configuration Firewall, Run commands in Terminal</p>
+<pre class="nums:false lang:default decode:true ">sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT</pre>
+<p>NAT has beed enabled now, Then save settings.</p>
+<pre class="nums:false lang:default decode:true ">sudo sh -c "iptables-save &gt; /etc/iptables.ipv4.nat</pre>
+<p>And modify /etc/network/interfaces, Add line:</p>
+<pre class="nums:false lang:default highlight:0 decode:true ">up iptables-restore &lt; /etc/iptables.ipv4.nat</pre>
+<p>Reboot your computer. After rebooting your computer run this code to test your <strong>hostapd</strong> can be use.</p>
+<pre class="nums:false lang:default decode:true ">sudo hostapd -dd /etc/hostapd/hostapd.conf</pre>
+<p>After running this code, You can use your Phone to find your WLAN name, Then press <code>Ctrl</code>+<code>C</code>to break.</p>
+<p>Then modify hostapd configure file.</p>
+<pre class="nums:false lang:default highlight:0 decode:true ">sudo nano /etc/default/hostapd</pre>
+<p>Modify it like this</p>
+<pre class="nums:false lang:default highlight:0 decode:true ">DAEMON_CONF="/etc/hostapd/hostapd.conf"</pre>
+<p>The finally do:</p>
+<pre class="nums:false lang:default highlight:0 decode:true">sudo service hostapd start
+sudo service udhcpd start
+sudo update-rc.d hostapd enable
+sudo update-rc.d udhcpd enable</pre>
+<p><a href="/wp-content/uploads/2014/12/201311130900.jpg"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/201311130900.jpg" alt="201311130900" width="820" height="480" /></a></p>
+<h2>REFERENCE</h2>
+<ul>
+<li><a href="http://wangye.org/blog/archives/845/">将树莓派Raspberry Pi设置为无线路由器(WiFi热点AP,RTL8188CUS芯片)</a></li>
+</ul>
+]]></content:encoded>
+			<wfw:commentRss>/2014/12/raspberry-pi-turned-your-pi-as-router.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Raspberry Pi &#8211; GPIO Hacking</title>
+		<link>/2014/12/raspberry-pi-gpio-hacking.html</link>
+		<comments>/2014/12/raspberry-pi-gpio-hacking.html#respond</comments>
+		<pubDate>Thu, 11 Dec 2014 06:52:17 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Hardware]]></category>
+		<category><![CDATA[BCM]]></category>
+		<category><![CDATA[GPIO]]></category>
+
+		<guid isPermaLink="false">/?p=1459</guid>
+		<description><![CDATA[GPIO OUTPUT When set GPIO port value to 1, GPIO port will be 3.3v voltage output. Attention, Resistance will be 31 Ohm when GPIO port outputting, Need a Resistance make Electric current in 16mA, protect your raspberry pi. USING SHELL #!/bin/sh test_pin_out() { pin=$1 pin_path="/sys/class/gpio/gpio${pin}" if [ ! -d $pin_path ]; then echo "$pin" &#62; /sys/class/gpio/export fi echo "out" [&#8230;]]]></description>
+				<content:encoded><![CDATA[<h2>GPIO OUTPUT</h2>
+<p>When set GPIO port value to 1, GPIO port will be 3.3v voltage output. Attention, Resistance will be 31 Ohm when GPIO port outputting, Need a Resistance make Electric current in 16mA, protect your raspberry pi.</p>
+<h3>USING SHELL</h3>
+<pre class="lang:sh decode:true ">#!/bin/sh
+
+test_pin_out() {
+    pin=$1
+    pin_path="/sys/class/gpio/gpio${pin}"
+    if [ ! -d $pin_path ]; then
+        echo "$pin" &gt; /sys/class/gpio/export
+    fi
+    echo "out" &gt; $pin_path/direction
+    echo "1" &gt; $pin_path/value
+    sleep 2
+    echo "0" &gt; $pin_path/value
+}
+
+for pin in 17 18 27 22 23 24 25; do
+  test_pin_out $pin
+done</pre>
+<h3>USING PYTHON</h3>
+<p>Set GPIO ports mode to <em>output </em>mode</p>
+<pre class="lang:python decode:true ">#!/usr/bin/env python
+
+import RPi.GPIO as GPIO
+import sys, time
+
+## Mapping between GPIO.BOARD and GPIO.BCM:
+# GPIO.BOARD (Pin): 11  12  13     15  16  18  22  07
+# GPIO.BCM  (GPIO): 17  18  21/27  22  23  24  25  clock
+# Extension Board : P0  P1  P2     P3  P4  P5  P6  P7
+
+GPIO.setmode(GPIO.BOARD)
+
+# Do not warning if already setup for #pin.
+GPIO.setwarnings(False)
+
+for pin in (11, 12, 13, 15, 16, 18, 22):
+    GPIO.setup(pin, GPIO.OUT)
+
+    print("Test pin #%s ...\t" % pin),
+    sys.stdout.flush()
+    GPIO.output(pin, True)
+    time.sleep(2)
+    GPIO.output(pin, False)
+    print("done")</pre>
+<h3>USING RUBY</h3>
+<pre class="lang:ruby decode:true ">#!/usr/bin/env ruby
+
+require 'pi_piper'
+
+[17, 18, 27, 22, 23, 24, 25].each do |pin|
+  print "Test pin ##{pin}...\t"
+  gpio = PiPiper::Pin.new(:pin =&gt; pin, :direction =&gt; :out)
+  gpio.on
+  sleep 2
+  gpio.off
+  puts "done"
+end</pre>
+<h2>GPIO INPUT</h2>
+<p>When GPIO work at input mode, Resistance in Short circuit, Let 3.3V voltage connected to GPIO ports directly. High voltage is 1, Low voltage is 0. <a href="http://sourceforge.net/p/raspberry-gpio-python/wiki/Inputs/">Read More &gt;&gt; Raspberry Pi Wiki &#8211; GPIO Input</a></p>
+<h3>USING SHELL</h3>
+<pre class="lang:sh decode:true ">#!/bin/sh
+
+test_pin_in() {
+    pin=$1
+    pin_path="/sys/class/gpio/gpio${pin}"
+    if [ ! -d $pin_path ]; then
+        echo "$pin" &gt; /sys/class/gpio/export
+    fi
+    echo "in" &gt; $pin_path/direction
+    echo "Value of GPIO #$pin is: $(cat $pin_path/value)."
+}
+
+for pin in 17 18 27 22 23 24 25; do
+  test_pin_in $pin
+done</pre>
+<h3>USING PYTHON</h3>
+<p>Set all GPIO ports mode to <em>input</em>.</p>
+<pre class="lang:python decode:true ">#!/usr/bin/env python
+
+import RPi.GPIO as GPIO
+import sys, time
+
+GPIO.setmode(GPIO.BCM)
+for pin in (17, 18, 27, 22, 23, 24, 25):
+    GPIO.setup(pin, GPIO.IN)
+    print("Value of GPIO #%s is: %s." % (pin,GPIO.input(pin)))</pre>
+<h3>USING RUBY</h3>
+<pre class="lang:ruby decode:true  ">#!/usr/bin/env ruby
+
+require 'pi_piper'
+
+[17, 18, 27, 22, 23, 24, 25].each do |pin|
+  gpio = PiPiper::Pin.new(:pin =&gt; pin, :direction =&gt; :in)
+  puts "Value of GPIO ##{pin} is: #{gpio.value}."
+end</pre>
+<h2>REFERENCE</h2>
+<blockquote><p>http://www.worldhello.net/doc/raspi-memo/gpio.html</p></blockquote>
+]]></content:encoded>
+			<wfw:commentRss>/2014/12/raspberry-pi-gpio-hacking.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Raspberry Pi &#8211; Control by Android</title>
+		<link>/2014/12/raspberry-pi-control-by-android.html</link>
+		<comments>/2014/12/raspberry-pi-control-by-android.html#respond</comments>
+		<pubDate>Sun, 07 Dec 2014 07:24:18 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Hardware]]></category>
+		<category><![CDATA[Operating System]]></category>
+		<category><![CDATA[GPIO]]></category>
+		<category><![CDATA[LIRC]]></category>
+		<category><![CDATA[Raspberry Control]]></category>
+		<category><![CDATA[Reboot Raspberry]]></category>
+
+		<guid isPermaLink="false">/?p=1456</guid>
+		<description><![CDATA[APPLICATION FEATURES secure connection via SSH easy control and monitoring GPIO monitor and graph temperatures remotely using DS18B20 remote terminal emulator remote process management built-in MJPEG stream client easy 1-wire and I2C bus management IR control system WHATS NEW IN VERSION 0.2 added IR control system (LIRC) – now user can remote control any devices via [&#8230;]]]></description>
+				<content:encoded><![CDATA[<h2>APPLICATION FEATURES</h2>
+<ul>
+<li>secure connection via SSH</li>
+<li>easy control and monitoring GPIO</li>
+<li>monitor and graph temperatures remotely using DS18B20</li>
+<li>remote terminal emulator</li>
+<li>remote process management</li>
+<li>built-in MJPEG stream client</li>
+<li>easy 1-wire and I2C bus management</li>
+<li>IR control system</li>
+</ul>
+<h2>WHATS NEW IN VERSION 0.2</h2>
+<ul>
+<li>added IR control system (LIRC) – now user can remote control any devices via Infrared</li>
+<li>added configuration file (rpc.conf)</li>
+<li>fixed problem with too long user name</li>
+<li>improved app stability</li>
+<li>added ability to change the GPIO labels (via rpc.conf file)</li>
+<li>fixed minor bugs</li>
+</ul>
+<h2>NEW FEATURE COMING SOON</h2>
+<ul>
+<li>remote touchpad</li>
+<li>XBMC remote control</li>
+<li>support for new 1-wire devices</li>
+<li>support for new I2C devices</li>
+<li>voice control</li>
+</ul>
+<h2>READ BEFORE RATING THIS APP IN GOOGLE PLAY</h2>
+<p>Please remember that this is very early Beta version (app is still under development!!!). If you’re having any trouble, questions or feature requests PLEASE CONTACT US BEFORE RATING, so we can help you out and improve the App – your feedback really does help.</p>
+<h2>HOW TO UNINSTALL OLD VERSION (0.1)</h2>
+<p>Previously version of “Raspberry Control” doesn’t have uninstaller, so you have to remove all files manualy:</p>
+<pre class="nums:false lang:default highlight:0 decode:true ">rm -Rf $HOME/Raspberry_Control
+sudo insserv -r rpc_shellinaboxd
+sudo rm /etc/init.d/rpc_shellinaboxd</pre>
+<p>and remove “<em>/home/pi/Raspberry_Control/core/rpc_export</em>” line form <em>~/.bashrc</em> file (probably it will be last line in this file).</p>
+<h2>DOWNLOAD &amp; INSTALLATION INSTRUCTIONS (0.2)</h2>
+<p>The recommended way to install “<em>Raspberry Control</em>” on Raspberry Pi is on the console. Please open a console application such as Terminal or xterm on RPi</p>
+<ul>
+<li>Download the last version of the “Raspberry Control” software: <a href="http://lukasz-skalski.com/index.php/component/option,com_phocadownload/Itemid,90/id,1/view,category/" target="_blank">DOWNLOAD LINK</a></li>
+<li>Navigate to the location where you have downloaded file and extract the tar.gz archive into any directory of your choice</li>
+</ul>
+<pre class="nums:false lang:default highlight:0 decode:true">tar xvzf rpc_installer-2013-03-24.tar.gz</pre>
+<ul>
+<li>Run installation script</li>
+</ul>
+<pre class="nums:false lang:default highlight:0 decode:true ">cd rpc_installer
+./rpc_utils --install (without sudo!)</pre>
+<ul>
+<li>Reboot Raspberry pi</li>
+<li>Download from Google Play and install “Raspberry Control” (version 0.2) application on your Android Device</li>
+</ul>
+<h2>ORIGINAL LINK</h2>
+<blockquote><p>http://codebangers.com/how-to-setup-your-raspberry-pi-to-use-raspberry-pi-android-app/</p></blockquote>
+]]></content:encoded>
+			<wfw:commentRss>/2014/12/raspberry-pi-control-by-android.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Raspberry Pi &#8211; Driver for RTL8179/8188EU</title>
+		<link>/2014/12/raspberry-pi-driver-for-rtl81798188eu.html</link>
+		<comments>/2014/12/raspberry-pi-driver-for-rtl81798188eu.html#comments</comments>
+		<pubDate>Sun, 07 Dec 2014 06:51:30 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Hardware]]></category>
+		<category><![CDATA[ID]]></category>
+		<category><![CDATA[IMPORTANT]]></category>
+		<category><![CDATA[Kernel Version]]></category>
+
+		<guid isPermaLink="false">/?p=1452</guid>
+		<description><![CDATA[INTRODUCE Raspbian without RTL8179/8188EU drivers. Raspberry Pi cannot found wlan0 when you plug-in a 8188eu base wireless dongle. So you need a 3rd-driver for 8188eu base wireless dongle. KNOWN CARD LIST TPLINK TL-WN725N v2 MERCURY MW150US FAST FW150US GET KERNEL VERSION IMPORTANT: First check the version of Linux you have. Use the command uname -a [&#8230;]]]></description>
+				<content:encoded><![CDATA[<h2>INTRODUCE</h2>
+<p>Raspbian without RTL8179/8188EU drivers. Raspberry Pi cannot found wlan0 when you plug-in a 8188eu base wireless dongle. So you need a 3rd-driver for 8188eu base wireless dongle.</p>
+<p><a href="/wp-content/uploads/2014/12/piwifi.jpg"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/piwifi.jpg" alt="Raspberry Pi Wireless Dongle" width="550" height="367" /></a></p>
+<h2>KNOWN CARD LIST</h2>
+<ul>
+<li>TPLINK TL-WN725N v2</li>
+<li>MERCURY MW150US</li>
+<li>FAST FW150US</li>
+</ul>
+<h2>GET KERNEL VERSION</h2>
+<p><span style="color: #ff0000;">IMPORTANT</span>: First check the version of Linux you have. Use the command <code>uname -a</code> to find the version of Linux.</p>
+<pre class="nums:false lang:default highlight:0 decode:true ">pi@raspberrypi ~ $ uname -a
+Linux raspberrypi 3.10.24+ #614 PREEMPT Thu Dec 19 20:38:42 GMT 2013 armv6l GNU/Linux
+pi@raspberrypi ~ $</pre>
+<p>The important part is <span style="color: #ff6600;">3.10.24+ #614</span>. This is just an example and your version may be different. Select the right driver for the version you have from the list below.</p>
+<h2>SUPPORTS DEVICES</h2>
+<p>This driver supports wifi modules with the following USB IDs.</p>
+<pre class="nums:false lang:default highlight:0 decode:true">ID 2001:3310
+ID 2001:330F
+ID 07B8:8179
+ID 0BDA:0179
+ID 0BDA:8179
+
+and for 3.12.28+ and newer the addition devices:
+ID 056E:4008
+ID 2001:3311
+ID 0DF6:0076</pre>
+<p>With the wifi dongle connected to your Pi use command <code>lsusb</code> to show a list of USB devices connected to your Pi. You should see your wifi module in the list and the USB ID of the device which you can check is in the list above. If it is read on to find the device driver you need and how to install it.</p>
+<pre class="nums:false lang:default highlight:0 decode:true ">pi@Norckon-Pi ~ $ lsusb
+Bus 001 Device 002: ID 0424:9514 Standard Microsystems Corp.
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 001 Device 003: ID 0424:ec00 Standard Microsystems Corp.
+Bus 001 Device 004: ID 0bda:8179 Realtek Semiconductor Corp.
+</pre>
+<h2>DRIVER LIST FOR EACH KERNEL</h2>
+<p><span style="color: #ff0000;">NOTICE</span>: Find your kernel version by <code>Ctrl</code>+<code>F</code> quickly.</p>
+<h3>Kernel Version: 3.6</h3>
+<pre class="nums:false lang:default highlight:0 decode:true ">3.6.11+ #371 up to #520 inclusive    - 8188eu-20130209.tar.gz
+3.6.11+ #524, #528, #532             - 8188eu-20130815.tar.gz
+3.6.11+ #538, #541, #545, #551, #557 - 8188eu-20130830.tar.gz</pre>
+<h3>Kernel Version: 3.10</h3>
+<pre class="nums:false lang:default highlight:0 decode:true">3.10.18+ #577       - 8188eu-20131105.tar.gz
+3.10.18+ #579, #585 - 8188eu-20131106.tar.gz
+3.10.18+ #587       - 8188eu-20131110.tar.gz
+3.10.18+ #590, #592 - 8188eu-20131111.tar.gz
+3.10.18+ #594, #596 - 8188eu-20131113.tar.gz
+3.10.19+ #600       - 8188eu-20131113.tar.gz
+3.10.21+ #602, #604 - 8188eu-20131113.tar.gz
+3.10.22+ #606       - 8188eu-20131206.tar.gz
+3.10.23+ #608       - 8188eu-20131209.tar.gz
+3.10.24+ #610       - 8188eu-20131209.tar.gz
+3.10.24+ #614       - 8188eu-20131219.tar.gz
+3.10.25+ #616, #618 - 8188eu-20131219.tar.gz
+3.10.25+ #622, #624 - 8188eu-20131219.tar.gz
+3.10.26+ #628       - 8188eu-20140110.tar.gz
+3.10.27+ #630       - 8188eu-20140117.tar.gz
+3.10.28+ #632, #634 - 8188eu-20140117.tar.gz
+3.10.29+ #636, #638 - 8188eu-20140117.tar.gz
+3.10.30+ #640, #642 - 8188eu-20140117.tar.gz
+3.10.32+ #646, #648 - 8188eu-20140117.tar.gz
+3.10.33+ #654, #656 - 8188eu-20140117.tar.gz
+3.10.33+ #658       - 8188eu-20140117.tar.gz
+3.10.34+ #660, #661 - 8188eu-20140117.tar.gz
+3.10.36+ #662, #664 - 8188eu-20140117.tar.gz
+3.10.36+ #665, #666 - 8188eu-20140117.tar.gz
+3.10.37+ #667, #669 - 8188eu-20140117.tar.gz
+3.10.38+ #675       - 8188eu-20140117.tar.gz</pre>
+<h3>Kernel Version: 3.12</h3>
+<pre class="nums:false lang:default highlight:0 decode:true">3.12.18+ #673, #677 - 8188eu-20140425.tar.gz
+3.12.18+ #679, #680 - 8188eu-20140501.tar.gz
+3.12.19+ #681, #682 - 8188eu-20140509.tar.gz
+3.12.19+ #684       - 8188eu-20140509.tar.gz
+3.12.20+ #685, #686 - 8188eu-20140509.tar.gz
+3.12.20+ #687       - 8188eu-20140509.tar.gz
+3.12.21+ #688, #689 - 8188eu-20140509.tar.gz
+3.12.22+ #690, #691 - 8188eu-20140616.tar.gz
+3.12.23+ #692       - 8188eu-20140626.tar.gz
+3.12.24+ #693, #694 - 8188eu-20140705.tar.gz
+3.12.25+ #698, #700 - 8188eu-20140705.tar.gz
+3.12.25+ #701       - 8188eu-20140705.tar.gz
+3.12.26+ #702, #703 - 8188eu-20140705.tar.gz
+3.12.26+ #704, #707 - 8188eu-20140705.tar.gz
+3.12.26+ #708       - 8188eu-20140705.tar.gz
+3.12.28+ #709, #710 - 8188eu-20140908.tar.gz
+3.12.28+ #712, #713 - 8188eu-20140908.tar.gz
+3.12.29+ #714, #715 - 8188eu-20140908.tar.gz
+3.12.30+ #717       - 8188eu-20141017.tar.gz
+3.12.31+ #718, #720 - 8188eu-20141026.tar.gz
+3.12.32+ #721       - 8188eu-20141107.tar.gz
+3.12.33+ #722, #724 - 8188eu-20141107.tar.gz
+3.12.36+ #737       - 8188eu-20150114.tar.gz</pre>
+<h3>Kernel Version: 3.18</h3>
+<pre>3.18.3+ #739, #740  - 8188eu-20150120.tar.gz
+3.18.3+ #741, #742  - 8188eu-20150120.tar.gz
+3.18.5+ #744, #746  - 8188eu-20150130.tar.gz
+3.18.5+ #748        - 8188eu-20150130.tar.gz
+3.18.6+ #753, #754  - 8188eu-20150208.tar.gz
+3.18.7+ #755, #756  - 8188eu-20150212.tar.gz
+3.18.7+ #757        - 8188eu-20150212.tar.gz
+3.18.7+ #758, #759  - 8188eu-20150223.tar.gz
+3.18.8+ #761, #763  - 8188eu-20150227.tar.gz
+3.18.8+ #764, #765  - 8188eu-20150227.tar.gz
+3.18.9+ #767, #768  - 8188eu-20150307.tar.gz
+3.18.9+ #772        - 8188eu-20150307.tar.gz
+3.18.10+ #774, #775 - 8188eu-20150325.tar.gz
+3.18.11+ #776, #777 - 8188eu-20150406.tar.gz
+3.18.11+ #780, #781 - 8188eu-20150406.tar.gz
+3.18.12+ #782, #783 - 8188eu-20150428.tar.gz
+3.18.13+ #784, #785 - 8188eu-20150509.tar.gz
+3.18.14+ #792, #793 - 8188eu-20150523.tar.gz
+3.18.14+ #794       - 8188eu-20150523.tar.gz
+3.18.16+ #795       - 8188eu-20150617.tar.gz
+3.18.16+ #796       - 8188eu-20150619.tar.gz</pre>
+<h3>Kernel Version: 4.0</h3>
+<pre>4.0.5+ #797       - 8188eu-20150621.tar.gz
+4.0.6+ #798, #799 - 8188eu-20150623.tar.gz
+4.0.7+ #801, #802 - 8188eu-20150630.tar.gz
+4.0.8+ #803, #804 - 8188eu-20150713.tar.gz
+4.0.8+ #805       - 8188eu-20150713.tar.gz
+4.0.9+ #807       - 8188eu-20150724.tar.gz</pre>
+<h3>Kernel Version: 4.1</h3>
+<pre>4.1.4+ #808        - 8188eu-20150806.tar.gz
+4.1.5+ #809        - 8188eu-20150813.tar.gz
+4.1.6+ #810        - 8188eu-20150818.tar.gz
+4.1.6+ #811, #812  - 8188eu-20150818.tar.gz
+4.1.7+ #813, #815  - 8188eu-20150914.tar.gz
+4.1.7+ #817        - 8188eu-20150914.tar.gz
+4.1.8+ #818        - 8188eu-20150929.tar.gz
+4.1.9+ #819        - 8188eu-20151002.tar.gz
+4.1.10+ #820, #821 - 8188eu-20151004.tar.gz
+4.1.11+ #822       - 8188eu-20151023.tar.gz
+4.1.12+ #824, #825 - 8188eu-20151028.tar.gz
+4.1.13+ #826, #827 - 8188eu-20151113.tar.gz
+4.1.14+ #828       - 8188eu-20151210.tar.gz
+4.1.15+ #829       - 8188eu-20151215a.tar.gz
+4.1.15+ #830, #831 - 8188eu-20151215.tar.gz
+4.1.16+ #832, #833 - 8188eu-20160124.tar.gz
+4.1.17+ #834, #838 - 8188eu-20160201.tar.gz
+4.1.17+ #840, #841 - 8188eu-20160201.tar.gz
+4.1.17+ #842, #843 - 8188eu-20160201.tar.gz
+4.1.18+ #845, #846 - 8188eu-20160219.tar.gz
+4.1.18+ #848       - 8188eu-20160219.tar.gz
+4.1.19+ #851, #852 - 8188eu-20160305.tar.gz
+4.1.19+ #853, #858 - 8188eu-20160305.tar.gz
+4.1.20+ #862, #865 - 8188eu-20160319.tar.gz
+4.1.20+ #867       - 8188eu-20160319.tar.gz
+4.1.21+ #872, #873 - 8188eu-20160406.tar.gz</pre>
+<h3>Kernel Version: 3.18 (Raspberry Pi 2)</h3>
+<pre>3.18.5-v7+  #746, #748 - 8188eu-v7-20150202.tar.gz
+3.18.6-v7+  #753, #754 - 8188eu-v7-20150208.tar.gz
+3.18.7-v7+  #755, #756 - 8188eu-v7-20150212.tar.gz
+3.18.7-v7+  #757       - 8188eu-v7-20150212.tar.gz
+3.18.7-v7+  #758, #759 - 8188eu-v7-20150223.tar.gz
+3.18.8-v7+  #761, #763 - 8188eu-v7-20150227.tar.gz
+3.18.8-v7+  #764, #765 - 8188eu-v7-20150227.tar.gz
+3.18.9-v7+  #767, #768 - 8188eu-v7-20150307.tar.gz
+3.18.9-v7+  #772       - 8188eu-v7-20150307.tar.gz
+3.18.10-v7+ #774, #775 - 8188eu-v7-20150325.tar.gz
+3.18.11-v7+ #776, #777 - 8188eu-v7-20150406.tar.gz
+3.18.11-v7+ #780, #781 - 8188eu-v7-20150406.tar.gz
+3.18.12-v7+ #782, #783 - 8188eu-v7-20150428.tar.gz
+3.18.13-v7+ #784, #785 - 8188eu-v7-20150509.tar.gz
+3.18.14-v7+ #792, #793 - 8188eu-v7-20150523.tar.gz
+3.18.14-v7+ #794       - 8188eu-v7-20150523.tar.gz
+3.18.16-v7+ #795       - 8188eu-v7-20150617.tar.gz
+3.18.16-v7+ #796       - 8188eu-v7-20150619.tar.gz</pre>
+<h3>Kernel Version: 4.0 (Raspberry Pi 2)</h3>
+<pre>4.0.5-v7+ #797       - 8188eu-v7-20150621.tar.gz
+4.0.6-v7+ #798, #799 - 8188eu-v7-20150623.tar.gz
+4.0.7-v7+ #801, #802 - 8188eu-v7-20150630.tar.gz
+4.0.8-v7+ #803, #804 - 8188eu-v7-20150713.tar.gz
+4.0.8-v7+ #805       - 8188eu-v7-20150713.tar.gz
+4.0.9-v7+ #807       - 8188eu-v7-20150724.tar.gz</pre>
+<h3>Kernel Version: 4.1 (Raspberry Pi 2)</h3>
+<pre>4.1.4-v7+ #808        - 8188eu-v7-20150806.tar.gz
+4.1.5-v7+ #809        - 8188eu-v7-20150813.tar.gz
+4.1.6-v7+ #810        - 8188eu-v7-20150818.tar.gz
+4.1.6-v7+ #811, #812  - 8188eu-v7-20150818.tar.gz
+4.1.7-v7+ #813, #815  - 8188eu-v7-20150914.tar.gz
+4.1.7-v7+ #817        - 8188eu-v7-20150914.tar.gz
+4.1.8-v7+ #818        - 8188eu-v7-20150929.tar.gz
+4.1.9-v7+ #819        - 8188eu-v7-20151002.tar.gz
+4.1.10-v7+ #820, #821 - 8188eu-v7-20151004.tar.gz
+4.1.11-v7+ #822       - 8188eu-v7-20151023.tar.gz
+4.1.12-v7+ #824, #825 - 8188eu-v7-20151028.tar.gz
+4.1.13-v7+ #826, #827 - 8188eu-v7-20151113.tar.gz
+4.1.14-v7+ #828       - 8188eu-v7-20151210.tar.gz
+4.1.15-v7+ #829       - 8188eu-v7-20151215a.tar.gz
+4.1.15-v7+ #830, #831 - 8188eu-v7-20151215.tar.gz
+4.1.16-v7+ #832, #833 - 8188eu-v7-20160124.tar.gz
+4.1.17-v7+ #834, #838 - 8188eu-v7-20160201.tar.gz
+4.1.17-v7+ #840, #841 - 8188eu-v7-20160201.tar.gz
+4.1.17-v7+ #842, #843 - 8188eu-v7-20160201.tar.gz
+4.1.18-v7+ #845, #846 - 8188eu-v7-20160219.tar.gz
+4.1.18-v7+ #848       - 8188eu-v7-20160219.tar.gz
+4.1.19-v7+ #851, #852 - 8188eu-v7-20160305.tar.gz
+4.1.19-v7+ #853, #858 - 8188eu-v7-20160305.tar.gz
+4.1.20-v7+ #862, #865 - 8188eu-v7-20160319.tar.gz
+4.1.20-v7+ #867       - 8188eu-v7-20160319.tar.gz
+4.1.21-v7+ #872, #873 - 8188eu-v7-20160406.tar.gz</pre>
+<h3>Download Driver Archive</h3>
+<p>Link to driver files &#8211; use date code from list above to download required driver.</p>
+<blockquote><p>https://dl.dropboxusercontent.com/u/80256631/8188eu-201xyyzz.tar.gz</p></blockquote>
+<p>如果你在中国，请尝试该链接 [I<strong>n China</strong> try this one]：</p>
+<blockquote><p>http://am.fcsys.org/raspi-rtl8188eu.php?file=8188eu-201xyyzz.tar.gz</p></blockquote>
+<h2>INSTALL RTL8188EU DRIVER</h2>
+<p><span style="color: #ff0000;">NOTE</span>: If updating firmware revisions, say from 3.10.23+ to 3.10.24+, and they use the same driver, in this case 8188eu-20131209.tar.gz, you will still need to reinstall the driver on the newer version of Linux, even though the driver has not changed as it will be loaded from a different directory by the new Linux revision and you need to install it in the new directory.</p>
+<p>The driver installation instructions expect you to be using Raspbian, either installed from a basic rasbian image or installed using NOOBS. The instructions are based on running from a Command Line Terminal, not a GUI (Graphical User Interface). If you are running using the GUI you will need to open a terminal window and run the commands from the terminal window but I can&#8217;t guarantee they will work.</p>
+<h3>Install driver online</h3>
+<p>If you have a wired internet connection install the driver with the following commands</p>
+<pre class="nums:false lang:sh decode:true ">wget https://dl.dropboxusercontent.com/u/80256631/8188eu-201xyyzz.tar.gz &lt;--set data code for driver version above
+tar -zxvf 8188eu-201xyyzz.tar.gz                                         &lt;--set data code for driver version above
+sudo install -p -m 644 8188eu.ko /lib/modules/$(uname -r)/kernel/drivers/net/wireless
+sudo insmod /lib/modules/$(uname -r)/kernel/drivers/net/wireless/8188eu.ko
+sudo depmod -a</pre>
+<p>如果你在中国请使用下面的这一段代码 [I<strong>n China</strong> try this one]：</p>
+<pre class="nums:false lang:sh decode:true ">wget http://am.fcsys.org/raspi-rtl8188eu.php?file=8188eu-201xyyzz.tar.gz  &lt;--set data code for driver version above
+tar -zxvf 8188eu-201xyyzz.tar.gz                                         &lt;--set data code for driver version above
+sudo install -p -m 644 8188eu.ko /lib/modules/$(uname -r)/kernel/drivers/net/wireless
+sudo insmod /lib/modules/$(uname -r)/kernel/drivers/net/wireless/8188eu.ko
+sudo depmod -a</pre>
+<h3>Install driver offline</h3>
+<p>If you do not have an internet connection the driver file will need to be downloaded on another computer and copied to the SD card. I use a Windows laptop and will use that as an example of how to copy and install the wifi driver.</p>
+<p>Open a web browser on your Windows computer and download the driver. Check the name of the driver file before saving it and correct it if necessary. I have sometimes found Windows tries to save the driver file as 8188eu-201xyyzz.tar.tar when it should be 8188eu-201xyyzz.tar.gz. Substitute the correct file name for &#8220;xyyzz&#8221;.</p>
+<p>Take the SD card and load it into an SD card reader on your Windows computer. Copy the driver file, 8188eu-201xyyzz.tar.gz, from your Windows computer to the SD card. Safely remove the SD card from the card reader by clicking the safe removal icon in the task bar and install the SD card in your Raspberry Pi and power on and login.</p>
+<p>After logging in you will need to copy the driver file to your home directory. How you do this is dependent on whether you installed rasbian using NOOBS or directly from a Rasbian image. If you are running raspbian installed using NOOBS you need to run the following commands to copy the driver file to your home directory</p>
+<pre class="nums:false lang:sh decode:true ">sudo mount /dev/mmcblk0p1 /mnt
+sudo mv /mnt/8188eu-201xyyzz.tar.gz .
+sudo umount /dev/mmcblk0p1</pre>
+<p>You will need the period, full stop (.), after the filename in the sudo mv command. The mount/umount commands are required as the driver file is in the NOOBS boot directory, not the rasbian boot directory, so the NOOBS boot directory needs mounting and accessing to get to the driver file.</p>
+<p>If you installed raspbian directly from a rasbian image use the following command to copy the driver file to your home directory</p>
+<pre class="nums:false lang:sh decode:true ">sudo mv /boot/8188eu-201xyyzz.tar.gz .</pre>
+<p>Now the driver file has been moved to your home directory the driver installation can be completed using the following commands</p>
+<pre class="nums:false lang:sh decode:true ">tar -zxvf 8188eu-201xyyzz.tar.gz                                         &lt;--set data code for driver version above
+sudo install -p -m 644 8188eu.ko /lib/modules/$(uname -r)/kernel/drivers/net/wireless
+sudo insmod /lib/modules/$(uname -r)/kernel/drivers/net/wireless/8188eu.ko
+sudo depmod -a</pre>
+<p>Once the driver is loaded you will need to configure the network set up so the Pi will connect to your wifi network if it is not already done. There are some basic details on how to do that available <a class="postlink" href="http://www.fars-robotics.net/">here</a>.</p>
+<h2>ABOUT AUTHOR</h2>
+<blockquote><p>To help in installing or updating the driver @LaFambe has produced a very simple script available <a class="postlink" href="https://dl.dropboxusercontent.com/u/80256631/install-8188eu.tgz">here</a> which will automatically select and install the correct version of the driver for the version of Raspbian being used. I was quite impressed by it and it really does make life much simpler. To install the script look <a class="postlink" href="http://www.raspberrypi.org/forum/viewtopic.php?p=479340#p479340">here</a>. You will need an internet connection for the script to work.</p>
+<p>Thank you very much, LaFambe.</p></blockquote>
+<p>The original author: MrEngman</p>
+<p>The original link: <a href="http://www.raspberrypi.org/forums/viewtopic.php?p=462982#p462982">(UPDATE) Drivers for TL-WN725N V2 &#8211; 3.6.11+ -&gt; 3.12.33+</a></p>
+<h2>THIS POST EDITED BY</h2>
+<p>Pekaikon Norckon<br />
+7-12-2014 [SUN]</p>
+]]></content:encoded>
+			<wfw:commentRss>/2014/12/raspberry-pi-driver-for-rtl81798188eu.html/feed</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Raspberry Pi &#8211; Getting Started</title>
+		<link>/2014/12/raspberry-pi-getting-started.html</link>
+		<comments>/2014/12/raspberry-pi-getting-started.html#comments</comments>
+		<pubDate>Sat, 06 Dec 2014 06:07:09 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Hardware]]></category>
+		<category><![CDATA[Download Raspbian]]></category>
+		<category><![CDATA[Raspberry Pi]]></category>
+		<category><![CDATA[SD]]></category>
+
+		<guid isPermaLink="false">/?p=1408</guid>
+		<description><![CDATA[WHAT IS A RASPBERRY PI The Raspberry Pi is a low cost, credit-card sized computer that plugs into a computer monitor or TV, and uses a standard keyboard and mouse. It is a capable little device that enables people of all ages to explore computing, and to learn how to program in languages like Scratch [&#8230;]]]></description>
+				<content:encoded><![CDATA[<h2>WHAT IS A RASPBERRY PI</h2>
+<p>The Raspberry Pi is a low cost, credit-card sized computer that plugs into a computer monitor or TV, and uses a standard keyboard and mouse. It is a capable little device that enables people of all ages to explore computing, and to learn how to program in languages like Scratch and Python. It’s capable of doing everything you’d expect a desktop computer to do, from browsing the internet and playing high-definition video, to making spreadsheets, word-processing, and playing games.</p>
+<h2>PREVIEW</h2>
+<p><a href="/wp-content/uploads/2014/12/raspberry_pi_b_plus2.jpg"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/raspberry_pi_b_plus2.jpg" alt="raspberry_pi_b_plus2" width="444" height="252" /></a></p>
+<p style="text-align: center;">Raspberry Pi Model B+</p>
+<h2>PARAMETERS</h2>
+<p>&nbsp;</p>
+<table>
+<tbody>
+<tr>
+<th colspan="2">Raspberry Pi (Model B+)</th>
+</tr>
+<tr>
+<td>CPU</td>
+<td>Broadcom BCM2835 (ARM1176JZFS, 700MHz &#8211; 1GHz)</td>
+</tr>
+<tr>
+<td>GPU</td>
+<td>Dual Core VideoCore IV (OpenGL ES 1.1/2.0)</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>512MB (Model A/+ 256MB)</td>
+</tr>
+<tr>
+<td>USB</td>
+<td>4 Ports (Model A/+ 1 Port; Model B 2 Ports)</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>10/100 Base-T Ethernet</td>
+</tr>
+<tr>
+<td>Size</td>
+<td>85.60mm x 53.98mm x 17mm above</td>
+</tr>
+<tr>
+<td>Power Supply</td>
+<td>5V 700mA</td>
+</tr>
+<tr>
+<td>Electric Power</td>
+<td>3 watts</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h2>ABOUT OPERATING SYSTEM</h2>
+<p>Raspberry Pi using Linux as operating system, Raspbian is distribution of Debian Wheezy(Debian 7.0) that optimized for Raspberry Pi(ARMv6 + VFPv2).</p>
+<p>Download Raspbian SD image from<a href="http://www.raspberrypi.org/downloads/"><strong> official dowanload page</strong> </a>and write into SD card. Power on Raspberry Pi will boot Raspbian.</p>
+<h2>PREPARING YOUR SD CARD</h2>
+<h3>DOWNLOAD THE IMAGE</h3>
+<p>Official images for recommended Operating Systems are available to download from the Raspberry Pi website: <a href="raspberrypi.org/downloads">raspberrypi.org/downloads</a> Alternative distributions are available from third party vendors.</p>
+<h3>WRITING AN IMAGE TO THE SD CARD</h3>
+<h4>For Windows</h4>
+<ol>
+<li>Download Raspbian image from official website.</li>
+<li>Download <a href="http://sourceforge.net/projects/win32diskimager/">Win32 Disk Imager</a> from sourceforge.</li>
+<li>Select image file and SD card, click <strong>Write</strong> and wait for progress.</li>
+<li>Plug-out your SD card reader.</li>
+</ol>
+<p><a href="/wp-content/uploads/2014/12/tumblr_inline_mm9nzcUU2c1qz4rgp2.png"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/tumblr_inline_mm9nzcUU2c1qz4rgp2.png" alt="tumblr_inline_mm9nzcUU2c1qz4rgp2" width="425" height="211" /></a></p>
+<h4>For Linux</h4>
+<ul>
+<li>Run <code>df -h</code> command to list all of disks you mounted before mount your SD Card</li>
+</ul>
+<pre class="nums:false decode-attributes:false lang:default highlight:0 decode:false">$ df -h
+Filesystem      Size   Used  Avail Capacity  Mounted on
+/dev/sda1      698Gi   94Gi  604Gi    14%    /
+devfs          182Ki  182Ki    0Bi   100%    /dev</pre>
+<ul>
+<li>Run <code>df -h</code> again when plugged in SD card reader, SD card will be listed.</li>
+</ul>
+<pre class="nums:false decode-attributes:false lang:default highlight:0 decode:false">$ df -h
+Filesystem      Size   Used  Avail Capacity  Mounted on
+/dev/sda1      698Gi   94Gi  604Gi    14%    /
+devfs          184Ki  184Ki    0Bi   100%    /dev
+/dev/sdb1       15Gi  2.2Mi   15Gi     1%    /Volumes/NO NAME</pre>
+<ul>
+<li>Check SD card device is <code>/dev/sdb1</code>and <code>umount</code> this device.</li>
+</ul>
+<pre class="nums:false decode-attributes:false lang:default highlight:0 decode:false">$ unmount /dev/sdb1
+Volume NO NAME on disk1s1 unmounted</pre>
+<ul>
+<li>Run <code>dd</code> command and write Raspbian into your SD card.</li>
+</ul>
+<pre class="nums:false decode-attributes:false lang:default highlight:0 decode:false">$ sudo dd if=/home/a1/2014-09-09-wheezy-raspbian.img if=/dev/sdb1 bs=2M
+1850+0 records in
+1850+0 records out
+1939865600 bytes transferred in 104.871126 secs (18497614 bytes/sec)
+      104.97 real         0.00 user         0.94 sys</pre>
+<ul>
+<li>This operate will take a long time, please wait for finish.</li>
+<li>When finished, run <code>df -h</code> again check SD card information.</li>
+</ul>
+<pre class="nums:false decode-attributes:false lang:default highlight:0 decode:false">$ df -h
+Filesystem      Size   Used  Avail Capacity  Mounted on
+/dev/sda1      698Gi   94Gi  604Gi    14%    /
+devfs          184Ki  184Ki    0Bi   100%    /dev
+/dev/sdb1       56Mi   34Mi   22Mi    61%    /Volumes/Untitled</pre>
+<h4>For Linux / Mac OS X</h4>
+<ul>
+<li>Linux Desktop: <a href="https://bugs.launchpad.net/usb-imagewriter/+bug/1013834">USB ImageWriter</a></li>
+<li>Linux Gnome: Using <a href="https://apps.ubuntu.com/cat/applications/precise/gnome-disk-utility/">Disk Utility</a> or <a href="https://wiki.gnome.org/Design/Apps/Disks">Gnome Disks Guide</a></li>
+<li>Mac OS X: <a href="http://www.raspberrypi.org/documentation/installation/installing-images/mac.md">Raspberry Wiki</a></li>
+</ul>
+<h2>BOOT YOUR RASPBERRY PI</h2>
+<h3>For HDMI</h3>
+<ul>
+<li>Raspberry Pi can connect HDMI directly, This way will be simple than using SSH. If you want to connect to Display or Television.</li>
+<li>Using HDMI cable connect Raspberry and Display or TV, Then power on Raspberry Pi.</li>
+<li>If your display does not supports HDMI interface, Converter will be very usefully. like VGA converter or DVI converter.</li>
+<li><span style="color: #ff0000;"><strong>If using VGA converter</strong></span>, please using VGA converter with power supply, because VGA converter without power supply will damage Raspberry Pi.</li>
+</ul>
+<p><a href="/wp-content/uploads/2014/12/tumblr_inline_mm9nlodATy1qz4rgp2.jpg"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/tumblr_inline_mm9nlodATy1qz4rgp2.jpg" alt="tumblr_inline_mm9nlodATy1qz4rgp2" width="410" height="516" /></a></p>
+<h3>For PuTTY / SSH</h3>
+<p>If do not have TV or Display, also can access Raspberry Pi thought SSH and VNC. but there some different between HDMI way.</p>
+<ul>
+<li>Using LAN cable connect Raspberry LAN interface and router and Power on Raspberry Pi.</li>
+<li>Open Router management webpage, find DHCP client list, find out <strong>raspberrypi</strong> IP address, this is Raspberry Pi IP address.</li>
+<li>Download PuTTY program from <a href="http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe">this link</a> and open it.</li>
+</ul>
+<p><a href="/wp-content/uploads/2014/12/putty-window2.png"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/putty-window2.png" alt="putty-window2" width="466" height="449" /></a></p>
+<ul>
+<li>Enter the Raspberry Pi IP address, select SSH as connection type and under the menu item <strong>Window –&gt; Translation</strong> select <strong>UTF-8</strong></li>
+</ul>
+<p><a href="/wp-content/uploads/2014/12/putty-utf-82.png"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/putty-utf-82.png" alt="putty-utf-82" width="466" height="449" /></a></p>
+<ul>
+<li>Click <strong>Open</strong> and youre ready to log on. Standard user <strong>pi</strong>, Standard password <strong>raspberry</strong>.</li>
+</ul>
+<h2>RASPBERRY BASE CONFIGURATION</h2>
+<p>If you boot Raspbian first time, Raspi-config will show on your screen, If doesnt show on screen, please run command <code>sudo raspi-config</code>.</p>
+<p><a href="/wp-content/uploads/2014/12/52b0a966757b7f7f2b8b456a2.png"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/52b0a966757b7f7f2b8b456a2.png" alt="52b0a966757b7f7f2b8b456a2" width="808" height="644" /></a></p>
+<p>If youre booting Raspbian first time, please select <strong>Expand Filesystem</strong> and reboot your Raspberry Pi take effect. If you do not do this, Your Raspberry will no spce left on disk and be unstable.</p>
+<p>If you connected a display and want show desktop after boot, please change<strong> Enable Boot to Desktop/Scratch</strong> value to <strong>Desktop Log in as user pi at the graphical desktop</strong>.</p>
+<p>If you does not connect a display or TV, and want get more available memory, please change <strong>Advanced Options -&gt; Memory Split</strong> value to 16.</p>
+<p>If you want change current user <strong>pi</strong> password, please select <strong>Change User Password</strong>, System will let you enter new password.</p>
+<h3>About Expand Filesystem</h3>
+<pre class="nums:false decode-attributes:false lang:default highlight:0 decode:false"># fdisk -l /dev/sda
+
+Disk /dev/sda: 16.0 GB, 16021192704 bytes
+64 heads, 32 sectors/track, 15279 cylinders, total 31291392 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x000714e9
+
+   Device Boot        Start         End      Blocks   Id  System
+/dev/sda1              8192      122879       57344    c  W95 FAT32 (LBA)
+/dev/sda2            122880     3788799     1832960   83  Linux</pre>
+<p><em>Before Expand Filesystem, 3,788,800 selectors are unavailable, After expand, all selectors are available.</em></p>
+<pre class="nums:false decode-attributes:false lang:default highlight:0 decode:false"># fdisk -l /dev/mmcblk0
+
+Disk /dev/mmcblk0: 16.0 GB, 16021192704 bytes
+4 heads, 16 sectors/track, 488928 cylinders, total 31291392 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x000714e9
+
+        Device Boot   Start         End      Blocks   Id  System
+/dev/mmcblk0p1         8192      122879       57344    c  W95 FAT32 (LBA)
+/dev/mmcblk0p2       122880    31291391    15584256   83  Linux</pre>
+<h2>ENABLE VNC REMOTE ACCESS</h2>
+<p>SSH can only provide console remote access, If want access Raspbian desktop remotely or run GUI applications remotely, even dont have display want control Raspberry Desktop.</p>
+<ul>
+<li>Run command <code>sudo apt-get install tightvncserver</code> to install Tight VNC Server.</li>
+</ul>
+<p><a href="/wp-content/uploads/2014/12/tumblr_inline_mm9oblBSJ21qz4rgp2.png"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/tumblr_inline_mm9oblBSJ21qz4rgp2.png" alt="tumblr_inline_mm9oblBSJ21qz4rgp2" width="500" height="203" /></a></p>
+<ul>
+<li>Run command <code>vncpasswd</code> to setup vnc remote access password. If ask for you <em>view-only password</em>, can skip it.</li>
+<li>Run command <code>vncserver :0 -geometry 800x600</code> or <code>vncserver :0</code> to startup vnc server.</li>
+</ul>
+<p><span style="text-decoration: underline;">In this command</span>, <strong>:0</strong> means<strong> No.0</strong> desktop, and No.0 desktop port is <strong>5900</strong>, <strong>:1</strong> means <strong>No.1</strong> desktop, and No.1 desktop port is <strong>5901</strong>, etc. Geometry means desktop resolution, like 1024&#215;768, 1440&#215;900 etc.</p>
+<p>If you want using windows to access your remote Raspbian, Please download <a href="http://www.realvnc.com/download/viewer/">RealVNC </a>and enter your Raspbian <span style="text-decoration: underline;">IP address <strong>and</strong> port</span>, click <strong>Connect</strong> to start new session.</p>
+<p><a href="/wp-content/uploads/2014/12/tumblr_inline_mm9odaE8901qz4rgp2.png"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/tumblr_inline_mm9odaE8901qz4rgp2.png" alt="tumblr_inline_mm9odaE8901qz4rgp2" width="354" height="193" /></a></p>
+<p><a href="/wp-content/uploads/2014/12/tumblr_inline_mm9ofmftkZ1qz4rgp2.png"><img class="attachment-full aligncenter" src="/wp-content/uploads/2014/12/tumblr_inline_mm9ofmftkZ1qz4rgp2.png" alt="tumblr_inline_mm9ofmftkZ1qz4rgp2" width="500" height="388" /></a></p>
+<h2>REFERENCES</h2>
+<ul>
+<li><a href="http://www.raspberrypi.org/help/what-is-a-raspberry-pi/">WHAT IS A RASPBERRY PI?</a></li>
+<li><a href="http://www.raspberrypi.org/documentation/installation/installing-images/README.md">INSTALLING OPERATING SYSTEM IMAGES</a></li>
+<li><a href="http://ltext.tumblr.com/post/49580927299">树莓派无显示器上手步骤</a></li>
+<li><a href="http://www.mztn.org/rpi/rpi00.html">Raspberry Pi(ラズベリーパイ) メモ</a></li>
+<li><a href="http://aurorax.org/644/">raspberry pi在ubuntu/linux下的系统烧录</a></li>
+<li><a href="http://raspberrypi4dummies.wordpress.com/2013/03/17/connect-to-the-raspberry-pi-via-ssh-putty/">Connect to the Raspberry Pi via SSH / Putty</a></li>
+</ul>
+<h2>AUTHOR</h2>
+<p>Pekaikon Norckon<br />
+6-12-2014 [SAT]</p>
+]]></content:encoded>
+			<wfw:commentRss>/2014/12/raspberry-pi-getting-started.html/feed</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>UPS电源电池供电时间计算方法[转]</title>
+		<link>/2014/03/ups%E7%94%B5%E6%BA%90%E7%94%B5%E6%B1%A0%E4%BE%9B%E7%94%B5%E6%97%B6%E9%97%B4%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E8%BD%AC.html</link>
+		<comments>/2014/03/ups%E7%94%B5%E6%BA%90%E7%94%B5%E6%B1%A0%E4%BE%9B%E7%94%B5%E6%97%B6%E9%97%B4%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E8%BD%AC.html#respond</comments>
+		<pubDate>Tue, 11 Mar 2014 11:47:41 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Hardware]]></category>
+
+		<guid isPermaLink="false">/?p=1171</guid>
+		<description><![CDATA[UPS电源电池供电时间计算方法 UPS的额定容量是指UPS的最大输出功率（电压V和电流A的乘积） 通常市场上所售的UPS电源，容量较小的以“W”（瓦特）为单位来标识；超过1千瓦时，用“VA”（伏安）标识，“W”与“VA”值是有区别的。这就要求我们必须区别具体情况来选择UPS。一般来讲，1千瓦以内的小容量UPS一般都用“W”表示容量，容量在1KVA～500KVA的 UPS 都用VA而不是W来表示容量。 事实上，“W”总是小于等于“VA”。它们之间的换算关系可用如下公式计算出来： W = VA×功率因数。功率因数在0～1之间，它表示了负载电流做的有用功（W）的百分比。只有电热器或电灯泡等的功率因数为1。对于其他设备来说，有一部分负载没有作功。这部分电流是谐波或电抗电流，它是负载特性引起的。由于有这部分电流，所以“ VA”值比“W”值大，在功率因数为1时，“W”和“VA”值相同。 那么在我们为计算机等设备选配UPS电源时，怎样选择合适的UPS容量？若选择不当，通常会出现以下两种情况，一是容量过小，即所谓小马拉大车，很可能会造成设备的损坏；另一种情况是容量过大，造成资金的浪费。因此，正确地选择UPS的容量对网络管理人员来说是一件重要的事情。 一般来讲，UPS在容量选择应考虑以下因素： 实际负载情况：P=∑Pi/f 即实际所有负载的总和∑Pi，再除以功率因数f，f=0.6~0.8,即可得到实际负载容量P。 电池供电时间计算 电池供电时间主要受负载大小、电池容量、环境温度、电池放电截止电压等因素影响。一般计算 UPS电池供电时间,可以计算出电池放电电流,然后根据电池放电曲线查出其放电时间。电池放电电 流可以按以下经验公式计算: 放电电流=UPS容量(VA)×功率因数/电池放电平均电压×效率 如要计算实际负载放电时间,只需将UPS容量换为实际负载容量即可。从以上的公式780/0.6=1300W=1.3KVA,山特C3KS是3KVA容量的应该能维持2小时电力, 如果还怕不够的话可以选容量5KVA的,当然价格要比3KVA的贵一些。 一个简单的计算方法 1. 你要计算的话要把实际负载W转换为VA.服务器等设备一般功率因素是0.8(如果是8000W的话就是8000/0.8=10000VA)。 2. 电池包的选型,现在主流电池都是12V的不同的是&#8221;AH数&#8221;,也是就&#8221;安时数&#8221;,一般UPS的电池要求都是12的倍数.说到这不知道你理解了没有,打个比方如果电池包是24V是话那就要用两组12V的并联(道理你应该清楚吧?)另外AH数是电池上标的,有很多种。 3. 然后我们就算每组电池的电池数,一个很简单的算法,但是并不是非常精确(电池包电压数*AH*电池个数=负载功率*延时时间 )根据这个 你算出电池个数来就可以了。 本文章来自：http://itbbs.pconline.com.cn/network/11584155.html]]></description>
+				<content:encoded><![CDATA[<h2>UPS电源电池供电时间计算方法</h2>
+<blockquote><p>UPS的额定容量是指UPS的最大输出功率（电压V和电流A的乘积）</p></blockquote>
+<p>通常市场上所售的UPS电源，容量较小的以“W”（瓦特）为单位来标识；超过1千瓦时，用“VA”（伏安）标识，“W”与“VA”值是有区别的。这就要求我们必须区别具体情况来选择UPS。一般来讲，1千瓦以内的小容量UPS一般都用“W”表示容量，容量在1KVA～500KVA的 UPS 都用VA而不是W来表示容量。</p>
+<p>事实上，“W”总是小于等于“VA”。它们之间的换算关系可用如下公式计算出来： W = VA×功率因数。功率因数在0～1之间，它表示了负载电流做的有用功（W）的百分比。只有电热器或电灯泡等的功率因数为1。对于其他设备来说，有一部分负载没有作功。这部分电流是谐波或电抗电流，它是负载特性引起的。由于有这部分电流，所以“ VA”值比“W”值大，在功率因数为1时，“W”和“VA”值相同。</p>
+<p>那么在我们为计算机等设备选配UPS电源时，怎样选择合适的UPS容量？若选择不当，通常会出现以下两种情况，一是容量过小，即所谓小马拉大车，很可能会造成设备的损坏；另一种情况是容量过大，造成资金的浪费。因此，正确地选择UPS的容量对网络管理人员来说是一件重要的事情。<br />
+一般来讲，UPS在容量选择应考虑以下因素：</p>
+<blockquote><p>实际负载情况：P=∑Pi/f</p></blockquote>
+<p>即实际所有负载的总和∑Pi，再除以功率因数f，f=0.6~0.8,即可得到实际负载容量P。</p>
+<h2>电池供电时间计算</h2>
+<p>电池供电时间主要受负载大小、电池容量、环境温度、电池放电截止电压等因素影响。一般计算<br />
+UPS电池供电时间,可以计算出电池放电电流,然后根据电池放电曲线查出其放电时间。电池放电电<br />
+流可以按以下经验公式计算:</p>
+<blockquote><p>放电电流=UPS容量(VA)×功率因数/电池放电平均电压×效率</p></blockquote>
+<p>如要计算实际负载放电时间,只需将UPS容量换为实际负载容量即可。从以上的公式780/0.6=1300W=1.3KVA,山特C3KS是3KVA容量的应该能维持2小时电力, 如果还怕不够的话可以选容量5KVA的,当然价格要比3KVA的贵一些。</p>
+<h2>一个简单的计算方法</h2>
+<blockquote><p>1. 你要计算的话要把实际负载W转换为VA.服务器等设备一般功率因素是0.8(如果是8000W的话就是8000/0.8=10000VA)。</p>
+<p>2. 电池包的选型,现在主流电池都是12V的不同的是&#8221;AH数&#8221;,也是就&#8221;安时数&#8221;,一般UPS的电池要求都是12的倍数.说到这不知道你理解了没有,打个比方如果电池包是24V是话那就要用两组12V的并联(道理你应该清楚吧?)另外AH数是电池上标的,有很多种。</p>
+<p>3. 然后我们就算每组电池的电池数,一个很简单的算法,但是并不是非常精确(电池包电压数*AH*电池个数=负载功率*延时时间 )根据这个 你算出电池个数来就可以了。</p></blockquote>
+<p>本文章来自：http://itbbs.pconline.com.cn/network/11584155.html</p>
+]]></content:encoded>
+			<wfw:commentRss>/2014/03/ups%E7%94%B5%E6%BA%90%E7%94%B5%E6%B1%A0%E4%BE%9B%E7%94%B5%E6%97%B6%E9%97%B4%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E8%BD%AC.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>W3000R路由器硬件改动提高发射功率测试结果及改造方法</title>
+		<link>/2013/08/w3000r%E8%B7%AF%E7%94%B1%E5%99%A8%E7%A1%AC%E4%BB%B6%E6%94%B9%E5%8A%A8%E6%8F%90%E9%AB%98%E5%8F%91%E5%B0%84%E5%8A%9F%E7%8E%87%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C%E5%8F%8A%E6%94%B9%E9%80%A0%E6%96%B9.html</link>
+		<comments>/2013/08/w3000r%E8%B7%AF%E7%94%B1%E5%99%A8%E7%A1%AC%E4%BB%B6%E6%94%B9%E5%8A%A8%E6%8F%90%E9%AB%98%E5%8F%91%E5%B0%84%E5%8A%9F%E7%8E%87%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C%E5%8F%8A%E6%94%B9%E9%80%A0%E6%96%B9.html#respond</comments>
+		<pubDate>Sun, 04 Aug 2013 15:38:29 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Hardware]]></category>
+
+		<guid isPermaLink="false">/?p=638</guid>
+		<description><![CDATA[（测试环境：路由器放入配电箱内，与笔记本距离10米，中间隔2堵墙  测试软件为：PassMark WirelessMon） W3000R的电阻都在PCB板的背面，图中R132 R219为一路功放的电阻，图中R139 R220为二路功放的电阻 建议修改方式：修改R132与R139为5.1K, R219与R220为5.1K W300R原版的电路板背面如图，其中R132与R139位置上有电阻，其阻值为0欧；然后在R219与R220的位置为空。想要提高路由器的收发功率，使其收发功率达到最大化，我们需要：修改电阻R132与R139为5.1K欧姆, R219与R220为5.1K欧姆。（附注：全部改为3.9K同理，测试结果的微妙因素可能是由于其他因素引起）。 修改后的W3000R路由器经过持续运行2天的测试，稳定可靠。原作者只保证试验结果数据真实可靠，若在修改后有任何问题，如因各种原因导致路由器损坏，原作者概不负责。 附加信息：电阻封装为0402，器件及焊盘微小，需要具备焊接能力的操作者进行操作，其PCB为4~6层板，走线从中间层进入BGA封装的主IC。 原文来自：http://forum.anywlan.com/thread-227319-1-1.html]]></description>
+				<content:encoded><![CDATA[<p><em>（<strong>测试环境</strong>：路由器放入配电箱内，与笔记本距离10米，中间隔2堵墙  <strong>测试软件为</strong>：PassMark WirelessMon）</em></p>
+<blockquote><p>W3000R的电阻都在PCB板的背面，图中R132 R219为一路功放的电阻，图中R139 R220为二路功放的电阻</p></blockquote>
+<p><strong>建议修改方式：<span style="color: #888888;">修改R132与R139为5.1K, R219与R220为5.1K</span></strong></p>
+<p>W300R原版的电路板背面如图，其中R132与R139位置上有电阻，其阻值为0欧；然后在R219与R220的位置为空。想要提高路由器的收发功率，使其收发功率达到最大化，我们需要：修改电阻R132与R139为5.1K欧姆, R219与R220为5.1K欧姆。（<span style="color: #888888;"><em>附注：全部改为3.9K同理，测试结果的微妙因素可能是由于其他因素引起</em></span>）。</p>
+<p>修改后的W3000R路由器经过持续运行2天的测试，稳定可靠。原作者只保证试验结果数据真实可靠，若在修改后有任何问题，如因各种原因导致路由器损坏，原作者概不负责。</p>
+<p><strong>附加信息：</strong><em>电阻封装为0402，器件及焊盘微小，需要具备焊接能力的操作者进行操作，其PCB为4~6层板，走线从中间层进入BGA封装的主IC。</em></p>
+<p><br />
+原文来自：<a href="http://forum.anywlan.com/thread-227319-1-1.html">http://forum.anywlan.com/thread-227319-1-1.html</a></p>
+]]></content:encoded>
+			<wfw:commentRss>/2013/08/w3000r%E8%B7%AF%E7%94%B1%E5%99%A8%E7%A1%AC%E4%BB%B6%E6%94%B9%E5%8A%A8%E6%8F%90%E9%AB%98%E5%8F%91%E5%B0%84%E5%8A%9F%E7%8E%87%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C%E5%8F%8A%E6%94%B9%E9%80%A0%E6%96%B9.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>贴片电阻的读数方法</title>
+		<link>/2013/08/%E8%B4%B4%E7%89%87%E7%94%B5%E9%98%BB%E7%9A%84%E8%AF%BB%E6%95%B0%E6%96%B9%E6%B3%95.html</link>
+		<comments>/2013/08/%E8%B4%B4%E7%89%87%E7%94%B5%E9%98%BB%E7%9A%84%E8%AF%BB%E6%95%B0%E6%96%B9%E6%B3%95.html#respond</comments>
+		<pubDate>Sun, 04 Aug 2013 15:22:45 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Hardware]]></category>
+
+		<guid isPermaLink="false">/?p=636</guid>
+		<description><![CDATA[贴片电阻的命名方法： 国内贴片电阻的命名方法： 1、5%精度的命名：RS-05K102JT 2、1％精度的命名：RS-05K1002FT R －表示电阻 S －表示功率0402是1/16W、0603是1/10W、0805是1/8W、1206是1/4W、 1210是1/3W、1812是1/2W、2010是3/4W、2512是1W。 05 －表示尺寸(英寸)：02表示0402、03表示0603、05表示0805、06表示1206、1210表示1210、1812表示1812、10表示2010、12表示2512。 K －表示温度系数为100PPM,102－5％ 精度阻值表示法：前两位表示有效数字，第三位表示有多少个零，基本单位是Ω，102＝1000Ω＝1KΩ。1002是1％阻值表示法：前三位表示有效数字，第四位表示有多少个零，基本单位是Ω，1002＝10000Ω＝10KΩ。 J －表示精度为5％、F－表示精度为1％。 T －表示编带包装 贴片电阻阻值误差精度有±1％、±2％、±5％、±10％精度，常规用的最多的是±1％和±5％，±5％精度的常规是用三位数来表示例 例512，前面两位是有效数字，第三位数2表示有多少个零，基本单位是Ω,这样就是5100欧，1000Ω＝1KΩ,1000000Ω=1MΩ 为了区分±5％，±1％的电阻，于是±1％的电阻常规多数用4位数来表示 ，这样前三位是表示有效数字，第四位表示有多少个零4531也就是4530Ω，也就等于4.53KΩ 原文出处：http://www.cnblogs.com/chunge2050/archive/2011/07/21/2112518.html]]></description>
+				<content:encoded><![CDATA[<p>贴片电阻的命名方法：<br />
+国内贴片电阻的命名方法：</p>
+<p>1、5%精度的命名：RS-05K102JT<br />
+2、1％精度的命名：RS-05K1002FT<br />
+R －表示电阻<br />
+S －表示功率0402是1/16W、0603是1/10W、0805是1/8W、1206是1/4W、 1210是1/3W、1812是1/2W、2010是3/4W、2512是1W。<br />
+05 －表示尺寸(英寸)：02表示0402、03表示0603、05表示0805、06表示1206、1210表示1210、1812表示1812、10表示2010、12表示2512。<br />
+K －表示温度系数为100PPM,102－5％</p>
+<p>精度阻值表示法：前两位表示有效数字，第三位表示有多少个零，基本单位是Ω，102＝1000Ω＝1KΩ。1002是1％阻值表示法：前三位表示有效数字，第四位表示有多少个零，基本单位是Ω，1002＝10000Ω＝10KΩ。</p>
+<p>J －表示精度为5％、F－表示精度为1％。<br />
+T －表示编带包装</p>
+<p>贴片电阻阻值误差精度有±1％、±2％、±5％、±10％精度，常规用的最多的是±1％和±5％，±5％精度的常规是用三位数来表示例 例512，前面两位是有效数字，第三位数2表示有多少个零，基本单位是Ω,这样就是5100欧，1000Ω＝1KΩ,1000000Ω=1MΩ</p>
+<p>为了区分±5％，±1％的电阻，于是±1％的电阻常规多数用4位数来表示 ，这样前三位是表示有效数字，第四位表示有多少个零4531也就是4530Ω，也就等于4.53KΩ</p>
+<p>原文出处：<a href="http://www.cnblogs.com/chunge2050/archive/2011/07/21/2112518.html">http://www.cnblogs.com/chunge2050/archive/2011/07/21/2112518.html</a></p>
+]]></content:encoded>
+			<wfw:commentRss>/2013/08/%E8%B4%B4%E7%89%87%E7%94%B5%E9%98%BB%E7%9A%84%E8%AF%BB%E6%95%B0%E6%96%B9%E6%B3%95.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>关于安国主控搭配黑片</title>
+		<link>/2013/07/%E5%85%B3%E4%BA%8E%E5%AE%89%E5%9B%BD%E4%B8%BB%E6%8E%A7%E6%90%AD%E9%85%8D%E9%BB%91%E7%89%87.html</link>
+		<comments>/2013/07/%E5%85%B3%E4%BA%8E%E5%AE%89%E5%9B%BD%E4%B8%BB%E6%8E%A7%E6%90%AD%E9%85%8D%E9%BB%91%E7%89%87.html#respond</comments>
+		<pubDate>Wed, 24 Jul 2013 13:19:39 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Hardware]]></category>
+
+		<guid isPermaLink="false">/?p=606</guid>
+		<description><![CDATA[About knockoff UDisk with Alcor Chip, How to production 由于黑片的主控特殊，直接采用AlcorMP默认的方式量产会导致容量变小，并且AlcorMP会报告坏道。但是如果经过特殊的设定就不会出现这一类事情，而且AlcorMP所检测的坏道其实并不是坏道，经过反复测试发现数据存储正常。 Some reason of the knockoff UDisk&#8217;s chip is very specially. If you use AlcorMP to check and production, your UDisk&#8217;s size will get more and more low. And AlcorMP will reports many bad sectors to you. But you do some specially options, and then AlcorMP [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>About knockoff UDisk with Alcor Chip, How to production</p>
+<p>由于黑片的主控特殊，直接采用AlcorMP默认的方式量产会导致容量变小，并且AlcorMP会报告坏道。但是如果经过特殊的设定就不会出现这一类事情，而且AlcorMP所检测的坏道其实并不是坏道，经过反复测试发现数据存储正常。</p>
+<p>Some reason of the knockoff UDisk&#8217;s chip is very specially. If you use AlcorMP to check and production, your UDisk&#8217;s size will get more and more low. And AlcorMP will reports many bad sectors to you. But you do some specially options, and then AlcorMP will get FINE. AND All bad sectors that AlcorMP checked isnot true Bad Sector. You can use disk checker to find that your UDisk is OK .</p>
+<p>那么我们需要怎样设置才能正常呢？非常简单，打开AlcorMP软件后，选择容量优先|高级格式化|清空，进行量产。然后再选择容量优先|高级格式化|全新，再量产就好了。</p>
+<p>Following these can help you: First, Open your AlcorMP and set &#8220;&#8221;Capacity Priority | Advanced Format | Clear&#8221;,Start production. And then set &#8220;Capacity Priority | Advanced Format | New&#8221;. After production, you will get a verygood UDisk.</p>
+]]></content:encoded>
+			<wfw:commentRss>/2013/07/%E5%85%B3%E4%BA%8E%E5%AE%89%E5%9B%BD%E4%B8%BB%E6%8E%A7%E6%90%AD%E9%85%8D%E9%BB%91%E7%89%87.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

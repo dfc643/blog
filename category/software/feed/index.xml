@@ -1,0 +1,1000 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Software &#8211; Norckon&#039;s blog</title>
+	<atom:link href="/category/software/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>Norckon&#039;s blog</description>
+	<lastBuildDate>Thu, 24 Aug 2017 14:09:08 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.1</generator>
+	<item>
+		<title>Customize CPUID in Virtual Machine</title>
+		<link>/2017/06/customize-cpuid-virtual-machine.html</link>
+		<comments>/2017/06/customize-cpuid-virtual-machine.html#respond</comments>
+		<pubDate>Thu, 01 Jun 2017 08:02:11 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Software]]></category>
+		<category><![CDATA[CPUID]]></category>
+		<category><![CDATA[EAX]]></category>
+		<category><![CDATA[ECX]]></category>
+		<category><![CDATA[Virtual Machine]]></category>
+
+		<guid isPermaLink="false">/?p=1834</guid>
+		<description><![CDATA[INTRODUCE The CPUID opcode is a processor supplementary instruction (its name derived from CPU IDentification) for the x86 architecture allowing software to discover details of the processor. It was introduced by Intel in 1993 when it introduced the Pentium and SL-enhanced 486 processors.[1] By using the CPUID opcode, software can determine processor type and the [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2017/06/1496304107-1263-cpuid-wallpaper-1600x1000.jpg"><img class="attachment-full size-full" src="/wp-content/uploads/2017/06/1496304107-1263-cpuid-wallpaper-1600x1000.jpg" sizes="(max-width: 1600px) 100vw, 1600px" srcset="/wp-content/uploads/2017/06/1496304107-1263-cpuid-wallpaper-1600x1000.jpg 1600w, /wp-content/uploads/2017/06/1496304107-1263-cpuid-wallpaper-1600x1000-768x480.jpg 768w" alt="" width="1600" height="1000" /></a></p>
+<h2>INTRODUCE</h2>
+<p>The CPUID opcode is a processor supplementary instruction (its name derived from CPU IDentification) for the x86 architecture allowing software to discover details of the processor. It was introduced by Intel in 1993 when it introduced the Pentium and SL-enhanced 486 processors.[1]</p>
+<p>By using the CPUID opcode, software can determine processor type and the presence of features (like MMX/SSE). The CPUID opcode is 0Fh, A2h (as two bytes, or A20Fh as a single word) and the value in the EAX register, and in some cases the ECX register, specifies what information to return.</p>
+<p>To install a Hackintosh or other OS on the unsupported platform, such as Intel Pentium G4560. You have to fake a CPUID cheating the system. There have a very easy way to change the CPUID in Virtual Machine.</p>
+<h2>VMWARE WORKSTATION</h2>
+<ul>
+<li>Use editor (e.g. notepad) open virtual machine <strong>configure file</strong> (.vmx)</li>
+<li>Adding following lines:
+<pre>cpuid.1.eax = "00000000000000110100011010101001"
+cpuid.1.edx = "10111111111010111111101111111011"</pre>
+</li>
+<li>If CPUID is still not change or invalid, try adding:
+<pre>cpuid.1.ebx = "00000000000000110100011010101001"
+cpuid.1.ecx = "10111111111010111111101111111011"</pre>
+</li>
+<li>Save configure file and start your Virtual Machine.</li>
+</ul>
+<h2>ORACLE VIRTUAL BOX</h2>
+<ul>
+<li>Open<strong> Command Prompt</strong> and switch to VirtualBox working directory.</li>
+<li>Run following command to change CPUID.
+<pre>vboxmanage modifyvm  --cpuidset 1 000306a9 00100800 3d9ae3bf bfebfbff</pre>
+</li>
+<li>Start your Virtual Machine.</li>
+</ul>
+<h2>ABOUT CPUID</h2>
+<h3>EAX</h3>
+<p>Version Information: Type, Family, Model, and Stepping ID (see Figure 3-5)</p>
+<h3>EBX</h3>
+<p>Bits 07-00: Brand Index Bits 15-08: CLFLUSH line size (Value ∗ 8 = cache line size in bytes) Bits 23-16: Maximum number of addressable IDs for logical processors in this physical package*. Bits 31-24: Initial APIC ID</p>
+<h3>ECX</h3>
+<p>Feature Information (see Figure 3-6 and Table 3-20)</p>
+<h3>EDX</h3>
+<p>Feature Information (see Figure 3-7 and Table 3-21)</p>
+<p>For more about CPUID information please read <a href="http://www.felixcloutier.com/x86/CPUID.html">this </a>article.</p>
+<h2>REFERENCE</h2>
+<ul>
+<li><a href="http://www.cnblogs.com/iHqq/p/4829085.html">VMWARE修改CPUID</a></li>
+<li><a href="https://www.zhihu.com/question/22867637">如何在VirtualBox里面安装OS X 10.9？</a></li>
+<li><a href="http://www.felixcloutier.com/x86/CPUID.html">CPUID—CPU Identification</a></li>
+<li><a href="https://en.wikipedia.org/wiki/CPUID">CPUID &#8211; Wikipedia</a></li>
+</ul>
+<h2>AUTHOR</h2>
+<p>Pekaikon Norckon<br />
+2017/6/1 Fri.</p>
+]]></content:encoded>
+			<wfw:commentRss>/2017/06/customize-cpuid-virtual-machine.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Steps for Signing a Device Driver Package</title>
+		<link>/2017/06/steps-signing-device-driver-package.html</link>
+		<comments>/2017/06/steps-signing-device-driver-package.html#respond</comments>
+		<pubDate>Thu, 01 Jun 2017 07:01:26 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Operating System]]></category>
+		<category><![CDATA[Free Build Environment]]></category>
+		<category><![CDATA[Right-click Trusted Publishers]]></category>
+		<category><![CDATA[Security Catalog]]></category>
+		<category><![CDATA[Windows]]></category>
+
+		<guid isPermaLink="false">/?p=1828</guid>
+		<description><![CDATA[INTRODUCE Because device drivers run with system-level privileges and can access anything on your computer, it is critical that you trust the device drivers that you install. Trust, in this context, includes two main principles: Authenticity is an assurance that the driver package came from its claimed source. It cannot be malicious code masquerading as [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><img class="aligncenter size-full wp-image-1831" src="/wp-content/uploads/2017/06/Windows-10-wallpaper-New-Logo.jpg" alt="" width="1920" height="1080" srcset="/wp-content/uploads/2017/06/Windows-10-wallpaper-New-Logo.jpg 1920w, /wp-content/uploads/2017/06/Windows-10-wallpaper-New-Logo-768x432.jpg 768w" sizes="(max-width: 1920px) 100vw, 1920px" /></p>
+<h2>INTRODUCE</h2>
+<p>Because device drivers run with system-level privileges and can access anything on your computer, it is critical that you trust the device drivers that you install. Trust, in this context, includes two main principles:</p>
+<ul>
+<li class="unordered"><strong>Authenticity</strong> is an assurance that the driver package came from its claimed source. It cannot be malicious code masquerading as something legitimate.</li>
+<li class="unordered"><strong>Integrity</strong> is an assurance that the package is 100 percent intact, and has not been modified by anyone after it was released.</li>
+</ul>
+<p>Windows uses digital certificates and digital signatures to provide support for these principles. A <strong>digital certificate</strong> identifies an organization, and it is trustworthy because it can be checked electronically by a certification authority (CA). A <strong>digital signature</strong> uses information in the organization&#8217;s digital certificate to encrypt specific details about the package.</p>
+<p>The encrypted information in a digital signature includes a <strong>thumbprint</strong>, or <strong>hash</strong>, for each file included with the package. The thumbprint is generated by a special cryptographic algorithm referred to as a <em>hashing algorithm</em>. The algorithm generates a thumbprint that can only be recreated by using that file&#8217;s contents. Changing a single bit in the file changes the thumbprint. After the thumbprints are generated, they are combined together into a catalog, and then encrypted.</p>
+<p>The following figure shows the process used to sign a driver package.</p>
+<p><a href="/wp-content/uploads/2017/06/1496300471-8835-IC71830.gif"><img class="attachment-full size-full" src="/wp-content/uploads/2017/06/1496300471-8835-IC71830.gif" alt="" width="234" height="241" /></a></p>
+<p>In this process the following steps take place:</p>
+<p>The original driver package has no signature, and no .cat file in which a signature can be placed. In Step 1 of the diagram the <strong>Inf2Cat</strong> tool is run to create the .cat file, in which it places a thumbprint for each file identified as part of the driver package, as specified in the .inf file. In Step 2, the <strong>SignTool</strong> tool is run, specifying a digital certificate to encrypt, and thus sign, the .cat file. In Step 3, the digitally signed .cat file is included with the driver package and deployed to client computers.</p>
+<p>The recipient computer confirms the identity of the package originator by using a copy of the certificate to decrypt the signature on the package. A successful decryption proves that the owner of the certificate is the signer of the package.</p>
+<p>The same hashing algorithm used to create the thumbprints is used again during the confirmation process. Windows generates a thumbprint for each file received in the package. If the thumbprints generated by the receiving computer are identical to the ones found encrypted in the signature, then the recipient can be sure that the received package is identical to the original. If the thumbprints do not match, then the files were altered in some way after they were signed, and should not be trusted.</p>
+<p>On each computer, Windows maintains a store for digital certificates. As the computer administrator, you can add certificates from publishers that you trust. If a package is received for which a matching certificate cannot be found in the certificate store, then Windows presents a page asking the user to confirm that the publisher is trusted. By placing a certificate in the certificate store on all of your client computers, you are telling Windows that all packages signed by that certificate are trusted.</p>
+<h2>Create a digital certificate for signing</h2>
+<h3><strong>Method 1:</strong> Certificates MMC</h3>
+<ol>
+<li>Click <strong>Start</strong>, click <strong>Run</strong>, and then in the Run box, type: <strong>mmc</strong></li>
+<li>In <strong>Console1 – [Console Root]</strong>, click <strong>File</strong>, and then click <strong>Add/Remove Snap-in</strong>.</li>
+<li>In <strong>Add or Remove Snap-ins</strong>, in the <strong>Available snap-ins</strong> list, select <strong>Certificates</strong>, and then click <strong>Add</strong>.</li>
+<li>In <strong>Certificates snap-in</strong>, select <strong>Computer Account</strong>, and then click <strong>Next</strong>.</li>
+<li>On the <strong>Select Computer</strong> dialog box, select <strong>Local computer: (the computer this console is running on)</strong>, and then click <strong>Finish</strong>.</li>
+<li>Click <strong>OK</strong> to close the <strong>Add or Remove Snap-ins</strong> page.</li>
+</ol>
+<h3><strong>Method 2:</strong> The MakeCert tool</h3>
+<ol>
+<li>Open an <strong>x86 Free Build Environment</strong> command prompt with administrator permissions, by right-clicking x86 Free Build Environment on the <strong>Start</strong> menu, and then selecting <strong>Run as administrator</strong>.</li>
+<li>At the <strong>x86 Free Build Environment</strong> command prompt, type the following command on a single line (it appears here on multiple lines for clarity and to fit space limitations):
+<pre>makecert -r -n "CN=MyCompany - for test use only"
+         -ss MyCompanyCertStore 
+         -sr LocalMachine</pre>
+<p>The meaning of each parameter is as follows:</p>
+<ul>
+<li><strong>-r</strong><br />
+Specifies that the certificate is to be &#8220;self-signed,&#8221; rather than signed by a CA. Also called a &#8220;root&#8221; certificate.</li>
+<li><strong>-n &#8220;CN= MyCompany &#8211; for test use only&#8221;</strong><br />
+Specifies the name associated with this new certificate. It is recommended that you use a certificate name that clearly identifies the certificate and its purpose.</li>
+<li><strong>-ss MyCompanyCertStore</strong><br />
+Specifies the name of certificate store in which the new certificate is placed.</li>
+<li><strong>-sr LocalMachine</strong><br />
+Specifies that the certificate store created by the -ss option is in the per computer store, instead of the default per user store.</li>
+</ul>
+<p>The command returns the message &#8220;Succeeded&#8221; when the store and certificate are created.</li>
+<li>Verify that your new certificate was created correctly. In the <strong>Certificates</strong> MMC snap-in that you opened earlier, open the node <strong>Certificates (Local Computer)</strong>, then <strong>MyCompanyCertStore</strong>, and then <strong>Certificates</strong>.</li>
+<li>In the right-hand pane, double-click <strong>MyCompany &#8211; for test use only</strong>.The certificate dialog appears showing your new certificate.<br />
+<a href="/wp-content/uploads/2017/06/1496300070-1267-IC302442.gif"><img class="attachment-full size-full" src="/wp-content/uploads/2017/06/1496300070-1267-IC302442.gif" alt="" width="419" height="521" /></a></li>
+<li>Click <strong>OK</strong> to close the Certificate page.</li>
+</ol>
+<h2>Add the certificate to the Trusted Root Certification Authorities store</h2>
+<div class="sectionblock">
+<ol class="ordered">
+<li>In the Certificates snap-in, right-click <strong>MyCompany &#8211; for test use only</strong>, and then click <strong>Copy</strong>.</li>
+<li>Right-click <strong>Trusted Root Certification Authorities</strong>, and then click <strong>Paste</strong>.</li>
+<li>Open <strong>Trusted Root Certification Authorities</strong> and <strong>Certificates</strong>, and then double-click your certificate.</li>
+<li>Confirm that the &#8220;Not trusted&#8221; message no longer appears, and then click <strong>OK</strong> to close the certificate.</li>
+</ol>
+<h2>Add the certificate to the per machine Trusted Publishers store</h2>
+<div class="sectionblock">
+<ol class="ordered">
+<li>In the Certificates snap-in, right-click your certificate, and then click <strong>Copy</strong>.</li>
+<li>Right-click <strong>Trusted Publishers</strong>, and then click <strong>Paste</strong>.</li>
+<li>Open <strong>Trusted Publishers</strong> and <strong>Certificates</strong>, and then confirm that a copy of your certificate is in the folder.</li>
+<li>Click <strong>OK</strong> to close the certificate.</li>
+</ol>
+<h2>Sign the device driver package with the certificate</h2>
+<h3>Prepare the driver package .inf file</h3>
+<div class="sectionblock">
+<ol class="ordered">
+<li>At the <strong>x86 Free Build Environment</strong> command prompt with administrator permissions, change to the folder that contains your driver package. Type the following command:
+<div id="code-snippet-2" class="codeSnippetContainer">
+<div class="codeSnippetContainerCodeContainer">
+<div id="CodeSnippetContainerCode_37751925-4501-4bda-b820-40605b0fb94a" class="codeSnippetContainerCode" dir="ltr">
+<div>
+<pre>cd c:\toaster\device
+</pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>Then type the command:
+<div id="code-snippet-3" class="codeSnippetContainer">
+<div class="codeSnippetContainerCodeContainer">
+<div id="CodeSnippetContainerCode_78a45de6-57b6-4319-ae86-8db29c14131e" class="codeSnippetContainerCode" dir="ltr">
+<div>
+<pre>Notepad toastpkg.inf
+</pre>
+</div>
+</div>
+</div>
+</div>
+<p>Notepad opens with the .inf file displayed.</li>
+<li>Find the <strong>[Version]</strong> section. The original file includes the lines:
+<div id="code-snippet-4" class="codeSnippetContainer">
+<div class="codeSnippetContainerCodeContainer">
+<div id="CodeSnippetContainerCode_5d34b728-cc33-4996-9902-06bf70535102" class="codeSnippetContainerCode" dir="ltr">
+<div>
+<pre>CatalogFile.NTx86 = tostx86.cat
+CatalogFile.NTIA64 = tostia64.cat
+CatalogFile.NTAMD64 = tstamd64.cat
+</pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>Delete those three lines, and replace them with following single line:
+<div id="code-snippet-5" class="codeSnippetContainer">
+<div class="codeSnippetContainerCodeContainer">
+<div id="CodeSnippetContainerCode_f95fb7e9-7fe8-4323-919b-cda9ea443b4c" class="codeSnippetContainerCode" dir="ltr">
+<div>
+<pre>CatalogFile=toaster.cat
+</pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>In the <strong>[Version]</strong> section, find the line that begins with <strong>DriverVer=</strong>. Replace the date and version number so that the line appears as follows:
+<div id="code-snippet-6" class="codeSnippetContainer">
+<div class="codeSnippetContainerCodeContainer">
+<div id="CodeSnippetContainerCode_125f0295-5f63-451a-b960-19817500758e" class="codeSnippetContainerCode" dir="ltr">
+<div>
+<pre>DriverVer=05/01/2009,9.9.9.9
+</pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>In the <strong>[Toaster_Device.NT.CoInstallers]</strong> section, find and delete these three lines:
+<div id="code-snippet-7" class="codeSnippetContainer">
+<div class="codeSnippetContainerCodeContainer">
+<div id="CodeSnippetContainerCode_7b71a8b5-d6a5-4f31-b28a-7d312c932c2b" class="codeSnippetContainerCode" dir="ltr">
+<div>
+<pre>[Toaster_Device.NT.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+</pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>Save your changes, and then close Notepad.</li>
+</ol>
+</div>
+</div>
+</div>
+<h3>Create a catalog file for the driver package</h3>
+<div class="sectionblock">
+<ol class="ordered">
+<li>At the <strong>x86 Free Build Environment</strong> command prompt with administrator permissions, type the following command:
+<p><strong>inf2cat /driver:c:\toaster\device /os:7_x86</strong></p>
+<p>The meaning of each parameter is as follows:</p>
+<ul>
+<li class="unordered"><strong>/driver:</strong> <em>c:\toaster\device</em><br />
+Specifies the location of the .inf file for the driver package. You must specify the complete folder path. A &#8216;.&#8217; character does not work here to represent the current folder.</li>
+<li class="unordered"><strong>/os:</strong> <em>7_x86</em><br />
+Identifies the 32-bit version of Windows 7as the operating system. Run the command <strong>inf2cat /?</strong> for a complete list of supported operating systems and their codes.</li>
+</ul>
+</li>
+<li>Review the output of the inf2cat tool.
+<div id="code-snippet-8" class="codeSnippetContainer">
+<div class="codeSnippetContainerCodeContainer">
+<div id="CodeSnippetContainerCode_4a9de5c5-e069-4df0-9302-1c814138344c" class="codeSnippetContainerCode" dir="ltr">
+<div>
+<pre>Signability test complete
+......................
+Errors:
+None
+
+Warnings:
+None
+
+Catalog generation complete.
+C:\toaster\device\toaster.cat
+</pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>Review the completed .cat file. At the command prompt, type
+<div id="code-snippet-9" class="codeSnippetContainer">
+<div class="codeSnippetContainerCodeContainer">
+<div id="CodeSnippetContainerCode_eb793306-7f6d-4262-8d9c-f6600a8bfe43" class="codeSnippetContainerCode" dir="ltr">
+<div>
+<pre>start toaster.cat
+</pre>
+</div>
+</div>
+</div>
+</div>
+<p>The <strong>Security Catalog</strong> dialog box appears, indicating that the catalog is not digitally signed. Because the .cat file is not signed, the <strong>View Signature</strong> button is disabled.</p>
+<p><a href="/wp-content/uploads/2017/06/1496300070-6279-IC302443.gif"><img class="attachment-full size-full" src="/wp-content/uploads/2017/06/1496300070-6279-IC302443.gif" alt="" width="420" height="519" /></a></li>
+<li>Click the <strong>Security Catalog</strong> tab. There are three entries in the <strong>Catalog entries</strong> section, one each for the .inf file, the .sys file, and the .dll file of the driver package. Click each entry, and note in the Entry Details section that each file in the package has an entry, along with a &#8220;thumbprint&#8221; (the hash) that can be used to confirm the integrity of the file.</li>
+<li>Click <strong>OK</strong> to close the <strong>Security Catalog</strong> dialog box.</li>
+</ol>
+</div>
+<h3>Sign the catalog file by using SignTool</h3>
+<div class="sectionblock">
+<ol class="ordered">
+<li>At the <strong>x86 Free Build Environment</strong> command prompt with administrator permissions, type the following command all on one line. It appears here on multiple lines for clarity and to fit space limitations:
+<div id="code-snippet-10" class="codeSnippetContainer">
+<div class="codeSnippetContainerCodeContainer">
+<div id="CodeSnippetContainerCode_2d18d722-4d1c-4b4c-8724-494cee728f58" class="codeSnippetContainerCode" dir="ltr">
+<div>
+<pre>SignTool sign /s MyCompanyCertStore /n “MyCompany – for test use only”
+         /t http://timestamp.verisign.com/scripts/timestamp.dll
+         toaster.cat
+</pre>
+</div>
+</div>
+</div>
+</div>
+<p>The meaning of each parameter is as follows:</p>
+<ul>
+<li class="unordered"><strong>/s </strong> <em>MyCompanyCertStore</em><br />
+Specifies the name of the certificate store in which SignTool searches for the certificate specified by the parameter /n.</li>
+<li class="unordered"><strong>/n “</strong> <em>MyCompany – for test use only</em> <strong>”</strong><br />
+Specifies the name of the certificate to be used to sign the package. You must include enough of the name to allow SignTool to distinguish it from others in the store. If this name includes spaces, then you must surround the name with double quotes.</li>
+<li class="unordered"><strong>/t </strong> <em>path to time stamping service</em><br />
+Specifies the path to a time stamping service at an approved certification authority. If you purchase your certificate from a commercial vendor, they should provide you with the appropriate path to their service.</li>
+<li class="unordered"><em>toaster.cat</em><br />
+Specifies the path and file name of the catalog file to be signed.</li>
+</ul>
+<p>Signtool indicates completion with the following message:</p>
+<div id="code-snippet-11" class="codeSnippetContainer">
+<div class="codeSnippetContainerCodeContainer">
+<div id="CodeSnippetContainerCode_dd6c433e-8276-46a5-b012-f34385031392" class="codeSnippetContainerCode" dir="ltr">
+<div>
+<pre>Successfully signed and timestamped: C:\toaster\device\toaster.cat 
+</pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>To view and verify your signed catalog file, at the command prompt, type:
+<div id="code-snippet-12" class="codeSnippetContainer">
+<div class="codeSnippetContainerCodeContainer">
+<div id="CodeSnippetContainerCode_ad31ecc8-858e-463a-81a3-601d4cbf2774" class="codeSnippetContainerCode" dir="ltr">
+<div>
+<pre>start toaster.cat
+</pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>Make sure that the header of the <strong>Security Catalog</strong> property page now states that the security catalog is &#8220;valid&#8221;, and that the <strong>View Signature</strong> button is enabled.</li>
+<li>Click <strong>View Signature</strong>, and then confirm the details of the signature you added to the package. No other details of the catalog file have changed.</li>
+</ol>
+</div>
+<h2>REFERENCE</h2>
+<ul>
+<li><a href="https://technet.microsoft.com/en-us/library/dd919238(v=ws.10).aspx">Microsoft TechNet &#8211; Steps for Signing a Device Driver Package</a></li>
+</ul>
+<p>&nbsp;</p>
+]]></content:encoded>
+			<wfw:commentRss>/2017/06/steps-signing-device-driver-package.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Form submit via Javascript</title>
+		<link>/2016/10/form-submit-via-javascript.html</link>
+		<comments>/2016/10/form-submit-via-javascript.html#respond</comments>
+		<pubDate>Thu, 20 Oct 2016 09:30:44 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Programming]]></category>
+		<category><![CDATA[Ajax Form Plugin]]></category>
+		<category><![CDATA[JSON]]></category>
+		<category><![CDATA[XML]]></category>
+
+		<guid isPermaLink="false">/?p=1797</guid>
+		<description><![CDATA[INTRODUCE AJAX = Asynchronous JavaScript And XML. AJAX is not a programming language. AJAX just uses a combination of: A browser built-in XMLHttpRequest object (to request data from a web server) JavaScript and HTML DOM (to display or use the data) AJAX is a misleading name. AJAX applications might use XML to transport data, but [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/10/1476955833-4486-ajax-min.jpg"><img class="attachment-full size-full aligncenter" src="/wp-content/uploads/2016/10/1476955833-4486-ajax-min.jpg" alt="1476955833-4486-ajax-min" width="474" height="236" /></a></p>
+<h2>INTRODUCE</h2>
+<p>AJAX = <strong>A</strong>synchronous <strong>J</strong>avaScript <strong>A</strong>nd <strong>X</strong>ML.</p>
+<p>AJAX is not a programming language.</p>
+<p>AJAX just uses a combination of:</p>
+<ul>
+<li>A browser built-in XMLHttpRequest object (to request data from a web server)</li>
+<li>JavaScript and HTML DOM (to display or use the data)</li>
+</ul>
+<div class="w3-panel w3-note">
+<blockquote><p>AJAX is a misleading name. AJAX applications might use XML to transport data, but it is equally common to transport data as plain text or JSON text.</p></blockquote>
+</div>
+<p>AJAX allows web pages to be updated asynchronously by exchanging data with a web server behind the scenes. This means that it is possible to update parts of a web page, without reloading the whole page.</p>
+<h2>HOW AJAX WORKS</h2>
+<p><a href="/wp-content/uploads/2016/10/1476955833-5326-ajax.gif"><img class="attachment-full size-full" src="/wp-content/uploads/2016/10/1476955833-5326-ajax.gif" alt="1476955833-5326-ajax" width="569" height="324" /></a></p>
+<ul class="w3-ul w3-border w3-section">
+<li>1. An event occurs in a web page (the page is loaded, a button is clicked)</li>
+<li>2. An XMLHttpRequest object is created by JavaScript</li>
+<li>3. The XMLHttpRequest object sends a request to a web server</li>
+<li>4. The server processes the request</li>
+<li>5. The server sends a response back to the web page</li>
+<li>6. The response is read by JavaScript</li>
+<li>7. Proper action (like page update) is performed by JavaScript</li>
+</ul>
+<h2>HOW TO SUBMIT A FORM VIA AJAX</h2>
+<p>You can use the ajaxForm/ajaxSubmit functions from <a href="http://jquery.malsup.com/form/">Ajax Form Plugin</a> or the jQuery serialize function.</p>
+<p><strong>AjaxForm</strong>:</p>
+<pre class="default prettyprint prettyprinted">$("#theForm").ajaxForm({url: 'server.php', type: 'post'})</pre>
+<p>or</p>
+<pre class="default prettyprint prettyprinted">$("#theForm").ajaxSubmit({url: 'server.php', type: 'post'})</pre>
+<p>ajaxForm will send when the submit button is pressed. ajaxSubmit sends immediately.</p>
+<p><strong>Serialize</strong>:</p>
+<pre class="default prettyprint prettyprinted">$.get('server.php?' + $('#theForm').serialize())
+
+$.post('server.php', $('#theForm').serialize())</pre>
+<p><a href="http://docs.jquery.com/Ajax/serialize">AJAX serialization documentation is here</a>.</p>
+<h2>REFERENCE</h2>
+<ul>
+<li><a href="http://stackoverflow.com/questions/1960240/jquery-ajax-submit-form">jQuery AJAX submit form</a></li>
+<li><a href="http://www.w3schools.com/xml/ajax_intro.asp">AJAX Introduction</a></li>
+</ul>
+]]></content:encoded>
+			<wfw:commentRss>/2016/10/form-submit-via-javascript.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Linux WiFi: Deauthenticated Reason Codes</title>
+		<link>/2016/05/linux-wifi-deauthenticated-reason-codes.html</link>
+		<comments>/2016/05/linux-wifi-deauthenticated-reason-codes.html#respond</comments>
+		<pubDate>Wed, 25 May 2016 05:51:08 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Operating System]]></category>
+		<category><![CDATA[ESS]]></category>
+		<category><![CDATA[IEEE]]></category>
+		<category><![CDATA[MIC]]></category>
+		<category><![CDATA[STA]]></category>
+
+		<guid isPermaLink="false">/?p=1721</guid>
+		<description><![CDATA[So I’ve been having a fiddle with Linux and WiFi this evening in an attempt to make a wifi bridge (Windows can do it so why can’t Linux?)… Anyway the long and short of it is that I was getting disconnected and de-authenticated from the access point. Having a quick look at dmesg said I [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/05/1464155450-4108-linux-1x.png"><img class="attachment-full size-full aligncenter" src="/wp-content/uploads/2016/05/1464155450-4108-linux-1x.png" alt="1464155450-4108-linux-1x" width="400" height="300" /></a></p>
+<p>So I’ve been having a fiddle with Linux and WiFi this evening in an attempt to make a wifi bridge (Windows can do it so why can’t Linux?)…</p>
+<p>Anyway the long and short of it is that I was getting disconnected and de-authenticated from the access point. Having a quick look at dmesg said I was disconnected for “Reason 2” and “Reason 6”; these on their own are not very helpful and so in a quest to find out what these codes meant, I found that there isn’t a list that’s published anywhere easy to find (a <a title="Forum Post" href="http://forums.wi-fiplanet.com/showthread.php?6536-deauthentication-reason-code">single forum post</a> and in an <a title="IEEE 802.11-2007" href="http://standards.ieee.org/getieee802/download/802.11-2007.pdf">IEEE pdf</a>). The codes in <em>italics</em> are the most common.</p>
+<table>
+<tbody>
+<tr>
+<td><strong>Code</strong></td>
+<td><strong>Reason</strong></td>
+<td><strong>Explanation</strong></td>
+</tr>
+<tr>
+<td><em>0</em></td>
+<td>Reserved</td>
+<td>Normal working operation</td>
+</tr>
+<tr>
+<td><em>1</em></td>
+<td>Unspecific Reason</td>
+<td>We don’t know what’s wrong</td>
+</tr>
+<tr>
+<td><em>2</em></td>
+<td>Previous authentication no longer valid</td>
+<td>Client has associated but is not authorised.</td>
+</tr>
+<tr>
+<td><em>3</em></td>
+<td>Deauthenticated because sending STA is leaving (or has left) IBSS or ESS</td>
+<td>The access point went offline, deauthenticating the client.</td>
+</tr>
+<tr>
+<td><em>4</em></td>
+<td>Disassociated due to inactivity</td>
+<td>Client session timeout exceeded.</td>
+</tr>
+<tr>
+<td><em>5</em></td>
+<td>Disassociated because AP is unable to handle all currently associated STAs</td>
+<td>The access point is busy, performing load balancing, for example.</td>
+</tr>
+<tr>
+<td><em>6</em></td>
+<td>Class 2 frame received from nonauthenticated STA</td>
+<td>Client attempted to transfer data before it was authenticated.</td>
+</tr>
+<tr>
+<td><em>7</em></td>
+<td>Class 3 frame received from nonassociated STA</td>
+<td>Client attempted to transfer data before it was associated.</td>
+</tr>
+<tr>
+<td><em>8</em></td>
+<td>Disassociated because sending STA is leaving (or has left) BSS</td>
+<td>Operating System moved the client to another access point using non-aggressive load balancing.</td>
+</tr>
+<tr>
+<td><em>9</em></td>
+<td>STA requesting (re)association is not authenticated with responding STA</td>
+<td>Client not authorized yet, still attempting to associate with an access point.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Disassociated because the information in the Power Capability element is unacceptable</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Disassociated because the information in the Supported Channels element is unacceptable</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Reserved</td>
+<td>Not Used or Special Purpose</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Invalid information element.</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Message integrity code (MIC) failure</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>4-Way Handshake timeout</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>Group Key Handshake timeout</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>Information element in 4-Way Handshake different from (Re)Association Request/Probe<br />
+Response/Beacon frame</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>Invalid group cipher<br />
+<em>or</em><br />
+Association denied due to requesting STA not supporting all of the data rates in the BSSBasicRateSet parameter</td>
+<td><strong>*NEW*</strong><br />
+The link speed requested by the client or AP is incompatible. (i,e. trying to operate N only speeds on a G AP)</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Invalid pairwise cipher</td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>Invalid AKMP</td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>Unsupported RSN information element version</td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>Invalid RSN information element capabilities</td>
+<td></td>
+</tr>
+<tr>
+<td>23</td>
+<td>IEEE 802.1X authentication failed</td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td>Cipher suite rejected because of the security policy</td>
+<td></td>
+</tr>
+<tr>
+<td>25-31</td>
+<td>Reserved</td>
+<td>Not Used or Special Purpose</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Disassociated for unspecified, QoS-related reason</td>
+<td>Quality of Service has denied the action.</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Disassociated because QoS AP lacks sufficient bandwidth for this QoS STA</td>
+<td></td>
+</tr>
+<tr>
+<td>34</td>
+<td>Disassociated because excessive number of frames need to be acknowledged, but are not<br />
+acknowledged due to AP transmissions and/or poor channel conditions</td>
+<td></td>
+</tr>
+<tr>
+<td>35</td>
+<td>Disassociated because STA is transmitting outside the limits of its TXOPs</td>
+<td></td>
+</tr>
+<tr>
+<td>36</td>
+<td>Requested from peer STA as the STA is leaving the BSS (or resetting)</td>
+<td></td>
+</tr>
+<tr>
+<td>37</td>
+<td>Requested from peer STA as it does not want to use the mechanism</td>
+<td></td>
+</tr>
+<tr>
+<td>38</td>
+<td>Requested from peer STA as the STA received frames using the mechanism for which a<br />
+setup is required</td>
+<td></td>
+</tr>
+<tr>
+<td>39</td>
+<td>Requested from peer STA due to timeout</td>
+<td></td>
+</tr>
+<tr>
+<td>45</td>
+<td>Peer STA does not support the requested cipher suite</td>
+<td></td>
+</tr>
+<tr>
+<td>45-65</td>
+<td>Reserved</td>
+<td>Not Used or Special Purpose</td>
+</tr>
+<tr>
+<td><em>99</em></td>
+<td></td>
+<td>Typically “No Reason Code” / Unknown State</td>
+</tr>
+<tr>
+<td>535</td>
+<td>Reserved</td>
+<td>Not Used or Special Purpose</td>
+</tr>
+</tbody>
+</table>
+<p>The first few reason codes where helpful while debugging my wifi related issues.</p>
+<h2><strong>ORIGINAL AUTHOR&#8217;S EDIT</strong></h2>
+<p>I’ve added a few more codes and descriptions; they conflict with a previous list from IEEE but this one is from <a href="https://supportforums.cisco.com/docs/DOC-14033" target="_blank">Cisco</a> and was discovered after an N wifi card refused to connect to an N router at N speeds.</p>
+<h2>REFERENCE</h2>
+<p>Author: Adam<br />
+From Link: <a href="http://www.aboutcher.co.uk/2012/07/linux-wifi-deauthenticated-reason-codes/">http://www.aboutcher.co.uk/2012/07/linux-wifi-deauthenticated-reason-codes/</a></p>
+]]></content:encoded>
+			<wfw:commentRss>/2016/05/linux-wifi-deauthenticated-reason-codes.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Raspberry Pi &#8211; Distcc</title>
+		<link>/2015/01/raspberry-pi-distcc.html</link>
+		<comments>/2015/01/raspberry-pi-distcc.html#respond</comments>
+		<pubDate>Mon, 12 Jan 2015 09:19:34 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Programming]]></category>
+		<category><![CDATA[ALLOWEDNETS]]></category>
+		<category><![CDATA[CIDR]]></category>
+		<category><![CDATA[Raspberry Pis]]></category>
+		<category><![CDATA[ZEROCONF]]></category>
+
+		<guid isPermaLink="false">/?p=1485</guid>
+		<description><![CDATA[INTRODUCE distcc is a program that enables a single &#8220;master&#8221; computer (the Raspberry Pi in our case) to distribute its compiling load to other &#8220;helper&#8221; machines (a multi-core Ubuntu Linux machine) over the network. In standard mode, source files are preprocessed on the Raspberry Pi, compressed and sent to the helper machine for compiling. The [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2015/01/distccmon-gnome-2003-09-23-01.png"><img class="attachment-full aligncenter" src="/wp-content/uploads/2015/01/distccmon-gnome-2003-09-23-01.png" alt="distccmon-gnome-2003-09-23-01" width="515" height="252" /></a></p>
+<h2>INTRODUCE</h2>
+<p>distcc is a program that enables a single &#8220;master&#8221; computer (the Raspberry Pi in our case) to distribute its compiling load to other &#8220;helper&#8221; machines (a multi-core Ubuntu Linux machine) over the network. In standard mode, source files are preprocessed on the Raspberry Pi, compressed and sent to the helper machine for compiling. The helper machine, which in this case is running an arm-compatible cross-compiler, compiles the object files (.o files) and sends them back to the Raspberry Pi. Once the Raspberry Pi has received all of the object files, it will then link them into a library or executable.</p>
+<p>It is also possible to distribute preprocessing using distcc-pump, but this feature is not explored below.</p>
+<p><strong>Note</strong>: On OS X. You can install a Ubuntu &#8220;helper&#8221; machine running inside Parallels 8. Networking for the Ubuntu instance is set to _BRIDGED allowing it to be accessible to the Raspberry Pi on the same network. In Windows you can use a similar setup with any vm tool like vmware or virtualbox. In Linux you can just follow the next steps without installing a vm, the compiler will run on your machine directly.</p>
+<h2>On the Ubuntu Machine</h2>
+<h3>Install dependencies</h3>
+<pre class="nums:false lang:default highlight:0 decode:true ">sudo apt-get install mercurial bison flex texinfo automake curl
+sudo apt-get install build-essential libncurses-dev libtool gawk gperf
+
+#if you are using a 64bit linux distribution you'll need to install also:
+sudo aptitude install ia32-libs</pre>
+<h3>Download the Raspberry Pi compiler for linux</h3>
+<ul>
+<li>You can download it as a zip or clone the repo at from <a href="https://github.com/raspberrypi/tools/">https://github.com/raspberrypi/tools/</a></li>
+<li>Rename the folder to something more identifiable like rpi-tools, we&#8217;ll refer to this path as <code>$RPI_TOOLS</code> from now on</li>
+</ul>
+<h3>Install and configure distcc on the Ubuntu Helper machine</h3>
+<pre class="lang:default highlight:0 decode:true">sudo apt-get install distcc</pre>
+<h4>Edit /etc/default/distcc (e.g. <code>sudo vi /etc/default/distcc</code>)</h4>
+<ul>
+<li>Change <code>STARTDISTCC="false"</code> to <code>STARTDISTCC="true"</code></li>
+<li>Change <code>ALLOWEDNETS="127.0.0.1"</code> to include the network IP addresses of your Raspberry Pis</li>
+<li><span style="color: #808080;"><span style="color: #000000;"><strong>Note</strong></span>: Addresses use CIDR notation. To allow your localhost AND IP addresses in the range 192.168.1.0-192.168.1.255 use this <code>ALLOWEDNETS="127.0.0.1 192.168.1.0/24</code>.</span></li>
+<li><span style="color: #808080;"><span style="color: #000000;"><strong>Note</strong></span>: If you want help with CIDR notation, you can use the calculator here <a href="http://www.subnet-calculator.com/cidr.php">http://www.subnet-calculator.com/cidr.php</a>.</span></li>
+<li>Change <code>ZEROCONF="false"</code> to <code>ZEROCONF="true"</code></li>
+<li>Change <code>LISTENER="127.0.0.1"</code> to <code>LISTENER=""</code> in order to listen for incoming connections all any network interface (not just the localhost/127.0.0.1).</li>
+</ul>
+<h4>Edit /etc/init.d/distcc (e.g. <code>sudo vi /etc/init.d/distcc</code>)</h4>
+<ul>
+<li>Change <code>PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</code> to <code>PATH=$RPI_TOOLS/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</code></li>
+<li>Note: <code>$RPI_TOOLS</code> should be the path were you installed the raspberry pi compiler before.</li>
+</ul>
+<h4>Start distcc on your Ubuntu machine</h4>
+<ul>
+<li><code>sudo service distcc start</code> (you may have to reboot if fails)</li>
+<li>If it fails, you might also try:</li>
+<li><code>sudo service distcc restart</code></li>
+</ul>
+<h2>On the Raspberry Pi</h2>
+<h3>Install distcc</h3>
+<ul>
+<li><code>sudo apt-get install distcc<br />
+</code></li>
+</ul>
+<h3>Configure the Raspberry Pi to use the Ubuntu helper you just configured</h3>
+<ul>
+<li>Make directory <code>mkdir $HOME/.distcc/</code></li>
+<li>Edit $HOME/.distcc/hosts (e.g. <code>vi $HOME/.distcc/hosts</code>) and add the ip(s) of the computers that have the rpi tools nstalled</li>
+<li>To compile (finally!)</li>
+<li>First, figure out how many processors you have available on the Ubuntu machine(s) using nproc on each. Tally the total number of helper processors. When we issue our make command we will use the -j flag to tell make how many jobs we want to be distribted over distcc. According to the distcc documentation, you should run make with 2 x TOTAL_PROCESSORS in your cluster. So, if you have one helper machine with 8 cores 8&#215;2=16, so you&#8217;ll run make -j 16. If this is the same machine you are working from you probably want lower numbers so the computer is still usable while compiling</li>
+<li>Next, we need our makefiles to know that we won&#8217;t be using the normal RPI gcc, but rather the gcc (etc) located in /usr/lib/distcc. The command itself looks like /usr/lib/distcc/g++ or simply distcc g++, rather than the normal g++. So the full make for the core openFrameworks lib OR projects will look something like this:</li>
+<li>
+<pre class="lang:default highlight:0 decode:true">make -j 6 CXX=/usr/lib/distcc/arm-linux-gnueabihf-g++ CC=/usr/lib/distcc/arm-linux-gnueabihf-gcc</pre>
+</li>
+<li>If you would like to simplify your command, you can set MAKEFLAGS using the following:</li>
+<li>
+<pre class="lang:default highlight:0 decode:true">export MAKEFLAGS="-s -j 6 CXX=/usr/lib/distcc/arm-linux-gnueabihf-g++ CC=/usr/lib/distcc/arm-linux-gnueabihf-gcc"
+make</pre>
+</li>
+</ul>
+<h2>On the Raspberry Pi (Simply way)</h2>
+<pre class="lang:default highlight:0 decode:true"># Install Distcc and Startup it.
+$ sudo apt-get install distcc
+$ /usr/bin/distccd  --daemon --allow 10.64.0.0/16
+
+# Set distcc hosts by command line
+$ export DISTCC_HOSTS="localhost 10.64.25.1 10.64.25.2 10.64.25.3"
+
+# Goto directory which you wanna make
+$ make -j 6 CXX=/usr/lib/distcc/arm-linux-gnueabihf-g++ CC=/usr/lib/distcc/arm-linux-gnueabihf-gcc</pre>
+<h2>REFERENCE</h2>
+<ul>
+<li><a href="http://www.openframeworks.cc/setup/raspberrypi/Raspberry-Pi-DISTCC-guide.html">openframeworks</a>.</li>
+<li><a href="http://www.freemindworld.com/blog/2010/100105_make_complie_process_faster.shtml">加速Linux程序编译</a></li>
+</ul>
+<h2>AUTHOR</h2>
+<p>Pekaikon Norckon<br />
+01 / 12 / 2015 MON</p>
+]]></content:encoded>
+			<wfw:commentRss>/2015/01/raspberry-pi-distcc.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Raspberry Pi &#8211; Control by Android</title>
+		<link>/2014/12/raspberry-pi-control-by-android.html</link>
+		<comments>/2014/12/raspberry-pi-control-by-android.html#respond</comments>
+		<pubDate>Sun, 07 Dec 2014 07:24:18 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Hardware]]></category>
+		<category><![CDATA[Operating System]]></category>
+		<category><![CDATA[GPIO]]></category>
+		<category><![CDATA[LIRC]]></category>
+		<category><![CDATA[Raspberry Control]]></category>
+		<category><![CDATA[Reboot Raspberry]]></category>
+
+		<guid isPermaLink="false">/?p=1456</guid>
+		<description><![CDATA[APPLICATION FEATURES secure connection via SSH easy control and monitoring GPIO monitor and graph temperatures remotely using DS18B20 remote terminal emulator remote process management built-in MJPEG stream client easy 1-wire and I2C bus management IR control system WHATS NEW IN VERSION 0.2 added IR control system (LIRC) – now user can remote control any devices via [&#8230;]]]></description>
+				<content:encoded><![CDATA[<h2>APPLICATION FEATURES</h2>
+<ul>
+<li>secure connection via SSH</li>
+<li>easy control and monitoring GPIO</li>
+<li>monitor and graph temperatures remotely using DS18B20</li>
+<li>remote terminal emulator</li>
+<li>remote process management</li>
+<li>built-in MJPEG stream client</li>
+<li>easy 1-wire and I2C bus management</li>
+<li>IR control system</li>
+</ul>
+<h2>WHATS NEW IN VERSION 0.2</h2>
+<ul>
+<li>added IR control system (LIRC) – now user can remote control any devices via Infrared</li>
+<li>added configuration file (rpc.conf)</li>
+<li>fixed problem with too long user name</li>
+<li>improved app stability</li>
+<li>added ability to change the GPIO labels (via rpc.conf file)</li>
+<li>fixed minor bugs</li>
+</ul>
+<h2>NEW FEATURE COMING SOON</h2>
+<ul>
+<li>remote touchpad</li>
+<li>XBMC remote control</li>
+<li>support for new 1-wire devices</li>
+<li>support for new I2C devices</li>
+<li>voice control</li>
+</ul>
+<h2>READ BEFORE RATING THIS APP IN GOOGLE PLAY</h2>
+<p>Please remember that this is very early Beta version (app is still under development!!!). If you’re having any trouble, questions or feature requests PLEASE CONTACT US BEFORE RATING, so we can help you out and improve the App – your feedback really does help.</p>
+<h2>HOW TO UNINSTALL OLD VERSION (0.1)</h2>
+<p>Previously version of “Raspberry Control” doesn’t have uninstaller, so you have to remove all files manualy:</p>
+<pre class="nums:false lang:default highlight:0 decode:true ">rm -Rf $HOME/Raspberry_Control
+sudo insserv -r rpc_shellinaboxd
+sudo rm /etc/init.d/rpc_shellinaboxd</pre>
+<p>and remove “<em>/home/pi/Raspberry_Control/core/rpc_export</em>” line form <em>~/.bashrc</em> file (probably it will be last line in this file).</p>
+<h2>DOWNLOAD &amp; INSTALLATION INSTRUCTIONS (0.2)</h2>
+<p>The recommended way to install “<em>Raspberry Control</em>” on Raspberry Pi is on the console. Please open a console application such as Terminal or xterm on RPi</p>
+<ul>
+<li>Download the last version of the “Raspberry Control” software: <a href="http://lukasz-skalski.com/index.php/component/option,com_phocadownload/Itemid,90/id,1/view,category/" target="_blank">DOWNLOAD LINK</a></li>
+<li>Navigate to the location where you have downloaded file and extract the tar.gz archive into any directory of your choice</li>
+</ul>
+<pre class="nums:false lang:default highlight:0 decode:true">tar xvzf rpc_installer-2013-03-24.tar.gz</pre>
+<ul>
+<li>Run installation script</li>
+</ul>
+<pre class="nums:false lang:default highlight:0 decode:true ">cd rpc_installer
+./rpc_utils --install (without sudo!)</pre>
+<ul>
+<li>Reboot Raspberry pi</li>
+<li>Download from Google Play and install “Raspberry Control” (version 0.2) application on your Android Device</li>
+</ul>
+<h2>ORIGINAL LINK</h2>
+<blockquote><p>http://codebangers.com/how-to-setup-your-raspberry-pi-to-use-raspberry-pi-android-app/</p></blockquote>
+]]></content:encoded>
+			<wfw:commentRss>/2014/12/raspberry-pi-control-by-android.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Change Ubuntu screenshot save location</title>
+		<link>/2014/11/change-ubuntu-screenshot-save-location.html</link>
+		<comments>/2014/11/change-ubuntu-screenshot-save-location.html#respond</comments>
+		<pubDate>Sun, 09 Nov 2014 04:44:34 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Operating System]]></category>
+		<category><![CDATA[APT]]></category>
+		<category><![CDATA[Change Ubuntu]]></category>
+		<category><![CDATA[Username Pictures]]></category>
+		<category><![CDATA[Username Screenshots]]></category>
+
+		<guid isPermaLink="false">/?p=1400</guid>
+		<description><![CDATA[INTRODUCE If you don&#8217;t want Ubuntu save screenshots to /home/Username/Pictures directory by default. You can use dconf Editor to change it! STEP1: INSTALL DCONF EDITOR If your Ubuntu can&#8217;t found dconf-Editor, You can use APT command sudo apt-get install dconf-tools to install it! user@localhost$ sudo apt-get install dconf-tools Reading package lists... Done Building dependency tree [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2014/11/screenshots.jpg"><img class="attachment-full" src="/wp-content/uploads/2014/11/screenshots.jpg" alt="screenshots" width="960" height="310" /></a></p>
+<h2>INTRODUCE</h2>
+<p>If you don&#8217;t want Ubuntu save screenshots to <code>/home/Username/Pictures</code> directory by default. You can use <strong>dconf Editor</strong> to change it!</p>
+<h2>STEP1: INSTALL DCONF EDITOR</h2>
+<p>If your Ubuntu can&#8217;t found dconf-Editor, You can use APT command <code>sudo apt-get install dconf-tools</code> to install it!</p>
+<pre class="lang:default decode:true">user@localhost$ sudo apt-get install dconf-tools
+Reading package lists... Done
+Building dependency tree      
+Reading state information... Done
+dconf-tools is already the newest version.
+0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.</pre>
+<h2>STEP2: RUN DCONF EDITOR</h2>
+<p>Press <code>ALT + F2</code> key, and enter <code>dconf-editor</code> press <code>Enter</code> key.</p>
+<p><a href="/wp-content/uploads/2014/11/alt-f2-then-dconf-editor_thumb.png"><img class="attachment-full" src="/wp-content/uploads/2014/11/alt-f2-then-dconf-editor_thumb.png" alt="alt-f2-then-dconf-editor_thumb" width="1005" height="824" /></a></p>
+<h2>STEP3: CHANGE SAVE LOCATION</h2>
+<p><a href="/wp-content/uploads/2014/11/org-gnome-gnome-screenshot-auto-save-directory_thumb.png"><img class="attachment-full" src="/wp-content/uploads/2014/11/org-gnome-gnome-screenshot-auto-save-directory_thumb.png" alt="org-gnome-gnome-screenshot-auto-save-directory_thumb" width="807" height="805" /></a></p>
+<p>Change <code>auto-save-directory</code> to a location you want to save. like <code>file:///home/Username/Screenshots</code>.</p>
+<h2>TIPS</h2>
+<p><strong>PrintScreen</strong>: Shot your screen.</p>
+<p><strong>Alt + PrintScreen</strong>: Shot application window</p>
+<p><strong>Shift + PrintScreen</strong>: Shot a area you selected</p>
+<h2>REFERRER</h2>
+<ul>
+<li><a href="http://www.crifan.com/ubuntu_change_screeshot_default_save_location/">【已解决】Ubuntu更改截图默认保存位置</a></li>
+</ul>
+<p>Pekaikon Norckon<br />
+9 &#8211; 11 &#8211; 2014 (SUN)</p>
+]]></content:encoded>
+			<wfw:commentRss>/2014/11/change-ubuntu-screenshot-save-location.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Turn off monitor using command line</title>
+		<link>/2014/11/turn-off-monitor-using-command-line.html</link>
+		<comments>/2014/11/turn-off-monitor-using-command-line.html#respond</comments>
+		<pubDate>Sun, 09 Nov 2014 04:05:23 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Operating System]]></category>
+		<category><![CDATA[EXAMPLE]]></category>
+		<category><![CDATA[XRANDR]]></category>
+
+		<guid isPermaLink="false">/?p=1396</guid>
+		<description><![CDATA[INTRODUCE In sometimes. maybe you running server on your laptop or you have two or more display connected to your laptop. There is really no reason for the laptop screen to be on. You can turn off monitor by switchboard (System Settings) on Linux startup everytime. But that&#8217;s too complex. But If we can turn [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2014/11/1e30e924b899a901599369d81c950a7b0308f5bd.jpg"><img class="attachment-full" src="/wp-content/uploads/2014/11/1e30e924b899a901599369d81c950a7b0308f5bd.jpg" alt="1e30e924b899a901599369d81c950a7b0308f5bd" width="900" height="602" /></a></p>
+<h2>INTRODUCE</h2>
+<p>In sometimes. maybe you running server on your laptop or you have two or more display connected to your laptop. There is really no reason for the laptop screen to be on.</p>
+<p>You can turn off monitor by switchboard (System Settings) on Linux startup everytime. But that&#8217;s too complex. But If we can turn off monitor using command line, we can write down a script on Linux startup to turn off our monitor.</p>
+<h2>XRANDR COMMAND</h2>
+<p>Fortunately, X-Desktop provided a command-line tool <strong>XRANDR</strong>, can manage our monitors. We can use <code>$xrandr</code> to list all of monitors. And we can use <code>$xrandr --output DISPLAY_NAME --off</code> to turn off monitors.</p>
+<h2>EXAMPLE</h2>
+<pre class="lang:default decode:true ">// LIST ALL OF DISPLAY HAVE CONNECTED
+$ xrandr
+Screen 0: minimum 320 x 200, current 1360 x 768, maximum 2726 x 2726
+DFP1 connected 1360x768+0+0 (normal left inverted right x axis y axis) 304mm x 228mm
+   1360x768       59.7*+
+   ... (more details are shown here, but I have hidden it)
+
+CRT1 connected 1360x768+0+0 (normal left inverted right x axis y axis) 410mm x 230mm
+   1360x768       59.8*+   60.0  
+   ... (more details are shown here, but I have hidden it)</pre>
+<pre class="lang:default decode:true">// TURN OFF CRT
+$ xrandr --output CRT1 --off</pre>
+<pre class="lang:default decode:true ">// TURN ON CRT
+$ xrandr --output CRT1 --auto</pre>
+<h2>REFERRER</h2>
+<ul>
+<li><a href="http://askubuntu.com/questions/62858/turn-off-monitor-using-command-line">Turn off monitor using command line</a></li>
+</ul>
+<p>Pekaikon Norckon<br />
+9 / 11 / 2014 (SUN)</p>
+]]></content:encoded>
+			<wfw:commentRss>/2014/11/turn-off-monitor-using-command-line.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Make your Ubuntu more beautifully</title>
+		<link>/2014/11/make-your-ubuntu-more-beautifully.html</link>
+		<comments>/2014/11/make-your-ubuntu-more-beautifully.html#respond</comments>
+		<pubDate>Sun, 02 Nov 2014 06:41:44 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Operating System]]></category>
+		<category><![CDATA[Elementary Tweak]]></category>
+		<category><![CDATA[GTK]]></category>
+		<category><![CDATA[Ubuntu Unity]]></category>
+
+		<guid isPermaLink="false">/?p=1365</guid>
+		<description><![CDATA[INTRODUCE Elementary OS, An Ubuntu-derived distribution, but more beautifully than Ubuntu&#8217;s Unity desktop environment. If you wanna use Pantheon Desktop Environment(DE) simply, you can download Elementary OS from their official website. If you wanna make your Ubuntu more like Elementary OS, Please read go on. UPDATE YOUR UBUNTU Some reason, Pantheon DE required GTK 3.12, [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2014/11/QQ%E5%9B%BE%E7%89%8720141102004937.jpg"><img class="attachment-full" src="/wp-content/uploads/2014/11/QQ%E5%9B%BE%E7%89%8720141102004937.jpg" alt="QQ%E5%9B%BE%E7%89%87201411020049372" width="1920" height="1080" /></a></p>
+<h2>INTRODUCE</h2>
+<p>Elementary OS, An Ubuntu-derived distribution, but more beautifully than Ubuntu&#8217;s Unity desktop environment. If you wanna use Pantheon Desktop Environment(DE) simply, you can download Elementary OS from their official website. If you wanna make your Ubuntu more like Elementary OS, Please read go on.</p>
+<h2>UPDATE YOUR UBUNTU</h2>
+<p>Some reason, Pantheon DE required GTK 3.12, but Ubuntu use GTK 3.0 default. We need Elementary Testing PPA, and updating our system. This step will take a long time:</p>
+<pre class="lang:default decode:true ">sudo apt-add-repository -y ppa:elementary-os/testing
+sudo apt-get update
+sudo apt-get upgrade</pre>
+<h2>INSTALL PANTHEON DE</h2>
+<p>After you update Ubuntu, We need Elementary Daily PPA, and install Pantheon DE:</p>
+<pre class="lang:default decode:true">sudo apt-add-repository -y ppa:elementary-os/daily
+sudo apt-get update
+sudo apt-get install elementary-desktop</pre>
+<p>Logout to log-in screen and select Pantheon DE (ubuntu icon beneath the user name), But there are many bugs. Then make system tray icon show-in Pantheon DE:</p>
+<pre class="lang:default decode:true ">sudo gedit /etc/xdg/autostart/indicator*</pre>
+<p>There is a variable &#8220;OnlyShowIn=Unity;GNOME;&#8221; &#8211;&gt; <strong>add</strong> Pantheon</p>
+<blockquote><p><strong>e.g.</strong> OnlyShowIn=Unity;GNOME;Pantheon;</p></blockquote>
+<h2>ADJUST PANTHEON DE</h2>
+<p>You have to do this for all files starting with indicator. Ather this you need install Elementary Tweak, Add Elementary Tweak PPA:</p>
+<pre class="lang:default decode:true">sudo apt-add-repository -y ppa:versable/elementary-tweaks-isis
+sudo apt-get update
+sudo apt-get install elementary-tweaks</pre>
+<p>Then open <strong>Tweak</strong> from <strong>System Settings</strong>, set all option to <strong><span style="text-decoration: underline;">elementary</span></strong>, close window.<a href="/wp-content/uploads/2014/11/Screenshot-from-2014-08-25-2334303.png"><img class="attachment-full" src="/wp-content/uploads/2014/11/Screenshot-from-2014-08-25-2334303.png" alt="Screenshot-from-2014-08-25-2334303" width="1121" height="646" /></a></p>
+<p>Appearance look like Elementary OS now, but some bugs not fixed yet. Some Window background will be black. You need DISABLE Overlay Scrollbars to fix this bug.</p>
+<ul>
+<li>Open Ubuntu Software Center. Search for and install dconf Editor.</li>
+<li>Open dconf Editor, navigate to <span style="text-decoration: underline;">com/canonical/desktop/interface</span>. Change the scollbar-mode to <strong>normal.</strong></li>
+</ul>
+<p><a href="/wp-content/uploads/2014/11/disable-overlay-scrollbars-dconfeditor3.jpg"><img class="attachment-full" src="/wp-content/uploads/2014/11/disable-overlay-scrollbars-dconfeditor3.jpg" alt="disable-overlay-scrollbars-dconfeditor3" width="580" height="317" /></a></p>
+<p>OR you can use command-line, maybe more simple:</p>
+<pre class="lang:default decode:true ">gsettings set com.canonical.desktop.interface scrollbar-mode normal</pre>
+<h2>ENABLE PANTHEON LOGIN</h2>
+<p>After all of this, your Pantheon DE works! but log-in screen isn&#8217;t look like Elementary OS, run this command in terminal re-login will take effects.</p>
+<pre class="lang:default decode:true ">cd /usr/share/lightdm/lightdm.conf.d/
+sudo mv 40-pantheon-greeter.conf 60-pantheon-greeter.conf</pre>
+<p>Reboot your computer, Have fun!!</p>
+<h2><strong>Reference</strong></h2>
+<ul>
+<li><a href="http://www.reddit.com/r/elementaryos/comments/283pq0/possible_to_install_pantheon_desktop_in_ubuntu/">Possible to install pantheon desktop in ubuntu 14.04?</a></li>
+<li><a href="https://bugs.launchpad.net/egtk/+bug/1303783/+activity">Activity log for bug #1303783</a></li>
+<li><a href="http://ubuntuhandbook.org/index.php/2013/10/disable-overlay-scrollbars-ubuntu13-10/">How to Disable Overlay Scrollbars in Ubuntu 13.10 Saucy</a></li>
+</ul>
+<p>Pekaikon Norckon<br />
+02 / 11 / 2014 (SUN)</p>
+]]></content:encoded>
+			<wfw:commentRss>/2014/11/make-your-ubuntu-more-beautifully.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>How to Fix Corrupt Drive Icons Problem in My Computer Window</title>
+		<link>/2014/10/how-to-fix-corrupt-drive-icons-problem-in-my-computer-window.html</link>
+		<comments>/2014/10/how-to-fix-corrupt-drive-icons-problem-in-my-computer-window.html#respond</comments>
+		<pubDate>Sun, 12 Oct 2014 04:41:25 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Operating System]]></category>
+		<category><![CDATA[RUN]]></category>
+		<category><![CDATA[Windows]]></category>
+
+		<guid isPermaLink="false">/?p=1355</guid>
+		<description><![CDATA[Many times we face a strange problem in Windows. When we open My Computer, one or more drives show some other icons instead of the default drive icons. It happens when we accidentally change the drive icons using some tweaking software. Sometimes its done by virus. Don&#8217;t worry. There is a very simple and small [&#8230;]]]></description>
+				<content:encoded><![CDATA[<div style="max-width: 650px" class="wp-caption aligncenter"><a href="/wp-content/uploads/2014/10/helium-free-icon-set-psd.jpg"><img class="attachment-full" src="/wp-content/uploads/2014/10/helium-free-icon-set-psd.jpg" alt="helium-free-icon-set-psd" width="640" height="480" /></a><p class="wp-caption-text">Computer Icon Set</p></div>
+<p>Many times we face a strange problem in Windows. When we open My Computer, one or more drives show some other icons instead of the default drive icons.</p>
+<p>It happens when we accidentally change the drive icons using some tweaking software. Sometimes its done by virus.</p>
+<p>Don&#8217;t worry. There is a very simple and small method to fix this problem and you can restore the default drive icons.</p>
+<p><strong>1.</strong> Type regedit in RUN dialog box and press Enter. Now go to:</p>
+<blockquote><p>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\explorer</p></blockquote>
+<p><strong>2.</strong> Under this key, you&#8217;ll see a key &#8220;<strong>DriveIcons</strong>&#8220;. Delete it and log off or restart your Windows.</p>
+<p><a href="/wp-content/uploads/2014/10/DriveIcons_Registry_Key.png"><img class="attachment-full" src="/wp-content/uploads/2014/10/DriveIcons_Registry_Key.png" alt="DriveIcons_Registry_Key" width="546" height="336" /></a></p>
+<p><strong>3.</strong> It&#8217;ll solve the problem and you&#8217;ll get back default drive icons in My Computer.</p>
+<p><strong>From:</strong> http://is.gd/ksxeAL</p>
+]]></content:encoded>
+			<wfw:commentRss>/2014/10/how-to-fix-corrupt-drive-icons-problem-in-my-computer-window.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

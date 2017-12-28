@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Programming &#8211; Norckon&#039;s blog</title>
+	<atom:link href="/category/software/programming/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>Norckon&#039;s blog</description>
+	<lastBuildDate>Thu, 24 Aug 2017 14:09:08 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.1</generator>
+	<item>
+		<title>Form submit via Javascript</title>
+		<link>/2016/10/form-submit-via-javascript.html</link>
+		<comments>/2016/10/form-submit-via-javascript.html#respond</comments>
+		<pubDate>Thu, 20 Oct 2016 09:30:44 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Programming]]></category>
+		<category><![CDATA[Ajax Form Plugin]]></category>
+		<category><![CDATA[JSON]]></category>
+		<category><![CDATA[XML]]></category>
+
+		<guid isPermaLink="false">/?p=1797</guid>
+		<description><![CDATA[INTRODUCE AJAX = Asynchronous JavaScript And XML. AJAX is not a programming language. AJAX just uses a combination of: A browser built-in XMLHttpRequest object (to request data from a web server) JavaScript and HTML DOM (to display or use the data) AJAX is a misleading name. AJAX applications might use XML to transport data, but [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/10/1476955833-4486-ajax-min.jpg"><img class="attachment-full size-full aligncenter" src="/wp-content/uploads/2016/10/1476955833-4486-ajax-min.jpg" alt="1476955833-4486-ajax-min" width="474" height="236" /></a></p>
+<h2>INTRODUCE</h2>
+<p>AJAX = <strong>A</strong>synchronous <strong>J</strong>avaScript <strong>A</strong>nd <strong>X</strong>ML.</p>
+<p>AJAX is not a programming language.</p>
+<p>AJAX just uses a combination of:</p>
+<ul>
+<li>A browser built-in XMLHttpRequest object (to request data from a web server)</li>
+<li>JavaScript and HTML DOM (to display or use the data)</li>
+</ul>
+<div class="w3-panel w3-note">
+<blockquote><p>AJAX is a misleading name. AJAX applications might use XML to transport data, but it is equally common to transport data as plain text or JSON text.</p></blockquote>
+</div>
+<p>AJAX allows web pages to be updated asynchronously by exchanging data with a web server behind the scenes. This means that it is possible to update parts of a web page, without reloading the whole page.</p>
+<h2>HOW AJAX WORKS</h2>
+<p><a href="/wp-content/uploads/2016/10/1476955833-5326-ajax.gif"><img class="attachment-full size-full" src="/wp-content/uploads/2016/10/1476955833-5326-ajax.gif" alt="1476955833-5326-ajax" width="569" height="324" /></a></p>
+<ul class="w3-ul w3-border w3-section">
+<li>1. An event occurs in a web page (the page is loaded, a button is clicked)</li>
+<li>2. An XMLHttpRequest object is created by JavaScript</li>
+<li>3. The XMLHttpRequest object sends a request to a web server</li>
+<li>4. The server processes the request</li>
+<li>5. The server sends a response back to the web page</li>
+<li>6. The response is read by JavaScript</li>
+<li>7. Proper action (like page update) is performed by JavaScript</li>
+</ul>
+<h2>HOW TO SUBMIT A FORM VIA AJAX</h2>
+<p>You can use the ajaxForm/ajaxSubmit functions from <a href="http://jquery.malsup.com/form/">Ajax Form Plugin</a> or the jQuery serialize function.</p>
+<p><strong>AjaxForm</strong>:</p>
+<pre class="default prettyprint prettyprinted">$("#theForm").ajaxForm({url: 'server.php', type: 'post'})</pre>
+<p>or</p>
+<pre class="default prettyprint prettyprinted">$("#theForm").ajaxSubmit({url: 'server.php', type: 'post'})</pre>
+<p>ajaxForm will send when the submit button is pressed. ajaxSubmit sends immediately.</p>
+<p><strong>Serialize</strong>:</p>
+<pre class="default prettyprint prettyprinted">$.get('server.php?' + $('#theForm').serialize())
+
+$.post('server.php', $('#theForm').serialize())</pre>
+<p><a href="http://docs.jquery.com/Ajax/serialize">AJAX serialization documentation is here</a>.</p>
+<h2>REFERENCE</h2>
+<ul>
+<li><a href="http://stackoverflow.com/questions/1960240/jquery-ajax-submit-form">jQuery AJAX submit form</a></li>
+<li><a href="http://www.w3schools.com/xml/ajax_intro.asp">AJAX Introduction</a></li>
+</ul>
+]]></content:encoded>
+			<wfw:commentRss>/2016/10/form-submit-via-javascript.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Raspberry Pi &#8211; Distcc</title>
+		<link>/2015/01/raspberry-pi-distcc.html</link>
+		<comments>/2015/01/raspberry-pi-distcc.html#respond</comments>
+		<pubDate>Mon, 12 Jan 2015 09:19:34 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Programming]]></category>
+		<category><![CDATA[ALLOWEDNETS]]></category>
+		<category><![CDATA[CIDR]]></category>
+		<category><![CDATA[Raspberry Pis]]></category>
+		<category><![CDATA[ZEROCONF]]></category>
+
+		<guid isPermaLink="false">/?p=1485</guid>
+		<description><![CDATA[INTRODUCE distcc is a program that enables a single &#8220;master&#8221; computer (the Raspberry Pi in our case) to distribute its compiling load to other &#8220;helper&#8221; machines (a multi-core Ubuntu Linux machine) over the network. In standard mode, source files are preprocessed on the Raspberry Pi, compressed and sent to the helper machine for compiling. The [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2015/01/distccmon-gnome-2003-09-23-01.png"><img class="attachment-full aligncenter" src="/wp-content/uploads/2015/01/distccmon-gnome-2003-09-23-01.png" alt="distccmon-gnome-2003-09-23-01" width="515" height="252" /></a></p>
+<h2>INTRODUCE</h2>
+<p>distcc is a program that enables a single &#8220;master&#8221; computer (the Raspberry Pi in our case) to distribute its compiling load to other &#8220;helper&#8221; machines (a multi-core Ubuntu Linux machine) over the network. In standard mode, source files are preprocessed on the Raspberry Pi, compressed and sent to the helper machine for compiling. The helper machine, which in this case is running an arm-compatible cross-compiler, compiles the object files (.o files) and sends them back to the Raspberry Pi. Once the Raspberry Pi has received all of the object files, it will then link them into a library or executable.</p>
+<p>It is also possible to distribute preprocessing using distcc-pump, but this feature is not explored below.</p>
+<p><strong>Note</strong>: On OS X. You can install a Ubuntu &#8220;helper&#8221; machine running inside Parallels 8. Networking for the Ubuntu instance is set to _BRIDGED allowing it to be accessible to the Raspberry Pi on the same network. In Windows you can use a similar setup with any vm tool like vmware or virtualbox. In Linux you can just follow the next steps without installing a vm, the compiler will run on your machine directly.</p>
+<h2>On the Ubuntu Machine</h2>
+<h3>Install dependencies</h3>
+<pre class="nums:false lang:default highlight:0 decode:true ">sudo apt-get install mercurial bison flex texinfo automake curl
+sudo apt-get install build-essential libncurses-dev libtool gawk gperf
+
+#if you are using a 64bit linux distribution you'll need to install also:
+sudo aptitude install ia32-libs</pre>
+<h3>Download the Raspberry Pi compiler for linux</h3>
+<ul>
+<li>You can download it as a zip or clone the repo at from <a href="https://github.com/raspberrypi/tools/">https://github.com/raspberrypi/tools/</a></li>
+<li>Rename the folder to something more identifiable like rpi-tools, we&#8217;ll refer to this path as <code>$RPI_TOOLS</code> from now on</li>
+</ul>
+<h3>Install and configure distcc on the Ubuntu Helper machine</h3>
+<pre class="lang:default highlight:0 decode:true">sudo apt-get install distcc</pre>
+<h4>Edit /etc/default/distcc (e.g. <code>sudo vi /etc/default/distcc</code>)</h4>
+<ul>
+<li>Change <code>STARTDISTCC="false"</code> to <code>STARTDISTCC="true"</code></li>
+<li>Change <code>ALLOWEDNETS="127.0.0.1"</code> to include the network IP addresses of your Raspberry Pis</li>
+<li><span style="color: #808080;"><span style="color: #000000;"><strong>Note</strong></span>: Addresses use CIDR notation. To allow your localhost AND IP addresses in the range 192.168.1.0-192.168.1.255 use this <code>ALLOWEDNETS="127.0.0.1 192.168.1.0/24</code>.</span></li>
+<li><span style="color: #808080;"><span style="color: #000000;"><strong>Note</strong></span>: If you want help with CIDR notation, you can use the calculator here <a href="http://www.subnet-calculator.com/cidr.php">http://www.subnet-calculator.com/cidr.php</a>.</span></li>
+<li>Change <code>ZEROCONF="false"</code> to <code>ZEROCONF="true"</code></li>
+<li>Change <code>LISTENER="127.0.0.1"</code> to <code>LISTENER=""</code> in order to listen for incoming connections all any network interface (not just the localhost/127.0.0.1).</li>
+</ul>
+<h4>Edit /etc/init.d/distcc (e.g. <code>sudo vi /etc/init.d/distcc</code>)</h4>
+<ul>
+<li>Change <code>PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</code> to <code>PATH=$RPI_TOOLS/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</code></li>
+<li>Note: <code>$RPI_TOOLS</code> should be the path were you installed the raspberry pi compiler before.</li>
+</ul>
+<h4>Start distcc on your Ubuntu machine</h4>
+<ul>
+<li><code>sudo service distcc start</code> (you may have to reboot if fails)</li>
+<li>If it fails, you might also try:</li>
+<li><code>sudo service distcc restart</code></li>
+</ul>
+<h2>On the Raspberry Pi</h2>
+<h3>Install distcc</h3>
+<ul>
+<li><code>sudo apt-get install distcc<br />
+</code></li>
+</ul>
+<h3>Configure the Raspberry Pi to use the Ubuntu helper you just configured</h3>
+<ul>
+<li>Make directory <code>mkdir $HOME/.distcc/</code></li>
+<li>Edit $HOME/.distcc/hosts (e.g. <code>vi $HOME/.distcc/hosts</code>) and add the ip(s) of the computers that have the rpi tools nstalled</li>
+<li>To compile (finally!)</li>
+<li>First, figure out how many processors you have available on the Ubuntu machine(s) using nproc on each. Tally the total number of helper processors. When we issue our make command we will use the -j flag to tell make how many jobs we want to be distribted over distcc. According to the distcc documentation, you should run make with 2 x TOTAL_PROCESSORS in your cluster. So, if you have one helper machine with 8 cores 8&#215;2=16, so you&#8217;ll run make -j 16. If this is the same machine you are working from you probably want lower numbers so the computer is still usable while compiling</li>
+<li>Next, we need our makefiles to know that we won&#8217;t be using the normal RPI gcc, but rather the gcc (etc) located in /usr/lib/distcc. The command itself looks like /usr/lib/distcc/g++ or simply distcc g++, rather than the normal g++. So the full make for the core openFrameworks lib OR projects will look something like this:</li>
+<li>
+<pre class="lang:default highlight:0 decode:true">make -j 6 CXX=/usr/lib/distcc/arm-linux-gnueabihf-g++ CC=/usr/lib/distcc/arm-linux-gnueabihf-gcc</pre>
+</li>
+<li>If you would like to simplify your command, you can set MAKEFLAGS using the following:</li>
+<li>
+<pre class="lang:default highlight:0 decode:true">export MAKEFLAGS="-s -j 6 CXX=/usr/lib/distcc/arm-linux-gnueabihf-g++ CC=/usr/lib/distcc/arm-linux-gnueabihf-gcc"
+make</pre>
+</li>
+</ul>
+<h2>On the Raspberry Pi (Simply way)</h2>
+<pre class="lang:default highlight:0 decode:true"># Install Distcc and Startup it.
+$ sudo apt-get install distcc
+$ /usr/bin/distccd  --daemon --allow 10.64.0.0/16
+
+# Set distcc hosts by command line
+$ export DISTCC_HOSTS="localhost 10.64.25.1 10.64.25.2 10.64.25.3"
+
+# Goto directory which you wanna make
+$ make -j 6 CXX=/usr/lib/distcc/arm-linux-gnueabihf-g++ CC=/usr/lib/distcc/arm-linux-gnueabihf-gcc</pre>
+<h2>REFERENCE</h2>
+<ul>
+<li><a href="http://www.openframeworks.cc/setup/raspberrypi/Raspberry-Pi-DISTCC-guide.html">openframeworks</a>.</li>
+<li><a href="http://www.freemindworld.com/blog/2010/100105_make_complie_process_faster.shtml">加速Linux程序编译</a></li>
+</ul>
+<h2>AUTHOR</h2>
+<p>Pekaikon Norckon<br />
+01 / 12 / 2015 MON</p>
+]]></content:encoded>
+			<wfw:commentRss>/2015/01/raspberry-pi-distcc.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Google Text-to-Speech API</title>
+		<link>/2014/10/google-text-to-speech-api.html</link>
+		<comments>/2014/10/google-text-to-speech-api.html#respond</comments>
+		<pubDate>Sun, 05 Oct 2014 09:39:44 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Programming]]></category>
+		<category><![CDATA[API]]></category>
+		<category><![CDATA[Google]]></category>
+		<category><![CDATA[TTS]]></category>
+
+		<guid isPermaLink="false">/?p=1345</guid>
+		<description><![CDATA[As we know, Text-to-Speech can convert TEXT into VOICE. If we write a program to realize TTS, It&#8217;s not easy. So we can use a API to finish this work. Google TTS maybe is a good choose. When you call Google TTS and POST data to TTS server, Google TTS will return a MP3 file [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2014/10/google-tts.jpg"><img class="aligncenter size-full wp-image-1567" src="/wp-content/uploads/2014/10/google-tts.jpg" alt="google-tts" width="680" height="383" /></a></p>
+<p>As we know, Text-to-Speech can convert TEXT into VOICE. If we write a program to realize TTS, It&#8217;s not easy. So we can use a API to finish this work. Google TTS maybe is a good choose.</p>
+<p>When you call Google TTS and POST data to TTS server, Google TTS will return a MP3 file include with the voice you want to you. It&#8217;s so easy even without programming! You can also open in Media Player or Browsers.</p>
+<blockquote><p><strong>Usage: </strong>http://<strong><em><span style="color: #808080;">translate.google.com</span></em></strong>/translate_tts?<strong>ie</strong>=<span style="color: #0000ff;">&lt;CODING&gt;</span>&amp;<strong>q</strong>=<span style="color: #0000ff;">&lt;STRING&gt;</span>&amp;<strong>tl</strong>=<span style="color: #0000ff;">&lt;LANGUAGE&gt;</span></p></blockquote>
+<p>There be <strong>THREE</strong> parameter required!</p>
+<ul>
+<li>ie:  <strong>Input</strong> <strong>Encoding</strong>, usually be UTF-8</li>
+<li>q:  <strong>Text</strong>, text convert into voice you need (<span style="text-decoration: underline;">UrlEncode</span> First)</li>
+<li>tl:  <strong>Language</strong>, the text&#8217;s language or output language</li>
+</ul>
+<blockquote><p><strong>Example</strong>: http://<span style="color: #808080;"><strong><em>translate.google.com</em></strong></span>/translate_tts?<strong>ie</strong>=<span style="color: #0000ff;">UTF-8</span>&amp;<strong>q</strong>=<span style="color: #0000ff;">Hello</span>&amp;<strong>tl</strong>=<span style="color: #0000ff;">en_us</span></p></blockquote>
+<p>You can use HTML5 browser to open example link, and then you computer will say Hello to you. If you are using a Linux terminal, you can run this script and you computer will say Hello to you.</p>
+<blockquote><p><strong>Bash Script</strong>: <span style="color: #008000;"><span style="color: #000000;">mpg123 </span><strong>&#8216;</strong></span><em><span style="color: #808080;">http://translate.google.com/translate_tts?ie=UTF-8&amp;q=Hello&amp;tl=</span></em><span style="color: #0000ff;"><em><span style="color: #808080;">en_us</span></em>&#8216;</span></p></blockquote>
+<p>You can insert this link in anywhere, like HTML5 webpage, program, Android Apps, etc.</p>
+<p>by Pekaikon Norckon<br />
+2014年10月5日 (SUN)</p>
+]]></content:encoded>
+			<wfw:commentRss>/2014/10/google-text-to-speech-api.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>通过 Modulus 与 Exponent 生成 Public Key [ENG/中]</title>
+		<link>/2014/08/%E9%80%9A%E8%BF%87-modulus-%E4%B8%8E-exponent-%E7%94%9F%E6%88%90-public-key-eng%E4%B8%AD.html</link>
+		<comments>/2014/08/%E9%80%9A%E8%BF%87-modulus-%E4%B8%8E-exponent-%E7%94%9F%E6%88%90-public-key-eng%E4%B8%AD.html#respond</comments>
+		<pubDate>Sun, 17 Aug 2014 06:49:44 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Programming]]></category>
+
+		<guid isPermaLink="false">/?p=1307</guid>
+		<description><![CDATA[原标题：USING RAW PUBLIC KEYS IN PHP // this function makes up for the fact that openssl doesn't // currently support direct use of modulus and exponent except // when PEM encoded in publicKeyInfo or Certificate ASN.1 // So, believe it or not, I convert it into a publicKeyInfo ASN // structure and then turn it [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>原标题：USING RAW PUBLIC KEYS IN PHP</p>
+<pre class="lang:default decode:true">// this function makes up for the fact that openssl doesn't
+// currently support direct use of modulus and exponent except
+// when PEM encoded in publicKeyInfo or Certificate ASN.1 
+// So, believe it or not, I convert it into a publicKeyInfo ASN
+// structure and then turn it into PEM - then it works fine.</pre>
+<p><span id="more-1307"></span></p>
+<pre class="lang:default decode:true">// this function makes up for the fact that openssl doesn't
+// currently support direct use of modulus and exponent except
+// when PEM encoded in publicKeyInfo or Certificate ASN.1 
+// So, believe it or not, I convert it into a publicKeyInfo ASN
+// structure and then turn it into PEM - then it works fine.
+
+function kimssl_pkey_get_public ($modulus, $exponent)
+{
+    // decode to binary
+    $modulus = base64_decode($modulus);
+    $exponent = base64_decode($exponent);
+
+    // make an ASN publicKeyInfo
+    $exponentEncoding = makeAsnSegment(0x02, $exponent);    
+    $modulusEncoding = makeAsnSegment(0x02, $modulus);    
+    $sequenceEncoding = makeAsnSegment(0x30, 
+        $modulusEncoding.$exponentEncoding);
+    $bitstringEncoding = makeAsnSegment(0x03, $sequenceEncoding);
+    $rsaAlgorithmIdentifier = pack("H*", "300D06092A864886F70D0101010500"); 
+    $publicKeyInfo = makeAsnSegment (0x30, 
+        $rsaAlgorithmIdentifier.$bitstringEncoding);
+
+    // encode the publicKeyInfo in base64 and add PEM brackets
+    $publicKeyInfoBase64 = base64_encode($publicKeyInfo);    
+    $encoding = "-----BEGIN PUBLIC KEY-----\n";
+    $offset = 0;
+    while ($segment=substr($publicKeyInfoBase64, $offset, 64)){
+       $encoding = $encoding.$segment."\n";
+       $offset += 64;
+    }
+    $encoding = $encoding."-----END PUBLIC KEY-----\n";
+
+    // use the PEM version of the key to get a key handle
+    $publicKey = openssl_pkey_get_public ($encoding);
+
+    return ($publicKey);
+}
+
+// this helper function is necessary because PHP's openssl
+// currently requires that the public key be in PEM format
+// This does the ASN.1 type and length encoding
+
+function makeAsnSegment($type, $string)
+{
+    // fix up integers and bitstrings
+    switch ($type){
+        case 0x02:
+            if (ord($string) &gt; 0x7f)
+                $string = chr(0).$string;
+            break;
+        case 0x03:
+            $string = chr(0).$string;
+            break;
+    }
+
+    $length = strlen($string);
+
+    if ($length &lt; 128){
+       $output = sprintf("%c%c%s", $type, $length, $string);
+    }
+    else if ($length &lt; 0x0100){
+       $output = sprintf("%c%c%c%s", $type, 0x81, $length, $string);
+    }
+    else if ($length &lt; 0x010000) {
+       $output = sprintf("%c%c%c%c%s", $type, 0x82, $length/0x0100, $length%0x0100, $string);
+    }
+    else {
+        $output = NULL;
+    }
+
+    return($output);
+}</pre>
+<p>转：http://www.identityblog.com/?p=389</p>
+]]></content:encoded>
+			<wfw:commentRss>/2014/08/%E9%80%9A%E8%BF%87-modulus-%E4%B8%8E-exponent-%E7%94%9F%E6%88%90-public-key-eng%E4%B8%AD.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>使GCC在编译Windows程序的时候附加图标</title>
+		<link>/2014/07/%E4%BD%BFgcc%E5%9C%A8%E7%BC%96%E8%AF%91windows%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%97%B6%E5%80%99%E9%99%84%E5%8A%A0%E5%9B%BE%E6%A0%87.html</link>
+		<comments>/2014/07/%E4%BD%BFgcc%E5%9C%A8%E7%BC%96%E8%AF%91windows%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%97%B6%E5%80%99%E9%99%84%E5%8A%A0%E5%9B%BE%E6%A0%87.html#respond</comments>
+		<pubDate>Fri, 25 Jul 2014 05:56:03 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Programming]]></category>
+
+		<guid isPermaLink="false">/?p=1286</guid>
+		<description><![CDATA[是否曾觉得每次通过 GCC/G++ 编译的 Windows 应用程序都是 Windows 默认的应用程序图标。这样看上去既不能够表达程序的用途又不美观。当然这样的问题是可以解决的，不过相对来说需要手工转化，而过程也相对来说繁琐。但是对于喜欢折腾的你来说，这一定不是问题。 首先我们需要准备与之相关的一些文件或者工具。首要的是你编写的应用程序源代码，然后则是 windres (包含于 MinGW 中)，以及 GCC/G++ 编译器，还有最后的主角 *.ico 图标文件一份。万事具备只欠东风了，那么就跟随下面的步骤来完成我们的工作吧。 1、首先我们准备好需要添加到程序当中的图标文件，比如文件名为：testapp.ico；然后新建一份扩展名为 *.rc 的文本文档，比如文件名为：icon.rc；最后用文本编辑器打开 icon.rc 并写入以下内容： 1 ICON "testapp.ico" 2、然后我们使用 windres 工具来编译该资源文件，成为 icon.o 文件；在命令提示符中切换到图标文件目录并输入以下命令： windres icon.rc icon.o 3、最后就是编译源程序了，相比不添加图标的编译步骤只是稍微变更了一点点内容。甚至可以说得上是一模一样；在命令提示符中切换到源程序目录并输入以下命令： gcc hellokitty.c icon.o -o "hellokitty.exe" g++ hellokitty.cpp icon.o -o "hellokitty.exe" 4、另外，如果你想让你编译的程序不弹出黑窗口（终端窗口，命令提示符）的话，只需要在 GCC/G++ 编译命令当中添加上 -mwindows 参数即可。 TITLE: Setting icons for Windows programs with [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>是否曾觉得每次通过 GCC/G++ 编译的 Windows 应用程序都是 Windows 默认的应用程序图标。这样看上去既不能够表达程序的用途又不美观。当然这样的问题是可以解决的，不过相对来说需要手工转化，而过程也相对来说繁琐。但是对于喜欢折腾的你来说，这一定不是问题。</p>
+<p>首先我们需要准备与之相关的一些文件或者工具。首要的是你编写的应用程序源代码，然后则是 windres (包含于 MinGW 中)，以及 GCC/G++ 编译器，还有最后的主角 *.ico 图标文件一份。万事具备只欠东风了，那么就跟随下面的步骤来完成我们的工作吧。</p>
+<p>1、首先我们准备好需要添加到程序当中的图标文件，比如文件名为：testapp.ico；然后新建一份扩展名为 *.rc 的文本文档，比如文件名为：icon.rc；最后用文本编辑器打开 icon.rc 并写入以下内容：</p>
+<pre class="lang:default decode:true ">1 ICON "testapp.ico"</pre>
+<p>2、然后我们使用 windres 工具来编译该资源文件，成为 icon.o 文件；在命令提示符中切换到图标文件目录并输入以下命令：</p>
+<pre class="lang:default decode:true ">windres icon.rc icon.o</pre>
+<p>3、最后就是编译源程序了，相比不添加图标的编译步骤只是稍微变更了一点点内容。甚至可以说得上是一模一样；在命令提示符中切换到源程序目录并输入以下命令：</p>
+<pre class="lang:default decode:true ">gcc hellokitty.c icon.o -o "hellokitty.exe"
+g++ hellokitty.cpp icon.o -o "hellokitty.exe"</pre>
+<p>4、另外，如果你想让你编译的程序不弹出黑窗口（终端窗口，命令提示符）的话，只需要在 GCC/G++ 编译命令当中添加上 -mwindows 参数即可。</p>
+<blockquote><p>TITLE: Setting icons for Windows programs with gcc<br />
+FROM: http://fragglet.livejournal.com/4448.html [ENGLISH]</p></blockquote>
+<p>&nbsp;</p>
+<p>by 北极光.Norckon<br />
+2014 年 7 月 25 日 （五）</p>
+]]></content:encoded>
+			<wfw:commentRss>/2014/07/%E4%BD%BFgcc%E5%9C%A8%E7%BC%96%E8%AF%91windows%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%97%B6%E5%80%99%E9%99%84%E5%8A%A0%E5%9B%BE%E6%A0%87.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>DotNet拨号器编程方法</title>
+		<link>/2014/04/dotnet%E6%8B%A8%E5%8F%B7%E5%99%A8%E7%BC%96%E7%A8%8B%E6%96%B9%E6%B3%95.html</link>
+		<comments>/2014/04/dotnet%E6%8B%A8%E5%8F%B7%E5%99%A8%E7%BC%96%E7%A8%8B%E6%96%B9%E6%B3%95.html#respond</comments>
+		<pubDate>Sun, 13 Apr 2014 02:00:12 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Programming]]></category>
+
+		<guid isPermaLink="false">/?p=1201</guid>
+		<description><![CDATA[现在网络飞速发展，如今的拨号器不仅仅只是用于拨号了，他可以用于小区广播、账号加密等诸多功能。其实编写一个拨号器的难度并不会很大，现在网上有一个现成的库可以用于编写各类拨号器，包括PPTP、PPPOE以及L2TP。 虽然自己也可以调用Win32API函数库Rasapi32，但是想到微软自带的函数库，不少人应该感觉不良。因为其调用的复杂性是令人费解的。 但是DotRas可以解决当下这个问题，他是基于Rasapi32的一个库。可以直接进行创建连接、删除连接、编辑链接以及建立连接等操作。但是其易用性要高于Rasapi32。并且自带 SDK 文档（英文）。 DotRas项目官网：http://dotras.codeplex.com/ 最近我的内网 VPN 服务器也进行了一次升级，由容易受到干扰的 PPTP 升级到了较难受到干扰的 L2TP，这就意味着原先的 PPTP 拨号器将变得不可用。 所以我就使用 DotRas 编写了一套全新的 L2TP 协议的拨号器，程序以及源代码下载：http://pan.baidu.com/s/1mg0V87Y by 北极光.Norckon 2014-4-13 （日）]]></description>
+				<content:encoded><![CDATA[<p>现在网络飞速发展，如今的拨号器不仅仅只是用于拨号了，他可以用于小区广播、账号加密等诸多功能。其实编写一个拨号器的难度并不会很大，现在网上有一个现成的库可以用于编写各类拨号器，包括PPTP、PPPOE以及L2TP。</p>
+<p>虽然自己也可以调用Win32API函数库Rasapi32，但是想到微软自带的函数库，不少人应该感觉不良。因为其调用的复杂性是令人费解的。</p>
+<p>但是DotRas可以解决当下这个问题，他是基于Rasapi32的一个库。可以直接进行创建连接、删除连接、编辑链接以及建立连接等操作。但是其易用性要高于Rasapi32。并且自带 SDK 文档（英文）。</p>
+<p>DotRas项目官网：http://dotras.codeplex.com/</p>
+<p>最近我的内网 VPN 服务器也进行了一次升级，由容易受到干扰的 PPTP 升级到了较难受到干扰的 L2TP，这就意味着原先的 PPTP 拨号器将变得不可用。</p>
+<p>所以我就使用 DotRas 编写了一套全新的 L2TP 协议的拨号器，程序以及源代码下载：http://pan.baidu.com/s/1mg0V87Y</p>
+<p>by 北极光.Norckon<br />
+2014-4-13 （日）</p>
+]]></content:encoded>
+			<wfw:commentRss>/2014/04/dotnet%E6%8B%A8%E5%8F%B7%E5%99%A8%E7%BC%96%E7%A8%8B%E6%96%B9%E6%B3%95.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Akari C.Procgram Code</title>
+		<link>/2013/11/akari-c-procgram-code.html</link>
+		<comments>/2013/11/akari-c-procgram-code.html#respond</comments>
+		<pubDate>Mon, 11 Nov 2013 11:16:52 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Programming]]></category>
+		<category><![CDATA[ASCII]]></category>
+		<category><![CDATA[PGM]]></category>
+		<category><![CDATA[PPM]]></category>
+		<category><![CDATA[RGB]]></category>
+
+		<guid isPermaLink="false">/?p=960</guid>
+		<description><![CDATA[Don Yang omoikane@uguu.org http://uguu.org/ Judges&#8217; comments: To build: make akari To run: ./akari [input_file_or_- [output_file_or_- [even]]] Try: ./akari &#60; example.ppm &#62; odd_output.ppm ./akari - - even &#60; example.ppm &#62; even_output.ppm ./akari example.ppm odd_output.ppm make akari2.c cat akari2.c make akari2 ./akari2 &#60; akari2.c ./akari2 rot13 &#60; akari2.c make akari3.c cat akari3.c make akari3 ./akari3 make akari4.c [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><img class="aligncenter size-full wp-image-1706" src="/wp-content/uploads/2013/11/akari-c-20160409.jpg" alt="akari-c-20160409" width="640" height="400" />Don Yang<br />
+<a href="mailto:omoikane@uguu.org">omoikane@uguu.org</a><br />
+<a href="http://uguu.org/">http://uguu.org/</a></p>
+<h2>Judges&#8217; comments:</h2>
+<h3>To build:</h3>
+<pre class="brush: c; gutter: true; first-line: 1">make akari</pre>
+<h3>To run:</h3>
+<pre class="brush: c; gutter: true; first-line: 1">./akari [input_file_or_- [output_file_or_- [even]]]</pre>
+<h3>Try:</h3>
+<pre class="brush: c; gutter: true; first-line: 1">./akari &lt; example.ppm &gt; odd_output.ppm
+./akari - - even &lt; example.ppm &gt; even_output.ppm
+./akari example.ppm odd_output.ppm
+
+make akari2.c
+cat akari2.c
+
+make akari2
+
+./akari2 &lt; akari2.c
+./akari2 rot13 &lt; akari2.c
+
+make akari3.c
+cat akari3.c
+
+make akari3
+
+./akari3
+
+make akari4.c
+cat akari4.c
+
+./akari4</pre>
+<h3>Selected Judges Remarks:</h3>
+<p>Akari is an image downsampling utility that accepts 3 inout formats:</p>
+<pre>* PGM (netpbm grayscale image).  Akari only accept PGM files with this
+  header: P5 &lt;width&gt; &lt;height&gt; 255.  Images with extra comments such as
+  the ones produced by GIMP will not be parsed properly.
+
+* PPM (netpbm RGB image).  Only PPM files with this header are
+  accepted: P6 &lt;width&gt; &lt;height&gt; 255.
+
+* ASCII art (with end of lines in LF bytes only, not CR-LF)</pre>
+<p>Anything that is not parseable as PGM or PPM will be downsampled as ASCII art.</p>
+<h2>Author’s comments:</h2>
+<p>Akari is an image downsampling utility. She accepts up to 3 arguments:</p>
+<p>First argument is the input image. If it’s “-” or unspecified, Akari will read from stdin.</p>
+<p>Second argument is the output image. If it’s “-” or unspecified, Akari will write to stdout.</p>
+<p>Third argument, if specified, causes Akari to keep even pixels on even scanlines. By default Akari will keep odd pixels on odd scanlines.</p>
+<p>Examples:</p>
+<pre class="brush: c; gutter: true; first-line: 1">gcc akari.c -o akari
+./akari &lt; example.ppm &gt; odd_output.ppm
+./akari - - even &lt; example.ppm &gt; even_output.ppm
+./akari example.ppm odd_output.ppm</pre>
+<p>Akari accepts 3 input formats: * PGM (netpbm grayscale image). Akari only accept PGM files with this header: P5 255. Images with extra comments such as the ones produced by GIMP will not be parsed properly. * PPM (netpbm RGB image). Only PPM files with this header are accepted: P6 255. * ASCII art (with end of lines in LF bytes only, not CR-LF)</p>
+<p>This is useful for decoding some curiously interlaced images, such as the included example.ppm</p>
+<p>Anything that is not parseable as PGM or PPM will be downsampled as ASCII art. Since the source code is formatted as ASCII art, it’s only natural to try:</p>
+<pre class="brush: c; gutter: true; first-line: 1">./akari akari.c akari2.c</pre>
+<p>akari2.c is also a valid C program, and accepts up to 1 argument. By default, this second program reads text from stdin and writes expanded output to stdout. If the extra argument is specified, the output text will also pass through a rot13 filter.</p>
+<pre class="brush: c; gutter: true; first-line: 1">gcc akari2.c -o akari2
+./akari2 &lt; input.txt &gt; expanded_output.txt
+./akari2 rot13 &lt; input.txt &gt; expanded_and_rot13_output.txt</pre>
+<p>You can combine the two programs together to have just a regular rot13 filter:</p>
+<pre class="brush: c; gutter: true; first-line: 1">./akari2 rot13 &lt; input.txt | ./akari &gt; rot13.txt</pre>
+<p>Of course, we wouldn’t stop with just 2 programs, you can downsample the source <em>again</em> and get yet another C program:</p>
+<pre class="brush: c; gutter: true; first-line: 1">./akari &lt; akari.c | ./akari &gt; akari3.c</pre>
+<p>We must go deeper:</p>
+<pre class="brush: c; gutter: true; first-line: 1">./akari &lt; akari.c | ./akari | ./akari &gt; akari4.c</pre>
+<p>akari3.c and akari4.c are still (mostly valid) C programs. “gcc -Wall” will output a few warnings, but still produce output executables. The output executables each print a message to stdout.</p>
+<p>It takes quite a bit of skill and obfuscation to interleave a C program 4 levels deep, it’s much easier to interleave something like a brainf#$% program in a C program, for example. For comparison, a brainf#$% program is embedded inside akari.c</p>
+<p><strong>文章摘自：<a href="http://www.ioccc.org/2011/akari/hint.html">http://www.ioccc.org/2011/akari/hint.html</a></strong></p>
+<p><strong>程序员个人网站：<a href="http://uguu.org/sources.html">http://uguu.org/sources.html</a></strong></p>
+]]></content:encoded>
+			<wfw:commentRss>/2013/11/akari-c-procgram-code.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Using Qt to open webpage with default browser</title>
+		<link>/2013/10/using-qt-to-open-webpage-with-default-browser.html</link>
+		<comments>/2013/10/using-qt-to-open-webpage-with-default-browser.html#respond</comments>
+		<pubDate>Sat, 12 Oct 2013 08:12:52 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Programming]]></category>
+
+		<guid isPermaLink="false">/?p=871</guid>
+		<description><![CDATA[Something you will need user to open a webpage with windows defaults browser. Like shopping , introduction and some other things.Then you should using QtDesktopServices Module. Threre were some usage of this module. Please INCLUDE this file first: #include &#60;QDesktopServices&#62; And then insert this code in your program: QDesktopServices::openUrl(QUrl("http://developer.qt.nokia.com/")); And you can try it now!]]></description>
+				<content:encoded><![CDATA[<p>Something you will need user to open a webpage with windows defaults browser. Like shopping , introduction and some other things.Then you should using QtDesktopServices Module. Threre were some usage of this module.</p>
+<p>Please INCLUDE this file first:</p>
+<pre class="brush: cpp; gutter: true; first-line: 1">#include &lt;QDesktopServices&gt;</pre>
+<p>And then insert this code in your program:</p>
+<pre class="brush: cpp; gutter: true; first-line: 1">QDesktopServices::openUrl(QUrl("http://developer.qt.nokia.com/"));</pre>
+<p>And you can try it now!</p>
+]]></content:encoded>
+			<wfw:commentRss>/2013/10/using-qt-to-open-webpage-with-default-browser.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>[转载]NsPacK V3.4-V3.5加壳的易程序脱壳手记</title>
+		<link>/2013/10/%E8%BD%AC%E8%BD%BDnspack-v3-4-v3-5%E5%8A%A0%E5%A3%B3%E7%9A%84%E6%98%93%E7%A8%8B%E5%BA%8F%E8%84%B1%E5%A3%B3%E6%89%8B%E8%AE%B0.html</link>
+		<comments>/2013/10/%E8%BD%AC%E8%BD%BDnspack-v3-4-v3-5%E5%8A%A0%E5%A3%B3%E7%9A%84%E6%98%93%E7%A8%8B%E5%BA%8F%E8%84%B1%E5%A3%B3%E6%89%8B%E8%AE%B0.html#respond</comments>
+		<pubDate>Fri, 04 Oct 2013 04:36:17 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Programming]]></category>
+
+		<guid isPermaLink="false">/?p=837</guid>
+		<description><![CDATA[[Ttile] NsPack V3.4-V3.5 packed application manually unpack notes 【脱壳过程】Unpack proccess： 首先用PEID载入软件为NsPacK V3.4-V3.5 -&#62; LiuXingPing [Overlay] * ，小样,存在附加数据 [Overlay]，然后用OD载入运行有异常,先不管它,CTRL+F2重新加载,停在下面的入口点: 006C5B0D &#62; 9C pushfd 006C5B0E 60 pushad 006C5B0F E8 00000000 call main.006C5B14 006C5B14 5D pop ebp 006C5B15 83ED 07 sub ebp,7 用ESP定律,按F8一次,看右上角的ESP为0012FFC0，然后在下面的命令行里输入命令: dd 0012FFC0，然后在随后出现的地址栏里0012FFC0处点鼠标右键 断点→设置硬件访问断点→Word，再按F9运行继续程序,碰的一声,程序断在这里: 006C5D81 - E9 ABDAD3FF jmp main.00403831 ;这里跳向OEP 006C5D86 8BB5 57FEFFFF mov esi,dword [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>[Ttile] NsPack V3.4-V3.5 packed application manually unpack notes</p>
+<p>【脱壳过程】Unpack proccess：<br />
+首先用PEID载入软件为NsPacK V3.4-V3.5 -&gt; LiuXingPing [Overlay] * ，小样,存在附加数据 [Overlay]，然后用OD载入运行有异常,先不管它,CTRL+F2重新加载,停在下面的入口点:</p>
+<pre class="brush: actionscript3; gutter: true; first-line: 1">006C5B0D &gt; 9C pushfd
+006C5B0E 60 pushad
+006C5B0F E8 00000000 call main.006C5B14
+006C5B14 5D pop ebp
+006C5B15 83ED 07 sub ebp,7</pre>
+<p>用ESP定律,按F8一次,看右上角的ESP为0012FFC0，然后在下面的命令行里输入命令: dd 0012FFC0，然后在随后出现的地址栏里0012FFC0处点鼠标右键 断点→设置硬件访问断点→Word，再按F9运行继续程序,碰的一声,程序断在这里:</p>
+<pre class="brush: actionscript3; gutter: true; first-line: 1">006C5D81 - E9 ABDAD3FF jmp main.00403831 ;这里跳向OEP
+006C5D86 8BB5 57FEFFFF mov esi,dword ptr ss:[ebp-1A9]
+006C5D8C 0BF6 or esi,esi</pre>
+<p>到这样也有好办了,F8一次就跳到了OEP</p>
+<pre class="brush: actionscript3; gutter: true; first-line: 1">00403830 C3 retn
+00403831 55 push ebp
+00403832 8BEC mov ebp,esp
+00403834 6A FF push -1
+00403836 68 F0624000 push main.004062F0
+0040383B 68 A44C4000 push main.00404CA4
+00403840 64:A1 00000000 mov eax,dword ptr fs:[0]
+00403846 50 push eax
+00403847 64:8925 0000000&gt;mov dword ptr fs:[0],esp
+0040384E 83EC 58 sub esp,58
+00403851 53 push ebx
+00403852 56 push esi
+00403853 57 push edi
+00403854 8965 E8 mov dword ptr ss:[ebp-18],esp
+00403857 FF15 48604000 call dword ptr ds:[406048] ; kernel32.GetVersion
+0040385D 33D2 xor edx,edx
+0040385F 8AD4 mov dl,ah</pre>
+<p>在00403831出点鼠标右键→脱壳在当前调试的进程,运行试下,是不是提示&#8221;Invalid data in the file!&#8221; ，这个是当然的,易程序都是有附加数据的,我们还需要最后一步 : copy overlay。</p>
+<p>打开 Overlay1.0(下载地址:http://bbs.pediy.com/showthread.php?s=&amp;threadid=19388&amp;highlight=overlay)，选择原文件和脱壳后的文件,点&#8221;copy overlay&#8221;，OK,现在可以运行了,不信你试试!</p>
+<p>【小结】:<br />
+经过我的观查,易程序的入口点都会有调用GetVersion,以后碰到易程序直接BP GetVersion ，然后CTRL+F9 返回到程序领空,向上找到一个retn,在下面的一行指令上脱壳在当前调试的进程即可，用Overlay1.0再copy overlay一下就一切搞定.</p>
+<p>【最后的话】:<br />
+我现在只脱了它的壳,破解它还有一断很远的路,不过用ECE(第一款易格式分析工具:http://monkeycz.pediy.com/)很简单找到注册处理地址</p>
+<p>【转载】：<a href="http://bbs.pediy.com/archive/index.php?t-31686.html">http://bbs.pediy.com/archive/index.php?t-31686.html</a></p>
+]]></content:encoded>
+			<wfw:commentRss>/2013/10/%E8%BD%AC%E8%BD%BDnspack-v3-4-v3-5%E5%8A%A0%E5%A3%B3%E7%9A%84%E6%98%93%E7%A8%8B%E5%BA%8F%E8%84%B1%E5%A3%B3%E6%89%8B%E8%AE%B0.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>网页标题批量扫描</title>
+		<link>/2013/09/%E7%BD%91%E9%A1%B5%E6%A0%87%E9%A2%98%E6%89%B9%E9%87%8F%E6%89%AB%E6%8F%8F.html</link>
+		<comments>/2013/09/%E7%BD%91%E9%A1%B5%E6%A0%87%E9%A2%98%E6%89%B9%E9%87%8F%E6%89%AB%E6%8F%8F.html#respond</comments>
+		<pubDate>Fri, 13 Sep 2013 10:03:24 +0000</pubDate>
+		<dc:creator><![CDATA[Norckon]]></dc:creator>
+				<category><![CDATA[Programming]]></category>
+
+		<guid isPermaLink="false">/?p=770</guid>
+		<description><![CDATA[用法：a.txt包含网址，每行一个URL，b.txt输出网页标题，具体怎么应用就不说了，代码来自互联网 @echo off more +8 "%~f0" &#62;GetUrlText.vbs (for /f %%a in (a.txt) do ( echo,%%a cscript //nologo GetUrlText.vbs %%a &#124; findstr "&#60;title&#62;.*&#60;/title&#62;" ))&#62;b.txt goto :eof strURL=WScript.Arguments(0) WScript.Echo strURL Set objXmlHttp = CreateObject("Microsoft.XMLHTTP") objXmlHttp.Open "GET",strURL,0 objXmlHttp.Send() Set objStream = CreateObject("ADODB.Stream") objStream.Mode = 3 objStream.Type = 1 objStream.Open() objStream.Write(objXmlHttp.responsebody) objStream.Position = 0 objStream.Type = 2 objStream.Charset = [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>用法：a.txt包含网址，每行一个URL，b.txt输出网页标题，具体怎么应用就不说了，代码来自互联网</p>
+<pre class="brush: bash; gutter: true; first-line: 1">@echo off
+more +8 "%~f0" &gt;GetUrlText.vbs
+(for /f %%a in (a.txt) do (
+    echo,%%a
+    cscript //nologo GetUrlText.vbs %%a | findstr "&lt;title&gt;.*&lt;/title&gt;"
+))&gt;b.txt
+goto :eof
+
+strURL=WScript.Arguments(0)
+WScript.Echo strURL
+Set objXmlHttp = CreateObject("Microsoft.XMLHTTP")
+objXmlHttp.Open "GET",strURL,0
+objXmlHttp.Send()
+Set objStream = CreateObject("ADODB.Stream")
+objStream.Mode = 3
+objStream.Type = 1
+objStream.Open()
+objStream.Write(objXmlHttp.responsebody)
+objStream.Position = 0
+objStream.Type = 2
+objStream.Charset = "gbk"
+strText = objStream.Readtext
+WScript.Echo strText</pre>
+]]></content:encoded>
+			<wfw:commentRss>/2013/09/%E7%BD%91%E9%A1%B5%E6%A0%87%E9%A2%98%E6%89%B9%E9%87%8F%E6%89%AB%E6%8F%8F.html/feed</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

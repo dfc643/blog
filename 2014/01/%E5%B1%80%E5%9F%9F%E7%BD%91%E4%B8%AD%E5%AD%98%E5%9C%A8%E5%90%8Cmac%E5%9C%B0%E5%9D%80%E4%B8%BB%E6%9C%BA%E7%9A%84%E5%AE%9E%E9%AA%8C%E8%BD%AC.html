@@ -1,0 +1,553 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=10,IE=9,IE=8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title>局域网中存在同Mac地址主机的实验[转] &#8211; </title>
+<script>
+window._deel = {name: 'Norckon&#039;s blog',url: 'http://b.fcsys.org/wp-content/themes/yusi_cache1.0', ajaxpager: 'on', commenton: 1, roll: [3,4]}
+</script>
+<link rel='dns-prefetch' href='//cdn.bootcss.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/b.fcsys.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56794,8205,9794,65039],[55358,56794,8203,9794,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='style-css'  href='/wp-content/themes/yusi_cache1.0/style.css?ver=1.0' type='text/css' media='all' />
+<script type='text/javascript' src='//cdn.bootcss.com/jquery/1.8.3/jquery.min.js?ver=1.0'></script>
+<link rel='https://api.w.org/' href='/wp-json/' />
+<link rel='prev' title='在海外利用新浪SAE看国内试听网站' href='/2014/01/%E5%9C%A8%E6%B5%B7%E5%A4%96%E5%88%A9%E7%94%A8%E6%96%B0%E6%B5%AAsae%E7%9C%8B%E5%9B%BD%E5%86%85%E8%AF%95%E5%90%AC%E7%BD%91%E7%AB%99.html' />
+<link rel='next' title='让indicator-brightness自动保存或加载亮度' href='/2014/02/%E8%AE%A9indicator-brightness%E8%87%AA%E5%8A%A8%E4%BF%9D%E5%AD%98%E6%88%96%E5%8A%A0%E8%BD%BD%E4%BA%AE%E5%BA%A6.html' />
+<link rel="canonical" href="/2014/01/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%B8%AD%E5%AD%98%E5%9C%A8%E5%90%8Cmac%E5%9C%B0%E5%9D%80%E4%B8%BB%E6%9C%BA%E7%9A%84%E5%AE%9E%E9%AA%8C%E8%BD%AC.html" />
+<link rel='shortlink' href='/?p=1123' />
+<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F01%2F%25E5%25B1%2580%25E5%259F%259F%25E7%25BD%2591%25E4%25B8%25AD%25E5%25AD%2598%25E5%259C%25A8%25E5%2590%258Cmac%25E5%259C%25B0%25E5%259D%2580%25E4%25B8%25BB%25E6%259C%25BA%25E7%259A%2584%25E5%25AE%259E%25E9%25AA%258C%25E8%25BD%25AC.html" />
+<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F01%2F%25E5%25B1%2580%25E5%259F%259F%25E7%25BD%2591%25E4%25B8%25AD%25E5%25AD%2598%25E5%259C%25A8%25E5%2590%258Cmac%25E5%259C%25B0%25E5%259D%2580%25E4%25B8%25BB%25E6%259C%25BA%25E7%259A%2584%25E5%25AE%259E%25E9%25AA%258C%25E8%25BD%25AC.html&#038;format=xml" />
+<meta name="keywords" content="Network">
+<meta name="description" content="网络数据从高层下来后，到达网络层，封装为IP数据包，在这一层的传输，只认识IP地址。再到达数据链路层的时候，封装为数据帧，在这一层，只认识MAC地址。在交换环境中，是靠着MAC来传输数据的。  交换机的工作原理，大家也都知道，每一个交换机的端口都有学习功能，可以记住端口所连接NIC的MAC地址，然后有数据传输需求的时候，就会智能的建立专用传输通道，分隔了冲突域，也在一定程度上保证数据安全。  可是改成同一个MAC地址，那将怎么访问呢？于">
+<!--[if lt IE 9]><script src="http://b.fcsys.org/wp-content/themes/yusi_cache1.0/js/html5.js"></script><![endif]-->
+<!-- GOOGLE FONT -->
+<link href='//fonts.lug.ustc.edu.cn/css?family=Josefin+Sans|Cinzel+Decorative' rel='stylesheet' type='text/css'>
+</head>
+<body class="post-template-default single single-post postid-1123 single-format-standard">
+
+<header id="header" class="header">
+<div id="nav-header" class="navbar">
+    
+    <ul class="nav">
+        <li class="title">Norckon</li>
+        <li id="menu-item-1262" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1262"><a href="http://fcsys.org/">Top</a></li>
+<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1046"><a href="/category/software">Soft</a>
+<ul class="sub-menu">
+	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1064"><a href="/category/software">Software</a></li>
+	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1062"><a href="/category/software/os">OS</a></li>
+	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1049"><a href="/category/software/programming">Programming</a></li>
+</ul>
+</li>
+<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="/category/hardware">Hard</a></li>
+<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-1047"><a href="/category/network">Net</a>
+<ul class="sub-menu">
+	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1063"><a href="/category/network">Network</a></li>
+	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1496"><a href="/category/network/server">Server</a></li>
+	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="/category/network/website">Web</a></li>
+</ul>
+</li>
+<li id="menu-item-1220" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1220"><a>Tool</a>
+<ul class="sub-menu">
+	<li id="menu-item-1221" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1221"><a href="http://ru.fcsys.org/wigle">WlanColle</a></li>
+	<li id="menu-item-1223" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1223"><a href="http://file.dfc643.tk/%E6%B8%B8%E6%88%8F%E5%8A%A8%E6%BC%AB/%E8%97%8D%E6%BE%A4%E5%85%89/xmas/default.htm">Hikaru</a></li>
+	<li id="menu-item-1225" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1225"><a href="https://apps.fcsys.org/com.fcsys.tieba.sign/">TiebaSign</a></li>
+	<li id="menu-item-1226" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1226"><a href="https://apps.fcsys.org/com.fcsys.3gqq.online/">QQ</a></li>
+</ul>
+</li>
+<li id="menu-item-1042" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1042"><a>Links</a>
+<ul class="sub-menu">
+	<li id="menu-item-1043" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1043"><a href="http://mos.moe/">MOS-MOE</a></li>
+	<li id="menu-item-1158" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1158"><a href="http://www.purpleroc.com/">Tracy梓朋</a></li>
+	<li id="menu-item-1838" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1838"><a href="http://ymsys.cn/">Yemao</a></li>
+	<li id="menu-item-1785" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1785"><a href="http://negim.me/">葱ちゃん</a></li>
+	<li id="menu-item-1219" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1219"><a href="https://xcroot.com/">CRoot</a></li>
+	<li id="menu-item-1246" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1246"><a href="http://blog.sina.com.cn/celeron533">celeron533</a></li>
+	<li id="menu-item-1150" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1150"><a href="http://www.aillen.org/">Chaos</a></li>
+	<li id="menu-item-1825" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1825"><a href="http://mybeibei.net/">Guge&#8217;s blog</a></li>
+	<li id="menu-item-1162" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1162"><a href="http://www.yjsys.tk/">寂写心灵之幽</a></li>
+	<li id="menu-item-1045" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1045"><a href="http://hanicc.com/">HoneyCC</a></li>
+	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="/add-link">+ Add Link</a></li>
+</ul>
+</li>
+<li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="/">Blog</a></li>
+<li style="float:right;">
+                <div class="toggle-search"><i class="fa fa-search"></i></div>
+<div class="search-expand" style="display: none;"><div class="search-expand-inner"><form method="get" class="searchform themeform" onsubmit="location.href='http://b.fcsys.org/?s=' + encodeURIComponent(this.s.value).replace(/%20/g, '+'); return false;" action="/"><div> <input type="ext" class="search" name="s" onblur="if(this.value=='')this.value='search...';" onfocus="if(this.value=='search...')this.value='';" value="search..."></div></form></div></div>
+</li>
+    </ul>
+</div>
+</div>
+
+<div class="container-inner" style="display:none">
+ <div class="yusi-logo">
+<a href="/">
+<h1>
+<span class="yusi-mono">Norckon&#039;s blog</span>
+<span class="yusi-bloger">Norckon&#039;s blog</span>
+</h1>
+</a>
+</div>
+</div>
+</header>
+
+
+
+
+<section class="container"><div class="speedbar">
+				<div class="toptip"><strong class="text-success"><i class="fa fa-volume-up"></i> </strong> </div>
+	</div>
+	<div class="content-wrap">
+	<div class="content">
+
+				<header class="article-header">
+			<h1 class="article-title"><a href="/2014/01/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%B8%AD%E5%AD%98%E5%9C%A8%E5%90%8Cmac%E5%9C%B0%E5%9D%80%E4%B8%BB%E6%9C%BA%E7%9A%84%E5%AE%9E%E9%AA%8C%E8%BD%AC.html">局域网中存在同Mac地址主机的实验[转]</a></h1>
+			<div class="meta">
+				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="/category/network"> Network</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="/author/dfc643">Norckon</a></span>
+				<time class="muted"><i class="fa fa-clock-o"></i> 2014-01-31</time>
+				<span class="muted"><i class="fa fa-eye"></i> 995℃</span>
+				<span class="muted"><i class="fa fa-comments-o"></i> <a href="/2014/01/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%B8%AD%E5%AD%98%E5%9C%A8%E5%90%8Cmac%E5%9C%B0%E5%9D%80%E4%B8%BB%E6%9C%BA%E7%9A%84%E5%AE%9E%E9%AA%8C%E8%BD%AC.html#respond">0评论</a></span>							</div>
+		</header>
+		<article class="article-content">
+			<p>网络数据从高层下来后，到达网络层，封装为IP数据包，在这一层的传输，只认识IP地址。再到达数据链路层的时候，封装为数据帧，在这一层，只认识MAC地址。在交换环境中，是靠着MAC来传输数据的。</p>
+<p>交换机的工作原理，大家也都知道，每一个交换机的端口都有学习功能，可以记住端口所连接NIC的MAC地址，然后有数据传输需求的时候，就会智能的建立专用传输通道，分隔了冲突域，也在一定程度上保证数据安全。</p>
+<p>可是改成同一个MAC地址，那将怎么访问呢？于是做了一个这样的实验。在局域网中存在3台这样的计算机：A(192.168.30.1)、B(192.168.30.2)、C(192.168.30.3)，其中将A、B的Mac地址修改成一样。这个时候当然A是访问不到B的，因为A访问B的数据，在交换机那里，已经不能精确的利用世界唯一的MAC来判断目标端口了。因为他们的地址是一样的，这让我想起了思科的单臂路由。</p>
+<p>但这仅仅是假设，如果要确定，A发出的数据是立即向与B具有同一个Mac的自己转回来，还是向所有具有相同于B的Mac的端口（包括自己）转发数据帧，最好利用嗅探来确定。而且交换机的说明中绝对不会告诉你，交换碰到一样的Mac怎么处理。毕竟交换机的产生基础就是唯一的Mac地址。总之，A和B之间已经无法正常的进行通信了。</p>
+<p><span style="color: #0000ff;"><strong>结论一</strong>：局域网一旦出现了相同的MAC的计算机，它们之间不可以进行互相通信。</span></p>
+<p>既然A和B的互相通信的情况不是那么乐观，那么我们现在换个角度来看看C访问另外两台计算机的情况。计算机C的MAC地址和A、B的不一样，下面我们分别使用C来Ping计算机A与计算机B。</p>
+<blockquote><p>下面是计算机C与计算机A的Ping通信结果：丢包率较大<br />
+Pinging 192.168.30.1 with 32 bytes of data:<br />
+Request timed out.<br />
+Request timed out.<br />
+Request timed out.<br />
+Reply from 210.72.28.253: bytes=32 time&lt;10ms TTL=64</p>
+<p>下面是计算机C与计算机B的Ping通信结果：丢包率较大<br />
+Pinging 192.168.30.2 with 32 bytes of data:<br />
+Request timed out.<br />
+Request timed out.<br />
+Request timed out.<br />
+Request timed out.</p></blockquote>
+<p><span style="color: #0000ff;"><strong>结论二</strong>：局域网中没有修改MAC并保持唯一MAC的机器，在访问修改成重复MAC的机器时候，产生大量随机性问题。</span></p>
+<p>既然A和B不能互访了，那能不能访问C呢？A虽然和B现在用了同样的MAC地址，在交换环境中，显然和传输规则背道而驰，但是本次测试作为实验，我们还需要继续往下测试。测试结果很让人意外，A、B两台计算机分别Ping计算机C都无一丢包，测试十分完美。</p>
+<p><span style="color: #0000ff;"><strong>结论三</strong>：局域网中修改成为相同MAC的机器，访问没有修改MAC的机器时候，没有受到影响。</span></p>
+<p>这些情况在以前我都没有碰到过，毕竟一般情况下局域网中间不会存在MAC地址重复的情况。但是作为实验，我们需要制造一个特殊的环境。那么我们接下来就测试A、B客户机访问互联网的情况了，测试结果非常出乎意料。</p>
+<p>曾经有人说，局域网存在相同MAC的计算机，他们都可以上网。我绝对否定，刚才的例子证明了，修改成为同样的MAC地址，是影响交换机工作的。其中结论二非常有力说明了这一点。</p>
+<p>但是在实际测试中，我们用计算机A打开浏览器输入网址，网站非常成功的载入了。紧接着使用计算机B输入地址，网速和平时一样的快。而作为本例中没有修改过的计算机C是应该没问题的，毕竟是世界唯一MAC的计算机。随后我们使用计算机C做了测试，果然没问题，很快的打开了网页。</p>
+<p>其中计算机A与计算机B，它们具有同样的MAC，并且是在一个局域网中，它们竟然可以同时访问互联网，而且几乎察觉不出停滞就打开了不同的网页。不管在测试过程中更换多少个URL，同样都能够很快的打开。而对于其他软件，如聊天软件也可以正常使用。</p>
+<p>这项实验看似推翻了前几项实验的结论二，“局域网中没有修改MAC并保持唯一MAC的机器，在访问修改成重复MAC的机器时候，产生大量随机性障碍”。但是怎么可能局域网网关在把Web服务器返回的结果传给A和B的时候，就似乎没有障碍了呢？我们先留下一个悬念，原因后面继续分析。</p>
+<p><span style="color: #0000ff;"><strong>结论四</strong>：具有相同的MAC地址的计算机，在局域网中可以同时连接互联网。</span></p>
+<p>如果你知道是怎么回事，当然不觉得惊讶。可是我却非常惊讶，我不知道为什么网关在把INTERNET上的数据请求结果发回给计算机A和B时而不出错，而实验二中的表现结果那么差劲？于是我做了如下测试。</p>
+<p>首先我用计算机来Ping计算机A，结果显然很不好。正如结论二所述，ICMP消息返回的很少，只是偶尔出有一个返回信息。就在这个时候这个时候，在计算机A上Ping计算机C，此时计算机C上的每一条请求都得到了反馈结果，全部都可以Ping通。但是<span style="line-height: 1.5em;">Ping计算机B没有Ping通。</span>这个时候我在计算机B上使用了同样的方法Ping计算机C，再使用计算机C回Ping计算机B的时候，又全部Ping通。（我刚才用的PING都加了-t参数，这样可以不断的PING）</p>
+<p>然后为了研究清楚，现在我将计算机A的Ping进程终止掉。此时此刻，计算机C在Ping计算机A的结果发生了变化，Ping到A的返回出现了大量的超时。反复重复了几次测试中得出如下的一条结论：</p>
+<p><span style="color: #0000ff;"><strong>结论五</strong>：当修改成统一的MAC机器，在向没有更改MAC的机器提出通讯要求的时候，交换机记住了提出要求的修改成统一MAC的机器的所在端口，然后没有更改MAC的机器，可以把结果数据通过交换机的那个端口发送给请求的机器。</span></p>
+<p>这就是为什么结论四，局域网网关可以把INTERNET服务器返回的数据返回给局域网中修改过MAC的机器的原因。在知道其真正的原因后自然也就觉得正常了，同时也对交换机有了新的认识。</p>
+<p>然后我想恢复我的网络，不需要重复的MAC了，因为这样局域网操作是不能使用的。首先我把设定的静态IP删除掉，但是很快就从DHCP服务器上获得了新的IP地址，而且计算机A、B都是一样的IP地址。这是因为MAC都是一样的，DHCP给主机分配IP的原理就是每个MAC分配一个不同的IP导致。</p>
+<p>但是我发现他们被赋予同样的IP的时候，并没有IP冲突的提示，这倒是在我意料之外的。高兴之余，我没有忘记顺手测试他们的上网功能，但是测试结果也是非常意外，他们竟然都能上网。</p>
+<p>原来同时具有相同的MAC和IP的计算机，发出上网请求的时候，依然是交换机记住了对应的端口，然后在有数据返回的时候，按照原端口在发回去，最终计算机还是收到了数据，信息传递是很快的，数据发出到返回瞬间就完成了！</p>
+<p><span style="color: #0000ff;"><strong>结论六</strong>：具有同样MAC的机器设置同样的IP地址，不会出现IP地址冲突错误，而且依然可以上网。</span></p>
+<p>之所以这么做，一方面是为了完成这一项测试，另一方面是也只是为了娱乐，同时也知道了一些平时不知道的事情，比如局域网中机器可以用同样的IP同样的MAC来上互联网。</p>
+<p>这个消息很好，大家都知道ADSL宽带，以前可以随意连接小型家庭局域网共享上网。可是后来网络尖兵这个设备让人困惑，他阻止私自共享上网。网络尖兵具有过滤和探测功能，他可以捕获流过的数据包中是否含有多种IP和MAC地址，可以探测用户有没有安装代理和NAT设备，以此判断是否有共享网络的存在。我们<span style="line-height: 1.5em;">可以修改统一的MAC配置统一的IP再连接ADSL上网，网络尖兵也就无能为力了。</span></p>
+<blockquote><p>后记：以上的情况都是在统一的MAC和统一的IP机器数量少的情况下做的。如果机器很多的话，上网是会出现问题的。<br />
+因为很有可能，交换机在给一个机器返回数据结果的当中。有其他的统一的MAC和统一的IP机器发出上网请求，这样的话，交换机就不知道这个数据包该给那个端口返回了。因为他们具有同样的MAC地址，交换机也不好判断将数据包发送给哪一台计算机了。不过我们的应用一般都是以TCP为主，发现丢包的话计算机还再次向服务器再次进行一次请求，所以稍微延迟一下只要不超时，还是可以维持网络应用的。</p></blockquote>
+<p>文章来自：http://techbbs.zol.com.cn/1/13_1416.html 北极光将文章重新编排，并且相应修改了部分内容。</p>
+
+
+      
+<div class="article-social">
+			<a href="javascript:;" data-action="ding" data-id="1123" id="Addlike" class="action"><i class="fa fa-heart-o"></i>喜欢 (<span class="count">0</span>)</a>	
+</div>
+	</article>	
+				<footer class="article-footer">
+			</footer>
+	<nav class="article-nav">
+			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="/2014/01/%E5%9C%A8%E6%B5%B7%E5%A4%96%E5%88%A9%E7%94%A8%E6%96%B0%E6%B5%AAsae%E7%9C%8B%E5%9B%BD%E5%86%85%E8%AF%95%E5%90%AC%E7%BD%91%E7%AB%99.html" rel="prev">在海外利用新浪SAE看国内试听网站</a></span>
+			<span class="article-nav-next"><a href="/2014/02/%E8%AE%A9indicator-brightness%E8%87%AA%E5%8A%A8%E4%BF%9D%E5%AD%98%E6%88%96%E5%8A%A0%E8%BD%BD%E4%BA%AE%E5%BA%A6.html" rel="next">让indicator-brightness自动保存或加载亮度</a>  <i class="fa fa-angle-double-right"></i></span>
+		</nav>
+
+		<div class="related_top">
+			<div class="related_posts"><ul class="related_img">
+
+	<li class="related_box"  >
+		<a href="/2016/06/different-3-ways-reject-packets.html" title="What different between the 3 ways to reject packets" target="_blank">
+		<img src="/wp-content/uploads/2016/06/1472551735-1147-aae3e19ffb6b28d2c64344fb66a9.jpg" alt="What different between the 3 ways to reject packets" /><br><span class="r_title">What different between the 3 ways to reject packets</span></a>
+		</li>
+	
+	<li class="related_box"  >
+		<a href="/2015/10/gaming-and-download-optimized-queue-script-for-mikrotik-routeros.html" title="Optimized queue script for MikroTik RouterOS" target="_blank">
+		<img src="/wp-content/uploads/2015/10/ER_NetworkTraffic_660x384.jpg" alt="Optimized queue script for MikroTik RouterOS" /><br><span class="r_title">Optimized queue script for MikroTik RouterOS</span></a>
+		</li>
+	
+	<li class="related_box"  >
+		<a href="/2015/04/host-a-website-with-non-public-ip-computer.html" title="Host a website with non-Public IP computer" target="_blank">
+		<img src="/wp-content/uploads/2015/04/68747470733a2f2f6e67726f6b2e636f6d2f7374617469632f696d672f6f766572766965772e706e67" alt="Host a website with non-Public IP computer" /><br><span class="r_title">Host a website with non-Public IP computer</span></a>
+		</li>
+	
+	<li class="related_box"  >
+		<a href="/2015/04/set-max-login-attempts-for-ssh.html" title="Set max login attempts for SSH" target="_blank">
+		<img src="/wp-content/uploads/2015/04/ssh-picture.jpg" alt="Set max login attempts for SSH" /><br><span class="r_title">Set max login attempts for SSH</span></a>
+		</li>
+	</ul>
+
+<div class="relates">
+<ul>
+<li><i class="fa fa-minus"></i><a target="_blank" href="/2016/06/different-3-ways-reject-packets.html">What different between the 3 ways to reject packets</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2015/10/gaming-and-download-optimized-queue-script-for-mikrotik-routeros.html">Optimized queue script for MikroTik RouterOS</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2015/04/host-a-website-with-non-public-ip-computer.html">Host a website with non-Public IP computer</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2015/04/set-max-login-attempts-for-ssh.html">Set max login attempts for SSH</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2015/04/monitoring-the-raspberry-pi-with-mrtg.html">Monitoring The Raspberry Pi with MRTG</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2015/01/setup-dnsmasq-server-as-dns-server.html">Setup Dnsmasq server as DNS server</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2015/01/using-upstream-achieve-php-cgi-load-balancing-in-nginx.html">Using upstream achieve php-cgi load balancing in nginx</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2015/01/setup-samba-server-on-debian.html">Setup Samba server on Debian</a></li>
+</ul></div></div>		</div>
+						<div id="respond" class="no_webshot">
+		<form action="/wp-comments-post.php" method="post" id="commentform">
+		
+		<div class="comt-title">
+			<div class="comt-avatar pull-left">
+				<img src="https://secure.gravatar.com/avatar/?s=108" class="avatar avatar-108" height="108" width="108">			</div>
+			<div class="comt-author pull-left">
+			COMMENT			</div>
+			<a id="cancel-comment-reply-link" class="pull-right" href="javascript:;">Cancel Comment</a>
+		</div>
+		
+		<div class="comt">
+			<div class="comt-box">
+				<textarea placeholder="What do you want to say ..." class="input-block-level comt-area" name="comment" id="comment" cols="100%" rows="3" tabindex="1" onkeydown="if(event.ctrlKey&amp;&amp;event.keyCode==13){document.getElementById('submit').click();return false};"></textarea>
+				<div class="comt-ctrl">
+					<button class="btn btn-primary pull-right" type="submit" name="submit" id="submit" tabindex="5"><i class="fa fa-check-square-o"></i> POST</button>
+					<div class="comt-tips pull-right"><input type='hidden' name='comment_post_ID' value='1123' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</div>
+					<span data-type="comment-insert-smilie" class="muted comt-smilie"><i class="fa fa-smile-o"></i> EMOJI</span>
+					<span class="muted comt-mailme"><label for="comment_mail_notify" class="checkbox inline" style="padding-top:0"><input type="checkbox" name="comment_mail_notify" id="comment_mail_notify" value="comment_mail_notify" checked="checked"/>有人回复时邮件通知我</label></span>
+				</div>
+			</div>
+
+												<div class="comt-comterinfo" id="comment-author-info" >
+						<h4>Hi, We need some information</h4>
+						<ul>
+							<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" type="text" name="author" id="author" value="" tabindex="2" placeholder="Nickname"><span class="help-inline">Nickname (*)</span></li>
+							<li class="form-inline"><label class="hide" for="email">E-Mail</label><input class="ipt" type="text" name="email" id="email" value="" tabindex="3" placeholder="E-Mail Address"><span class="help-inline">E-Mail (*)</span></li>
+							<li class="form-inline"><label class="hide" for="url">Website</label><input class="ipt" type="text" name="url" id="url" value="" tabindex="4" placeholder="Website (Optional)"><span class="help-inline">Website</span></li>
+						</ul>
+					</div>
+									</div>
+
+		
+	</form>
+	</div>
+			</div>
+</div>
+<aside class="sidebar">	
+<div class="widget widget_text"><div class="textwidget text-social"><div class="social">
+
+<a href="http://weibo.com/dfc643" rel="external nofollow" title="Weibo" target="_blank"><i class="sinaweibo fa fa-weibo"></i></a><a  href="http://t.qq.com/dfc643" rel="external nofollow" title="t.qq.com" target="_blank"><i class="tencentweibo fa fa-tencent-weibo"></i></a><a href="https://twitter.com/dfc643" rel="external nofollow" title="Twitter" target="_blank"><i class="twitter fa fa-twitter"></i></a><a href="https://www.facebook.com/Norckon" rel="external nofollow" title="Facebook" target="_blank"><i class="facebook fa fa-facebook"></i></a><a href="http://mail.fcsys.org/" rel="external nofollow" title="Email" target="_blank"><i class="email fa fa-envelope-o"></i></a><a href="/?feed=rss2" rel="external nofollow" target="_blank"  title="RSS Feed"><i class="rss fa fa-rss"></i></a>
+</div></div></div>
+
+<div class="widget widget_text"><div class="title"><h2>Staticized</h2></div>			<div class="textwidget"><p><strong>WARNING</strong>: This blog has been <strong>Staticized</strong>. All comment, like or other function will not working.</p>
+</div>
+		</div><div class="widget widget_calendar"><div class="title"><h2>Calendar</h2></div><div id="calendar_wrap" class="calendar_wrap"><table id="wp-calendar">
+	<caption>January 2014</caption>
+	<thead>
+	<tr>
+		<th scope="col" title="Monday">M</th>
+		<th scope="col" title="Tuesday">T</th>
+		<th scope="col" title="Wednesday">W</th>
+		<th scope="col" title="Thursday">T</th>
+		<th scope="col" title="Friday">F</th>
+		<th scope="col" title="Saturday">S</th>
+		<th scope="col" title="Sunday">S</th>
+	</tr>
+	</thead>
+
+	<tfoot>
+	<tr>
+		<td colspan="3" id="prev"><a href="/2013/12">&laquo; Dec</a></td>
+		<td class="pad">&nbsp;</td>
+		<td colspan="3" id="next"><a href="/2014/02">Feb &raquo;</a></td>
+	</tr>
+	</tfoot>
+
+	<tbody>
+	<tr>
+		<td colspan="2" class="pad">&nbsp;</td><td><a href="/2014/01/01" aria-label="Posts published on January 1, 2014">1</a></td><td>2</td><td>3</td><td>4</td><td>5</td>
+	</tr>
+	<tr>
+		<td>6</td><td>7</td><td>8</td><td><a href="/2014/01/09" aria-label="Posts published on January 9, 2014">9</a></td><td>10</td><td><a href="/2014/01/11" aria-label="Posts published on January 11, 2014">11</a></td><td>12</td>
+	</tr>
+	<tr>
+		<td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>
+	</tr>
+	<tr>
+		<td>20</td><td>21</td><td><a href="/2014/01/22" aria-label="Posts published on January 22, 2014">22</a></td><td><a href="/2014/01/23" aria-label="Posts published on January 23, 2014">23</a></td><td>24</td><td>25</td><td>26</td>
+	</tr>
+	<tr>
+		<td><a href="/2014/01/27" aria-label="Posts published on January 27, 2014">27</a></td><td><a href="/2014/01/28" aria-label="Posts published on January 28, 2014">28</a></td><td>29</td><td><a href="/2014/01/30" aria-label="Posts published on January 30, 2014">30</a></td><td><a href="/2014/01/31" aria-label="Posts published on January 31, 2014">31</a></td>
+		<td class="pad" colspan="2">&nbsp;</td>
+	</tr>
+	</tbody>
+	</table></div></div><div class="widget widget_categories"><div class="title"><h2>Categories</h2></div>		<ul>
+	<li class="cat-item cat-item-10"><a href="/category/hardware" >Hardware</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/network" >Network</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/software/os" >Operating System</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/software/programming" >Programming</a>
+</li>
+	<li class="cat-item cat-item-106"><a href="/category/network/server" >Server</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/software" >Software</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/uncategorized" >Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="/category/network/website" >Website</a>
+</li>
+		</ul>
+</div><div class="widget widget_archive"><div class="title"><h2>Archives</h2></div>		<ul>
+			<li><a href='/2017/06'>June 2017</a></li>
+	<li><a href='/2017/01'>January 2017</a></li>
+	<li><a href='/2016/10'>October 2016</a></li>
+	<li><a href='/2016/06'>June 2016</a></li>
+	<li><a href='/2016/05'>May 2016</a></li>
+	<li><a href='/2015/11'>November 2015</a></li>
+	<li><a href='/2015/10'>October 2015</a></li>
+	<li><a href='/2015/07'>July 2015</a></li>
+	<li><a href='/2015/05'>May 2015</a></li>
+	<li><a href='/2015/04'>April 2015</a></li>
+	<li><a href='/2015/01'>January 2015</a></li>
+	<li><a href='/2014/12'>December 2014</a></li>
+	<li><a href='/2014/11'>November 2014</a></li>
+	<li><a href='/2014/10'>October 2014</a></li>
+	<li><a href='/2014/09'>September 2014</a></li>
+	<li><a href='/2014/08'>August 2014</a></li>
+	<li><a href='/2014/07'>July 2014</a></li>
+	<li><a href='/2014/06'>June 2014</a></li>
+	<li><a href='/2014/05'>May 2014</a></li>
+	<li><a href='/2014/04'>April 2014</a></li>
+	<li><a href='/2014/03'>March 2014</a></li>
+	<li><a href='/2014/02'>February 2014</a></li>
+	<li><a href='/2014/01'>January 2014</a></li>
+	<li><a href='/2013/12'>December 2013</a></li>
+	<li><a href='/2013/11'>November 2013</a></li>
+	<li><a href='/2013/10'>October 2013</a></li>
+	<li><a href='/2013/09'>September 2013</a></li>
+	<li><a href='/2013/08'>August 2013</a></li>
+	<li><a href='/2013/07'>July 2013</a></li>
+	<li><a href='/2013/06'>June 2013</a></li>
+	<li><a href='/2013/05'>May 2013</a></li>
+	<li><a href='/2013/03'>March 2013</a></li>
+	<li><a href='/2013/02'>February 2013</a></li>
+	<li><a href='/2012/07'>July 2012</a></li>
+	<li><a href='/1994/12'>December 1994</a></li>
+		</ul>
+		</div><div class="widget ilwp_widget_tag_cloud"><div class="title"><h2>Tag Cloud</h2></div><div class='colored-tag-cloud'><a href='/tag/lan' class='tag-link-149' title='1 post is tagged with &ldquo;LAN&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>LAN</a>
+<a href='/tag/rgb' class='tag-link-165' title='1 post is tagged with &ldquo;RGB&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>RGB</a>
+<a href='/tag/http' class='tag-link-137' title='2 posts are tagged with &ldquo;HTTP&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: green;'>HTTP</a>
+<a href='/tag/error' class='tag-link-195' title='1 post is tagged with &ldquo;ERROR&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>ERROR</a>
+<a href='/tag/donwload' class='tag-link-194' title='1 post is tagged with &ldquo;DONWLOAD&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>DONWLOAD</a>
+<a href='/tag/wpad' class='tag-link-153' title='1 post is tagged with &ldquo;WPAD&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>WPAD</a>
+<a href='/tag/raspberry-pis' class='tag-link-93' title='1 post is tagged with &ldquo;Raspberry Pis&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>Raspberry Pis</a>
+<a href='/tag/workgroup' class='tag-link-81' title='1 post is tagged with &ldquo;WORKGROUP&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>WORKGROUP</a>
+<a href='/tag/eax' class='tag-link-242' title='1 post is tagged with &ldquo;EAX&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>EAX</a>
+<a href='/tag/change-ubuntu' class='tag-link-51' title='1 post is tagged with &ldquo;Change Ubuntu&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>Change Ubuntu</a>
+<a href='/tag/gtk' class='tag-link-45' title='1 post is tagged with &ldquo;GTK&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>GTK</a>
+<a href='/tag/introcude' class='tag-link-89' title='1 post is tagged with &ldquo;INTROCUDE&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>INTROCUDE</a>
+<a href='/tag/hsts' class='tag-link-203' title='1 post is tagged with &ldquo;HSTS&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>HSTS</a>
+<a href='/tag/reason' class='tag-link-113' title='1 post is tagged with &ldquo;REASON&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>REASON</a>
+<a href='/tag/username-screenshots' class='tag-link-52' title='1 post is tagged with &ldquo;Username Screenshots&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>Username Screenshots</a>
+<a href='/tag/qq' class='tag-link-182' title='1 post is tagged with &ldquo;QQ&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>QQ</a>
+<a href='/tag/hpkp' class='tag-link-228' title='1 post is tagged with &ldquo;HPKP&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>HPKP</a>
+<a href='/tag/ubuntu-unity' class='tag-link-43' title='1 post is tagged with &ldquo;Ubuntu Unity&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>Ubuntu Unity</a>
+<a href='/tag/allow-user' class='tag-link-205' title='1 post is tagged with &ldquo;Allow User&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>Allow User</a>
+<a href='/tag/date-fri' class='tag-link-190' title='1 post is tagged with &ldquo;Date Fri&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>Date Fri</a>
+<a href='/tag/domain-redirection' class='tag-link-168' title='1 post is tagged with &ldquo;Domain Redirection&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>Domain Redirection</a>
+<a href='/tag/nginx-discuz' class='tag-link-138' title='1 post is tagged with &ldquo;Nginx Discuz&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>Nginx Discuz</a>
+<a href='/tag/important' class='tag-link-65' title='1 post is tagged with &ldquo;IMPORTANT&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>IMPORTANT</a>
+<a href='/tag/reboot-raspberry' class='tag-link-72' title='1 post is tagged with &ldquo;Reboot Raspberry&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>Reboot Raspberry</a>
+<a href='/tag/install-tengine' class='tag-link-187' title='1 post is tagged with &ldquo;Install Tengine&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>Install Tengine</a>
+<a href='/tag/title-raspberry-pi' class='tag-link-115' title='1 post is tagged with &ldquo;Title Raspberry Pi&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>Title Raspberry Pi</a>
+<a href='/tag/bcm' class='tag-link-74' title='1 post is tagged with &ldquo;BCM&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>BCM</a>
+<a href='/tag/udp' class='tag-link-216' title='1 post is tagged with &ldquo;UDP&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>UDP</a>
+<a href='/tag/tcp' class='tag-link-136' title='1 post is tagged with &ldquo;TCP&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>TCP</a>
+<a href='/tag/sd' class='tag-link-58' title='1 post is tagged with &ldquo;SD&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>SD</a>
+<a href='/tag/xml' class='tag-link-220' title='1 post is tagged with &ldquo;XML&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>XML</a>
+<a href='/tag/ppm' class='tag-link-166' title='1 post is tagged with &ldquo;PPM&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>PPM</a>
+<a href='/tag/tts' class='tag-link-26' title='1 post is tagged with &ldquo;TTS&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>TTS</a>
+<a href='/tag/enabled-checked' class='tag-link-40' title='1 post is tagged with &ldquo;Enabled Checked&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>Enabled Checked</a>
+<a href='/tag/reply-nothing' class='tag-link-214' title='1 post is tagged with &ldquo;Reply Nothing&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>Reply Nothing</a>
+<a href='/tag/dpt' class='tag-link-119' title='1 post is tagged with &ldquo;DPT&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>DPT</a>
+<a href='/tag/cpuid' class='tag-link-241' title='1 post is tagged with &ldquo;CPUID&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>CPUID</a>
+<a href='/tag/elementary-tweak' class='tag-link-44' title='1 post is tagged with &ldquo;Elementary Tweak&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>Elementary Tweak</a>
+<a href='/tag/recent' class='tag-link-36' title='1 post is tagged with &ldquo;RECENT&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>RECENT</a>
+<a href='/tag/ie' class='tag-link-180' title='2 posts are tagged with &ldquo;IE&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: silver;'>IE</a>
+<a href='/tag/json' class='tag-link-219' title='1 post is tagged with &ldquo;JSON&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>JSON</a>
+<a href='/tag/sta' class='tag-link-174' title='1 post is tagged with &ldquo;STA&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>STA</a>
+<a href='/tag/install-gitolite' class='tag-link-192' title='1 post is tagged with &ldquo;Install Gitolite&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>Install Gitolite</a>
+<a href='/tag/usb' class='tag-link-78' title='1 post is tagged with &ldquo;USB&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>USB</a>
+<a href='/tag/xrandr' class='tag-link-48' title='1 post is tagged with &ldquo;XRANDR&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>XRANDR</a>
+<a href='/tag/lirc' class='tag-link-71' title='1 post is tagged with &ldquo;LIRC&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>LIRC</a>
+<a href='/tag/tell-git' class='tag-link-206' title='1 post is tagged with &ldquo;Tell Git&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>Tell Git</a>
+<a href='/tag/vps' class='tag-link-207' title='1 post is tagged with &ldquo;VPS&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>VPS</a>
+<a href='/tag/killing-xvnc4' class='tag-link-128' title='1 post is tagged with &ldquo;Killing Xvnc4&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>Killing Xvnc4</a>
+<a href='/tag/description-gaming' class='tag-link-148' title='1 post is tagged with &ldquo;Description Gaming&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>Description Gaming</a>
+<a href='/tag/kernel-version' class='tag-link-143' title='1 post is tagged with &ldquo;Kernel Version&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>Kernel Version</a>
+<a href='/tag/tos' class='tag-link-121' title='1 post is tagged with &ldquo;TOS&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>TOS</a>
+<a href='/tag/free-build-environment' class='tag-link-236' title='1 post is tagged with &ldquo;Free Build Environment&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>Free Build Environment</a>
+<a href='/tag/ntp' class='tag-link-39' title='1 post is tagged with &ldquo;NTP&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>NTP</a>
+<a href='/tag/%e5%8a%a0%e8%bd%bd%e9%a9%b1%e5%8a%a8%e5%a4%b1%e8%b4%a5' class='tag-link-22' title='1 post is tagged with &ldquo;加载驱动失败&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>加载驱动失败</a>
+<a href='/tag/internet-explorer' class='tag-link-156' title='1 post is tagged with &ldquo;Internet Explorer&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>Internet Explorer</a>
+<a href='/tag/dhcp' class='tag-link-77' title='1 post is tagged with &ldquo;DHCP&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>DHCP</a>
+<a href='/tag/ieee' class='tag-link-173' title='1 post is tagged with &ldquo;IEEE&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>IEEE</a>
+<a href='/tag/service-settings' class='tag-link-212' title='1 post is tagged with &ldquo;Service Settings&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>Service Settings</a>
+<a href='/tag/redirect-top-domain' class='tag-link-223' title='1 post is tagged with &ldquo;Redirect Top-domain&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>Redirect Top-domain</a>
+<a href='/tag/nginx' class='tag-link-202' title='1 post is tagged with &ldquo;NGINX&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>NGINX</a>
+<a href='/tag/attentions' class='tag-link-75' title='1 post is tagged with &ldquo;ATTENTIONS&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>ATTENTIONS</a>
+<a href='/tag/run' class='tag-link-42' title='1 post is tagged with &ldquo;RUN&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>RUN</a>
+<a href='/tag/macbook' class='tag-link-19' title='1 post is tagged with &ldquo;Macbook&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>Macbook</a>
+<a href='/tag/id' class='tag-link-67' title='3 posts are tagged with &ldquo;ID&rdquo;' rel="tag" style='font-size: 29.333333333333px;  color: aqua;'>ID</a>
+<a href='/tag/compile-tengine' class='tag-link-188' title='1 post is tagged with &ldquo;Compile Tengine&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>Compile Tengine</a>
+<a href='/tag/preparing' class='tag-link-83' title='1 post is tagged with &ldquo;PREPARING&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>PREPARING</a>
+<a href='/tag/time-zone-name' class='tag-link-41' title='1 post is tagged with &ldquo;Time Zone Name&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>Time Zone Name</a>
+<a href='/tag/check-symbolic' class='tag-link-193' title='1 post is tagged with &ldquo;Check Symbolic&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>Check Symbolic</a>
+<a href='/tag/rss' class='tag-link-181' title='1 post is tagged with &ldquo;RSS&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>RSS</a>
+<a href='/tag/icmp' class='tag-link-215' title='1 post is tagged with &ldquo;ICMP&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>ICMP</a>
+<a href='/tag/nul' class='tag-link-85' title='1 post is tagged with &ldquo;NUL&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>NUL</a>
+<a href='/tag/linux-unix' class='tag-link-79' title='1 post is tagged with &ldquo;Linux Unix&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>Linux Unix</a>
+<a href='/tag/zeroconf' class='tag-link-98' title='1 post is tagged with &ldquo;ZEROCONF&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>ZEROCONF</a>
+<a href='/tag/gpio' class='tag-link-68' title='2 posts are tagged with &ldquo;GPIO&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: maroon;'>GPIO</a>
+<a href='/tag/goos' class='tag-link-126' title='1 post is tagged with &ldquo;GOOS&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>GOOS</a>
+<a href='/tag/configuration-example' class='tag-link-140' title='1 post is tagged with &ldquo;Configuration Example&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>Configuration Example</a>
+<a href='/tag/translate' class='tag-link-224' title='1 post is tagged with &ldquo;TRANSLATE&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>TRANSLATE</a>
+<a href='/tag/open-internet-explorer' class='tag-link-152' title='1 post is tagged with &ldquo;Open Internet Explorer&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>Open Internet Explorer</a>
+<a href='/tag/php' class='tag-link-130' title='2 posts are tagged with &ldquo;PHP&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: purple;'>PHP</a>
+<a href='/tag/inbox' class='tag-link-38' title='1 post is tagged with &ldquo;INBOX&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>INBOX</a>
+<a href='/tag/png' class='tag-link-184' title='1 post is tagged with &ldquo;PNG&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>PNG</a>
+<a href='/tag/windows-server' class='tag-link-103' title='1 post is tagged with &ldquo;Windows Server&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>Windows Server</a>
+<a href='/tag/https' class='tag-link-170' title='2 posts are tagged with &ldquo;HTTPS&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: fuchsia;'>HTTPS</a>
+<a href='/tag/ajax-form-plugin' class='tag-link-221' title='1 post is tagged with &ldquo;Ajax Form Plugin&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>Ajax Form Plugin</a>
+<a href='/tag/raspberry-control' class='tag-link-69' title='1 post is tagged with &ldquo;Raspberry Control&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>Raspberry Control</a>
+<a href='/tag/mic' class='tag-link-177' title='1 post is tagged with &ldquo;MIC&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>MIC</a>
+<a href='/tag/ubuntu-debian' class='tag-link-162' title='1 post is tagged with &ldquo;Ubuntu Debian&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>Ubuntu Debian</a>
+<a href='/tag/cidr' class='tag-link-95' title='1 post is tagged with &ldquo;CIDR&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>CIDR</a>
+<a href='/tag/example' class='tag-link-50' title='1 post is tagged with &ldquo;EXAMPLE&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>EXAMPLE</a>
+<a href='/tag/api' class='tag-link-25' title='1 post is tagged with &ldquo;API&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>API</a>
+<a href='/tag/make-ubuntu' class='tag-link-145' title='1 post is tagged with &ldquo;Make Ubuntu&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>Make Ubuntu</a>
+<a href='/tag/deb' class='tag-link-105' title='1 post is tagged with &ldquo;DEB&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>DEB</a>
+<a href='/tag/google' class='tag-link-27' title='1 post is tagged with &ldquo;Google&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>Google</a>
+<a href='/tag/download-raspbian' class='tag-link-59' title='1 post is tagged with &ldquo;Download Raspbian&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>Download Raspbian</a>
+<a href='/tag/right-click-trusted-publishers' class='tag-link-235' title='1 post is tagged with &ldquo;Right-click Trusted Publishers&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>Right-click Trusted Publishers</a>
+<a href='/tag/installation' class='tag-link-100' title='1 post is tagged with &ldquo;INSTALLATION&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>INSTALLATION</a>
+<a href='/tag/browser-go' class='tag-link-201' title='1 post is tagged with &ldquo;Browser Go&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>Browser Go</a>
+<a href='/tag/global-redirection' class='tag-link-169' title='1 post is tagged with &ldquo;Global Redirection&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>Global Redirection</a>
+<a href='/tag/env' class='tag-link-222' title='1 post is tagged with &ldquo;ENV&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>ENV</a>
+<a href='/tag/ess' class='tag-link-178' title='1 post is tagged with &ldquo;ESS&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>ESS</a>
+<a href='/tag/certificate-transparency' class='tag-link-231' title='1 post is tagged with &ldquo;Certificate Transparency&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>Certificate Transparency</a>
+<a href='/tag/rsa' class='tag-link-230' title='1 post is tagged with &ldquo;RSA&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>RSA</a>
+<a href='/tag/modify-tengine' class='tag-link-186' title='1 post is tagged with &ldquo;Modify Tengine&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>Modify Tengine</a>
+<a href='/tag/input' class='tag-link-213' title='1 post is tagged with &ldquo;INPUT&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>INPUT</a>
+<a href='/tag/cpu' class='tag-link-112' title='2 posts are tagged with &ldquo;CPU&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: olive;'>CPU</a>
+<a href='/tag/lts' class='tag-link-226' title='1 post is tagged with &ldquo;LTS&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>LTS</a>
+<a href='/tag/bsd' class='tag-link-101' title='1 post is tagged with &ldquo;BSD&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>BSD</a>
+<a href='/tag/src' class='tag-link-122' title='1 post is tagged with &ldquo;SRC&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>SRC</a>
+<a href='/tag/wlan' class='tag-link-76' title='1 post is tagged with &ldquo;WLAN&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>WLAN</a>
+<a href='/tag/continue-details' class='tag-link-225' title='1 post is tagged with &ldquo;Continue Details&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Continue Details</a>
+<a href='/tag/%e5%ae%89%e8%a3%85' class='tag-link-20' title='1 post is tagged with &ldquo;安装&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>安装</a>
+<a href='/tag/imap' class='tag-link-34' title='1 post is tagged with &ldquo;IMAP&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>IMAP</a>
+<a href='/tag/ecc' class='tag-link-229' title='1 post is tagged with &ldquo;ECC&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>ECC</a>
+<a href='/tag/ecx' class='tag-link-243' title='1 post is tagged with &ldquo;ECX&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>ECX</a>
+<a href='/tag/footer-example' class='tag-link-141' title='1 post is tagged with &ldquo;Footer Example&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>Footer Example</a>
+<a href='/tag/ascii' class='tag-link-164' title='1 post is tagged with &ldquo;ASCII&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>ASCII</a>
+<a href='/tag/check-run' class='tag-link-91' title='1 post is tagged with &ldquo;Check Run&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>Check Run</a>
+<a href='/tag/ssh' class='tag-link-62' title='2 posts are tagged with &ldquo;SSH&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: fuchsia;'>SSH</a>
+<a href='/tag/url' class='tag-link-151' title='1 post is tagged with &ldquo;URL&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>URL</a>
+<a href='/tag/step' class='tag-link-125' title='1 post is tagged with &ldquo;STEP&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>STEP</a>
+<a href='/tag/full-path' class='tag-link-200' title='1 post is tagged with &ldquo;Full Path&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Full Path</a>
+<a href='/tag/setup-dnsmasq' class='tag-link-99' title='1 post is tagged with &ldquo;Setup Dnsmasq&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>Setup Dnsmasq</a>
+<a href='/tag/sync' class='tag-link-233' title='1 post is tagged with &ldquo;SYNC&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>SYNC</a>
+<a href='/tag/root' class='tag-link-108' title='1 post is tagged with &ldquo;ROOT&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>ROOT</a>
+<a href='/tag/pgm' class='tag-link-167' title='1 post is tagged with &ldquo;PGM&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>PGM</a>
+<a href='/tag/uc' class='tag-link-183' title='1 post is tagged with &ldquo;UC&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>UC</a>
+<a href='/tag/ico' class='tag-link-185' title='1 post is tagged with &ldquo;ICO&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>ICO</a>
+<a href='/tag/uid' class='tag-link-37' title='1 post is tagged with &ldquo;UID&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>UID</a>
+<a href='/tag/pc' class='tag-link-87' title='2 posts are tagged with &ldquo;PC&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: teal;'>PC</a>
+<a href='/tag/ok' class='tag-link-154' title='2 posts are tagged with &ldquo;OK&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: red;'>OK</a>
+<a href='/tag/ip' class='tag-link-90' title='4 posts are tagged with &ldquo;IP&rdquo;' rel="tag" style='font-size: 40px;  color: silver;'>IP</a>
+<a href='/tag/open' class='tag-link-146' title='1 post is tagged with &ldquo;OPEN&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>OPEN</a>
+<a href='/tag/virtual-machine' class='tag-link-240' title='1 post is tagged with &ldquo;Virtual Machine&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>Virtual Machine</a>
+<a href='/tag/allowednets' class='tag-link-97' title='1 post is tagged with &ldquo;ALLOWEDNETS&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>ALLOWEDNETS</a>
+<a href='/tag/snmp' class='tag-link-114' title='1 post is tagged with &ldquo;SNMP&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>SNMP</a>
+<a href='/tag/sql' class='tag-link-232' title='1 post is tagged with &ldquo;SQL&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>SQL</a>
+<a href='/tag/ftp' class='tag-link-129' title='1 post is tagged with &ldquo;FTP&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>FTP</a>
+<a href='/tag/raspberry-pi' class='tag-link-56' title='1 post is tagged with &ldquo;Raspberry Pi&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>Raspberry Pi</a>
+<a href='/tag/goarch' class='tag-link-124' title='1 post is tagged with &ldquo;GOARCH&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>GOARCH</a>
+<a href='/tag/security-catalog' class='tag-link-237' title='1 post is tagged with &ldquo;Security Catalog&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>Security Catalog</a>
+<a href='/tag/windows' class='tag-link-21' title='3 posts are tagged with &ldquo;Windows&rdquo;' rel="tag" style='font-size: 29.333333333333px;  color: lime;'>Windows</a>
+<a href='/tag/notes-every' class='tag-link-198' title='1 post is tagged with &ldquo;Notes Every&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>Notes Every</a>
+<a href='/tag/gmt' class='tag-link-191' title='1 post is tagged with &ldquo;GMT&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>GMT</a>
+<a href='/tag/steps' class='tag-link-120' title='1 post is tagged with &ldquo;STEPS&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>STEPS</a>
+<a href='/tag/exact-match' class='tag-link-199' title='1 post is tagged with &ldquo;Exact Match&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>Exact Match</a>
+<a href='/tag/install-samba' class='tag-link-80' title='1 post is tagged with &ldquo;Install Samba&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Install Samba</a>
+<a href='/tag/ssl' class='tag-link-127' title='2 posts are tagged with &ldquo;SSL&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: teal;'>SSL</a>
+<a href='/tag/hooks' class='tag-link-204' title='1 post is tagged with &ldquo;HOOKS&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>HOOKS</a>
+<a href='/tag/mon' class='tag-link-82' title='2 posts are tagged with &ldquo;MON&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: silver;'>MON</a>
+<a href='/tag/apt' class='tag-link-54' title='1 post is tagged with &ldquo;APT&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>APT</a>
+<a href='/tag/environment' class='tag-link-147' title='1 post is tagged with &ldquo;ENVIRONMENT&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>ENVIRONMENT</a>
+<a href='/tag/kernel-configuration' class='tag-link-107' title='1 post is tagged with &ldquo;Kernel Configuration&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>Kernel Configuration</a>
+<a href='/tag/donot' class='tag-link-189' title='1 post is tagged with &ldquo;DONOT&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>DONOT</a>
+<a href='/tag/username-pictures' class='tag-link-53' title='1 post is tagged with &ldquo;Username Pictures&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>Username Pictures</a></div>
+</div>
+
+<div class="widget widget_text"><div class="title"><h2>Subsite</h2></div>			<div class="textwidget"><center>
+<img src="//fcsys.org/logo/fbab.png" style="box-shadow: 0 0px 0px rgba(0, 0, 0, 0);"><br>
+<p><font size="1" color="gray">This site is part of FC-System Computer Inc, Maintained by Norckon</font></p>
+</center></div>
+		</div></aside></section>
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="copyright pull-left">
+         Copyright © 2011-2017 FC-System Computer Inc All Rights Reserved.
+        </div>
+        <div class="trackcode pull-right">
+            <!--CNZZ-->
+<div style="display:none"><script src="https://s11.cnzz.com/stat.php?id=1254094017&web_id=1254094017" language="JavaScript"></script></div>
+
+<!--百度统计-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?8b03fbe181f1821cbcbb22c52a2336da";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!--GOOGLE统计-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-49020483-2', 'auto');
+  ga('send', 'pageview');
+</script>        </div>
+    </div>
+</footer>
+
+<script type='text/javascript' src='/wp-content/themes/yusi_cache1.0/js/jquery.js?ver=1.0'></script>
+<script type='text/javascript' src='/wp-includes/js/wp-embed.min.js?ver=4.9.1'></script>
+</body>
+</html>

@@ -1,0 +1,999 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=10,IE=9,IE=8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title>Qt for Android 配置详细 （转载） &#8211; </title>
+<script>
+window._deel = {name: 'Norckon&#039;s blog',url: 'http://b.fcsys.org/wp-content/themes/yusi_cache1.0', ajaxpager: 'on', commenton: 1, roll: [3,4]}
+</script>
+<link rel='dns-prefetch' href='//cdn.bootcss.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/b.fcsys.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56794,8205,9794,65039],[55358,56794,8203,9794,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='style-css'  href='/wp-content/themes/yusi_cache1.0/style.css?ver=1.0' type='text/css' media='all' />
+<script type='text/javascript' src='//cdn.bootcss.com/jquery/1.8.3/jquery.min.js?ver=1.0'></script>
+<link rel='https://api.w.org/' href='/wp-json/' />
+<link rel='prev' title='Qt 简介 Introduce for Qt' href='/2013/07/qt-%E7%AE%80%E4%BB%8B.html' />
+<link rel='next' title='WordPress 函数大全' href='/2013/07/wordpress-%E5%87%BD%E6%95%B0%E5%A4%A7%E5%85%A8.html' />
+<link rel="canonical" href="/2013/07/qt-for-android-%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86-%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89.html" />
+<link rel='shortlink' href='/?p=568' />
+<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2013%2F07%2Fqt-for-android-%25E9%2585%258D%25E7%25BD%25AE%25E8%25AF%25A6%25E7%25BB%2586-%25EF%25BC%2588%25E8%25BD%25AC%25E8%25BD%25BD%25EF%25BC%2589.html" />
+<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2013%2F07%2Fqt-for-android-%25E9%2585%258D%25E7%25BD%25AE%25E8%25AF%25A6%25E7%25BB%2586-%25EF%25BC%2588%25E8%25BD%25AC%25E8%25BD%25BD%25EF%25BC%2589.html&#038;format=xml" />
+<meta name="keywords" content="Programming">
+<meta name="description" content="Qt for Android配置（Ubuntu11.04） 一．环境搭建 1. Java 下载安装： -&gt;jdk-6u25-linux-i586.bin url:http://www.oracle.com/technetwork/java/javase/downloads/jdk-6u25-download-346242.html -&gt;  1、jdk-1_5_0_06-linux-i586.bin下载到/usr/soft,赋">
+<!--[if lt IE 9]><script src="http://b.fcsys.org/wp-content/themes/yusi_cache1.0/js/html5.js"></script><![endif]-->
+<!-- GOOGLE FONT -->
+<link href='//fonts.lug.ustc.edu.cn/css?family=Josefin+Sans|Cinzel+Decorative' rel='stylesheet' type='text/css'>
+</head>
+<body class="post-template-default single single-post postid-568 single-format-standard">
+
+<header id="header" class="header">
+<div id="nav-header" class="navbar">
+    
+    <ul class="nav">
+        <li class="title">Norckon</li>
+        <li id="menu-item-1262" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1262"><a href="http://fcsys.org/">Top</a></li>
+<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-1046"><a href="/category/software">Soft</a>
+<ul class="sub-menu">
+	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-1064"><a href="/category/software">Software</a></li>
+	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1062"><a href="/category/software/os">OS</a></li>
+	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1049"><a href="/category/software/programming">Programming</a></li>
+</ul>
+</li>
+<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="/category/hardware">Hard</a></li>
+<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1047"><a href="/category/network">Net</a>
+<ul class="sub-menu">
+	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1063"><a href="/category/network">Network</a></li>
+	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1496"><a href="/category/network/server">Server</a></li>
+	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="/category/network/website">Web</a></li>
+</ul>
+</li>
+<li id="menu-item-1220" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1220"><a>Tool</a>
+<ul class="sub-menu">
+	<li id="menu-item-1221" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1221"><a href="http://ru.fcsys.org/wigle">WlanColle</a></li>
+	<li id="menu-item-1223" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1223"><a href="http://file.dfc643.tk/%E6%B8%B8%E6%88%8F%E5%8A%A8%E6%BC%AB/%E8%97%8D%E6%BE%A4%E5%85%89/xmas/default.htm">Hikaru</a></li>
+	<li id="menu-item-1225" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1225"><a href="https://apps.fcsys.org/com.fcsys.tieba.sign/">TiebaSign</a></li>
+	<li id="menu-item-1226" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1226"><a href="https://apps.fcsys.org/com.fcsys.3gqq.online/">QQ</a></li>
+</ul>
+</li>
+<li id="menu-item-1042" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1042"><a>Links</a>
+<ul class="sub-menu">
+	<li id="menu-item-1043" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1043"><a href="http://mos.moe/">MOS-MOE</a></li>
+	<li id="menu-item-1158" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1158"><a href="http://www.purpleroc.com/">Tracy梓朋</a></li>
+	<li id="menu-item-1838" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1838"><a href="http://ymsys.cn/">Yemao</a></li>
+	<li id="menu-item-1785" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1785"><a href="http://negim.me/">葱ちゃん</a></li>
+	<li id="menu-item-1219" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1219"><a href="https://xcroot.com/">CRoot</a></li>
+	<li id="menu-item-1246" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1246"><a href="http://blog.sina.com.cn/celeron533">celeron533</a></li>
+	<li id="menu-item-1150" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1150"><a href="http://www.aillen.org/">Chaos</a></li>
+	<li id="menu-item-1825" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1825"><a href="http://mybeibei.net/">Guge&#8217;s blog</a></li>
+	<li id="menu-item-1162" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1162"><a href="http://www.yjsys.tk/">寂写心灵之幽</a></li>
+	<li id="menu-item-1045" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1045"><a href="http://hanicc.com/">HoneyCC</a></li>
+	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="/add-link">+ Add Link</a></li>
+</ul>
+</li>
+<li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="/">Blog</a></li>
+<li style="float:right;">
+                <div class="toggle-search"><i class="fa fa-search"></i></div>
+<div class="search-expand" style="display: none;"><div class="search-expand-inner"><form method="get" class="searchform themeform" onsubmit="location.href='http://b.fcsys.org/?s=' + encodeURIComponent(this.s.value).replace(/%20/g, '+'); return false;" action="/"><div> <input type="ext" class="search" name="s" onblur="if(this.value=='')this.value='search...';" onfocus="if(this.value=='search...')this.value='';" value="search..."></div></form></div></div>
+</li>
+    </ul>
+</div>
+</div>
+
+<div class="container-inner" style="display:none">
+ <div class="yusi-logo">
+<a href="/">
+<h1>
+<span class="yusi-mono">Norckon&#039;s blog</span>
+<span class="yusi-bloger">Norckon&#039;s blog</span>
+</h1>
+</a>
+</div>
+</div>
+</header>
+
+
+
+
+<section class="container"><div class="speedbar">
+				<div class="toptip"><strong class="text-success"><i class="fa fa-volume-up"></i> </strong> </div>
+	</div>
+	<div class="content-wrap">
+	<div class="content">
+
+				<header class="article-header">
+			<h1 class="article-title"><a href="/2013/07/qt-for-android-%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86-%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89.html">Qt for Android 配置详细 （转载）</a></h1>
+			<div class="meta">
+				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="/category/software/programming"> Programming</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="/author/dfc643">Norckon</a></span>
+				<time class="muted"><i class="fa fa-clock-o"></i> 2013-07-20</time>
+				<span class="muted"><i class="fa fa-eye"></i> 847℃</span>
+				<span class="muted"><i class="fa fa-comments-o"></i> <a href="/2013/07/qt-for-android-%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86-%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89.html#respond">0评论</a></span>							</div>
+		</header>
+		<article class="article-content">
+			<p align="center">Qt for Android配置（Ubuntu11.04）</p>
+<p><strong>一．环境搭建</strong><br />
+<strong>1. Java 下载安装</strong>：<br />
+-&gt;jdk-6u25-linux-i586.bin<br />
+url:<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk-6u25-download-346242.html">http://www.oracle.com/technetwork/java/javase/downloads/jdk-6u25-download-346242.html</a><br />
+-&gt;  1、jdk-1_5_0_06-linux-i586.bin下载到/usr/soft,赋予可执行权限：chmod 755 jdk-1_5_0_06-linux-i586.bin<br />
+2、执行：./jdk-6u25-linux-i586.bin    空格键翻页，到最后输入yes<br />
+3、配置环境变量：在/etc/profile 中加入：<br />
+export  PATH=/usr/soft/jdk*.*/bin:$PATH<br />
+exportJAVA_HOME=/usr/soft/jdk*.*.*<br />
+4、运行：source /etc/profile  使配置文件生效<br />
+5、运行：java -version,显示jdk版本，jdk安装成功<br />
+-&gt;linux操作系统可能默认会安装有openjdk<br />
+需要将自己安装的Java设置为默认的：<br />
+sudoupdate-alternatives &#8211;install /usr/bin/java java /usr/local/jdk1.6.0_26/bin/java1160<br />
+<strong> </strong><br />
+<strong>2. git GIT</strong> 是用于 Linux 开发的版本控制工具<br />
+-&gt; unbutu 11.04 安装：<br />
+sudo apt-get install git git-core</p>
+<p><strong>3. Android SDK</strong><br />
+-&gt;<a href="http://developer.android.com/sdk/index.html">http://developer.android.com/sdk/index.html</a><br />
+-&gt;解压下载的SDK文件 到 &lt;Android_SDK_Path&gt;<br />
+例如：/usr/local/bin/android-sdk-linux_x86-1.5_r2<br />
+-&gt;修改/etc/profile 文件<br />
+-&gt;export PATH=${PATH}：&lt;Android_SDK_Path&gt;/tools<br />
+例如：export PATH=${PATH}：&lt;SDK_Path&gt;/<br />
+android-sdk-linux_x86-1.5_r2/tools<br />
+-&gt;save<br />
+-&gt;restart<br />
+-&gt;输入： sudoandroid</p>
+<p><span id="more-568"></span></p>
+<p>-&gt;通过弹出界面配置SDK（此时的SDK并未安装完成，需要通过网络完成全部安装）。</p>
+<p>-&gt;在Settings 处勾选 force https://&#8230;&#8230;</p>
+<p>-&gt;在AvailablePackages 处 勾选要安装的包</p>
+<p>-&gt;Install Selectted 进行安装</p>
+<p>-&gt;android avd配置信息的生成</p>
+<p>-&gt;android avd的创建格式为:androidcreate avd -n your-avd-name -t your-targets</p>
+<p>-&gt;其中: -n的参数为我们要创建的avd的名字;</p>
+<p>-t的参数为Available Android     targets的id,</p>
+<p>我们可以使用命令：android list查寻其具体信息。</p>
+<p>-&gt;$android list</p>
+<p>AvailableAndroid targets:</p>
+<p>id:1</p>
+<p>Name: Android 1.1</p>
+<p>Type: Platform</p>
+<p>API level: 2</p>
+<p>Skins: HVGA-P, HVGA (default), QVGA-P, HVGA-L,QVGA-L</p>
+<p>id:2</p>
+<p>Name: Android 1.5</p>
+<p>Type: Platform</p>
+<p>API level: 3</p>
+<p>Skins: HVGA-P, HVGA (default), QVGA-P, HVGA-L,QVGA-L</p>
+<p>id:3</p>
+<p>&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;</p>
+<p>-&gt;创建avd:$android create avd -n android1.5 -t 2</p>
+<p>&nbsp;</p>
+<p>Android1.5 is a basic Android platform.</p>
+<p>Doyou wish to create a custom hardware profile [no]yes</p>
+<p>&nbsp;</p>
+<p>Deviceram size: The amount of physical RAM on the device, in megabytes.</p>
+<p>hw.ramSize[96]:128</p>
+<p>&nbsp;</p>
+<p>Touch-screensupport: Whether there is a touch screen or not on the device.</p>
+<p>hw.touchScreen[yes]:yes</p>
+<p>&nbsp;</p>
+<p>Track-ballsupport: Whether there is a trackball on the device.</p>
+<p>hw.trackBall[yes]:yes</p>
+<p>&nbsp;</p>
+<p>Keyboardsupport: Whether the device has a QWERTY keyboard.</p>
+<p>hw.keyboard[yes]:yes</p>
+<p>&nbsp;</p>
+<p>DPadsupport: Whether the device has DPad keys</p>
+<p>hw.dPad[yes]:yes</p>
+<p>&nbsp;</p>
+<p>GSMmodem support: Whether there is a GSM modem in the device.</p>
+<p>hw.gsmModem[yes]:yes</p>
+<p>&nbsp;</p>
+<p>Camerasupport: Whether the device has a camera.</p>
+<p>hw.camera[no]:</p>
+<p>&nbsp;</p>
+<p>Camerasupport: Whether the device has a camera.</p>
+<p>hw.camera[no]:yes</p>
+<p>&nbsp;</p>
+<p>Maximumhorizontal camera pixels</p>
+<p>hw.camera.maxHorizontalPixels[640]:854</p>
+<p>&nbsp;</p>
+<p>Maximumvertical camera pixels</p>
+<p>hw.camera.maxVerticalPixels[480]:480</p>
+<p>&nbsp;</p>
+<p>GPSsupport: Whether there is a GPS in the device.</p>
+<p>hw.gps[yes]:yes</p>
+<p>&nbsp;</p>
+<p>Battery support: Whether the device can run on a battery.</p>
+<p>hw.battery[yes]:yes</p>
+<p>&nbsp;</p>
+<p>Accelerometer:Whether there is an accelerometer in the device.</p>
+<p>hw.accelerometer[yes]:yes</p>
+<p>&nbsp;</p>
+<p>Audiorecording support: Whether the device can record audio</p>
+<p>hw.audioInput[yes]:yes</p>
+<p>&nbsp;</p>
+<p>Audioplayback support: Whether the device can play audio</p>
+<p>hw.audioOutput[yes]:yes</p>
+<p>&nbsp;</p>
+<p>SDCard support: Whether the device supports insertion/removal of virtual SDCards.</p>
+<p>hw.sdCard [yes]:yes</p>
+<p>&nbsp;</p>
+<p>Cachepartition support: Whether we use a /cache partition on the device.</p>
+<p>disk.cachePartition[yes]:yes</p>
+<p>&nbsp;</p>
+<p>Cachepartition size</p>
+<p>disk.cachePartition.size[66MB]:100MB</p>
+<p>&nbsp;</p>
+<p>CreatedAVD &#8221;android-sdk-15&#8221; based on Android 1.5</p>
+<p>-&gt;启动模拟器界面： $emulator @android-sdk-15-show-kernel</p>
+<p>-&gt;配置eclipse,使之支持android sdk（安装ADT插件）：</p>
+<p>Eclipse，Help-&gt;SoftwareUpdates-&gt;Available Software(根据提示进行相应操作)</p>
+<p>&nbsp;</p>
+<p><strong>4. Android NDK</strong></p>
+<p>-&gt;<a href="http://developer.android.com/sdk/ndk/index.html">http://developer.android.com/sdk/ndk/index.html</a></p>
+<p>-&gt;解压NDK包到指定目录</p>
+<p>-&gt;配置PATH</p>
+<p>-&gt;修改/etc/profile 文件</p>
+<p>-&gt;  NDKROOT=/usr/local/bin/android-ndk-r5c (用户根据自己的实际安装配置)</p>
+<p>PATH=$PATH:$NDKROOT</p>
+<p>-&gt;save</p>
+<p>-&gt;restart</p>
+<p>-&gt;测试环境变量：</p>
+<p>-&gt;cd /usr/local/bin/android-ndk-r5c/samples/hello-jni</p>
+<p>-&gt;ndk-build</p>
+<p>-&gt;将看到系统会编译出libhello-jni.so</p>
+<p>&nbsp;</p>
+<p><strong>5. 安装necessitas</strong></p>
+<p><a href="http://sourceforge.net/projects/necessitas/files/">http://sourceforge.net/projects/necessitas/files/</a></p>
+<p>(包括Qt的库，Qt Createrfor Android, 同时可以选择安装NDK 和SDK(但是由于网速问题建议不要选择可以自己安装)):</p>
+<p>-&gt;下载necessitas-0.2-online-sdk-installer-linux</p>
+<p>-&gt;使用 chmod 添加可执行权限</p>
+<p>-&gt;安装过程需要网络环境</p>
+<p>&nbsp;</p>
+<p><strong>6. Ministro</strong></p>
+<p>需要在android上安装Ministro<strong> service</strong></p>
+<p>url: <a href="http://sourceforge.net/projects/ministro.necessitas.p/files/">http://sourceforge.net/projects/ministro.necessitas.p/files/</a></p>
+<p>&nbsp;</p>
+<p><strong>7. 模拟器启动命令</strong></p>
+<p>在命令行输入： emulator -help，即可显示emulator支持的所有命令。</p>
+<p>Android Emulator usage:</p>
+<p>emulator [options] [-qemu args]<br />
+options:<br />
+-sysdir&lt;dir&gt;                在目录&lt;dir&gt;中搜索system.img<br />
+-system&lt;file&gt;               读取system.img文件&lt;file&gt;<br />
+-datadir&lt;dir&gt;               写入用户数据到目录 &lt;dir&gt;<br />
+-kernel&lt;file&gt;               使用指定内核kernel-qemu文件<br />
+-ramdisk&lt;file&gt;              指定ram 镜像文件ramdisk.img<br />
+-image&lt;file&gt;                 obsolete, use -system &lt;file&gt; instead<br />
+-init-data&lt;file&gt;             initial data image (default &lt;system&gt;/userdata.img<br />
+-initdata&lt;file&gt;              same as &#8216;-init-data &lt;file&gt;&#8217;<br />
+-data&lt;file&gt;                  data image<br />
+(default &lt;datadir&gt;/userdata-qemu.i<br />
+mg<br />
+-partition-size&lt;size&gt;         分区大小MBs<br />
+-cache&lt;file&gt;                 cache.img<br />
+-no-cache                     禁止缓存<br />
+-nocache                      禁止缓存<br />
+-sdcard&lt;file&gt;                sdcard.img<br />
+-wipe-data                    reset the use data image (copy it from initda<br />
+ta)<br />
+-avd&lt;name&gt;                   使用指定AVD设备<br />
+-skindir&lt;dir&gt;                search skins in &lt;dir&gt; (default &lt;system&gt;/skins<br />
+)<br />
+-skin&lt;name&gt;                  select a given skin<br />
+-no-skin                      don&#8217;t use any emulator skin<br />
+-noskin                       same as -no-skin<br />
+-memory&lt;size&gt;                物理内存大小MBs<br />
+-netspeed&lt;speed&gt;             最大网速<br />
+-netdelay&lt;delay&gt;             网络延迟<br />
+-netfast                      disable network shaping<br />
+-trace&lt;name&gt;                 enable code profiling (F9 to start)<br />
+-show-kernel                  显示内核消息<br />
+-shell                        终端启用root shell<br />
+-no-jni                       disable JNI checks in the Dalvik runtime<br />
+-nojni                        same as -no-jni<br />
+-logcat&lt;tags&gt;                查看日志<br />
+-no-audio                     disable audio support<br />
+-noaudio                      same as -no-audio<br />
+-audio&lt;backend&gt;              use specific audio backend<br />
+-audio-in&lt;backend&gt;           use specific audio input backend<br />
+-audio-out&lt;backend&gt;           usespecific audio output backend<br />
+-raw-keys                     disable Unicode keyboard reverse-mapping<br />
+-radio&lt;device&gt;               无线猫<br />
+-port&lt;port&gt;                  连接控制台的TCP端口.<br />
+-ports &lt;consoleport&gt;,&lt;adbport&gt; TCP ports usedfor the console and adb bridge</p>
+<p>-onion&lt;image&gt;                use overlay PNG image over screen<br />
+-onion-alpha&lt;%age&gt;           specify onion-skin translucency<br />
+-onion-rotation0|1|2|3        specify onion-skin rotation<br />
+-scale &lt;scale&gt;                窗口缩放<br />
+-dpi-device&lt;dpi&gt;             specify device&#8217;s resolution in dpi (default 1<br />
+65)<br />
+-http-proxy&lt;proxy&gt;           HTTP/HTTPS 代理<br />
+-timezone&lt;timezone&gt;           时区<br />
+-dns-server&lt;servers&gt;          DNS服务器<br />
+-cpu-delay&lt;cpudelay&gt;          throttleCPU emulation<br />
+-no-boot-anim                 disable animation for faster boot<br />
+-no-window                    disable graphical window display<br />
+-version                      版本<br />
+-report-console&lt;socket&gt;       report console port toremote socket<br />
+-gps&lt;device&gt;                 redirect NMEA GPS to character device<br />
+-keyset&lt;name&gt;                specify keyset file name<br />
+-shell-serial&lt;device&gt;         specificcharacter device for root shell<br />
+-old-system                   support old (pre 1.4) system images<br />
+-tcpdump&lt;file&gt;               记录网络数据包<br />
+-bootchart&lt;timeout&gt;          enable bootcharting<br />
+-prop&lt;name&gt;=&lt;value&gt;          设置系统属性</p>
+<p>-qemuargs&#8230;                pass arguments to qemu<br />
+-qemu-h                     显示qemu帮助</p>
+<p>-verbose                     same as &#8216;-debug-init&#8217;<br />
+-debug&lt;tags&gt;                enable/disable debug messages<br />
+-debug-&lt;tag&gt;                 enable specific debug messages<br />
+-debug-no-&lt;tag&gt;              disable specific debug messages</p>
+<p>-help                        帮助<br />
+-help-&lt;option&gt;               print option-specific help</p>
+<p>-help-disk-images            about disk images<br />
+-help-keys                   supported key bindings<br />
+-help-debug-tags             debug tags for -debug &lt;tags&gt;<br />
+-help-char-devices           character &lt;device&gt; specification<br />
+-help-environment            environment variables<br />
+-help-keyset-file            key bindings configuration file<br />
+-help-virtual-device         virtual device management<br />
+-help-sdk-images             about disk images when using the SDK<br />
+-help-build-images           about disk images when building Android<br />
+-help-all                    帮助(所有)</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>在3的基础上：</p>
+<p>&nbsp;</p>
+<p>emulator –avd Android2.3.3–partition-size 512 （即可启动模拟器）</p>
+<p><strong> </strong></p>
+<p><strong>7. 常用ADB命令：</strong></p>
+<p>命令行工具ADB（Andvoid Debug Bridge）是Android提供的一个通用的调试工具，借助这个工具，我们可以管理设备或手机模拟器的状态。还可以进行以下的操作：</p>
+<p>&nbsp;</p>
+<p>1、快速更新设备或手机模拟器中的代码，如应用或Android系统升级；</p>
+<p>&nbsp;</p>
+<p>2、在设备上运行shell命令；</p>
+<p>&nbsp;</p>
+<p>3、管理设备或手机模拟器上的预定端口；</p>
+<p>&nbsp;</p>
+<p>4、在设备或手机模拟器上复制或粘贴文件；</p>
+<p>&nbsp;</p>
+<p>5、安装.apk文件到仿真器上。</p>
+<p>&nbsp;</p>
+<p>以下为一些常用的操作：</p>
+<p>&nbsp;</p>
+<p>1、安装应用到模拟器：</p>
+<p>&nbsp;</p>
+<p>adb install</p>
+<p>&nbsp;</p>
+<p>比较郁闷的是，Android并没有提供一个卸载应用的命令，只能自己手动删除：</p>
+<p>&nbsp;</p>
+<p>adb shell</p>
+<p>&nbsp;</p>
+<p>cd /data/app</p>
+<p>&nbsp;</p>
+<p>rm app.apk</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>2、进入设备或模拟器的shell：</p>
+<p>&nbsp;</p>
+<p>adb shell</p>
+<p>&nbsp;</p>
+<p>通过上面的命令，就可以进入设备或模拟器的shell环境中，在这个Linux Shell中，你可以执行各种Linux的命令，另外如果只想执行一条shell命令，可以采用以下的方式：</p>
+<p>&nbsp;</p>
+<p>adb shell [command]</p>
+<p>&nbsp;</p>
+<p>如：adb shell dmesg会打印出内核的调试信息。</p>
+<p>&nbsp;</p>
+<p>3、发布端口：</p>
+<p>&nbsp;</p>
+<p>你可以设置任意的端口号，做为主机向模拟器或设备的请求端口。如：</p>
+<p>&nbsp;</p>
+<p>adb forward tcp:5555 tcp:8000</p>
+<p>&nbsp;</p>
+<p>4、复制文件：</p>
+<p>&nbsp;</p>
+<p>你可向一个设备或从一个设备中复制文件，</p>
+<p>&nbsp;</p>
+<p>复制一个文件或目录到设备或模拟器上：</p>
+<p>&nbsp;</p>
+<p>adb push</p>
+<p>&nbsp;</p>
+<p>如：adb push test.txt /tmp/test.txt</p>
+<p>&nbsp;</p>
+<p>从设备或模拟器上复制一个文件或目录：</p>
+<p>&nbsp;</p>
+<p>adb pull</p>
+<p>&nbsp;</p>
+<p>如：adb pull/addroid/lib/libwebcore.so .</p>
+<p>&nbsp;</p>
+<p>5、搜索模拟器/设备的实例：</p>
+<p>&nbsp;</p>
+<p>取得当前运行的模拟器/设备的实例的列表及每个实例的状态：</p>
+<p>&nbsp;</p>
+<p>adb devices</p>
+<p>&nbsp;</p>
+<p>6、查看bug报告：</p>
+<p>&nbsp;</p>
+<p>adb bugreport</p>
+<p>&nbsp;</p>
+<p>7、记录无线通讯日志：</p>
+<p>&nbsp;</p>
+<p>一般来说，无线通讯的日志非常多，在运行时没必要去记录，但我们还是可以通过命令，设置记录：</p>
+<p>&nbsp;</p>
+<p>adb shell</p>
+<p>&nbsp;</p>
+<p>logcat -b radio</p>
+<p>&nbsp;</p>
+<p>8、获取设备的ID和序列号：</p>
+<p>&nbsp;</p>
+<p>adb get-product</p>
+<p>&nbsp;</p>
+<p>adb get-serialno</p>
+<p>&nbsp;</p>
+<p>9、访问数据库SQLite3</p>
+<p>&nbsp;</p>
+<p>adb shell</p>
+<p>&nbsp;</p>
+<p>sqlite3</p>
+<p>&nbsp;</p>
+<p>模拟器上网设置：</p>
+<p>1. 在 adb shell 模式下执行以下命令<br />
+sqlite3/data/data/com.android.providers.settings/databases/settings.db &#8220;INSERTINTO system VALUES(99,&#8217;http_proxy&#8217;,&#8217;10.10.26.252:1080&#8242;)&#8221;</p>
+<p>2. 重新启动Android模拟器，程序可以登录http网站。</p>
+<p>3. 如果要删除配置： sqlite3 /data/data/com.android.providers.settings/databases/settings.db&#8221;DELETE FROM system WHERE _id=99&#8243;</p>
+<p>4.在 adb shell 模式下执行查询命令</p>
+<p>sqlite3/data/data/com.android.providers.settings/databases/settings.db &#8220;SELECT *FROM system&#8221;</p>
+<p>5．如果还无法连接Internet，则需要设置DNS</p>
+<p>$ adbshell</p>
+<p>$ getprop</p>
+<p>$ getprop会列出系统当前的各项属性</p>
+<p>得到模拟器的DNS地址</p>
+<p>在结果里可以看到：</p>
+<p>[net.dns1]: [10.0.2.3]<br />
+[net.dns2]: [10.0.2.4]<br />
+[net.dns3]: [10.0.2.5]<br />
+[net.dns4]: [10.0.2.6]</p>
+<p>把dns改成我们自己的DNS</p>
+<p>$ setprop net.dns1 192.168.1.1</p>
+<p>注：一般TP-LINK及D-LINK的DNS都是192.168.1.1，如果不是请使用ipcnofig /all命令确认。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>注意： 在配置环境变量时，请确保配置路径完全正确，否则不要操作 /etc/profile文件，因为这个文件不正确可能导致系统无法启动，</p>
+<p>&nbsp;</p>
+<p>所以可以在当前用户目录下找到.bashrc, 配置环境变量，这样配置的值适合当前用户使用不是全局的。)</p>
+<p>&nbsp;</p>
+<p><strong>二． 创建工程</strong></p>
+<p>&nbsp;</p>
+<p><strong>1.打开necessitas （当前虚拟机上安装在：/home/frank/necessitas/</strong> <strong>QtCreator/bin/），你可以在桌面创建快捷方式，或者将其配置到环境变量中。<br />
+主界面如下：</strong></p>
+<p><strong>可以通过File打开一个*.pro工程文件或者自己创建一个</strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong> </strong></p>
+<p><strong> </strong></p>
+<p><strong> </strong></p>
+<p><strong>在Project选项中可以进行相应的设置</strong></p>
+<p><strong> </strong></p>
+<p><strong>在Qt Version选项处点击Manage弹出一下对话框，根据现有的SDK、NDK和Ant的安装进行设置：</strong></p>
+<p>&nbsp;</p>
+<p><strong> </strong></p>
+<p><strong> </strong></p>
+<p><strong>注意Run Settings 中设置Package为10或者更高否则无法使用Qt编译通过：</strong></p>
+<p>&nbsp;</p>
+<p><strong> </strong></p>
+<p>&nbsp;</p>
+<p>此时点击Build 可以编译程序，如果模拟器没有打开necessitas会自动打开模拟器。</p>
+<p>其它的设置可以根据自己的实际需求进行相应的设置。</p>
+<p>&nbsp;</p>
+<p>Qt Demo（animatedtiles）运行效果图：</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>附：</strong></p>
+<p>1.    <strong>tar</strong><strong>用法实例 tar命令</strong></p>
+<p>tar文件是几个文件和（或）目录在一个文件中的集合。这是创建备份和归档的佳径。</p>
+<p>&nbsp;</p>
+<p>tar使用的选项有：</p>
+<p>&nbsp;</p>
+<p>-c— 创建一个新归档。</p>
+<p>&nbsp;</p>
+<p>-f— 当与 -c 选项一起使用时，创建的tar 文件使用该选项指定的文件名；当与 -x 选项</p>
+<p>一起使用时，则解除该选项指定的归档。</p>
+<p>&nbsp;</p>
+<p>-t— 显示包括在 tar 文件中的文件列表。</p>
+<p>&nbsp;</p>
+<p>-v— 显示文件的归档进度。</p>
+<p>&nbsp;</p>
+<p>-x— 从归档中抽取文件。</p>
+<p>&nbsp;</p>
+<p>-z— 使用 gzip 来压缩 tar 文件。</p>
+<p>&nbsp;</p>
+<p>-j— 使用 bzip2 来压缩 tar 文件。</p>
+<p>&nbsp;</p>
+<p>要创建一个 tar 文件，键入：</p>
+<p>&nbsp;</p>
+<p>tar-cvf filename.tar directory/file</p>
+<p>&nbsp;</p>
+<p>可以使用 tar 命令同时处理多个文件和目录，方法是将它们逐一列出，并用空格间隔：</p>
+<p>&nbsp;</p>
+<p>tar-cvf filename.tar /home/mine/work /home/mine/school</p>
+<p>&nbsp;</p>
+<p>上面的命令把 /home/mine 目录下的 work 和 school 子目录内的所有文件都放入当前</p>
+<p>目录中一个叫做 filename.tar 的新文件里。</p>
+<p>&nbsp;</p>
+<p>要列出 tar 文件的内容，键入：</p>
+<p>tar-tvf filename.tar</p>
+<p>&nbsp;</p>
+<p>要抽取 tar 文件的内容，键入</p>
+<p>tar-xvf filename.tar</p>
+<p>&nbsp;</p>
+<p>这个命令不会删除 tar 文件，但是它会把被解除归档的内容</p>
+<p>复制到当前的工作目录下，并保留归档文件所使用的任何</p>
+<p>目录结构。譬如，如果这个 tar 文件中包含一个叫做</p>
+<p>bar.txt的文件，而这个文件包含在foo/ 目录中，那么，</p>
+<p>抽取归档文件将会导致在你当前的工作目录中创建</p>
+<p>foo/目录，该目录中包含bar.txt 文件</p>
+<p>&nbsp;</p>
+<p>tar默认不压缩文件。</p>
+<p>&nbsp;</p>
+<p>要创建一个使用 tar 和 bzip 来归档压缩的文件，使用 -j 选项：</p>
+<p>tar-cjvf filename.tbz file</p>
+<p>&nbsp;</p>
+<p>以上命令创建了一个归档文件，然后将其压缩为 filename.tbz 文件。如果你使用 bunzip2 命令为filename.tbz 文件解压，filename.tbz 文件会被删除，继</p>
+<p>之以filename.tar 文件。</p>
+<p>&nbsp;</p>
+<p>你还可以用一个命令来扩展并解除归档 bzip tar 文件：</p>
+<p>tar-xjvf filename.tbz</p>
+<p>&nbsp;</p>
+<p>要创建一个用 tar 和 gzip 归档并压缩的文件，使用 -z 选项：</p>
+<p>tar-czvf filename.tgz file</p>
+<p>&nbsp;</p>
+<p>这个命令创建归档文件 filename.tar，然后把它压缩为 filename.tgz 文件（文件 filename.tar 不被保留）。</p>
+<p>如果你使用 gunzip 命令来给 filename.tgz 文件解压，filename.tgz 文件会被删除，并被</p>
+<p>替换为 filename.tar。</p>
+<p>&nbsp;</p>
+<p>你可以用单个命令来扩展 gzip tar 文件：</p>
+<p>tar-xzvf filename.tgz</p>
+<p>&nbsp;</p>
+<p>一. tar</p>
+<p>&nbsp;</p>
+<p>1.压缩一组文件为tar.gz后缀。</p>
+<p>#tar cvf backup.tar /etc</p>
+<p>#gzip-q backup.tar</p>
+<p>或</p>
+<p>#tar cvfz backup.tar.gz /etc/</p>
+<p>tarzxvf XXXX.tar.gz</p>
+<p>&nbsp;</p>
+<p>tarjxvf XXXX tar.bz2</p>
+<p>&nbsp;</p>
+<p>2.释放一个后缀为tar.gz的文件。</p>
+<p>#gunzipbackup.tar.gz</p>
+<p>#tarxvf backup.tar</p>
+<p>或</p>
+<p>#tar xvfz backup.tar.gz</p>
+<p>&nbsp;</p>
+<p>3.用一个命令完成压缩</p>
+<p>#tarcvf &#8211; /etc/ | gzip -qc &gt; backup.tar.gz</p>
+<p>&nbsp;</p>
+<p>4.用一个命令完成释放</p>
+<p>#gunzip -c backup.tar.gz | tar xvf &#8211;</p>
+<p>&nbsp;</p>
+<p>5.如何解开tar.Z的文件？</p>
+<p>#tar xvfz backup.tar.Z</p>
+<p>或</p>
+<p>#uncompress backup.tar.Z</p>
+<p>#tarxvf backup.tar</p>
+<p>&nbsp;</p>
+<p>6.如何解开.tgz文件？</p>
+<p>#gunzipbackup.tgz</p>
+<p>&nbsp;</p>
+<p>7.如何压缩和解压缩.bz2的包？</p>
+<p>#bzip2/etc/smb.conf</p>
+<p>这将压缩文件smb.conf成smb.conf.bz2</p>
+<p>#bunzip2/etc/smb.conf.bz2</p>
+<p>这将在当前目录下还原smb.conf.bz2为smb.conf</p>
+<p>注: .bz2压缩格式不是很常用，你可以man bzip2</p>
+<p>&nbsp;</p>
+<p><strong><span style="color: #ff0000;">本文来自：<a href="http://blog.csdn.net/ak47zhangzhiwei/article/details/6566209"><span style="color: #ff0000;">http://blog.csdn.net/ak47zhangzhiwei/article/details/6566209</span></a></span></strong></p>
+
+
+      
+<div class="article-social">
+			<a href="javascript:;" data-action="ding" data-id="568" id="Addlike" class="action"><i class="fa fa-heart-o"></i>喜欢 (<span class="count">0</span>)</a>	
+</div>
+	</article>	
+				<footer class="article-footer">
+			</footer>
+	<nav class="article-nav">
+			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="/2013/07/qt-%E7%AE%80%E4%BB%8B.html" rel="prev">Qt 简介 Introduce for Qt</a></span>
+			<span class="article-nav-next"><a href="/2013/07/wordpress-%E5%87%BD%E6%95%B0%E5%A4%A7%E5%85%A8.html" rel="next">WordPress 函数大全</a>  <i class="fa fa-angle-double-right"></i></span>
+		</nav>
+
+		<div class="related_top">
+			<div class="related_posts"><ul class="related_img">
+
+	<li class="related_box"  >
+		<a href="/2016/10/form-submit-via-javascript.html" title="Form submit via Javascript" target="_blank">
+		<img src="/wp-content/uploads/2016/10/1476955833-4486-ajax-min.jpg" alt="Form submit via Javascript" /><br><span class="r_title">Form submit via Javascript</span></a>
+		</li>
+	
+	<li class="related_box"  >
+		<a href="/2015/01/raspberry-pi-distcc.html" title="Raspberry Pi &#8211; Distcc" target="_blank">
+		<img src="/wp-content/uploads/2015/01/distccmon-gnome-2003-09-23-01.png" alt="Raspberry Pi &#8211; Distcc" /><br><span class="r_title">Raspberry Pi &#8211; Distcc</span></a>
+		</li>
+	
+	<li class="related_box"  >
+		<a href="/2014/10/google-text-to-speech-api.html" title="Google Text-to-Speech API" target="_blank">
+		<img src="/wp-content/uploads/2014/10/google-tts.jpg" alt="Google Text-to-Speech API" /><br><span class="r_title">Google Text-to-Speech API</span></a>
+		</li>
+	
+	<li class="related_box"  >
+		<a href="/2014/08/%E9%80%9A%E8%BF%87-modulus-%E4%B8%8E-exponent-%E7%94%9F%E6%88%90-public-key-eng%E4%B8%AD.html" title="通过 Modulus 与 Exponent 生成 Public Key [ENG/中]" target="_blank">
+		<img src="/wp-content/uploads/2014/07/cat-programming.jpg" alt="通过 Modulus 与 Exponent 生成 Public Key [ENG/中]" /><br><span class="r_title">通过 Modulus 与 Exponent 生成 Public Key [ENG/中]</span></a>
+		</li>
+	</ul>
+
+<div class="relates">
+<ul>
+<li><i class="fa fa-minus"></i><a target="_blank" href="/2016/10/form-submit-via-javascript.html">Form submit via Javascript</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2015/01/raspberry-pi-distcc.html">Raspberry Pi &#8211; Distcc</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/10/google-text-to-speech-api.html">Google Text-to-Speech API</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/08/%E9%80%9A%E8%BF%87-modulus-%E4%B8%8E-exponent-%E7%94%9F%E6%88%90-public-key-eng%E4%B8%AD.html">通过 Modulus 与 Exponent 生成 Public Key [ENG/中]</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/07/%E4%BD%BFgcc%E5%9C%A8%E7%BC%96%E8%AF%91windows%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%97%B6%E5%80%99%E9%99%84%E5%8A%A0%E5%9B%BE%E6%A0%87.html">使GCC在编译Windows程序的时候附加图标</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/04/dotnet%E6%8B%A8%E5%8F%B7%E5%99%A8%E7%BC%96%E7%A8%8B%E6%96%B9%E6%B3%95.html">DotNet拨号器编程方法</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2013/11/akari-c-procgram-code.html">Akari C.Procgram Code</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2013/10/using-qt-to-open-webpage-with-default-browser.html">Using Qt to open webpage with default browser</a></li>
+</ul></div></div>		</div>
+						<div id="respond" class="no_webshot">
+		<form action="/wp-comments-post.php" method="post" id="commentform">
+		
+		<div class="comt-title">
+			<div class="comt-avatar pull-left">
+				<img src="https://secure.gravatar.com/avatar/?s=108" class="avatar avatar-108" height="108" width="108">			</div>
+			<div class="comt-author pull-left">
+			COMMENT			</div>
+			<a id="cancel-comment-reply-link" class="pull-right" href="javascript:;">Cancel Comment</a>
+		</div>
+		
+		<div class="comt">
+			<div class="comt-box">
+				<textarea placeholder="What do you want to say ..." class="input-block-level comt-area" name="comment" id="comment" cols="100%" rows="3" tabindex="1" onkeydown="if(event.ctrlKey&amp;&amp;event.keyCode==13){document.getElementById('submit').click();return false};"></textarea>
+				<div class="comt-ctrl">
+					<button class="btn btn-primary pull-right" type="submit" name="submit" id="submit" tabindex="5"><i class="fa fa-check-square-o"></i> POST</button>
+					<div class="comt-tips pull-right"><input type='hidden' name='comment_post_ID' value='568' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</div>
+					<span data-type="comment-insert-smilie" class="muted comt-smilie"><i class="fa fa-smile-o"></i> EMOJI</span>
+					<span class="muted comt-mailme"><label for="comment_mail_notify" class="checkbox inline" style="padding-top:0"><input type="checkbox" name="comment_mail_notify" id="comment_mail_notify" value="comment_mail_notify" checked="checked"/>有人回复时邮件通知我</label></span>
+				</div>
+			</div>
+
+												<div class="comt-comterinfo" id="comment-author-info" >
+						<h4>Hi, We need some information</h4>
+						<ul>
+							<li class="form-inline"><label class="hide" for="author">Nickname</label><input class="ipt" type="text" name="author" id="author" value="" tabindex="2" placeholder="Nickname"><span class="help-inline">Nickname (*)</span></li>
+							<li class="form-inline"><label class="hide" for="email">E-Mail</label><input class="ipt" type="text" name="email" id="email" value="" tabindex="3" placeholder="E-Mail Address"><span class="help-inline">E-Mail (*)</span></li>
+							<li class="form-inline"><label class="hide" for="url">Website</label><input class="ipt" type="text" name="url" id="url" value="" tabindex="4" placeholder="Website (Optional)"><span class="help-inline">Website</span></li>
+						</ul>
+					</div>
+									</div>
+
+		
+	</form>
+	</div>
+			</div>
+</div>
+<aside class="sidebar">	
+<div class="widget widget_text"><div class="textwidget text-social"><div class="social">
+
+<a href="http://weibo.com/dfc643" rel="external nofollow" title="Weibo" target="_blank"><i class="sinaweibo fa fa-weibo"></i></a><a  href="http://t.qq.com/dfc643" rel="external nofollow" title="t.qq.com" target="_blank"><i class="tencentweibo fa fa-tencent-weibo"></i></a><a href="https://twitter.com/dfc643" rel="external nofollow" title="Twitter" target="_blank"><i class="twitter fa fa-twitter"></i></a><a href="https://www.facebook.com/Norckon" rel="external nofollow" title="Facebook" target="_blank"><i class="facebook fa fa-facebook"></i></a><a href="http://mail.fcsys.org/" rel="external nofollow" title="Email" target="_blank"><i class="email fa fa-envelope-o"></i></a><a href="/?feed=rss2" rel="external nofollow" target="_blank"  title="RSS Feed"><i class="rss fa fa-rss"></i></a>
+</div></div></div>
+
+<div class="widget widget_text"><div class="title"><h2>Staticized</h2></div>			<div class="textwidget"><p><strong>WARNING</strong>: This blog has been <strong>Staticized</strong>. All comment, like or other function will not working.</p>
+</div>
+		</div><div class="widget widget_calendar"><div class="title"><h2>Calendar</h2></div><div id="calendar_wrap" class="calendar_wrap"><table id="wp-calendar">
+	<caption>July 2013</caption>
+	<thead>
+	<tr>
+		<th scope="col" title="Monday">M</th>
+		<th scope="col" title="Tuesday">T</th>
+		<th scope="col" title="Wednesday">W</th>
+		<th scope="col" title="Thursday">T</th>
+		<th scope="col" title="Friday">F</th>
+		<th scope="col" title="Saturday">S</th>
+		<th scope="col" title="Sunday">S</th>
+	</tr>
+	</thead>
+
+	<tfoot>
+	<tr>
+		<td colspan="3" id="prev"><a href="/2013/06">&laquo; Jun</a></td>
+		<td class="pad">&nbsp;</td>
+		<td colspan="3" id="next"><a href="/2013/08">Aug &raquo;</a></td>
+	</tr>
+	</tfoot>
+
+	<tbody>
+	<tr><td><a href="/2013/07/01" aria-label="Posts published on July 1, 2013">1</a></td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td>
+	</tr>
+	<tr>
+		<td>8</td><td>9</td><td>10</td><td>11</td><td><a href="/2013/07/12" aria-label="Posts published on July 12, 2013">12</a></td><td>13</td><td>14</td>
+	</tr>
+	<tr>
+		<td><a href="/2013/07/15" aria-label="Posts published on July 15, 2013">15</a></td><td>16</td><td>17</td><td><a href="/2013/07/18" aria-label="Posts published on July 18, 2013">18</a></td><td>19</td><td><a href="/2013/07/20" aria-label="Posts published on July 20, 2013">20</a></td><td><a href="/2013/07/21" aria-label="Posts published on July 21, 2013">21</a></td>
+	</tr>
+	<tr>
+		<td>22</td><td>23</td><td><a href="/2013/07/24" aria-label="Posts published on July 24, 2013">24</a></td><td><a href="/2013/07/25" aria-label="Posts published on July 25, 2013">25</a></td><td>26</td><td>27</td><td>28</td>
+	</tr>
+	<tr>
+		<td>29</td><td><a href="/2013/07/30" aria-label="Posts published on July 30, 2013">30</a></td><td>31</td>
+		<td class="pad" colspan="4">&nbsp;</td>
+	</tr>
+	</tbody>
+	</table></div></div><div class="widget widget_categories"><div class="title"><h2>Categories</h2></div>		<ul>
+	<li class="cat-item cat-item-10"><a href="/category/hardware" >Hardware</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/network" >Network</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/software/os" >Operating System</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/software/programming" >Programming</a>
+</li>
+	<li class="cat-item cat-item-106"><a href="/category/network/server" >Server</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/software" >Software</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/uncategorized" >Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="/category/network/website" >Website</a>
+</li>
+		</ul>
+</div><div class="widget widget_archive"><div class="title"><h2>Archives</h2></div>		<ul>
+			<li><a href='/2017/06'>June 2017</a></li>
+	<li><a href='/2017/01'>January 2017</a></li>
+	<li><a href='/2016/10'>October 2016</a></li>
+	<li><a href='/2016/06'>June 2016</a></li>
+	<li><a href='/2016/05'>May 2016</a></li>
+	<li><a href='/2015/11'>November 2015</a></li>
+	<li><a href='/2015/10'>October 2015</a></li>
+	<li><a href='/2015/07'>July 2015</a></li>
+	<li><a href='/2015/05'>May 2015</a></li>
+	<li><a href='/2015/04'>April 2015</a></li>
+	<li><a href='/2015/01'>January 2015</a></li>
+	<li><a href='/2014/12'>December 2014</a></li>
+	<li><a href='/2014/11'>November 2014</a></li>
+	<li><a href='/2014/10'>October 2014</a></li>
+	<li><a href='/2014/09'>September 2014</a></li>
+	<li><a href='/2014/08'>August 2014</a></li>
+	<li><a href='/2014/07'>July 2014</a></li>
+	<li><a href='/2014/06'>June 2014</a></li>
+	<li><a href='/2014/05'>May 2014</a></li>
+	<li><a href='/2014/04'>April 2014</a></li>
+	<li><a href='/2014/03'>March 2014</a></li>
+	<li><a href='/2014/02'>February 2014</a></li>
+	<li><a href='/2014/01'>January 2014</a></li>
+	<li><a href='/2013/12'>December 2013</a></li>
+	<li><a href='/2013/11'>November 2013</a></li>
+	<li><a href='/2013/10'>October 2013</a></li>
+	<li><a href='/2013/09'>September 2013</a></li>
+	<li><a href='/2013/08'>August 2013</a></li>
+	<li><a href='/2013/07'>July 2013</a></li>
+	<li><a href='/2013/06'>June 2013</a></li>
+	<li><a href='/2013/05'>May 2013</a></li>
+	<li><a href='/2013/03'>March 2013</a></li>
+	<li><a href='/2013/02'>February 2013</a></li>
+	<li><a href='/2012/07'>July 2012</a></li>
+	<li><a href='/1994/12'>December 1994</a></li>
+		</ul>
+		</div><div class="widget ilwp_widget_tag_cloud"><div class="title"><h2>Tag Cloud</h2></div><div class='colored-tag-cloud'><a href='/tag/bsd' class='tag-link-101' title='1 post is tagged with &ldquo;BSD&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>BSD</a>
+<a href='/tag/ico' class='tag-link-185' title='1 post is tagged with &ldquo;ICO&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>ICO</a>
+<a href='/tag/%e5%8a%a0%e8%bd%bd%e9%a9%b1%e5%8a%a8%e5%a4%b1%e8%b4%a5' class='tag-link-22' title='1 post is tagged with &ldquo;加载驱动失败&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>加载驱动失败</a>
+<a href='/tag/modify-tengine' class='tag-link-186' title='1 post is tagged with &ldquo;Modify Tengine&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>Modify Tengine</a>
+<a href='/tag/open' class='tag-link-146' title='1 post is tagged with &ldquo;OPEN&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>OPEN</a>
+<a href='/tag/id' class='tag-link-67' title='3 posts are tagged with &ldquo;ID&rdquo;' rel="tag" style='font-size: 29.333333333333px;  color: yellow;'>ID</a>
+<a href='/tag/%e5%ae%89%e8%a3%85' class='tag-link-20' title='1 post is tagged with &ldquo;安装&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>安装</a>
+<a href='/tag/uc' class='tag-link-183' title='1 post is tagged with &ldquo;UC&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>UC</a>
+<a href='/tag/notes-every' class='tag-link-198' title='1 post is tagged with &ldquo;Notes Every&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>Notes Every</a>
+<a href='/tag/udp' class='tag-link-216' title='1 post is tagged with &ldquo;UDP&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>UDP</a>
+<a href='/tag/env' class='tag-link-222' title='1 post is tagged with &ldquo;ENV&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>ENV</a>
+<a href='/tag/configuration-example' class='tag-link-140' title='1 post is tagged with &ldquo;Configuration Example&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>Configuration Example</a>
+<a href='/tag/wpad' class='tag-link-153' title='1 post is tagged with &ldquo;WPAD&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>WPAD</a>
+<a href='/tag/donot' class='tag-link-189' title='1 post is tagged with &ldquo;DONOT&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>DONOT</a>
+<a href='/tag/cpuid' class='tag-link-241' title='1 post is tagged with &ldquo;CPUID&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>CPUID</a>
+<a href='/tag/check-run' class='tag-link-91' title='1 post is tagged with &ldquo;Check Run&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>Check Run</a>
+<a href='/tag/title-raspberry-pi' class='tag-link-115' title='1 post is tagged with &ldquo;Title Raspberry Pi&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>Title Raspberry Pi</a>
+<a href='/tag/goarch' class='tag-link-124' title='1 post is tagged with &ldquo;GOARCH&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>GOARCH</a>
+<a href='/tag/steps' class='tag-link-120' title='1 post is tagged with &ldquo;STEPS&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>STEPS</a>
+<a href='/tag/step' class='tag-link-125' title='1 post is tagged with &ldquo;STEP&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>STEP</a>
+<a href='/tag/linux-unix' class='tag-link-79' title='1 post is tagged with &ldquo;Linux Unix&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>Linux Unix</a>
+<a href='/tag/php' class='tag-link-130' title='2 posts are tagged with &ldquo;PHP&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: green;'>PHP</a>
+<a href='/tag/ssh' class='tag-link-62' title='2 posts are tagged with &ldquo;SSH&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: black;'>SSH</a>
+<a href='/tag/rsa' class='tag-link-230' title='1 post is tagged with &ldquo;RSA&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>RSA</a>
+<a href='/tag/right-click-trusted-publishers' class='tag-link-235' title='1 post is tagged with &ldquo;Right-click Trusted Publishers&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>Right-click Trusted Publishers</a>
+<a href='/tag/tts' class='tag-link-26' title='1 post is tagged with &ldquo;TTS&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>TTS</a>
+<a href='/tag/error' class='tag-link-195' title='1 post is tagged with &ldquo;ERROR&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>ERROR</a>
+<a href='/tag/reply-nothing' class='tag-link-214' title='1 post is tagged with &ldquo;Reply Nothing&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>Reply Nothing</a>
+<a href='/tag/ubuntu-unity' class='tag-link-43' title='1 post is tagged with &ldquo;Ubuntu Unity&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>Ubuntu Unity</a>
+<a href='/tag/donwload' class='tag-link-194' title='1 post is tagged with &ldquo;DONWLOAD&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>DONWLOAD</a>
+<a href='/tag/ppm' class='tag-link-166' title='1 post is tagged with &ldquo;PPM&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>PPM</a>
+<a href='/tag/sync' class='tag-link-233' title='1 post is tagged with &ldquo;SYNC&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>SYNC</a>
+<a href='/tag/raspberry-pi' class='tag-link-56' title='1 post is tagged with &ldquo;Raspberry Pi&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>Raspberry Pi</a>
+<a href='/tag/ess' class='tag-link-178' title='1 post is tagged with &ldquo;ESS&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>ESS</a>
+<a href='/tag/redirect-top-domain' class='tag-link-223' title='1 post is tagged with &ldquo;Redirect Top-domain&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>Redirect Top-domain</a>
+<a href='/tag/uid' class='tag-link-37' title='1 post is tagged with &ldquo;UID&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>UID</a>
+<a href='/tag/pgm' class='tag-link-167' title='1 post is tagged with &ldquo;PGM&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>PGM</a>
+<a href='/tag/zeroconf' class='tag-link-98' title='1 post is tagged with &ldquo;ZEROCONF&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>ZEROCONF</a>
+<a href='/tag/description-gaming' class='tag-link-148' title='1 post is tagged with &ldquo;Description Gaming&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>Description Gaming</a>
+<a href='/tag/hsts' class='tag-link-203' title='1 post is tagged with &ldquo;HSTS&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>HSTS</a>
+<a href='/tag/dpt' class='tag-link-119' title='1 post is tagged with &ldquo;DPT&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>DPT</a>
+<a href='/tag/apt' class='tag-link-54' title='1 post is tagged with &ldquo;APT&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>APT</a>
+<a href='/tag/footer-example' class='tag-link-141' title='1 post is tagged with &ldquo;Footer Example&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>Footer Example</a>
+<a href='/tag/time-zone-name' class='tag-link-41' title='1 post is tagged with &ldquo;Time Zone Name&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>Time Zone Name</a>
+<a href='/tag/installation' class='tag-link-100' title='1 post is tagged with &ldquo;INSTALLATION&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>INSTALLATION</a>
+<a href='/tag/tell-git' class='tag-link-206' title='1 post is tagged with &ldquo;Tell Git&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>Tell Git</a>
+<a href='/tag/bcm' class='tag-link-74' title='1 post is tagged with &ldquo;BCM&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>BCM</a>
+<a href='/tag/introcude' class='tag-link-89' title='1 post is tagged with &ldquo;INTROCUDE&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>INTROCUDE</a>
+<a href='/tag/cpu' class='tag-link-112' title='2 posts are tagged with &ldquo;CPU&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: navy;'>CPU</a>
+<a href='/tag/macbook' class='tag-link-19' title='1 post is tagged with &ldquo;Macbook&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>Macbook</a>
+<a href='/tag/kernel-configuration' class='tag-link-107' title='1 post is tagged with &ldquo;Kernel Configuration&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>Kernel Configuration</a>
+<a href='/tag/enabled-checked' class='tag-link-40' title='1 post is tagged with &ldquo;Enabled Checked&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>Enabled Checked</a>
+<a href='/tag/src' class='tag-link-122' title='1 post is tagged with &ldquo;SRC&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>SRC</a>
+<a href='/tag/raspberry-pis' class='tag-link-93' title='1 post is tagged with &ldquo;Raspberry Pis&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>Raspberry Pis</a>
+<a href='/tag/tcp' class='tag-link-136' title='1 post is tagged with &ldquo;TCP&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>TCP</a>
+<a href='/tag/certificate-transparency' class='tag-link-231' title='1 post is tagged with &ldquo;Certificate Transparency&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>Certificate Transparency</a>
+<a href='/tag/important' class='tag-link-65' title='1 post is tagged with &ldquo;IMPORTANT&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>IMPORTANT</a>
+<a href='/tag/allow-user' class='tag-link-205' title='1 post is tagged with &ldquo;Allow User&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>Allow User</a>
+<a href='/tag/global-redirection' class='tag-link-169' title='1 post is tagged with &ldquo;Global Redirection&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>Global Redirection</a>
+<a href='/tag/reason' class='tag-link-113' title='1 post is tagged with &ldquo;REASON&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>REASON</a>
+<a href='/tag/nul' class='tag-link-85' title='1 post is tagged with &ldquo;NUL&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>NUL</a>
+<a href='/tag/gpio' class='tag-link-68' title='2 posts are tagged with &ldquo;GPIO&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: gray;'>GPIO</a>
+<a href='/tag/exact-match' class='tag-link-199' title='1 post is tagged with &ldquo;Exact Match&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>Exact Match</a>
+<a href='/tag/date-fri' class='tag-link-190' title='1 post is tagged with &ldquo;Date Fri&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>Date Fri</a>
+<a href='/tag/virtual-machine' class='tag-link-240' title='1 post is tagged with &ldquo;Virtual Machine&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>Virtual Machine</a>
+<a href='/tag/compile-tengine' class='tag-link-188' title='1 post is tagged with &ldquo;Compile Tengine&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Compile Tengine</a>
+<a href='/tag/browser-go' class='tag-link-201' title='1 post is tagged with &ldquo;Browser Go&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>Browser Go</a>
+<a href='/tag/nginx' class='tag-link-202' title='1 post is tagged with &ldquo;NGINX&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>NGINX</a>
+<a href='/tag/make-ubuntu' class='tag-link-145' title='1 post is tagged with &ldquo;Make Ubuntu&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>Make Ubuntu</a>
+<a href='/tag/ieee' class='tag-link-173' title='1 post is tagged with &ldquo;IEEE&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>IEEE</a>
+<a href='/tag/api' class='tag-link-25' title='1 post is tagged with &ldquo;API&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>API</a>
+<a href='/tag/attentions' class='tag-link-75' title='1 post is tagged with &ldquo;ATTENTIONS&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>ATTENTIONS</a>
+<a href='/tag/http' class='tag-link-137' title='2 posts are tagged with &ldquo;HTTP&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: fuchsia;'>HTTP</a>
+<a href='/tag/xrandr' class='tag-link-48' title='1 post is tagged with &ldquo;XRANDR&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>XRANDR</a>
+<a href='/tag/dhcp' class='tag-link-77' title='1 post is tagged with &ldquo;DHCP&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>DHCP</a>
+<a href='/tag/deb' class='tag-link-105' title='1 post is tagged with &ldquo;DEB&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>DEB</a>
+<a href='/tag/https' class='tag-link-170' title='2 posts are tagged with &ldquo;HTTPS&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: purple;'>HTTPS</a>
+<a href='/tag/rgb' class='tag-link-165' title='1 post is tagged with &ldquo;RGB&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>RGB</a>
+<a href='/tag/goos' class='tag-link-126' title='1 post is tagged with &ldquo;GOOS&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>GOOS</a>
+<a href='/tag/internet-explorer' class='tag-link-156' title='1 post is tagged with &ldquo;Internet Explorer&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>Internet Explorer</a>
+<a href='/tag/service-settings' class='tag-link-212' title='1 post is tagged with &ldquo;Service Settings&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>Service Settings</a>
+<a href='/tag/gmt' class='tag-link-191' title='1 post is tagged with &ldquo;GMT&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>GMT</a>
+<a href='/tag/snmp' class='tag-link-114' title='1 post is tagged with &ldquo;SNMP&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>SNMP</a>
+<a href='/tag/png' class='tag-link-184' title='1 post is tagged with &ldquo;PNG&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>PNG</a>
+<a href='/tag/allowednets' class='tag-link-97' title='1 post is tagged with &ldquo;ALLOWEDNETS&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>ALLOWEDNETS</a>
+<a href='/tag/ntp' class='tag-link-39' title='1 post is tagged with &ldquo;NTP&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>NTP</a>
+<a href='/tag/url' class='tag-link-151' title='1 post is tagged with &ldquo;URL&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>URL</a>
+<a href='/tag/ie' class='tag-link-180' title='2 posts are tagged with &ldquo;IE&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: blue;'>IE</a>
+<a href='/tag/download-raspbian' class='tag-link-59' title='1 post is tagged with &ldquo;Download Raspbian&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>Download Raspbian</a>
+<a href='/tag/input' class='tag-link-213' title='1 post is tagged with &ldquo;INPUT&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>INPUT</a>
+<a href='/tag/root' class='tag-link-108' title='1 post is tagged with &ldquo;ROOT&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>ROOT</a>
+<a href='/tag/username-pictures' class='tag-link-53' title='1 post is tagged with &ldquo;Username Pictures&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>Username Pictures</a>
+<a href='/tag/sta' class='tag-link-174' title='1 post is tagged with &ldquo;STA&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>STA</a>
+<a href='/tag/gtk' class='tag-link-45' title='1 post is tagged with &ldquo;GTK&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>GTK</a>
+<a href='/tag/recent' class='tag-link-36' title='1 post is tagged with &ldquo;RECENT&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>RECENT</a>
+<a href='/tag/continue-details' class='tag-link-225' title='1 post is tagged with &ldquo;Continue Details&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Continue Details</a>
+<a href='/tag/cidr' class='tag-link-95' title='1 post is tagged with &ldquo;CIDR&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>CIDR</a>
+<a href='/tag/killing-xvnc4' class='tag-link-128' title='1 post is tagged with &ldquo;Killing Xvnc4&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>Killing Xvnc4</a>
+<a href='/tag/sd' class='tag-link-58' title='1 post is tagged with &ldquo;SD&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>SD</a>
+<a href='/tag/free-build-environment' class='tag-link-236' title='1 post is tagged with &ldquo;Free Build Environment&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>Free Build Environment</a>
+<a href='/tag/change-ubuntu' class='tag-link-51' title='1 post is tagged with &ldquo;Change Ubuntu&rdquo;' rel="tag" style='font-size: 8px;  color: blue;'>Change Ubuntu</a>
+<a href='/tag/kernel-version' class='tag-link-143' title='1 post is tagged with &ldquo;Kernel Version&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>Kernel Version</a>
+<a href='/tag/ip' class='tag-link-90' title='4 posts are tagged with &ldquo;IP&rdquo;' rel="tag" style='font-size: 40px;  color: silver;'>IP</a>
+<a href='/tag/xml' class='tag-link-220' title='1 post is tagged with &ldquo;XML&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>XML</a>
+<a href='/tag/ajax-form-plugin' class='tag-link-221' title='1 post is tagged with &ldquo;Ajax Form Plugin&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Ajax Form Plugin</a>
+<a href='/tag/mic' class='tag-link-177' title='1 post is tagged with &ldquo;MIC&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>MIC</a>
+<a href='/tag/ubuntu-debian' class='tag-link-162' title='1 post is tagged with &ldquo;Ubuntu Debian&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>Ubuntu Debian</a>
+<a href='/tag/preparing' class='tag-link-83' title='1 post is tagged with &ldquo;PREPARING&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>PREPARING</a>
+<a href='/tag/nginx-discuz' class='tag-link-138' title='1 post is tagged with &ldquo;Nginx Discuz&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>Nginx Discuz</a>
+<a href='/tag/vps' class='tag-link-207' title='1 post is tagged with &ldquo;VPS&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>VPS</a>
+<a href='/tag/open-internet-explorer' class='tag-link-152' title='1 post is tagged with &ldquo;Open Internet Explorer&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>Open Internet Explorer</a>
+<a href='/tag/example' class='tag-link-50' title='1 post is tagged with &ldquo;EXAMPLE&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>EXAMPLE</a>
+<a href='/tag/ftp' class='tag-link-129' title='1 post is tagged with &ldquo;FTP&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>FTP</a>
+<a href='/tag/eax' class='tag-link-242' title='1 post is tagged with &ldquo;EAX&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>EAX</a>
+<a href='/tag/hpkp' class='tag-link-228' title='1 post is tagged with &ldquo;HPKP&rdquo;' rel="tag" style='font-size: 8px;  color: fuchsia;'>HPKP</a>
+<a href='/tag/translate' class='tag-link-224' title='1 post is tagged with &ldquo;TRANSLATE&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>TRANSLATE</a>
+<a href='/tag/domain-redirection' class='tag-link-168' title='1 post is tagged with &ldquo;Domain Redirection&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>Domain Redirection</a>
+<a href='/tag/windows' class='tag-link-21' title='3 posts are tagged with &ldquo;Windows&rdquo;' rel="tag" style='font-size: 29.333333333333px;  color: green;'>Windows</a>
+<a href='/tag/wlan' class='tag-link-76' title='1 post is tagged with &ldquo;WLAN&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>WLAN</a>
+<a href='/tag/pc' class='tag-link-87' title='2 posts are tagged with &ldquo;PC&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: purple;'>PC</a>
+<a href='/tag/hooks' class='tag-link-204' title='1 post is tagged with &ldquo;HOOKS&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>HOOKS</a>
+<a href='/tag/security-catalog' class='tag-link-237' title='1 post is tagged with &ldquo;Security Catalog&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>Security Catalog</a>
+<a href='/tag/google' class='tag-link-27' title='1 post is tagged with &ldquo;Google&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>Google</a>
+<a href='/tag/reboot-raspberry' class='tag-link-72' title='1 post is tagged with &ldquo;Reboot Raspberry&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>Reboot Raspberry</a>
+<a href='/tag/lan' class='tag-link-149' title='1 post is tagged with &ldquo;LAN&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>LAN</a>
+<a href='/tag/install-samba' class='tag-link-80' title='1 post is tagged with &ldquo;Install Samba&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>Install Samba</a>
+<a href='/tag/ecc' class='tag-link-229' title='1 post is tagged with &ldquo;ECC&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>ECC</a>
+<a href='/tag/usb' class='tag-link-78' title='1 post is tagged with &ldquo;USB&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>USB</a>
+<a href='/tag/setup-dnsmasq' class='tag-link-99' title='1 post is tagged with &ldquo;Setup Dnsmasq&rdquo;' rel="tag" style='font-size: 8px;  color: silver;'>Setup Dnsmasq</a>
+<a href='/tag/icmp' class='tag-link-215' title='1 post is tagged with &ldquo;ICMP&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>ICMP</a>
+<a href='/tag/ecx' class='tag-link-243' title='1 post is tagged with &ldquo;ECX&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>ECX</a>
+<a href='/tag/ssl' class='tag-link-127' title='2 posts are tagged with &ldquo;SSL&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: yellow;'>SSL</a>
+<a href='/tag/tos' class='tag-link-121' title='1 post is tagged with &ldquo;TOS&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>TOS</a>
+<a href='/tag/mon' class='tag-link-82' title='2 posts are tagged with &ldquo;MON&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: olive;'>MON</a>
+<a href='/tag/workgroup' class='tag-link-81' title='1 post is tagged with &ldquo;WORKGROUP&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>WORKGROUP</a>
+<a href='/tag/rss' class='tag-link-181' title='1 post is tagged with &ldquo;RSS&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>RSS</a>
+<a href='/tag/run' class='tag-link-42' title='1 post is tagged with &ldquo;RUN&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>RUN</a>
+<a href='/tag/lirc' class='tag-link-71' title='1 post is tagged with &ldquo;LIRC&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>LIRC</a>
+<a href='/tag/ascii' class='tag-link-164' title='1 post is tagged with &ldquo;ASCII&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>ASCII</a>
+<a href='/tag/windows-server' class='tag-link-103' title='1 post is tagged with &ldquo;Windows Server&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>Windows Server</a>
+<a href='/tag/full-path' class='tag-link-200' title='1 post is tagged with &ldquo;Full Path&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>Full Path</a>
+<a href='/tag/username-screenshots' class='tag-link-52' title='1 post is tagged with &ldquo;Username Screenshots&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>Username Screenshots</a>
+<a href='/tag/lts' class='tag-link-226' title='1 post is tagged with &ldquo;LTS&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>LTS</a>
+<a href='/tag/imap' class='tag-link-34' title='1 post is tagged with &ldquo;IMAP&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>IMAP</a>
+<a href='/tag/qq' class='tag-link-182' title='1 post is tagged with &ldquo;QQ&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>QQ</a>
+<a href='/tag/raspberry-control' class='tag-link-69' title='1 post is tagged with &ldquo;Raspberry Control&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>Raspberry Control</a>
+<a href='/tag/inbox' class='tag-link-38' title='1 post is tagged with &ldquo;INBOX&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>INBOX</a>
+<a href='/tag/check-symbolic' class='tag-link-193' title='1 post is tagged with &ldquo;Check Symbolic&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Check Symbolic</a>
+<a href='/tag/environment' class='tag-link-147' title='1 post is tagged with &ldquo;ENVIRONMENT&rdquo;' rel="tag" style='font-size: 8px;  color: gray;'>ENVIRONMENT</a>
+<a href='/tag/sql' class='tag-link-232' title='1 post is tagged with &ldquo;SQL&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>SQL</a>
+<a href='/tag/json' class='tag-link-219' title='1 post is tagged with &ldquo;JSON&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>JSON</a>
+<a href='/tag/ok' class='tag-link-154' title='2 posts are tagged with &ldquo;OK&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: yellow;'>OK</a>
+<a href='/tag/install-tengine' class='tag-link-187' title='1 post is tagged with &ldquo;Install Tengine&rdquo;' rel="tag" style='font-size: 8px;  color: navy;'>Install Tengine</a>
+<a href='/tag/install-gitolite' class='tag-link-192' title='1 post is tagged with &ldquo;Install Gitolite&rdquo;' rel="tag" style='font-size: 8px;  color: aqua;'>Install Gitolite</a>
+<a href='/tag/elementary-tweak' class='tag-link-44' title='1 post is tagged with &ldquo;Elementary Tweak&rdquo;' rel="tag" style='font-size: 8px;  color: green;'>Elementary Tweak</a></div>
+</div>
+
+<div class="widget widget_text"><div class="title"><h2>Subsite</h2></div>			<div class="textwidget"><center>
+<img src="//fcsys.org/logo/fbab.png" style="box-shadow: 0 0px 0px rgba(0, 0, 0, 0);"><br>
+<p><font size="1" color="gray">This site is part of FC-System Computer Inc, Maintained by Norckon</font></p>
+</center></div>
+		</div></aside></section>
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="copyright pull-left">
+         Copyright © 2011-2017 FC-System Computer Inc All Rights Reserved.
+        </div>
+        <div class="trackcode pull-right">
+            <!--CNZZ-->
+<div style="display:none"><script src="https://s11.cnzz.com/stat.php?id=1254094017&web_id=1254094017" language="JavaScript"></script></div>
+
+<!--百度统计-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?8b03fbe181f1821cbcbb22c52a2336da";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!--GOOGLE统计-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-49020483-2', 'auto');
+  ga('send', 'pageview');
+</script>        </div>
+    </div>
+</footer>
+
+<script type='text/javascript' src='/wp-content/themes/yusi_cache1.0/js/jquery.js?ver=1.0'></script>
+<script type='text/javascript' src='/wp-includes/js/wp-embed.min.js?ver=4.9.1'></script>
+</body>
+</html>
