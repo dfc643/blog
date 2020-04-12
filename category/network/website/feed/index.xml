@@ -876,7 +876,7 @@ listDir("./nowamagic");
 				<category><![CDATA[Website]]></category>
 
 		<guid isPermaLink="false">/?p=1072</guid>
-		<description><![CDATA[WiGLE 是安卓版的 Wardriving 软件，可以记录详细的信息，同时支持 CSV / KML 导出。而至于什么是 Wardriving 还烦请各位自行百度或者谷歌一下。 我制作这个网页系统主要用来存储 WiGLE导出的 KML 文件，可以直接在网页上面显示出来，比较直观。但是遗憾的是不能够在线将 KML 的信息在地图上面显示出来，不过可以下载 KML 文件后直接打开。另外只兼容 WiGLE 1.5.5 版本，对于其他版本生成的 KML 数据可能不识别，因为旧版本的数据结构有点不相同。 目前的功能： 1、上传 KML 数据文件 2、下载 KML 数据文件 3、浏览 KML 数据文件 4、对数据文件排序 同时这是个开源项目，源代码下载：http://pan.baidu.com/s/1jGn060I 另外我也将这套系统上传到了我自己的服务器上面，供大家自由使用： http://fcsys.org/webapp/wigle/ 如果有什么其他问题，可以留言。 by 北极光.Norckon 2014-01-22（三）]]></description>
+		<description><![CDATA[WiGLE 是安卓版的 Wardriving 软件，可以记录详细的信息，同时支持 CSV / KML 导出。而至于什么是 Wardriving 还烦请各位自行百度或者谷歌一下。 我制作这个网页系统主要用来存储 WiGLE导出的 KML 文件，可以直接在网页上面显示出来，比较直观。但是遗憾的是不能够在线将 KML 的信息在地图上面显示出来，不过可以下载 KML 文件后直接打开。另外只兼容 WiGLE 1.5.5 版本，对于其他版本生成的 KML 数据可能不识别，因为旧版本的数据结构有点不相同。 目前的功能： 1、上传 KML 数据文件 2、下载 KML 数据文件 3、浏览 KML 数据文件 4、对数据文件排序 同时这是个开源项目，源代码下载：http://pan.baidu.com/s/1jGn060I 另外我也将这套系统上传到了我自己的服务器上面，供大家自由使用： http://dfc643.github.io/webapp/wigle/ 如果有什么其他问题，可以留言。 by 北极光.Norckon 2014-01-22（三）]]></description>
 				<content:encoded><![CDATA[<p>WiGLE 是安卓版的 Wardriving 软件，可以记录详细的信息，同时支持 CSV / KML 导出。而至于什么是 Wardriving 还烦请各位自行百度或者谷歌一下。</p>
 <p>我制作这个网页系统主要用来存储 WiGLE导出的 KML 文件，可以直接在网页上面显示出来，比较直观。但是遗憾的是不能够在线将 KML 的信息在地图上面显示出来，不过可以下载 KML 文件后直接打开。另外只兼容 WiGLE 1.5.5 版本，对于其他版本生成的 KML 数据可能不识别，因为旧版本的数据结构有点不相同。<br />
 目前的功能：<br />
@@ -886,7 +886,7 @@ listDir("./nowamagic");
 4、对数据文件排序</p>
 <p>同时这是个开源项目，源代码下载：http://pan.baidu.com/s/1jGn060I<br />
 另外我也将这套系统上传到了我自己的服务器上面，供大家自由使用：<br />
-http://fcsys.org/webapp/wigle/</p>
+http://dfc643.github.io/webapp/wigle/</p>
 <p>如果有什么其他问题，可以留言。</p>
 <p>by 北极光.Norckon<br />
 2014-01-22（三）</p>

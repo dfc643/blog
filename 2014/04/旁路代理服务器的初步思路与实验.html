@@ -6,12 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 <title>旁路代理服务器的初步思路与实验 &#8211; </title>
 <script>
-window._deel = {name: 'Norckon&#039;s blog',url: 'http://b.fcsys.org/wp-content/themes/yusi_cache1.0', ajaxpager: 'on', commenton: 1, roll: [3,4]}
+window._deel = {name: 'Norckon&#039;s blog',url: 'https://dfc643.github.io/blog/wp-content/themes/yusi_cache1.0', ajaxpager: 'on', commenton: 1, roll: [3,4]}
 </script>
 <link rel='dns-prefetch' href='//cdn.bootcss.com' />
 <link rel='dns-prefetch' href='//s.w.org' />
 		<script type="text/javascript">
-			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/b.fcsys.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.1"}};
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/dfc643.github.io\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.1"}};
 			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56794,8205,9794,65039],[55358,56794,8203,9794,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
 		</script>
 		<style type="text/css">
@@ -39,7 +39,7 @@ img.emoji {
 <link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F04%2F%25E6%2597%2581%25E8%25B7%25AF%25E4%25BB%25A3%25E7%2590%2586%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E7%259A%2584%25E5%2588%259D%25E6%25AD%25A5%25E6%2580%259D%25E8%25B7%25AF%25E4%25B8%258E%25E5%25AE%259E%25E9%25AA%258C.html&#038;format=xml" />
 <meta name="keywords" content="Network">
 <meta name="description" content="在常规的网络应用当中，代理服务器目前仍然是一个重要的网络角色。其主要的作用是将两台电脑进行通信而并非直接通信，即间接通信。具体用途可以用做数据加密、内网互联等等，在大型企业网络中较为常见。 代理（英语：Proxy），也称网络代理，是一种特殊的网络服务，允许一个网络终端（一般为客户端）通过这个服务与另一个网络终端（一般为服务器）进行非直接的连接。一些网关、路由器等网络设备具备网络代理功能。一般认为代理服务有利于保障网络终端的隐私或安全，防">
-<!--[if lt IE 9]><script src="http://b.fcsys.org/wp-content/themes/yusi_cache1.0/js/html5.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="https://dfc643.github.io/blog/wp-content/themes/yusi_cache1.0/js/html5.js"></script><![endif]-->
 <!-- GOOGLE FONT -->
 <link href='//fonts.lug.ustc.edu.cn/css?family=Josefin+Sans|Cinzel+Decorative' rel='stylesheet' type='text/css'>
 </head>
@@ -50,7 +50,7 @@ img.emoji {
     
     <ul class="nav">
         <li class="title">Norckon</li>
-        <li id="menu-item-1262" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1262"><a href="http://fcsys.org/">Top</a></li>
+        <li id="menu-item-1262" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1262"><a href="http://dfc643.github.io/">Top</a></li>
 <li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1046"><a href="/category/software">Soft</a>
 <ul class="sub-menu">
 	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1064"><a href="/category/software">Software</a></li>
@@ -92,7 +92,7 @@ img.emoji {
 <li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="/">Blog</a></li>
 <li style="float:right;">
                 <div class="toggle-search"><i class="fa fa-search"></i></div>
-<div class="search-expand" style="display: none;"><div class="search-expand-inner"><form method="get" class="searchform themeform" onsubmit="location.href='http://b.fcsys.org/?s=' + encodeURIComponent(this.s.value).replace(/%20/g, '+'); return false;" action="/"><div> <input type="ext" class="search" name="s" onblur="if(this.value=='')this.value='search...';" onfocus="if(this.value=='search...')this.value='';" value="search..."></div></form></div></div>
+<div class="search-expand" style="display: none;"><div class="search-expand-inner"><form method="get" class="searchform themeform" onsubmit="location.href='https://dfc643.github.io/blog/?s=' + encodeURIComponent(this.s.value).replace(/%20/g, '+'); return false;" action="/"><div> <input type="ext" class="search" name="s" onblur="if(this.value=='')this.value='search...';" onfocus="if(this.value=='search...')this.value='';" value="search..."></div></form></div></div>
 </li>
     </ul>
 </div>
@@ -137,7 +137,7 @@ img.emoji {
 <p><a href="/?image/top1.jpg"><img class="aligncenter size-full wp-image-1194" alt="top1" src="/?image/top1.jpg" width="405" height="364" /></a></p>
 <p>从拓扑图中不难看出，我们的代理服务器和其他的用户计算机的平级的设备。这种拓扑结构和传统的 C/S 模式代理服务器拓扑是一模一样的。</p>
 <p>既然拓扑结构是一模一样的，那么我们如何实现旁路代理，而不需要在客户端上进行任何的配置呢？这就得益于 DNS 服务，大致工作原理如下。</p>
-<blockquote><p>1、「客户端」打开 www.fcsys.org 网站并向「服务器」请求DNS查询。<br />
+<blockquote><p>1、「客户端」打开 dfc643.github.io 网站并向「服务器」请求DNS查询。<br />
 2、「服务器」返回代理服务器的 IP 地址 192.168.16.1 给「客户端」。<br />
 3、「客户端」浏览器向「服务器」 192.168.16.1 请求网站数据。<br />
 4、「服务器」根据「客户端」发送的 HTTP 请求头返回相应数据。<br />
@@ -167,9 +167,9 @@ img.emoji {
 }</pre>
 <p>然后这样 Nginx 收到客户端的请求后，会将客户端请求的域名替换成代理服务器的地址，并且添加一些自定义的请求头再返回给代理服务器。然后代理服务器再返回数据给客户端，整个反向代理过程完成。</p>
 <p>那么 Nginx 这时候到底做了什么呢，让我们来了解一下：</p>
-<blockquote><p>1、客户端请求网址并查询 DNS ：http://fcsys.org/index.htm。<br />
+<blockquote><p>1、客户端请求网址并查询 DNS ：http://dfc643.github.io/index.htm。<br />
 2、服务器返回 DNS 查询请求 A 记录：192.168.16.1。<br />
-3、客户端向服务器发送 HTTP 请求头，其中 HOST 值为 www.fcsys.org。<br />
+3、客户端向服务器发送 HTTP 请求头，其中 HOST 值为 dfc643.github.io。<br />
 4、服务器 Nginx 收到请求并判断 HOST 是否在代理范围。<br />
 5、Nginx 将用户请求的 URL 主机替换成 http://127.0.0.1:8087/index.htm。<br />
 6、Nginx 将替换过的 URL 并添加 HOST 值与其他自定义头传送给代理软件。<br />
@@ -523,7 +523,7 @@ img.emoji {
 </div>
 
 <div class="widget widget_text"><div class="title"><h2>Subsite</h2></div>			<div class="textwidget"><center>
-<img src="//fcsys.org/logo/fbab.png" style="box-shadow: 0 0px 0px rgba(0, 0, 0, 0);"><br>
+<img src="//dfc643.github.io/logo/fbab.png" style="box-shadow: 0 0px 0px rgba(0, 0, 0, 0);"><br>
 <p><font size="1" color="gray">This site is part of FC-System Computer Inc, Maintained by Norckon</font></p>
 </center></div>
 		</div></aside></section>
