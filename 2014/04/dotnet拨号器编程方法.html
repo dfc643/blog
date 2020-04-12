@@ -33,10 +33,10 @@ img.emoji {
 <link rel='https://api.w.org/' href='/wp-json/' />
 <link rel='prev' title='人間の存在の意味は何か' href='/2014/04/%E4%BA%BA%E9%96%93%E3%81%AE%E5%AD%98%E5%9C%A8%E3%81%AE%E6%84%8F%E5%91%B3%E3%81%AF%E4%BD%95%E3%81%8B.html' />
 <link rel='next' title='对于L2TP拨号发生809错误解决方法' href='/2014/04/%E5%AF%B9%E4%BA%8El2tp%E6%8B%A8%E5%8F%B7%E5%8F%91%E7%94%9F809%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html' />
-<link rel="canonical" href="/2014/04/dotnet%E6%8B%A8%E5%8F%B7%E5%99%A8%E7%BC%96%E7%A8%8B%E6%96%B9%E6%B3%95.html" />
+<link rel="canonical" href="./2014/04/dotnet%E6%8B%A8%E5%8F%B7%E5%99%A8%E7%BC%96%E7%A8%8B%E6%96%B9%E6%B3%95.html" />
 <link rel='shortlink' href='/?p=1201' />
-<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F04%2Fdotnet%25E6%258B%25A8%25E5%258F%25B7%25E5%2599%25A8%25E7%25BC%2596%25E7%25A8%258B%25E6%2596%25B9%25E6%25B3%2595.html" />
-<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F04%2Fdotnet%25E6%258B%25A8%25E5%258F%25B7%25E5%2599%25A8%25E7%25BC%2596%25E7%25A8%258B%25E6%2596%25B9%25E6%25B3%2595.html&#038;format=xml" />
+<link rel="alternate" type="application/json+oembed" href="./wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F04%2Fdotnet%25E6%258B%25A8%25E5%258F%25B7%25E5%2599%25A8%25E7%25BC%2596%25E7%25A8%258B%25E6%2596%25B9%25E6%25B3%2595.html" />
+<link rel="alternate" type="text/xml+oembed" href="./wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F04%2Fdotnet%25E6%258B%25A8%25E5%258F%25B7%25E5%2599%25A8%25E7%25BC%2596%25E7%25A8%258B%25E6%2596%25B9%25E6%25B3%2595.html&#038;format=xml" />
 <meta name="keywords" content="Programming">
 <meta name="description" content="现在网络飞速发展，如今的拨号器不仅仅只是用于拨号了，他可以用于小区广播、账号加密等诸多功能。其实编写一个拨号器的难度并不会很大，现在网上有一个现成的库可以用于编写各类拨号器，包括PPTP、PPPOE以及L2TP。  虽然自己也可以调用Win32API函数库Rasapi32，但是想到微软自带的函数库，不少人应该感觉不良。因为其调用的复杂性是令人费解的。  但是DotRas可以解决当下这个问题，他是基于Rasapi32的一个库。可以直接进行">
 <!--[if lt IE 9]><script src="https://dfc643.github.io/blog/wp-content/themes/yusi_cache1.0/js/html5.js"></script><![endif]-->
@@ -51,19 +51,19 @@ img.emoji {
     <ul class="nav">
         <li class="title">Norckon</li>
         <li id="menu-item-1262" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1262"><a href="http://dfc643.github.io/">Top</a></li>
-<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-1046"><a href="/category/software">Soft</a>
+<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-1046"><a href="./category/software">Soft</a>
 <ul class="sub-menu">
-	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-1064"><a href="/category/software">Software</a></li>
-	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1062"><a href="/category/software/os">OS</a></li>
-	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1049"><a href="/category/software/programming">Programming</a></li>
+	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-1064"><a href="./category/software">Software</a></li>
+	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1062"><a href="./category/software/os">OS</a></li>
+	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1049"><a href="./category/software/programming">Programming</a></li>
 </ul>
 </li>
-<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="/category/hardware">Hard</a></li>
-<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1047"><a href="/category/network">Net</a>
+<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="./category/hardware">Hard</a></li>
+<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1047"><a href="./category/network">Net</a>
 <ul class="sub-menu">
-	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1063"><a href="/category/network">Network</a></li>
-	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1496"><a href="/category/network/server">Server</a></li>
-	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="/category/network/website">Web</a></li>
+	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1063"><a href="./category/network">Network</a></li>
+	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1496"><a href="./category/network/server">Server</a></li>
+	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="./category/network/website">Web</a></li>
 </ul>
 </li>
 <li id="menu-item-1220" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1220"><a>Tool</a>
@@ -86,10 +86,10 @@ img.emoji {
 	<li id="menu-item-1825" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1825"><a href="http://mybeibei.net/">Guge&#8217;s blog</a></li>
 	<li id="menu-item-1162" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1162"><a href="http://www.yjsys.tk/">寂写心灵之幽</a></li>
 	<li id="menu-item-1045" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1045"><a href="http://hanicc.com/">HoneyCC</a></li>
-	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="/add-link">+ Add Link</a></li>
+	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="./add-link">+ Add Link</a></li>
 </ul>
 </li>
-<li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="/">Blog</a></li>
+<li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="./">Blog</a></li>
 <li style="float:right;">
                 <div class="toggle-search"><i class="fa fa-search"></i></div>
 <div class="search-expand" style="display: none;"><div class="search-expand-inner"><form method="get" class="searchform themeform" onsubmit="location.href='https://dfc643.github.io/blog/?s=' + encodeURIComponent(this.s.value).replace(/%20/g, '+'); return false;" action="/"><div> <input type="ext" class="search" name="s" onblur="if(this.value=='')this.value='search...';" onfocus="if(this.value=='search...')this.value='';" value="search..."></div></form></div></div>
@@ -100,7 +100,7 @@ img.emoji {
 
 <div class="container-inner" style="display:none">
  <div class="yusi-logo">
-<a href="/">
+<a href="./">
 <h1>
 <span class="yusi-mono">Norckon&#039;s blog</span>
 <span class="yusi-bloger">Norckon&#039;s blog</span>
@@ -120,12 +120,12 @@ img.emoji {
 	<div class="content">
 
 				<header class="article-header">
-			<h1 class="article-title"><a href="/2014/04/dotnet%E6%8B%A8%E5%8F%B7%E5%99%A8%E7%BC%96%E7%A8%8B%E6%96%B9%E6%B3%95.html">DotNet拨号器编程方法</a></h1>
+			<h1 class="article-title"><a href="./2014/04/dotnet%E6%8B%A8%E5%8F%B7%E5%99%A8%E7%BC%96%E7%A8%8B%E6%96%B9%E6%B3%95.html">DotNet拨号器编程方法</a></h1>
 			<div class="meta">
-				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="/category/software/programming"> Programming</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="/author/dfc643">Norckon</a></span>
+				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="./category/software/programming"> Programming</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="./author/dfc643">Norckon</a></span>
 				<time class="muted"><i class="fa fa-clock-o"></i> 2014-04-13</time>
 				<span class="muted"><i class="fa fa-eye"></i> 1833℃</span>
-				<span class="muted"><i class="fa fa-comments-o"></i> <a href="/2014/04/dotnet%E6%8B%A8%E5%8F%B7%E5%99%A8%E7%BC%96%E7%A8%8B%E6%96%B9%E6%B3%95.html#respond">0评论</a></span>							</div>
+				<span class="muted"><i class="fa fa-comments-o"></i> <a href="./2014/04/dotnet%E6%8B%A8%E5%8F%B7%E5%99%A8%E7%BC%96%E7%A8%8B%E6%96%B9%E6%B3%95.html#respond">0评论</a></span>							</div>
 		</header>
 		<article class="article-content">
 			<p>现在网络飞速发展，如今的拨号器不仅仅只是用于拨号了，他可以用于小区广播、账号加密等诸多功能。其实编写一个拨号器的难度并不会很大，现在网上有一个现成的库可以用于编写各类拨号器，包括PPTP、PPPOE以及L2TP。</p>
@@ -146,37 +146,37 @@ img.emoji {
 				<footer class="article-footer">
 			</footer>
 	<nav class="article-nav">
-			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="/2014/04/%E4%BA%BA%E9%96%93%E3%81%AE%E5%AD%98%E5%9C%A8%E3%81%AE%E6%84%8F%E5%91%B3%E3%81%AF%E4%BD%95%E3%81%8B.html" rel="prev">人間の存在の意味は何か</a></span>
-			<span class="article-nav-next"><a href="/2014/04/%E5%AF%B9%E4%BA%8El2tp%E6%8B%A8%E5%8F%B7%E5%8F%91%E7%94%9F809%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html" rel="next">对于L2TP拨号发生809错误解决方法</a>  <i class="fa fa-angle-double-right"></i></span>
+			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="./2014/04/%E4%BA%BA%E9%96%93%E3%81%AE%E5%AD%98%E5%9C%A8%E3%81%AE%E6%84%8F%E5%91%B3%E3%81%AF%E4%BD%95%E3%81%8B.html" rel="prev">人間の存在の意味は何か</a></span>
+			<span class="article-nav-next"><a href="./2014/04/%E5%AF%B9%E4%BA%8El2tp%E6%8B%A8%E5%8F%B7%E5%8F%91%E7%94%9F809%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html" rel="next">对于L2TP拨号发生809错误解决方法</a>  <i class="fa fa-angle-double-right"></i></span>
 		</nav>
 
 		<div class="related_top">
 			<div class="related_posts"><ul class="related_img">
 
 	<li class="related_box"  >
-		<a href="/2016/10/form-submit-via-javascript.html" title="Form submit via Javascript" target="_blank">
-		<img src="/wp-content/uploads/2016/10/1476955833-4486-ajax-min.jpg" alt="Form submit via Javascript" /><br><span class="r_title">Form submit via Javascript</span></a>
+		<a href="./2016/10/form-submit-via-javascript.html" title="Form submit via Javascript" target="_blank">
+		<img src="./wp-content/uploads/2016/10/1476955833-4486-ajax-min.jpg" alt="Form submit via Javascript" /><br><span class="r_title">Form submit via Javascript</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="/2015/01/raspberry-pi-distcc.html" title="Raspberry Pi &#8211; Distcc" target="_blank">
-		<img src="/wp-content/uploads/2015/01/distccmon-gnome-2003-09-23-01.png" alt="Raspberry Pi &#8211; Distcc" /><br><span class="r_title">Raspberry Pi &#8211; Distcc</span></a>
+		<a href="./2015/01/raspberry-pi-distcc.html" title="Raspberry Pi &#8211; Distcc" target="_blank">
+		<img src="./wp-content/uploads/2015/01/distccmon-gnome-2003-09-23-01.png" alt="Raspberry Pi &#8211; Distcc" /><br><span class="r_title">Raspberry Pi &#8211; Distcc</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="/2014/10/google-text-to-speech-api.html" title="Google Text-to-Speech API" target="_blank">
-		<img src="/wp-content/uploads/2014/10/google-tts.jpg" alt="Google Text-to-Speech API" /><br><span class="r_title">Google Text-to-Speech API</span></a>
+		<a href="./2014/10/google-text-to-speech-api.html" title="Google Text-to-Speech API" target="_blank">
+		<img src="./wp-content/uploads/2014/10/google-tts.jpg" alt="Google Text-to-Speech API" /><br><span class="r_title">Google Text-to-Speech API</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="/2014/08/%E9%80%9A%E8%BF%87-modulus-%E4%B8%8E-exponent-%E7%94%9F%E6%88%90-public-key-eng%E4%B8%AD.html" title="通过 Modulus 与 Exponent 生成 Public Key [ENG/中]" target="_blank">
-		<img src="/wp-content/uploads/2014/07/cat-programming.jpg" alt="通过 Modulus 与 Exponent 生成 Public Key [ENG/中]" /><br><span class="r_title">通过 Modulus 与 Exponent 生成 Public Key [ENG/中]</span></a>
+		<a href="./2014/08/%E9%80%9A%E8%BF%87-modulus-%E4%B8%8E-exponent-%E7%94%9F%E6%88%90-public-key-eng%E4%B8%AD.html" title="通过 Modulus 与 Exponent 生成 Public Key [ENG/中]" target="_blank">
+		<img src="./wp-content/uploads/2014/07/cat-programming.jpg" alt="通过 Modulus 与 Exponent 生成 Public Key [ENG/中]" /><br><span class="r_title">通过 Modulus 与 Exponent 生成 Public Key [ENG/中]</span></a>
 		</li>
 	</ul>
 
 <div class="relates">
 <ul>
-<li><i class="fa fa-minus"></i><a target="_blank" href="/2016/10/form-submit-via-javascript.html">Form submit via Javascript</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2015/01/raspberry-pi-distcc.html">Raspberry Pi &#8211; Distcc</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/10/google-text-to-speech-api.html">Google Text-to-Speech API</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/08/%E9%80%9A%E8%BF%87-modulus-%E4%B8%8E-exponent-%E7%94%9F%E6%88%90-public-key-eng%E4%B8%AD.html">通过 Modulus 与 Exponent 生成 Public Key [ENG/中]</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/07/%E4%BD%BFgcc%E5%9C%A8%E7%BC%96%E8%AF%91windows%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%97%B6%E5%80%99%E9%99%84%E5%8A%A0%E5%9B%BE%E6%A0%87.html">使GCC在编译Windows程序的时候附加图标</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2013/11/akari-c-procgram-code.html">Akari C.Procgram Code</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2013/10/using-qt-to-open-webpage-with-default-browser.html">Using Qt to open webpage with default browser</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2013/10/%E8%BD%AC%E8%BD%BDnspack-v3-4-v3-5%E5%8A%A0%E5%A3%B3%E7%9A%84%E6%98%93%E7%A8%8B%E5%BA%8F%E8%84%B1%E5%A3%B3%E6%89%8B%E8%AE%B0.html">[转载]NsPacK V3.4-V3.5加壳的易程序脱壳手记</a></li>
+<li><i class="fa fa-minus"></i><a target="_blank" href="./2016/10/form-submit-via-javascript.html">Form submit via Javascript</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2015/01/raspberry-pi-distcc.html">Raspberry Pi &#8211; Distcc</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/10/google-text-to-speech-api.html">Google Text-to-Speech API</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/08/%E9%80%9A%E8%BF%87-modulus-%E4%B8%8E-exponent-%E7%94%9F%E6%88%90-public-key-eng%E4%B8%AD.html">通过 Modulus 与 Exponent 生成 Public Key [ENG/中]</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/07/%E4%BD%BFgcc%E5%9C%A8%E7%BC%96%E8%AF%91windows%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%97%B6%E5%80%99%E9%99%84%E5%8A%A0%E5%9B%BE%E6%A0%87.html">使GCC在编译Windows程序的时候附加图标</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2013/11/akari-c-procgram-code.html">Akari C.Procgram Code</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2013/10/using-qt-to-open-webpage-with-default-browser.html">Using Qt to open webpage with default browser</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2013/10/%E8%BD%AC%E8%BD%BDnspack-v3-4-v3-5%E5%8A%A0%E5%A3%B3%E7%9A%84%E6%98%93%E7%A8%8B%E5%BA%8F%E8%84%B1%E5%A3%B3%E6%89%8B%E8%AE%B0.html">[转载]NsPacK V3.4-V3.5加壳的易程序脱壳手记</a></li>
 </ul></div></div>		</div>
 						<div id="respond" class="no_webshot">
 		<form action="/wp-comments-post.php" method="post" id="commentform">
@@ -220,7 +220,7 @@ img.emoji {
 <aside class="sidebar">	
 <div class="widget widget_text"><div class="textwidget text-social"><div class="social">
 
-<a href="http://weibo.com/dfc643" rel="external nofollow" title="Weibo" target="_blank"><i class="sinaweibo fa fa-weibo"></i></a><a  href="http://t.qq.com/dfc643" rel="external nofollow" title="t.qq.com" target="_blank"><i class="tencentweibo fa fa-tencent-weibo"></i></a><a href="https://twitter.com/dfc643" rel="external nofollow" title="Twitter" target="_blank"><i class="twitter fa fa-twitter"></i></a><a href="https://www.facebook.com/Norckon" rel="external nofollow" title="Facebook" target="_blank"><i class="facebook fa fa-facebook"></i></a><a href="http://mail.fcsys.org/" rel="external nofollow" title="Email" target="_blank"><i class="email fa fa-envelope-o"></i></a><a href="/?feed=rss2" rel="external nofollow" target="_blank"  title="RSS Feed"><i class="rss fa fa-rss"></i></a>
+<a href="http://weibo.com/dfc643" rel="external nofollow" title="Weibo" target="_blank"><i class="sinaweibo fa fa-weibo"></i></a><a  href="http://t.qq.com/dfc643" rel="external nofollow" title="t.qq.com" target="_blank"><i class="tencentweibo fa fa-tencent-weibo"></i></a><a href="https://twitter.com/dfc643" rel="external nofollow" title="Twitter" target="_blank"><i class="twitter fa fa-twitter"></i></a><a href="https://www.facebook.com/Norckon" rel="external nofollow" title="Facebook" target="_blank"><i class="facebook fa fa-facebook"></i></a><a href="http://mail.fcsys.org/" rel="external nofollow" title="Email" target="_blank"><i class="email fa fa-envelope-o"></i></a><a href="./?feed=rss2" rel="external nofollow" target="_blank"  title="RSS Feed"><i class="rss fa fa-rss"></i></a>
 </div></div></div>
 
 <div class="widget widget_text"><div class="title"><h2>Staticized</h2></div>			<div class="textwidget"><p><strong>WARNING</strong>: This blog has been <strong>Staticized</strong>. All comment, like or other function will not working.</p>
@@ -241,18 +241,18 @@ img.emoji {
 
 	<tfoot>
 	<tr>
-		<td colspan="3" id="prev"><a href="/2014/03">&laquo; Mar</a></td>
+		<td colspan="3" id="prev"><a href="./2014/03">&laquo; Mar</a></td>
 		<td class="pad">&nbsp;</td>
-		<td colspan="3" id="next"><a href="/2014/05">May &raquo;</a></td>
+		<td colspan="3" id="next"><a href="./2014/05">May &raquo;</a></td>
 	</tr>
 	</tfoot>
 
 	<tbody>
 	<tr>
-		<td colspan="1" class="pad">&nbsp;</td><td><a href="/2014/04/01" aria-label="Posts published on April 1, 2014">1</a></td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+		<td colspan="1" class="pad">&nbsp;</td><td><a href="./2014/04/01" aria-label="Posts published on April 1, 2014">1</a></td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
 	</tr>
 	<tr>
-		<td>7</td><td><a href="/2014/04/08" aria-label="Posts published on April 8, 2014">8</a></td><td>9</td><td>10</td><td>11</td><td><a href="/2014/04/12" aria-label="Posts published on April 12, 2014">12</a></td><td><a href="/2014/04/13" aria-label="Posts published on April 13, 2014">13</a></td>
+		<td>7</td><td><a href="./2014/04/08" aria-label="Posts published on April 8, 2014">8</a></td><td>9</td><td>10</td><td>11</td><td><a href="./2014/04/12" aria-label="Posts published on April 12, 2014">12</a></td><td><a href="./2014/04/13" aria-label="Posts published on April 13, 2014">13</a></td>
 	</tr>
 	<tr>
 		<td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
@@ -261,26 +261,26 @@ img.emoji {
 		<td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td>
 	</tr>
 	<tr>
-		<td><a href="/2014/04/28" aria-label="Posts published on April 28, 2014">28</a></td><td><a href="/2014/04/29" aria-label="Posts published on April 29, 2014">29</a></td><td>30</td>
+		<td><a href="./2014/04/28" aria-label="Posts published on April 28, 2014">28</a></td><td><a href="./2014/04/29" aria-label="Posts published on April 29, 2014">29</a></td><td>30</td>
 		<td class="pad" colspan="4">&nbsp;</td>
 	</tr>
 	</tbody>
 	</table></div></div><div class="widget widget_categories"><div class="title"><h2>Categories</h2></div>		<ul>
-	<li class="cat-item cat-item-10"><a href="/category/hardware" >Hardware</a>
+	<li class="cat-item cat-item-10"><a href="./category/hardware" >Hardware</a>
 </li>
-	<li class="cat-item cat-item-3"><a href="/category/network" >Network</a>
+	<li class="cat-item cat-item-3"><a href="./category/network" >Network</a>
 </li>
-	<li class="cat-item cat-item-17"><a href="/category/software/os" >Operating System</a>
+	<li class="cat-item cat-item-17"><a href="./category/software/os" >Operating System</a>
 </li>
-	<li class="cat-item cat-item-4"><a href="/category/software/programming" >Programming</a>
+	<li class="cat-item cat-item-4"><a href="./category/software/programming" >Programming</a>
 </li>
-	<li class="cat-item cat-item-106"><a href="/category/network/server" >Server</a>
+	<li class="cat-item cat-item-106"><a href="./category/network/server" >Server</a>
 </li>
-	<li class="cat-item cat-item-6"><a href="/category/software" >Software</a>
+	<li class="cat-item cat-item-6"><a href="./category/software" >Software</a>
 </li>
-	<li class="cat-item cat-item-1"><a href="/category/uncategorized" >Uncategorized</a>
+	<li class="cat-item cat-item-1"><a href="./category/uncategorized" >Uncategorized</a>
 </li>
-	<li class="cat-item cat-item-13"><a href="/category/network/website" >Website</a>
+	<li class="cat-item cat-item-13"><a href="./category/network/website" >Website</a>
 </li>
 		</ul>
 </div><div class="widget widget_archive"><div class="title"><h2>Archives</h2></div>		<ul>

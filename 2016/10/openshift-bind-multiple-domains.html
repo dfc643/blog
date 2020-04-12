@@ -128,16 +128,16 @@ img.emoji {
 				<span class="muted"><i class="fa fa-comments-o"></i> <a href="/2016/10/openshift-bind-multiple-domains.html#respond">0评论</a></span>							</div>
 		</header>
 		<article class="article-content">
-			<p><a href="/wp-content/uploads/2016/10/1476961369-8108-maxresdefault.jpg"><img class="attachment-full size-full aligncenter" src="/wp-content/uploads/2016/10/1476961369-8108-maxresdefault.jpg" sizes="(max-width: 1674px) 100vw, 1674px" srcset="/wp-content/uploads/2016/10/1476961369-8108-maxresdefault.jpg 1674w, /wp-content/uploads/2016/10/1476961369-8108-maxresdefault-768x415.jpg 768w" alt="1476961369-8108-maxresdefault" width="1674" height="904" /></a></p>
+			<p><a href="/wp-content/uploads/2016/10/1476961369-8108-maxresdefault.jpg"><img class="attachment-full size-full aligncenter" src="./wp-content/uploads/2016/10/1476961369-8108-maxresdefault.jpg" sizes="(max-width: 1674px) 100vw, 1674px" srcset="/wp-content/uploads/2016/10/1476961369-8108-maxresdefault.jpg 1674w, /wp-content/uploads/2016/10/1476961369-8108-maxresdefault-768x415.jpg 768w" alt="1476961369-8108-maxresdefault" width="1674" height="904" /></a></p>
 <h2>INTRODUCE</h2>
 <p>OpenShift default using the Apache web server and user cannot modify the virtual host configuration file. Is there any way to allow OpenShift support multiple domains? The answer is yes. You can just only using Apache htaccess rule to get multiple domain supports.</p>
 <h2>STEP BY STEP</h2>
 <h3>1. BIND YOUR DOMAINS OR SUB-DOMAINS TO OPENSHIFT</h3>
 <p>First please bind your domains or your sub-domains to your OpenShift cloud host. For example, I have 3 sub-domains and a root domain need bind to OpenShift. I did those changes in my domain control panel.</p>
-<p><a href="/wp-content/uploads/2016/10/1476961332-9254-dns.png"><img class="attachment-full size-full" src="/wp-content/uploads/2016/10/1476961332-9254-dns.png" sizes="(max-width: 794px) 100vw, 794px" srcset="/wp-content/uploads/2016/10/1476961332-9254-dns.png 794w, /wp-content/uploads/2016/10/1476961332-9254-dns-768x388.png 768w" alt="1476961332-9254-dns" width="794" height="401" /></a></p>
+<p><a href="/wp-content/uploads/2016/10/1476961332-9254-dns.png"><img class="attachment-full size-full" src="./wp-content/uploads/2016/10/1476961332-9254-dns.png" sizes="(max-width: 794px) 100vw, 794px" srcset="/wp-content/uploads/2016/10/1476961332-9254-dns.png 794w, /wp-content/uploads/2016/10/1476961332-9254-dns-768x388.png 768w" alt="1476961332-9254-dns" width="794" height="401" /></a></p>
 <h3>2. ADDING YOUR DOMAINS OR SUB-DOMAINS IN OPENSHIFT</h3>
 <p>After binding domains, If you want access OpenShift from this domain, you need add your domain to OpenShift Cloud Host control panel. Just for example:</p>
-<p><a href="/wp-content/uploads/2016/10/1476961332-8574-alias.png"><img class="attachment-full size-full" src="/wp-content/uploads/2016/10/1476961332-8574-alias.png" alt="1476961332-8574-alias" width="622" height="357" /></a></p>
+<p><a href="/wp-content/uploads/2016/10/1476961332-8574-alias.png"><img class="attachment-full size-full" src="./wp-content/uploads/2016/10/1476961332-8574-alias.png" alt="1476961332-8574-alias" width="622" height="357" /></a></p>
 <h3>3. CREATE A HTACCESS FILE IN WEBROOT</h3>
 <p>Create a .htaccess file in your OpenShift web-root, and puts domain and directory relationship in it. Before do that please confirm those directory is in your web-root, if not please create it first.</p>
 <p>The sample .htaccess file:</p>
@@ -228,22 +228,22 @@ RewriteRule ^(.*)$ http://app.raineggplant.com/$1 [L]</pre>
 
 	<li class="related_box"  >
 		<a href="/2017/01/use-redis-queuing-laravel-5.html" title="How To Use Redis For Queuing In Laravel 5" target="_blank">
-		<img src="/wp-content/uploads/2017/01/laravel1-1.jpg" alt="How To Use Redis For Queuing In Laravel 5" /><br><span class="r_title">How To Use Redis For Queuing In Laravel 5</span></a>
+		<img src="./wp-content/uploads/2017/01/laravel1-1.jpg" alt="How To Use Redis For Queuing In Laravel 5" /><br><span class="r_title">How To Use Redis For Queuing In Laravel 5</span></a>
 		</li>
 	
 	<li class="related_box"  >
 		<a href="/2017/01/enable-ecc-rsa-nginx.html" title="Enable both ECC and RSA on nginx" target="_blank">
-		<img src="/wp-content/uploads/2017/01/1484621208-9831-https-icon.png" alt="Enable both ECC and RSA on nginx" /><br><span class="r_title">Enable both ECC and RSA on nginx</span></a>
+		<img src="./wp-content/uploads/2017/01/1484621208-9831-https-icon.png" alt="Enable both ECC and RSA on nginx" /><br><span class="r_title">Enable both ECC and RSA on nginx</span></a>
 		</li>
 	
 	<li class="related_box"  >
 		<a href="/2016/10/upgrade-ubuntu-16-04-lts.html" title="How To Upgrade to Ubuntu 16.04 LTS" target="_blank">
-		<img src="/wp-content/uploads/2016/10/1476961501-1126-ubuntu16.04-Blog.png" alt="How To Upgrade to Ubuntu 16.04 LTS" /><br><span class="r_title">How To Upgrade to Ubuntu 16.04 LTS</span></a>
+		<img src="./wp-content/uploads/2016/10/1476961501-1126-ubuntu16.04-Blog.png" alt="How To Upgrade to Ubuntu 16.04 LTS" /><br><span class="r_title">How To Upgrade to Ubuntu 16.04 LTS</span></a>
 		</li>
 	
 	<li class="related_box"  >
 		<a href="/2016/10/openshift-environment-variables.html" title="OpenShift Environment Variables" target="_blank">
-		<img src="/wp-content/uploads/2016/10/1476955176-1488-Open-shift-enerprise.jpg" alt="OpenShift Environment Variables" /><br><span class="r_title">OpenShift Environment Variables</span></a>
+		<img src="./wp-content/uploads/2016/10/1476955176-1488-Open-shift-enerprise.jpg" alt="OpenShift Environment Variables" /><br><span class="r_title">OpenShift Environment Variables</span></a>
 		</li>
 	</ul>
 

@@ -30,7 +30,7 @@
 
 		<guid isPermaLink="false">/?p=1797</guid>
 		<description><![CDATA[INTRODUCE AJAX = Asynchronous JavaScript And XML. AJAX is not a programming language. AJAX just uses a combination of: A browser built-in XMLHttpRequest object (to request data from a web server) JavaScript and HTML DOM (to display or use the data) AJAX is a misleading name. AJAX applications might use XML to transport data, but [&#8230;]]]></description>
-				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/10/1476955833-4486-ajax-min.jpg"><img class="attachment-full size-full aligncenter" src="/wp-content/uploads/2016/10/1476955833-4486-ajax-min.jpg" alt="1476955833-4486-ajax-min" width="474" height="236" /></a></p>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/10/1476955833-4486-ajax-min.jpg"><img class="attachment-full size-full aligncenter" src="./wp-content/uploads/2016/10/1476955833-4486-ajax-min.jpg" alt="1476955833-4486-ajax-min" width="474" height="236" /></a></p>
 <h2>INTRODUCE</h2>
 <p>AJAX = <strong>A</strong>synchronous <strong>J</strong>avaScript <strong>A</strong>nd <strong>X</strong>ML.</p>
 <p>AJAX is not a programming language.</p>
@@ -44,7 +44,7 @@
 </div>
 <p>AJAX allows web pages to be updated asynchronously by exchanging data with a web server behind the scenes. This means that it is possible to update parts of a web page, without reloading the whole page.</p>
 <h2>HOW AJAX WORKS</h2>
-<p><a href="/wp-content/uploads/2016/10/1476955833-5326-ajax.gif"><img class="attachment-full size-full" src="/wp-content/uploads/2016/10/1476955833-5326-ajax.gif" alt="1476955833-5326-ajax" width="569" height="324" /></a></p>
+<p><a href="/wp-content/uploads/2016/10/1476955833-5326-ajax.gif"><img class="attachment-full size-full" src="./wp-content/uploads/2016/10/1476955833-5326-ajax.gif" alt="1476955833-5326-ajax" width="569" height="324" /></a></p>
 <ul class="w3-ul w3-border w3-section">
 <li>1. An event occurs in a web page (the page is loaded, a button is clicked)</li>
 <li>2. An XMLHttpRequest object is created by JavaScript</li>
@@ -89,7 +89,7 @@ $.post('server.php', $('#theForm').serialize())</pre>
 
 		<guid isPermaLink="false">/?p=1485</guid>
 		<description><![CDATA[INTRODUCE distcc is a program that enables a single &#8220;master&#8221; computer (the Raspberry Pi in our case) to distribute its compiling load to other &#8220;helper&#8221; machines (a multi-core Ubuntu Linux machine) over the network. In standard mode, source files are preprocessed on the Raspberry Pi, compressed and sent to the helper machine for compiling. The [&#8230;]]]></description>
-				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2015/01/distccmon-gnome-2003-09-23-01.png"><img class="attachment-full aligncenter" src="/wp-content/uploads/2015/01/distccmon-gnome-2003-09-23-01.png" alt="distccmon-gnome-2003-09-23-01" width="515" height="252" /></a></p>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2015/01/distccmon-gnome-2003-09-23-01.png"><img class="attachment-full aligncenter" src="./wp-content/uploads/2015/01/distccmon-gnome-2003-09-23-01.png" alt="distccmon-gnome-2003-09-23-01" width="515" height="252" /></a></p>
 <h2>INTRODUCE</h2>
 <p>distcc is a program that enables a single &#8220;master&#8221; computer (the Raspberry Pi in our case) to distribute its compiling load to other &#8220;helper&#8221; machines (a multi-core Ubuntu Linux machine) over the network. In standard mode, source files are preprocessed on the Raspberry Pi, compressed and sent to the helper machine for compiling. The helper machine, which in this case is running an arm-compatible cross-compiler, compiles the object files (.o files) and sends them back to the Raspberry Pi. Once the Raspberry Pi has received all of the object files, it will then link them into a library or executable.</p>
 <p>It is also possible to distribute preprocessing using distcc-pump, but this feature is not explored below.</p>
@@ -185,7 +185,7 @@ $ make -j 6 CXX=/usr/lib/distcc/arm-linux-gnueabihf-g++ CC=/usr/lib/distcc/arm-l
 
 		<guid isPermaLink="false">/?p=1345</guid>
 		<description><![CDATA[As we know, Text-to-Speech can convert TEXT into VOICE. If we write a program to realize TTS, It&#8217;s not easy. So we can use a API to finish this work. Google TTS maybe is a good choose. When you call Google TTS and POST data to TTS server, Google TTS will return a MP3 file [&#8230;]]]></description>
-				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2014/10/google-tts.jpg"><img class="aligncenter size-full wp-image-1567" src="/wp-content/uploads/2014/10/google-tts.jpg" alt="google-tts" width="680" height="383" /></a></p>
+				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2014/10/google-tts.jpg"><img class="aligncenter size-full wp-image-1567" src="./wp-content/uploads/2014/10/google-tts.jpg" alt="google-tts" width="680" height="383" /></a></p>
 <p>As we know, Text-to-Speech can convert TEXT into VOICE. If we write a program to realize TTS, It&#8217;s not easy. So we can use a API to finish this work. Google TTS maybe is a good choose.</p>
 <p>When you call Google TTS and POST data to TTS server, Google TTS will return a MP3 file include with the voice you want to you. It&#8217;s so easy even without programming! You can also open in Media Player or Browsers.</p>
 <blockquote><p><strong>Usage: </strong>http://<strong><em><span style="color: #808080;">translate.google.com</span></em></strong>/translate_tts?<strong>ie</strong>=<span style="color: #0000ff;">&lt;CODING&gt;</span>&amp;<strong>q</strong>=<span style="color: #0000ff;">&lt;STRING&gt;</span>&amp;<strong>tl</strong>=<span style="color: #0000ff;">&lt;LANGUAGE&gt;</span></p></blockquote>
@@ -364,7 +364,7 @@ FROM: http://fragglet.livejournal.com/4448.html [ENGLISH]</p></blockquote>
 
 		<guid isPermaLink="false">/?p=960</guid>
 		<description><![CDATA[Don Yang omoikane@uguu.org http://uguu.org/ Judges&#8217; comments: To build: make akari To run: ./akari [input_file_or_- [output_file_or_- [even]]] Try: ./akari &#60; example.ppm &#62; odd_output.ppm ./akari - - even &#60; example.ppm &#62; even_output.ppm ./akari example.ppm odd_output.ppm make akari2.c cat akari2.c make akari2 ./akari2 &#60; akari2.c ./akari2 rot13 &#60; akari2.c make akari3.c cat akari3.c make akari3 ./akari3 make akari4.c [&#8230;]]]></description>
-				<content:encoded><![CDATA[<p><img class="aligncenter size-full wp-image-1706" src="/wp-content/uploads/2013/11/akari-c-20160409.jpg" alt="akari-c-20160409" width="640" height="400" />Don Yang<br />
+				<content:encoded><![CDATA[<p><img class="aligncenter size-full wp-image-1706" src="./wp-content/uploads/2013/11/akari-c-20160409.jpg" alt="akari-c-20160409" width="640" height="400" />Don Yang<br />
 <a href="mailto:omoikane@uguu.org">omoikane@uguu.org</a><br />
 <a href="http://uguu.org/">http://uguu.org/</a></p>
 <h2>Judges&#8217; comments:</h2>

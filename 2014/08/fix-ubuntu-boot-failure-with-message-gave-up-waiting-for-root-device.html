@@ -33,10 +33,10 @@ img.emoji {
 <link rel='https://api.w.org/' href='/wp-json/' />
 <link rel='prev' title='解决 Ubuntu 因为磁盘加载过慢而启动失败' href='/2014/08/%E8%A7%A3%E5%86%B3-ubuntu-%E5%9B%A0%E4%B8%BA%E7%A3%81%E7%9B%98%E5%8A%A0%E8%BD%BD%E8%BF%87%E6%85%A2%E8%80%8C%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5.html' />
 <link rel='next' title='使 Ubuntu 开机自动激活并连接无线网络 [ENG/中文]' href='/2014/08/%E4%BD%BF-ubuntu-%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E6%BF%80%E6%B4%BB%E5%B9%B6%E8%BF%9E%E6%8E%A5%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C-eng%E4%B8%AD%E6%96%87.html' />
-<link rel="canonical" href="/2014/08/fix-ubuntu-boot-failure-with-message-gave-up-waiting-for-root-device.html" />
+<link rel="canonical" href="./2014/08/fix-ubuntu-boot-failure-with-message-gave-up-waiting-for-root-device.html" />
 <link rel='shortlink' href='/?p=1325' />
-<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F08%2Ffix-ubuntu-boot-failure-with-message-gave-up-waiting-for-root-device.html" />
-<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F08%2Ffix-ubuntu-boot-failure-with-message-gave-up-waiting-for-root-device.html&#038;format=xml" />
+<link rel="alternate" type="application/json+oembed" href="./wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F08%2Ffix-ubuntu-boot-failure-with-message-gave-up-waiting-for-root-device.html" />
+<link rel="alternate" type="text/xml+oembed" href="./wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F08%2Ffix-ubuntu-boot-failure-with-message-gave-up-waiting-for-root-device.html&#038;format=xml" />
 <meta name="keywords" content="Operating System">
 <meta name="description" content="Maybe due to Hard Disk itself speed or type, or MotherBoard's problem. Hard Disk detect is timed out, make Ubuntu cannot found any Hard Disk, then Ubuntu stop booting and report 'Gave up waiting for root device'.  Such p">
 <!--[if lt IE 9]><script src="https://dfc643.github.io/blog/wp-content/themes/yusi_cache1.0/js/html5.js"></script><![endif]-->
@@ -51,19 +51,19 @@ img.emoji {
     <ul class="nav">
         <li class="title">Norckon</li>
         <li id="menu-item-1262" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1262"><a href="http://dfc643.github.io/">Top</a></li>
-<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-1046"><a href="/category/software">Soft</a>
+<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-1046"><a href="./category/software">Soft</a>
 <ul class="sub-menu">
-	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-1064"><a href="/category/software">Software</a></li>
-	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1062"><a href="/category/software/os">OS</a></li>
-	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1049"><a href="/category/software/programming">Programming</a></li>
+	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-1064"><a href="./category/software">Software</a></li>
+	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1062"><a href="./category/software/os">OS</a></li>
+	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1049"><a href="./category/software/programming">Programming</a></li>
 </ul>
 </li>
-<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="/category/hardware">Hard</a></li>
-<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1047"><a href="/category/network">Net</a>
+<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="./category/hardware">Hard</a></li>
+<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1047"><a href="./category/network">Net</a>
 <ul class="sub-menu">
-	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1063"><a href="/category/network">Network</a></li>
-	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1496"><a href="/category/network/server">Server</a></li>
-	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="/category/network/website">Web</a></li>
+	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1063"><a href="./category/network">Network</a></li>
+	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1496"><a href="./category/network/server">Server</a></li>
+	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="./category/network/website">Web</a></li>
 </ul>
 </li>
 <li id="menu-item-1220" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1220"><a>Tool</a>
@@ -86,10 +86,10 @@ img.emoji {
 	<li id="menu-item-1825" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1825"><a href="http://mybeibei.net/">Guge&#8217;s blog</a></li>
 	<li id="menu-item-1162" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1162"><a href="http://www.yjsys.tk/">寂写心灵之幽</a></li>
 	<li id="menu-item-1045" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1045"><a href="http://hanicc.com/">HoneyCC</a></li>
-	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="/add-link">+ Add Link</a></li>
+	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="./add-link">+ Add Link</a></li>
 </ul>
 </li>
-<li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="/">Blog</a></li>
+<li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="./">Blog</a></li>
 <li style="float:right;">
                 <div class="toggle-search"><i class="fa fa-search"></i></div>
 <div class="search-expand" style="display: none;"><div class="search-expand-inner"><form method="get" class="searchform themeform" onsubmit="location.href='https://dfc643.github.io/blog/?s=' + encodeURIComponent(this.s.value).replace(/%20/g, '+'); return false;" action="/"><div> <input type="ext" class="search" name="s" onblur="if(this.value=='')this.value='search...';" onfocus="if(this.value=='search...')this.value='';" value="search..."></div></form></div></div>
@@ -100,7 +100,7 @@ img.emoji {
 
 <div class="container-inner" style="display:none">
  <div class="yusi-logo">
-<a href="/">
+<a href="./">
 <h1>
 <span class="yusi-mono">Norckon&#039;s blog</span>
 <span class="yusi-bloger">Norckon&#039;s blog</span>
@@ -120,12 +120,12 @@ img.emoji {
 	<div class="content">
 
 				<header class="article-header">
-			<h1 class="article-title"><a href="/2014/08/fix-ubuntu-boot-failure-with-message-gave-up-waiting-for-root-device.html">Fix ubuntu boot failure with message &#8220;Gave up waiting for root device&#8221;</a></h1>
+			<h1 class="article-title"><a href="./2014/08/fix-ubuntu-boot-failure-with-message-gave-up-waiting-for-root-device.html">Fix ubuntu boot failure with message &#8220;Gave up waiting for root device&#8221;</a></h1>
 			<div class="meta">
-				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="/category/software/os"> Operating System</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="/author/dfc643">Norckon</a></span>
+				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="./category/software/os"> Operating System</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="./author/dfc643">Norckon</a></span>
 				<time class="muted"><i class="fa fa-clock-o"></i> 2014-08-19</time>
 				<span class="muted"><i class="fa fa-eye"></i> 1362℃</span>
-				<span class="muted"><i class="fa fa-comments-o"></i> <a href="/2014/08/fix-ubuntu-boot-failure-with-message-gave-up-waiting-for-root-device.html#respond">0评论</a></span>							</div>
+				<span class="muted"><i class="fa fa-comments-o"></i> <a href="./2014/08/fix-ubuntu-boot-failure-with-message-gave-up-waiting-for-root-device.html#respond">0评论</a></span>							</div>
 		</header>
 		<article class="article-content">
 			<p>Maybe due to Hard Disk itself speed or type, or MotherBoard&#8217;s problem. Hard Disk detect is timed out, make Ubuntu cannot found any Hard Disk, then Ubuntu stop booting and report &#8220;Gave up waiting for root device&#8221;.</p>
@@ -151,37 +151,37 @@ img.emoji {
 				<footer class="article-footer">
 			</footer>
 	<nav class="article-nav">
-			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="/2014/08/%E8%A7%A3%E5%86%B3-ubuntu-%E5%9B%A0%E4%B8%BA%E7%A3%81%E7%9B%98%E5%8A%A0%E8%BD%BD%E8%BF%87%E6%85%A2%E8%80%8C%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5.html" rel="prev">解决 Ubuntu 因为磁盘加载过慢而启动失败</a></span>
-			<span class="article-nav-next"><a href="/2014/08/%E4%BD%BF-ubuntu-%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E6%BF%80%E6%B4%BB%E5%B9%B6%E8%BF%9E%E6%8E%A5%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C-eng%E4%B8%AD%E6%96%87.html" rel="next">使 Ubuntu 开机自动激活并连接无线网络 [ENG/中文]</a>  <i class="fa fa-angle-double-right"></i></span>
+			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="./2014/08/%E8%A7%A3%E5%86%B3-ubuntu-%E5%9B%A0%E4%B8%BA%E7%A3%81%E7%9B%98%E5%8A%A0%E8%BD%BD%E8%BF%87%E6%85%A2%E8%80%8C%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5.html" rel="prev">解决 Ubuntu 因为磁盘加载过慢而启动失败</a></span>
+			<span class="article-nav-next"><a href="./2014/08/%E4%BD%BF-ubuntu-%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E6%BF%80%E6%B4%BB%E5%B9%B6%E8%BF%9E%E6%8E%A5%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C-eng%E4%B8%AD%E6%96%87.html" rel="next">使 Ubuntu 开机自动激活并连接无线网络 [ENG/中文]</a>  <i class="fa fa-angle-double-right"></i></span>
 		</nav>
 
 		<div class="related_top">
 			<div class="related_posts"><ul class="related_img">
 
 	<li class="related_box"  >
-		<a href="/2017/06/steps-signing-device-driver-package.html" title="Steps for Signing a Device Driver Package" target="_blank">
-		<img src="/wp-content/uploads/2017/06/Windows-10-wallpaper-New-Logo.jpg" alt="Steps for Signing a Device Driver Package" /><br><span class="r_title">Steps for Signing a Device Driver Package</span></a>
+		<a href="./2017/06/steps-signing-device-driver-package.html" title="Steps for Signing a Device Driver Package" target="_blank">
+		<img src="./wp-content/uploads/2017/06/Windows-10-wallpaper-New-Logo.jpg" alt="Steps for Signing a Device Driver Package" /><br><span class="r_title">Steps for Signing a Device Driver Package</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="/2016/05/linux-wifi-deauthenticated-reason-codes.html" title="Linux WiFi: Deauthenticated Reason Codes" target="_blank">
-		<img src="/wp-content/uploads/2016/05/1464155450-4108-linux-1x.png" alt="Linux WiFi: Deauthenticated Reason Codes" /><br><span class="r_title">Linux WiFi: Deauthenticated Reason Codes</span></a>
+		<a href="./2016/05/linux-wifi-deauthenticated-reason-codes.html" title="Linux WiFi: Deauthenticated Reason Codes" target="_blank">
+		<img src="./wp-content/uploads/2016/05/1464155450-4108-linux-1x.png" alt="Linux WiFi: Deauthenticated Reason Codes" /><br><span class="r_title">Linux WiFi: Deauthenticated Reason Codes</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="/2014/12/raspberry-pi-control-by-android.html" title="Raspberry Pi &#8211; Control by Android" target="_blank">
-		<img src="/wp-content/uploads/2014/12/imagesqtbnANd9GcQEKlLIIgvhtDyOjCgBUGgTlEnv4sJNGFNA33J6H8e-YitQG5A9" alt="Raspberry Pi &#8211; Control by Android" /><br><span class="r_title">Raspberry Pi &#8211; Control by Android</span></a>
+		<a href="./2014/12/raspberry-pi-control-by-android.html" title="Raspberry Pi &#8211; Control by Android" target="_blank">
+		<img src="./wp-content/uploads/2014/12/imagesqtbnANd9GcQEKlLIIgvhtDyOjCgBUGgTlEnv4sJNGFNA33J6H8e-YitQG5A9" alt="Raspberry Pi &#8211; Control by Android" /><br><span class="r_title">Raspberry Pi &#8211; Control by Android</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="/2014/11/change-ubuntu-screenshot-save-location.html" title="Change Ubuntu screenshot save location" target="_blank">
-		<img src="/wp-content/uploads/2014/11/screenshots.jpg" alt="Change Ubuntu screenshot save location" /><br><span class="r_title">Change Ubuntu screenshot save location</span></a>
+		<a href="./2014/11/change-ubuntu-screenshot-save-location.html" title="Change Ubuntu screenshot save location" target="_blank">
+		<img src="./wp-content/uploads/2014/11/screenshots.jpg" alt="Change Ubuntu screenshot save location" /><br><span class="r_title">Change Ubuntu screenshot save location</span></a>
 		</li>
 	</ul>
 
 <div class="relates">
 <ul>
-<li><i class="fa fa-minus"></i><a target="_blank" href="/2017/06/steps-signing-device-driver-package.html">Steps for Signing a Device Driver Package</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2016/05/linux-wifi-deauthenticated-reason-codes.html">Linux WiFi: Deauthenticated Reason Codes</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/12/raspberry-pi-control-by-android.html">Raspberry Pi &#8211; Control by Android</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/11/change-ubuntu-screenshot-save-location.html">Change Ubuntu screenshot save location</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/11/turn-off-monitor-using-command-line.html">Turn off monitor using command line</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/11/make-your-ubuntu-more-beautifully.html">Make your Ubuntu more beautifully</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/10/how-to-fix-corrupt-drive-icons-problem-in-my-computer-window.html">How to Fix Corrupt Drive Icons Problem in My Computer Window</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/09/macbook-pro-%E5%AE%89%E8%A3%85-windows-7-%E6%89%8B%E8%AE%B0.html">Macbook Pro 安装 Windows 7 手记 [中文]</a></li>
+<li><i class="fa fa-minus"></i><a target="_blank" href="./2017/06/steps-signing-device-driver-package.html">Steps for Signing a Device Driver Package</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2016/05/linux-wifi-deauthenticated-reason-codes.html">Linux WiFi: Deauthenticated Reason Codes</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/12/raspberry-pi-control-by-android.html">Raspberry Pi &#8211; Control by Android</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/11/change-ubuntu-screenshot-save-location.html">Change Ubuntu screenshot save location</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/11/turn-off-monitor-using-command-line.html">Turn off monitor using command line</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/11/make-your-ubuntu-more-beautifully.html">Make your Ubuntu more beautifully</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/10/how-to-fix-corrupt-drive-icons-problem-in-my-computer-window.html">How to Fix Corrupt Drive Icons Problem in My Computer Window</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/09/macbook-pro-%E5%AE%89%E8%A3%85-windows-7-%E6%89%8B%E8%AE%B0.html">Macbook Pro 安装 Windows 7 手记 [中文]</a></li>
 </ul></div></div>		</div>
 						<div id="respond" class="no_webshot">
 		<form action="/wp-comments-post.php" method="post" id="commentform">
@@ -225,7 +225,7 @@ img.emoji {
 <aside class="sidebar">	
 <div class="widget widget_text"><div class="textwidget text-social"><div class="social">
 
-<a href="http://weibo.com/dfc643" rel="external nofollow" title="Weibo" target="_blank"><i class="sinaweibo fa fa-weibo"></i></a><a  href="http://t.qq.com/dfc643" rel="external nofollow" title="t.qq.com" target="_blank"><i class="tencentweibo fa fa-tencent-weibo"></i></a><a href="https://twitter.com/dfc643" rel="external nofollow" title="Twitter" target="_blank"><i class="twitter fa fa-twitter"></i></a><a href="https://www.facebook.com/Norckon" rel="external nofollow" title="Facebook" target="_blank"><i class="facebook fa fa-facebook"></i></a><a href="http://mail.fcsys.org/" rel="external nofollow" title="Email" target="_blank"><i class="email fa fa-envelope-o"></i></a><a href="/?feed=rss2" rel="external nofollow" target="_blank"  title="RSS Feed"><i class="rss fa fa-rss"></i></a>
+<a href="http://weibo.com/dfc643" rel="external nofollow" title="Weibo" target="_blank"><i class="sinaweibo fa fa-weibo"></i></a><a  href="http://t.qq.com/dfc643" rel="external nofollow" title="t.qq.com" target="_blank"><i class="tencentweibo fa fa-tencent-weibo"></i></a><a href="https://twitter.com/dfc643" rel="external nofollow" title="Twitter" target="_blank"><i class="twitter fa fa-twitter"></i></a><a href="https://www.facebook.com/Norckon" rel="external nofollow" title="Facebook" target="_blank"><i class="facebook fa fa-facebook"></i></a><a href="http://mail.fcsys.org/" rel="external nofollow" title="Email" target="_blank"><i class="email fa fa-envelope-o"></i></a><a href="./?feed=rss2" rel="external nofollow" target="_blank"  title="RSS Feed"><i class="rss fa fa-rss"></i></a>
 </div></div></div>
 
 <div class="widget widget_text"><div class="title"><h2>Staticized</h2></div>			<div class="textwidget"><p><strong>WARNING</strong>: This blog has been <strong>Staticized</strong>. All comment, like or other function will not working.</p>
@@ -246,9 +246,9 @@ img.emoji {
 
 	<tfoot>
 	<tr>
-		<td colspan="3" id="prev"><a href="/2014/07">&laquo; Jul</a></td>
+		<td colspan="3" id="prev"><a href="./2014/07">&laquo; Jul</a></td>
 		<td class="pad">&nbsp;</td>
-		<td colspan="3" id="next"><a href="/2014/09">Sep &raquo;</a></td>
+		<td colspan="3" id="next"><a href="./2014/09">Sep &raquo;</a></td>
 	</tr>
 	</tfoot>
 
@@ -257,34 +257,34 @@ img.emoji {
 		<td colspan="4" class="pad">&nbsp;</td><td>1</td><td>2</td><td>3</td>
 	</tr>
 	<tr>
-		<td>4</td><td>5</td><td>6</td><td>7</td><td><a href="/2014/08/08" aria-label="Posts published on August 8, 2014">8</a></td><td>9</td><td>10</td>
+		<td>4</td><td>5</td><td>6</td><td>7</td><td><a href="./2014/08/08" aria-label="Posts published on August 8, 2014">8</a></td><td>9</td><td>10</td>
 	</tr>
 	<tr>
-		<td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td><a href="/2014/08/17" aria-label="Posts published on August 17, 2014">17</a></td>
+		<td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td><a href="./2014/08/17" aria-label="Posts published on August 17, 2014">17</a></td>
 	</tr>
 	<tr>
-		<td>18</td><td><a href="/2014/08/19" aria-label="Posts published on August 19, 2014">19</a></td><td>20</td><td>21</td><td><a href="/2014/08/22" aria-label="Posts published on August 22, 2014">22</a></td><td>23</td><td>24</td>
+		<td>18</td><td><a href="./2014/08/19" aria-label="Posts published on August 19, 2014">19</a></td><td>20</td><td>21</td><td><a href="./2014/08/22" aria-label="Posts published on August 22, 2014">22</a></td><td>23</td><td>24</td>
 	</tr>
 	<tr>
 		<td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td>
 	</tr>
 	</tbody>
 	</table></div></div><div class="widget widget_categories"><div class="title"><h2>Categories</h2></div>		<ul>
-	<li class="cat-item cat-item-10"><a href="/category/hardware" >Hardware</a>
+	<li class="cat-item cat-item-10"><a href="./category/hardware" >Hardware</a>
 </li>
-	<li class="cat-item cat-item-3"><a href="/category/network" >Network</a>
+	<li class="cat-item cat-item-3"><a href="./category/network" >Network</a>
 </li>
-	<li class="cat-item cat-item-17"><a href="/category/software/os" >Operating System</a>
+	<li class="cat-item cat-item-17"><a href="./category/software/os" >Operating System</a>
 </li>
-	<li class="cat-item cat-item-4"><a href="/category/software/programming" >Programming</a>
+	<li class="cat-item cat-item-4"><a href="./category/software/programming" >Programming</a>
 </li>
-	<li class="cat-item cat-item-106"><a href="/category/network/server" >Server</a>
+	<li class="cat-item cat-item-106"><a href="./category/network/server" >Server</a>
 </li>
-	<li class="cat-item cat-item-6"><a href="/category/software" >Software</a>
+	<li class="cat-item cat-item-6"><a href="./category/software" >Software</a>
 </li>
-	<li class="cat-item cat-item-1"><a href="/category/uncategorized" >Uncategorized</a>
+	<li class="cat-item cat-item-1"><a href="./category/uncategorized" >Uncategorized</a>
 </li>
-	<li class="cat-item cat-item-13"><a href="/category/network/website" >Website</a>
+	<li class="cat-item cat-item-13"><a href="./category/network/website" >Website</a>
 </li>
 		</ul>
 </div><div class="widget widget_archive"><div class="title"><h2>Archives</h2></div>		<ul>

@@ -33,10 +33,10 @@ img.emoji {
 <link rel='https://api.w.org/' href='/wp-json/' />
 <link rel='prev' title='Customize Incapsula Node' href='/2014/08/customize-incapsula-node.html' />
 <link rel='next' title='Macbook Pro 安装 Windows 7 手记 [中文]' href='/2014/09/macbook-pro-%E5%AE%89%E8%A3%85-windows-7-%E6%89%8B%E8%AE%B0.html' />
-<link rel="canonical" href="/2014/09/%E4%B8%BA%E5%90%AF%E7%94%A8ssl%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%81%BF%E5%85%8Denter-pem-pass-phrase%E9%97%AE%E9%A2%98.html" />
+<link rel="canonical" href="./2014/09/%E4%B8%BA%E5%90%AF%E7%94%A8ssl%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%81%BF%E5%85%8Denter-pem-pass-phrase%E9%97%AE%E9%A2%98.html" />
 <link rel='shortlink' href='/?p=1336' />
-<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F09%2F%25E4%25B8%25BA%25E5%2590%25AF%25E7%2594%25A8ssl%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E9%2581%25BF%25E5%2585%258Denter-pem-pass-phrase%25E9%2597%25AE%25E9%25A2%2598.html" />
-<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F09%2F%25E4%25B8%25BA%25E5%2590%25AF%25E7%2594%25A8ssl%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E9%2581%25BF%25E5%2585%258Denter-pem-pass-phrase%25E9%2597%25AE%25E9%25A2%2598.html&#038;format=xml" />
+<link rel="alternate" type="application/json+oembed" href="./wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F09%2F%25E4%25B8%25BA%25E5%2590%25AF%25E7%2594%25A8ssl%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E9%2581%25BF%25E5%2585%258Denter-pem-pass-phrase%25E9%2597%25AE%25E9%25A2%2598.html" />
+<link rel="alternate" type="text/xml+oembed" href="./wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F09%2F%25E4%25B8%25BA%25E5%2590%25AF%25E7%2594%25A8ssl%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E9%2581%25BF%25E5%2585%258Denter-pem-pass-phrase%25E9%2597%25AE%25E9%25A2%2598.html&#038;format=xml" />
 <meta name="keywords" content="Network">
 <meta name="description" content="配置好的Nginx每次启动都要输两遍PEM pass phrase，很是不爽，尤其是在服务器重启后，Nginx压根就无法自动启动，必须手动启动并输入那麻烦的PEM pass phrase。如何避免Nginx启动出现Enter PEM pass phrase呢？  这种情况可能是在设置私钥key时将密码设置写入了key文件，导致Nginx/Apache等系列服务器在启动时要求Enter PEM pass phrase。我们需要做的是剥离这">
 <!--[if lt IE 9]><script src="https://dfc643.github.io/blog/wp-content/themes/yusi_cache1.0/js/html5.js"></script><![endif]-->
@@ -51,19 +51,19 @@ img.emoji {
     <ul class="nav">
         <li class="title">Norckon</li>
         <li id="menu-item-1262" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1262"><a href="http://dfc643.github.io/">Top</a></li>
-<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1046"><a href="/category/software">Soft</a>
+<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1046"><a href="./category/software">Soft</a>
 <ul class="sub-menu">
-	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1064"><a href="/category/software">Software</a></li>
-	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1062"><a href="/category/software/os">OS</a></li>
-	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1049"><a href="/category/software/programming">Programming</a></li>
+	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1064"><a href="./category/software">Software</a></li>
+	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1062"><a href="./category/software/os">OS</a></li>
+	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1049"><a href="./category/software/programming">Programming</a></li>
 </ul>
 </li>
-<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="/category/hardware">Hard</a></li>
-<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-1047"><a href="/category/network">Net</a>
+<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="./category/hardware">Hard</a></li>
+<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-1047"><a href="./category/network">Net</a>
 <ul class="sub-menu">
-	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1063"><a href="/category/network">Network</a></li>
-	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1496"><a href="/category/network/server">Server</a></li>
-	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="/category/network/website">Web</a></li>
+	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1063"><a href="./category/network">Network</a></li>
+	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1496"><a href="./category/network/server">Server</a></li>
+	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="./category/network/website">Web</a></li>
 </ul>
 </li>
 <li id="menu-item-1220" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1220"><a>Tool</a>
@@ -86,10 +86,10 @@ img.emoji {
 	<li id="menu-item-1825" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1825"><a href="http://mybeibei.net/">Guge&#8217;s blog</a></li>
 	<li id="menu-item-1162" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1162"><a href="http://www.yjsys.tk/">寂写心灵之幽</a></li>
 	<li id="menu-item-1045" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1045"><a href="http://hanicc.com/">HoneyCC</a></li>
-	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="/add-link">+ Add Link</a></li>
+	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="./add-link">+ Add Link</a></li>
 </ul>
 </li>
-<li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="/">Blog</a></li>
+<li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="./">Blog</a></li>
 <li style="float:right;">
                 <div class="toggle-search"><i class="fa fa-search"></i></div>
 <div class="search-expand" style="display: none;"><div class="search-expand-inner"><form method="get" class="searchform themeform" onsubmit="location.href='https://dfc643.github.io/blog/?s=' + encodeURIComponent(this.s.value).replace(/%20/g, '+'); return false;" action="/"><div> <input type="ext" class="search" name="s" onblur="if(this.value=='')this.value='search...';" onfocus="if(this.value=='search...')this.value='';" value="search..."></div></form></div></div>
@@ -100,7 +100,7 @@ img.emoji {
 
 <div class="container-inner" style="display:none">
  <div class="yusi-logo">
-<a href="/">
+<a href="./">
 <h1>
 <span class="yusi-mono">Norckon&#039;s blog</span>
 <span class="yusi-bloger">Norckon&#039;s blog</span>
@@ -120,12 +120,12 @@ img.emoji {
 	<div class="content">
 
 				<header class="article-header">
-			<h1 class="article-title"><a href="/2014/09/%E4%B8%BA%E5%90%AF%E7%94%A8ssl%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%81%BF%E5%85%8Denter-pem-pass-phrase%E9%97%AE%E9%A2%98.html">为启用SSL的服务器避免Enter PEM pass phrase问题</a></h1>
+			<h1 class="article-title"><a href="./2014/09/%E4%B8%BA%E5%90%AF%E7%94%A8ssl%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%81%BF%E5%85%8Denter-pem-pass-phrase%E9%97%AE%E9%A2%98.html">为启用SSL的服务器避免Enter PEM pass phrase问题</a></h1>
 			<div class="meta">
-				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="/category/network"> Network</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="/author/dfc643">Norckon</a></span>
+				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="./category/network"> Network</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="./author/dfc643">Norckon</a></span>
 				<time class="muted"><i class="fa fa-clock-o"></i> 2014-09-08</time>
 				<span class="muted"><i class="fa fa-eye"></i> 1295℃</span>
-				<span class="muted"><i class="fa fa-comments-o"></i> <a href="/2014/09/%E4%B8%BA%E5%90%AF%E7%94%A8ssl%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%81%BF%E5%85%8Denter-pem-pass-phrase%E9%97%AE%E9%A2%98.html#respond">0评论</a></span>							</div>
+				<span class="muted"><i class="fa fa-comments-o"></i> <a href="./2014/09/%E4%B8%BA%E5%90%AF%E7%94%A8ssl%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%81%BF%E5%85%8Denter-pem-pass-phrase%E9%97%AE%E9%A2%98.html#respond">0评论</a></span>							</div>
 		</header>
 		<article class="article-content">
 			<p>配置好的Nginx每次启动都要输两遍PEM pass phrase，很是不爽，尤其是在服务器重启后，Nginx压根就无法自动启动，必须手动启动并输入那麻烦的PEM pass phrase。如何避免Nginx启动出现Enter PEM pass phrase呢？</p>
@@ -156,37 +156,37 @@ server {
 				<footer class="article-footer">
 			</footer>
 	<nav class="article-nav">
-			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="/2014/08/customize-incapsula-node.html" rel="prev">Customize Incapsula Node</a></span>
-			<span class="article-nav-next"><a href="/2014/09/macbook-pro-%E5%AE%89%E8%A3%85-windows-7-%E6%89%8B%E8%AE%B0.html" rel="next">Macbook Pro 安装 Windows 7 手记 [中文]</a>  <i class="fa fa-angle-double-right"></i></span>
+			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="./2014/08/customize-incapsula-node.html" rel="prev">Customize Incapsula Node</a></span>
+			<span class="article-nav-next"><a href="./2014/09/macbook-pro-%E5%AE%89%E8%A3%85-windows-7-%E6%89%8B%E8%AE%B0.html" rel="next">Macbook Pro 安装 Windows 7 手记 [中文]</a>  <i class="fa fa-angle-double-right"></i></span>
 		</nav>
 
 		<div class="related_top">
 			<div class="related_posts"><ul class="related_img">
 
 	<li class="related_box"  >
-		<a href="/2016/06/different-3-ways-reject-packets.html" title="What different between the 3 ways to reject packets" target="_blank">
-		<img src="/wp-content/uploads/2016/06/1472551735-1147-aae3e19ffb6b28d2c64344fb66a9.jpg" alt="What different between the 3 ways to reject packets" /><br><span class="r_title">What different between the 3 ways to reject packets</span></a>
+		<a href="./2016/06/different-3-ways-reject-packets.html" title="What different between the 3 ways to reject packets" target="_blank">
+		<img src="./wp-content/uploads/2016/06/1472551735-1147-aae3e19ffb6b28d2c64344fb66a9.jpg" alt="What different between the 3 ways to reject packets" /><br><span class="r_title">What different between the 3 ways to reject packets</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="/2015/10/gaming-and-download-optimized-queue-script-for-mikrotik-routeros.html" title="Optimized queue script for MikroTik RouterOS" target="_blank">
-		<img src="/wp-content/uploads/2015/10/ER_NetworkTraffic_660x384.jpg" alt="Optimized queue script for MikroTik RouterOS" /><br><span class="r_title">Optimized queue script for MikroTik RouterOS</span></a>
+		<a href="./2015/10/gaming-and-download-optimized-queue-script-for-mikrotik-routeros.html" title="Optimized queue script for MikroTik RouterOS" target="_blank">
+		<img src="./wp-content/uploads/2015/10/ER_NetworkTraffic_660x384.jpg" alt="Optimized queue script for MikroTik RouterOS" /><br><span class="r_title">Optimized queue script for MikroTik RouterOS</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="/2015/04/host-a-website-with-non-public-ip-computer.html" title="Host a website with non-Public IP computer" target="_blank">
-		<img src="/wp-content/uploads/2015/04/68747470733a2f2f6e67726f6b2e636f6d2f7374617469632f696d672f6f766572766965772e706e67" alt="Host a website with non-Public IP computer" /><br><span class="r_title">Host a website with non-Public IP computer</span></a>
+		<a href="./2015/04/host-a-website-with-non-public-ip-computer.html" title="Host a website with non-Public IP computer" target="_blank">
+		<img src="./wp-content/uploads/2015/04/68747470733a2f2f6e67726f6b2e636f6d2f7374617469632f696d672f6f766572766965772e706e67" alt="Host a website with non-Public IP computer" /><br><span class="r_title">Host a website with non-Public IP computer</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="/2015/04/set-max-login-attempts-for-ssh.html" title="Set max login attempts for SSH" target="_blank">
-		<img src="/wp-content/uploads/2015/04/ssh-picture.jpg" alt="Set max login attempts for SSH" /><br><span class="r_title">Set max login attempts for SSH</span></a>
+		<a href="./2015/04/set-max-login-attempts-for-ssh.html" title="Set max login attempts for SSH" target="_blank">
+		<img src="./wp-content/uploads/2015/04/ssh-picture.jpg" alt="Set max login attempts for SSH" /><br><span class="r_title">Set max login attempts for SSH</span></a>
 		</li>
 	</ul>
 
 <div class="relates">
 <ul>
-<li><i class="fa fa-minus"></i><a target="_blank" href="/2016/06/different-3-ways-reject-packets.html">What different between the 3 ways to reject packets</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2015/10/gaming-and-download-optimized-queue-script-for-mikrotik-routeros.html">Optimized queue script for MikroTik RouterOS</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2015/04/host-a-website-with-non-public-ip-computer.html">Host a website with non-Public IP computer</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2015/04/set-max-login-attempts-for-ssh.html">Set max login attempts for SSH</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2015/04/monitoring-the-raspberry-pi-with-mrtg.html">Monitoring The Raspberry Pi with MRTG</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2015/01/setup-dnsmasq-server-as-dns-server.html">Setup Dnsmasq server as DNS server</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2015/01/using-upstream-achieve-php-cgi-load-balancing-in-nginx.html">Using upstream achieve php-cgi load balancing in nginx</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2015/01/setup-samba-server-on-debian.html">Setup Samba server on Debian</a></li>
+<li><i class="fa fa-minus"></i><a target="_blank" href="./2016/06/different-3-ways-reject-packets.html">What different between the 3 ways to reject packets</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2015/10/gaming-and-download-optimized-queue-script-for-mikrotik-routeros.html">Optimized queue script for MikroTik RouterOS</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2015/04/host-a-website-with-non-public-ip-computer.html">Host a website with non-Public IP computer</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2015/04/set-max-login-attempts-for-ssh.html">Set max login attempts for SSH</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2015/04/monitoring-the-raspberry-pi-with-mrtg.html">Monitoring The Raspberry Pi with MRTG</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2015/01/setup-dnsmasq-server-as-dns-server.html">Setup Dnsmasq server as DNS server</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2015/01/using-upstream-achieve-php-cgi-load-balancing-in-nginx.html">Using upstream achieve php-cgi load balancing in nginx</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2015/01/setup-samba-server-on-debian.html">Setup Samba server on Debian</a></li>
 </ul></div></div>		</div>
 						<div id="respond" class="no_webshot">
 		<form action="/wp-comments-post.php" method="post" id="commentform">
@@ -230,7 +230,7 @@ server {
 <aside class="sidebar">	
 <div class="widget widget_text"><div class="textwidget text-social"><div class="social">
 
-<a href="http://weibo.com/dfc643" rel="external nofollow" title="Weibo" target="_blank"><i class="sinaweibo fa fa-weibo"></i></a><a  href="http://t.qq.com/dfc643" rel="external nofollow" title="t.qq.com" target="_blank"><i class="tencentweibo fa fa-tencent-weibo"></i></a><a href="https://twitter.com/dfc643" rel="external nofollow" title="Twitter" target="_blank"><i class="twitter fa fa-twitter"></i></a><a href="https://www.facebook.com/Norckon" rel="external nofollow" title="Facebook" target="_blank"><i class="facebook fa fa-facebook"></i></a><a href="http://mail.fcsys.org/" rel="external nofollow" title="Email" target="_blank"><i class="email fa fa-envelope-o"></i></a><a href="/?feed=rss2" rel="external nofollow" target="_blank"  title="RSS Feed"><i class="rss fa fa-rss"></i></a>
+<a href="http://weibo.com/dfc643" rel="external nofollow" title="Weibo" target="_blank"><i class="sinaweibo fa fa-weibo"></i></a><a  href="http://t.qq.com/dfc643" rel="external nofollow" title="t.qq.com" target="_blank"><i class="tencentweibo fa fa-tencent-weibo"></i></a><a href="https://twitter.com/dfc643" rel="external nofollow" title="Twitter" target="_blank"><i class="twitter fa fa-twitter"></i></a><a href="https://www.facebook.com/Norckon" rel="external nofollow" title="Facebook" target="_blank"><i class="facebook fa fa-facebook"></i></a><a href="http://mail.fcsys.org/" rel="external nofollow" title="Email" target="_blank"><i class="email fa fa-envelope-o"></i></a><a href="./?feed=rss2" rel="external nofollow" target="_blank"  title="RSS Feed"><i class="rss fa fa-rss"></i></a>
 </div></div></div>
 
 <div class="widget widget_text"><div class="title"><h2>Staticized</h2></div>			<div class="textwidget"><p><strong>WARNING</strong>: This blog has been <strong>Staticized</strong>. All comment, like or other function will not working.</p>
@@ -251,9 +251,9 @@ server {
 
 	<tfoot>
 	<tr>
-		<td colspan="3" id="prev"><a href="/2014/08">&laquo; Aug</a></td>
+		<td colspan="3" id="prev"><a href="./2014/08">&laquo; Aug</a></td>
 		<td class="pad">&nbsp;</td>
-		<td colspan="3" id="next"><a href="/2014/10">Oct &raquo;</a></td>
+		<td colspan="3" id="next"><a href="./2014/10">Oct &raquo;</a></td>
 	</tr>
 	</tfoot>
 
@@ -261,13 +261,13 @@ server {
 	<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td>
 	</tr>
 	<tr>
-		<td><a href="/2014/09/08" aria-label="Posts published on September 8, 2014">8</a></td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td>
+		<td><a href="./2014/09/08" aria-label="Posts published on September 8, 2014">8</a></td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td>
 	</tr>
 	<tr>
 		<td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td>
 	</tr>
 	<tr>
-		<td>22</td><td>23</td><td><a href="/2014/09/24" aria-label="Posts published on September 24, 2014">24</a></td><td>25</td><td>26</td><td>27</td><td>28</td>
+		<td>22</td><td>23</td><td><a href="./2014/09/24" aria-label="Posts published on September 24, 2014">24</a></td><td>25</td><td>26</td><td>27</td><td>28</td>
 	</tr>
 	<tr>
 		<td>29</td><td>30</td>
@@ -275,21 +275,21 @@ server {
 	</tr>
 	</tbody>
 	</table></div></div><div class="widget widget_categories"><div class="title"><h2>Categories</h2></div>		<ul>
-	<li class="cat-item cat-item-10"><a href="/category/hardware" >Hardware</a>
+	<li class="cat-item cat-item-10"><a href="./category/hardware" >Hardware</a>
 </li>
-	<li class="cat-item cat-item-3"><a href="/category/network" >Network</a>
+	<li class="cat-item cat-item-3"><a href="./category/network" >Network</a>
 </li>
-	<li class="cat-item cat-item-17"><a href="/category/software/os" >Operating System</a>
+	<li class="cat-item cat-item-17"><a href="./category/software/os" >Operating System</a>
 </li>
-	<li class="cat-item cat-item-4"><a href="/category/software/programming" >Programming</a>
+	<li class="cat-item cat-item-4"><a href="./category/software/programming" >Programming</a>
 </li>
-	<li class="cat-item cat-item-106"><a href="/category/network/server" >Server</a>
+	<li class="cat-item cat-item-106"><a href="./category/network/server" >Server</a>
 </li>
-	<li class="cat-item cat-item-6"><a href="/category/software" >Software</a>
+	<li class="cat-item cat-item-6"><a href="./category/software" >Software</a>
 </li>
-	<li class="cat-item cat-item-1"><a href="/category/uncategorized" >Uncategorized</a>
+	<li class="cat-item cat-item-1"><a href="./category/uncategorized" >Uncategorized</a>
 </li>
-	<li class="cat-item cat-item-13"><a href="/category/network/website" >Website</a>
+	<li class="cat-item cat-item-13"><a href="./category/network/website" >Website</a>
 </li>
 		</ul>
 </div><div class="widget widget_archive"><div class="title"><h2>Archives</h2></div>		<ul>
