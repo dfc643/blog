@@ -9,7 +9,7 @@
 
 <channel>
 	<title>Uncategorized &#8211; Norckon&#039;s blog</title>
-	<atom:link href="/category/uncategorized/feed" rel="self" type="application/rss+xml" />
+	<atom:link href="/blog/category/uncategorized/feed" rel="self" type="application/rss+xml" />
 	<link>/</link>
 	<description>Norckon&#039;s blog</description>
 	<lastBuildDate>Thu, 24 Aug 2017 14:09:08 +0000</lastBuildDate>

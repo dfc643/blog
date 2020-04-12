@@ -28,15 +28,15 @@ img.emoji {
 	padding: 0 !important;
 }
 </style>
-<link rel='stylesheet' id='style-css'  href='/wp-content/themes/yusi_cache1.0/style.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='style-css'  href='/blog/wp-content/themes/yusi_cache1.0/style.css?ver=1.0' type='text/css' media='all' />
 <script type='text/javascript' src='//cdn.bootcss.com/jquery/1.8.3/jquery.min.js?ver=1.0'></script>
-<link rel='https://api.w.org/' href='/wp-json/' />
-<link rel='prev' title='最耗电的浏览器竟然是Chrome？' href='/2014/07/%E6%9C%80%E8%80%97%E7%94%B5%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AB%9F%E7%84%B6%E6%98%AFchrome%EF%BC%9F.html' />
-<link rel='next' title='How to DIY your Firefox' href='/2014/07/how-to-diy-your-firefox.html' />
-<link rel="canonical" href="./2014/07/%E4%BD%BFgcc%E5%9C%A8%E7%BC%96%E8%AF%91windows%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%97%B6%E5%80%99%E9%99%84%E5%8A%A0%E5%9B%BE%E6%A0%87.html" />
+<link rel='https://api.w.org/' href='/blog/wp-json/' />
+<link rel='prev' title='最耗电的浏览器竟然是Chrome？' href='/blog/2014/07/%E6%9C%80%E8%80%97%E7%94%B5%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AB%9F%E7%84%B6%E6%98%AFchrome%EF%BC%9F.html' />
+<link rel='next' title='How to DIY your Firefox' href='/blog/2014/07/how-to-diy-your-firefox.html' />
+<link rel="canonical" href="/blog/2014/07/%E4%BD%BFgcc%E5%9C%A8%E7%BC%96%E8%AF%91windows%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%97%B6%E5%80%99%E9%99%84%E5%8A%A0%E5%9B%BE%E6%A0%87.html" />
 <link rel='shortlink' href='/?p=1286' />
-<link rel="alternate" type="application/json+oembed" href="./wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F07%2F%25E4%25BD%25BFgcc%25E5%259C%25A8%25E7%25BC%2596%25E8%25AF%2591windows%25E7%25A8%258B%25E5%25BA%258F%25E7%259A%2584%25E6%2597%25B6%25E5%2580%2599%25E9%2599%2584%25E5%258A%25A0%25E5%259B%25BE%25E6%25A0%2587.html" />
-<link rel="alternate" type="text/xml+oembed" href="./wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F07%2F%25E4%25BD%25BFgcc%25E5%259C%25A8%25E7%25BC%2596%25E8%25AF%2591windows%25E7%25A8%258B%25E5%25BA%258F%25E7%259A%2584%25E6%2597%25B6%25E5%2580%2599%25E9%2599%2584%25E5%258A%25A0%25E5%259B%25BE%25E6%25A0%2587.html&#038;format=xml" />
+<link rel="alternate" type="application/json+oembed" href="/blog/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F07%2F%25E4%25BD%25BFgcc%25E5%259C%25A8%25E7%25BC%2596%25E8%25AF%2591windows%25E7%25A8%258B%25E5%25BA%258F%25E7%259A%2584%25E6%2597%25B6%25E5%2580%2599%25E9%2599%2584%25E5%258A%25A0%25E5%259B%25BE%25E6%25A0%2587.html" />
+<link rel="alternate" type="text/xml+oembed" href="/blog/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F07%2F%25E4%25BD%25BFgcc%25E5%259C%25A8%25E7%25BC%2596%25E8%25AF%2591windows%25E7%25A8%258B%25E5%25BA%258F%25E7%259A%2584%25E6%2597%25B6%25E5%2580%2599%25E9%2599%2584%25E5%258A%25A0%25E5%259B%25BE%25E6%25A0%2587.html&#038;format=xml" />
 <meta name="keywords" content="Programming">
 <meta name="description" content="是否曾觉得每次通过 GCC/G++ 编译的 Windows 应用程序都是 Windows 默认的应用程序图标。这样看上去既不能够表达程序的用途又不美观。当然这样的问题是可以解决的，不过相对来说需要手工转化，而过程也相对来说繁琐。但是对于喜欢折腾的你来说，这一定不是问题。  首先我们需要准备与之相关的一些文件或者工具。首要的是你编写的应用程序源代码，然后则是 windres (包含于 MinGW 中)，以及 GCC/G++ 编译器，还有最">
 <!--[if lt IE 9]><script src="https://dfc643.github.io/blog/wp-content/themes/yusi_cache1.0/js/html5.js"></script><![endif]-->
@@ -51,19 +51,19 @@ img.emoji {
     <ul class="nav">
         <li class="title">Norckon</li>
         <li id="menu-item-1262" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1262"><a href="http://dfc643.github.io/">Top</a></li>
-<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-1046"><a href="./category/software">Soft</a>
+<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-1046"><a href="/blog/category/software">Soft</a>
 <ul class="sub-menu">
-	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-1064"><a href="./category/software">Software</a></li>
-	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1062"><a href="./category/software/os">OS</a></li>
-	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1049"><a href="./category/software/programming">Programming</a></li>
+	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-1064"><a href="/blog/category/software">Software</a></li>
+	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1062"><a href="/blog/category/software/os">OS</a></li>
+	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1049"><a href="/blog/category/software/programming">Programming</a></li>
 </ul>
 </li>
-<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="./category/hardware">Hard</a></li>
-<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1047"><a href="./category/network">Net</a>
+<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="/blog/category/hardware">Hard</a></li>
+<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1047"><a href="/blog/category/network">Net</a>
 <ul class="sub-menu">
-	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1063"><a href="./category/network">Network</a></li>
-	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1496"><a href="./category/network/server">Server</a></li>
-	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="./category/network/website">Web</a></li>
+	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1063"><a href="/blog/category/network">Network</a></li>
+	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1496"><a href="/blog/category/network/server">Server</a></li>
+	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="/blog/category/network/website">Web</a></li>
 </ul>
 </li>
 <li id="menu-item-1220" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1220"><a>Tool</a>
@@ -86,10 +86,10 @@ img.emoji {
 	<li id="menu-item-1825" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1825"><a href="http://mybeibei.net/">Guge&#8217;s blog</a></li>
 	<li id="menu-item-1162" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1162"><a href="http://www.yjsys.tk/">寂写心灵之幽</a></li>
 	<li id="menu-item-1045" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1045"><a href="http://hanicc.com/">HoneyCC</a></li>
-	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="./add-link">+ Add Link</a></li>
+	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="/blog/add-link">+ Add Link</a></li>
 </ul>
 </li>
-<li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="./">Blog</a></li>
+<li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="/blog/">Blog</a></li>
 <li style="float:right;">
                 <div class="toggle-search"><i class="fa fa-search"></i></div>
 <div class="search-expand" style="display: none;"><div class="search-expand-inner"><form method="get" class="searchform themeform" onsubmit="location.href='https://dfc643.github.io/blog/?s=' + encodeURIComponent(this.s.value).replace(/%20/g, '+'); return false;" action="/"><div> <input type="ext" class="search" name="s" onblur="if(this.value=='')this.value='search...';" onfocus="if(this.value=='search...')this.value='';" value="search..."></div></form></div></div>
@@ -100,7 +100,7 @@ img.emoji {
 
 <div class="container-inner" style="display:none">
  <div class="yusi-logo">
-<a href="./">
+<a href="/blog/">
 <h1>
 <span class="yusi-mono">Norckon&#039;s blog</span>
 <span class="yusi-bloger">Norckon&#039;s blog</span>
@@ -120,12 +120,12 @@ img.emoji {
 	<div class="content">
 
 				<header class="article-header">
-			<h1 class="article-title"><a href="./2014/07/%E4%BD%BFgcc%E5%9C%A8%E7%BC%96%E8%AF%91windows%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%97%B6%E5%80%99%E9%99%84%E5%8A%A0%E5%9B%BE%E6%A0%87.html">使GCC在编译Windows程序的时候附加图标</a></h1>
+			<h1 class="article-title"><a href="/blog/2014/07/%E4%BD%BFgcc%E5%9C%A8%E7%BC%96%E8%AF%91windows%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%97%B6%E5%80%99%E9%99%84%E5%8A%A0%E5%9B%BE%E6%A0%87.html">使GCC在编译Windows程序的时候附加图标</a></h1>
 			<div class="meta">
-				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="./category/software/programming"> Programming</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="./author/dfc643">Norckon</a></span>
+				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="/blog/category/software/programming"> Programming</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="/blog/author/dfc643">Norckon</a></span>
 				<time class="muted"><i class="fa fa-clock-o"></i> 2014-07-25</time>
 				<span class="muted"><i class="fa fa-eye"></i> 1277℃</span>
-				<span class="muted"><i class="fa fa-comments-o"></i> <a href="./2014/07/%E4%BD%BFgcc%E5%9C%A8%E7%BC%96%E8%AF%91windows%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%97%B6%E5%80%99%E9%99%84%E5%8A%A0%E5%9B%BE%E6%A0%87.html#respond">0评论</a></span>							</div>
+				<span class="muted"><i class="fa fa-comments-o"></i> <a href="/blog/2014/07/%E4%BD%BFgcc%E5%9C%A8%E7%BC%96%E8%AF%91windows%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%97%B6%E5%80%99%E9%99%84%E5%8A%A0%E5%9B%BE%E6%A0%87.html#respond">0评论</a></span>							</div>
 		</header>
 		<article class="article-content">
 			<p>是否曾觉得每次通过 GCC/G++ 编译的 Windows 应用程序都是 Windows 默认的应用程序图标。这样看上去既不能够表达程序的用途又不美观。当然这样的问题是可以解决的，不过相对来说需要手工转化，而过程也相对来说繁琐。但是对于喜欢折腾的你来说，这一定不是问题。</p>
@@ -153,40 +153,40 @@ FROM: http://fragglet.livejournal.com/4448.html [ENGLISH]</p></blockquote>
 				<footer class="article-footer">
 			</footer>
 	<nav class="article-nav">
-			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="./2014/07/%E6%9C%80%E8%80%97%E7%94%B5%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AB%9F%E7%84%B6%E6%98%AFchrome%EF%BC%9F.html" rel="prev">最耗电的浏览器竟然是Chrome？</a></span>
-			<span class="article-nav-next"><a href="./2014/07/how-to-diy-your-firefox.html" rel="next">How to DIY your Firefox</a>  <i class="fa fa-angle-double-right"></i></span>
+			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="/blog/2014/07/%E6%9C%80%E8%80%97%E7%94%B5%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AB%9F%E7%84%B6%E6%98%AFchrome%EF%BC%9F.html" rel="prev">最耗电的浏览器竟然是Chrome？</a></span>
+			<span class="article-nav-next"><a href="/blog/2014/07/how-to-diy-your-firefox.html" rel="next">How to DIY your Firefox</a>  <i class="fa fa-angle-double-right"></i></span>
 		</nav>
 
 		<div class="related_top">
 			<div class="related_posts"><ul class="related_img">
 
 	<li class="related_box"  >
-		<a href="./2016/10/form-submit-via-javascript.html" title="Form submit via Javascript" target="_blank">
-		<img src="./wp-content/uploads/2016/10/1476955833-4486-ajax-min.jpg" alt="Form submit via Javascript" /><br><span class="r_title">Form submit via Javascript</span></a>
+		<a href="/blog/2016/10/form-submit-via-javascript.html" title="Form submit via Javascript" target="_blank">
+		<img src="/blog/wp-content/uploads/2016/10/1476955833-4486-ajax-min.jpg" alt="Form submit via Javascript" /><br><span class="r_title">Form submit via Javascript</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="./2015/01/raspberry-pi-distcc.html" title="Raspberry Pi &#8211; Distcc" target="_blank">
-		<img src="./wp-content/uploads/2015/01/distccmon-gnome-2003-09-23-01.png" alt="Raspberry Pi &#8211; Distcc" /><br><span class="r_title">Raspberry Pi &#8211; Distcc</span></a>
+		<a href="/blog/2015/01/raspberry-pi-distcc.html" title="Raspberry Pi &#8211; Distcc" target="_blank">
+		<img src="/blog/wp-content/uploads/2015/01/distccmon-gnome-2003-09-23-01.png" alt="Raspberry Pi &#8211; Distcc" /><br><span class="r_title">Raspberry Pi &#8211; Distcc</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="./2014/10/google-text-to-speech-api.html" title="Google Text-to-Speech API" target="_blank">
-		<img src="./wp-content/uploads/2014/10/google-tts.jpg" alt="Google Text-to-Speech API" /><br><span class="r_title">Google Text-to-Speech API</span></a>
+		<a href="/blog/2014/10/google-text-to-speech-api.html" title="Google Text-to-Speech API" target="_blank">
+		<img src="/blog/wp-content/uploads/2014/10/google-tts.jpg" alt="Google Text-to-Speech API" /><br><span class="r_title">Google Text-to-Speech API</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="./2014/08/%E9%80%9A%E8%BF%87-modulus-%E4%B8%8E-exponent-%E7%94%9F%E6%88%90-public-key-eng%E4%B8%AD.html" title="通过 Modulus 与 Exponent 生成 Public Key [ENG/中]" target="_blank">
-		<img src="./wp-content/uploads/2014/07/cat-programming.jpg" alt="通过 Modulus 与 Exponent 生成 Public Key [ENG/中]" /><br><span class="r_title">通过 Modulus 与 Exponent 生成 Public Key [ENG/中]</span></a>
+		<a href="/blog/2014/08/%E9%80%9A%E8%BF%87-modulus-%E4%B8%8E-exponent-%E7%94%9F%E6%88%90-public-key-eng%E4%B8%AD.html" title="通过 Modulus 与 Exponent 生成 Public Key [ENG/中]" target="_blank">
+		<img src="/blog/wp-content/uploads/2014/07/cat-programming.jpg" alt="通过 Modulus 与 Exponent 生成 Public Key [ENG/中]" /><br><span class="r_title">通过 Modulus 与 Exponent 生成 Public Key [ENG/中]</span></a>
 		</li>
 	</ul>
 
 <div class="relates">
 <ul>
-<li><i class="fa fa-minus"></i><a target="_blank" href="./2016/10/form-submit-via-javascript.html">Form submit via Javascript</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2015/01/raspberry-pi-distcc.html">Raspberry Pi &#8211; Distcc</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/10/google-text-to-speech-api.html">Google Text-to-Speech API</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/08/%E9%80%9A%E8%BF%87-modulus-%E4%B8%8E-exponent-%E7%94%9F%E6%88%90-public-key-eng%E4%B8%AD.html">通过 Modulus 与 Exponent 生成 Public Key [ENG/中]</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/04/dotnet%E6%8B%A8%E5%8F%B7%E5%99%A8%E7%BC%96%E7%A8%8B%E6%96%B9%E6%B3%95.html">DotNet拨号器编程方法</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2013/11/akari-c-procgram-code.html">Akari C.Procgram Code</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2013/10/using-qt-to-open-webpage-with-default-browser.html">Using Qt to open webpage with default browser</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2013/10/%E8%BD%AC%E8%BD%BDnspack-v3-4-v3-5%E5%8A%A0%E5%A3%B3%E7%9A%84%E6%98%93%E7%A8%8B%E5%BA%8F%E8%84%B1%E5%A3%B3%E6%89%8B%E8%AE%B0.html">[转载]NsPacK V3.4-V3.5加壳的易程序脱壳手记</a></li>
+<li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2016/10/form-submit-via-javascript.html">Form submit via Javascript</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2015/01/raspberry-pi-distcc.html">Raspberry Pi &#8211; Distcc</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2014/10/google-text-to-speech-api.html">Google Text-to-Speech API</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2014/08/%E9%80%9A%E8%BF%87-modulus-%E4%B8%8E-exponent-%E7%94%9F%E6%88%90-public-key-eng%E4%B8%AD.html">通过 Modulus 与 Exponent 生成 Public Key [ENG/中]</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2014/04/dotnet%E6%8B%A8%E5%8F%B7%E5%99%A8%E7%BC%96%E7%A8%8B%E6%96%B9%E6%B3%95.html">DotNet拨号器编程方法</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2013/11/akari-c-procgram-code.html">Akari C.Procgram Code</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2013/10/using-qt-to-open-webpage-with-default-browser.html">Using Qt to open webpage with default browser</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2013/10/%E8%BD%AC%E8%BD%BDnspack-v3-4-v3-5%E5%8A%A0%E5%A3%B3%E7%9A%84%E6%98%93%E7%A8%8B%E5%BA%8F%E8%84%B1%E5%A3%B3%E6%89%8B%E8%AE%B0.html">[转载]NsPacK V3.4-V3.5加壳的易程序脱壳手记</a></li>
 </ul></div></div>		</div>
 						<div id="respond" class="no_webshot">
-		<form action="/wp-comments-post.php" method="post" id="commentform">
+		<form action="/blog/wp-comments-post.php" method="post" id="commentform">
 		
 		<div class="comt-title">
 			<div class="comt-avatar pull-left">
@@ -227,7 +227,7 @@ FROM: http://fragglet.livejournal.com/4448.html [ENGLISH]</p></blockquote>
 <aside class="sidebar">	
 <div class="widget widget_text"><div class="textwidget text-social"><div class="social">
 
-<a href="http://weibo.com/dfc643" rel="external nofollow" title="Weibo" target="_blank"><i class="sinaweibo fa fa-weibo"></i></a><a  href="http://t.qq.com/dfc643" rel="external nofollow" title="t.qq.com" target="_blank"><i class="tencentweibo fa fa-tencent-weibo"></i></a><a href="https://twitter.com/dfc643" rel="external nofollow" title="Twitter" target="_blank"><i class="twitter fa fa-twitter"></i></a><a href="https://www.facebook.com/Norckon" rel="external nofollow" title="Facebook" target="_blank"><i class="facebook fa fa-facebook"></i></a><a href="http://mail.fcsys.org/" rel="external nofollow" title="Email" target="_blank"><i class="email fa fa-envelope-o"></i></a><a href="./?feed=rss2" rel="external nofollow" target="_blank"  title="RSS Feed"><i class="rss fa fa-rss"></i></a>
+<a href="http://weibo.com/dfc643" rel="external nofollow" title="Weibo" target="_blank"><i class="sinaweibo fa fa-weibo"></i></a><a  href="http://t.qq.com/dfc643" rel="external nofollow" title="t.qq.com" target="_blank"><i class="tencentweibo fa fa-tencent-weibo"></i></a><a href="https://twitter.com/dfc643" rel="external nofollow" title="Twitter" target="_blank"><i class="twitter fa fa-twitter"></i></a><a href="https://www.facebook.com/Norckon" rel="external nofollow" title="Facebook" target="_blank"><i class="facebook fa fa-facebook"></i></a><a href="http://mail.fcsys.org/" rel="external nofollow" title="Email" target="_blank"><i class="email fa fa-envelope-o"></i></a><a href="/blog/?feed=rss2" rel="external nofollow" target="_blank"  title="RSS Feed"><i class="rss fa fa-rss"></i></a>
 </div></div></div>
 
 <div class="widget widget_text"><div class="title"><h2>Staticized</h2></div>			<div class="textwidget"><p><strong>WARNING</strong>: This blog has been <strong>Staticized</strong>. All comment, like or other function will not working.</p>
@@ -248,9 +248,9 @@ FROM: http://fragglet.livejournal.com/4448.html [ENGLISH]</p></blockquote>
 
 	<tfoot>
 	<tr>
-		<td colspan="3" id="prev"><a href="./2014/06">&laquo; Jun</a></td>
+		<td colspan="3" id="prev"><a href="/blog/2014/06">&laquo; Jun</a></td>
 		<td class="pad">&nbsp;</td>
-		<td colspan="3" id="next"><a href="./2014/08">Aug &raquo;</a></td>
+		<td colspan="3" id="next"><a href="/blog/2014/08">Aug &raquo;</a></td>
 	</tr>
 	</tfoot>
 
@@ -262,70 +262,70 @@ FROM: http://fragglet.livejournal.com/4448.html [ENGLISH]</p></blockquote>
 		<td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
 	</tr>
 	<tr>
-		<td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td><a href="./2014/07/20" aria-label="Posts published on July 20, 2014">20</a></td>
+		<td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td><a href="/blog/2014/07/20" aria-label="Posts published on July 20, 2014">20</a></td>
 	</tr>
 	<tr>
-		<td>21</td><td>22</td><td>23</td><td>24</td><td><a href="./2014/07/25" aria-label="Posts published on July 25, 2014">25</a></td><td><a href="./2014/07/26" aria-label="Posts published on July 26, 2014">26</a></td><td>27</td>
+		<td>21</td><td>22</td><td>23</td><td>24</td><td><a href="/blog/2014/07/25" aria-label="Posts published on July 25, 2014">25</a></td><td><a href="/blog/2014/07/26" aria-label="Posts published on July 26, 2014">26</a></td><td>27</td>
 	</tr>
 	<tr>
-		<td>28</td><td><a href="./2014/07/29" aria-label="Posts published on July 29, 2014">29</a></td><td>30</td><td>31</td>
+		<td>28</td><td><a href="/blog/2014/07/29" aria-label="Posts published on July 29, 2014">29</a></td><td>30</td><td>31</td>
 		<td class="pad" colspan="3">&nbsp;</td>
 	</tr>
 	</tbody>
 	</table></div></div><div class="widget widget_categories"><div class="title"><h2>Categories</h2></div>		<ul>
-	<li class="cat-item cat-item-10"><a href="./category/hardware" >Hardware</a>
+	<li class="cat-item cat-item-10"><a href="/blog/category/hardware" >Hardware</a>
 </li>
-	<li class="cat-item cat-item-3"><a href="./category/network" >Network</a>
+	<li class="cat-item cat-item-3"><a href="/blog/category/network" >Network</a>
 </li>
-	<li class="cat-item cat-item-17"><a href="./category/software/os" >Operating System</a>
+	<li class="cat-item cat-item-17"><a href="/blog/category/software/os" >Operating System</a>
 </li>
-	<li class="cat-item cat-item-4"><a href="./category/software/programming" >Programming</a>
+	<li class="cat-item cat-item-4"><a href="/blog/category/software/programming" >Programming</a>
 </li>
-	<li class="cat-item cat-item-106"><a href="./category/network/server" >Server</a>
+	<li class="cat-item cat-item-106"><a href="/blog/category/network/server" >Server</a>
 </li>
-	<li class="cat-item cat-item-6"><a href="./category/software" >Software</a>
+	<li class="cat-item cat-item-6"><a href="/blog/category/software" >Software</a>
 </li>
-	<li class="cat-item cat-item-1"><a href="./category/uncategorized" >Uncategorized</a>
+	<li class="cat-item cat-item-1"><a href="/blog/category/uncategorized" >Uncategorized</a>
 </li>
-	<li class="cat-item cat-item-13"><a href="./category/network/website" >Website</a>
+	<li class="cat-item cat-item-13"><a href="/blog/category/network/website" >Website</a>
 </li>
 		</ul>
 </div><div class="widget widget_archive"><div class="title"><h2>Archives</h2></div>		<ul>
-			<li><a href='/2017/06'>June 2017</a></li>
-	<li><a href='/2017/01'>January 2017</a></li>
-	<li><a href='/2016/10'>October 2016</a></li>
-	<li><a href='/2016/06'>June 2016</a></li>
-	<li><a href='/2016/05'>May 2016</a></li>
-	<li><a href='/2015/11'>November 2015</a></li>
-	<li><a href='/2015/10'>October 2015</a></li>
-	<li><a href='/2015/07'>July 2015</a></li>
-	<li><a href='/2015/05'>May 2015</a></li>
-	<li><a href='/2015/04'>April 2015</a></li>
-	<li><a href='/2015/01'>January 2015</a></li>
-	<li><a href='/2014/12'>December 2014</a></li>
-	<li><a href='/2014/11'>November 2014</a></li>
-	<li><a href='/2014/10'>October 2014</a></li>
-	<li><a href='/2014/09'>September 2014</a></li>
-	<li><a href='/2014/08'>August 2014</a></li>
-	<li><a href='/2014/07'>July 2014</a></li>
-	<li><a href='/2014/06'>June 2014</a></li>
-	<li><a href='/2014/05'>May 2014</a></li>
-	<li><a href='/2014/04'>April 2014</a></li>
-	<li><a href='/2014/03'>March 2014</a></li>
-	<li><a href='/2014/02'>February 2014</a></li>
-	<li><a href='/2014/01'>January 2014</a></li>
-	<li><a href='/2013/12'>December 2013</a></li>
-	<li><a href='/2013/11'>November 2013</a></li>
-	<li><a href='/2013/10'>October 2013</a></li>
-	<li><a href='/2013/09'>September 2013</a></li>
-	<li><a href='/2013/08'>August 2013</a></li>
-	<li><a href='/2013/07'>July 2013</a></li>
-	<li><a href='/2013/06'>June 2013</a></li>
-	<li><a href='/2013/05'>May 2013</a></li>
-	<li><a href='/2013/03'>March 2013</a></li>
-	<li><a href='/2013/02'>February 2013</a></li>
-	<li><a href='/2012/07'>July 2012</a></li>
-	<li><a href='/1994/12'>December 1994</a></li>
+			<li><a href='/blog/2017/06'>June 2017</a></li>
+	<li><a href='/blog/2017/01'>January 2017</a></li>
+	<li><a href='/blog/2016/10'>October 2016</a></li>
+	<li><a href='/blog/2016/06'>June 2016</a></li>
+	<li><a href='/blog/2016/05'>May 2016</a></li>
+	<li><a href='/blog/2015/11'>November 2015</a></li>
+	<li><a href='/blog/2015/10'>October 2015</a></li>
+	<li><a href='/blog/2015/07'>July 2015</a></li>
+	<li><a href='/blog/2015/05'>May 2015</a></li>
+	<li><a href='/blog/2015/04'>April 2015</a></li>
+	<li><a href='/blog/2015/01'>January 2015</a></li>
+	<li><a href='/blog/2014/12'>December 2014</a></li>
+	<li><a href='/blog/2014/11'>November 2014</a></li>
+	<li><a href='/blog/2014/10'>October 2014</a></li>
+	<li><a href='/blog/2014/09'>September 2014</a></li>
+	<li><a href='/blog/2014/08'>August 2014</a></li>
+	<li><a href='/blog/2014/07'>July 2014</a></li>
+	<li><a href='/blog/2014/06'>June 2014</a></li>
+	<li><a href='/blog/2014/05'>May 2014</a></li>
+	<li><a href='/blog/2014/04'>April 2014</a></li>
+	<li><a href='/blog/2014/03'>March 2014</a></li>
+	<li><a href='/blog/2014/02'>February 2014</a></li>
+	<li><a href='/blog/2014/01'>January 2014</a></li>
+	<li><a href='/blog/2013/12'>December 2013</a></li>
+	<li><a href='/blog/2013/11'>November 2013</a></li>
+	<li><a href='/blog/2013/10'>October 2013</a></li>
+	<li><a href='/blog/2013/09'>September 2013</a></li>
+	<li><a href='/blog/2013/08'>August 2013</a></li>
+	<li><a href='/blog/2013/07'>July 2013</a></li>
+	<li><a href='/blog/2013/06'>June 2013</a></li>
+	<li><a href='/blog/2013/05'>May 2013</a></li>
+	<li><a href='/blog/2013/03'>March 2013</a></li>
+	<li><a href='/blog/2013/02'>February 2013</a></li>
+	<li><a href='/blog/2012/07'>July 2012</a></li>
+	<li><a href='/blog/1994/12'>December 1994</a></li>
 		</ul>
 		</div><div class="widget ilwp_widget_tag_cloud"><div class="title"><h2>Tag Cloud</h2></div><div class='colored-tag-cloud'><a href='/tag/xrandr' class='tag-link-48' title='1 post is tagged with &ldquo;XRANDR&rdquo;' rel="tag" style='font-size: 8px;  color: maroon;'>XRANDR</a>
 <a href='/tag/ok' class='tag-link-154' title='2 posts are tagged with &ldquo;OK&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: green;'>OK</a>
@@ -521,7 +521,7 @@ var _hmt = _hmt || [];
     </div>
 </footer>
 
-<script type='text/javascript' src='./wp-content/themes/yusi_cache1.0/js/jquery.js?ver=1.0'></script>
-<script type='text/javascript' src='./wp-includes/js/wp-embed.min.js?ver=4.9.1'></script>
+<script type='text/javascript' src='/blog/wp-content/themes/yusi_cache1.0/js/jquery.js?ver=1.0'></script>
+<script type='text/javascript' src='/blog/wp-includes/js/wp-embed.min.js?ver=4.9.1'></script>
 </body>
 </html>

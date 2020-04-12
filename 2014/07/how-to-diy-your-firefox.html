@@ -28,15 +28,15 @@ img.emoji {
 	padding: 0 !important;
 }
 </style>
-<link rel='stylesheet' id='style-css'  href='/wp-content/themes/yusi_cache1.0/style.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='style-css'  href='/blog/wp-content/themes/yusi_cache1.0/style.css?ver=1.0' type='text/css' media='all' />
 <script type='text/javascript' src='//cdn.bootcss.com/jquery/1.8.3/jquery.min.js?ver=1.0'></script>
-<link rel='https://api.w.org/' href='/wp-json/' />
-<link rel='prev' title='使GCC在编译Windows程序的时候附加图标' href='/2014/07/%E4%BD%BFgcc%E5%9C%A8%E7%BC%96%E8%AF%91windows%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%97%B6%E5%80%99%E9%99%84%E5%8A%A0%E5%9B%BE%E6%A0%87.html' />
-<link rel='next' title='百度网盘API调用[ZH]' href='/2014/07/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98api%E8%B0%83%E7%94%A8zh.html' />
-<link rel="canonical" href="./2014/07/how-to-diy-your-firefox.html" />
+<link rel='https://api.w.org/' href='/blog/wp-json/' />
+<link rel='prev' title='使GCC在编译Windows程序的时候附加图标' href='/blog/2014/07/%E4%BD%BFgcc%E5%9C%A8%E7%BC%96%E8%AF%91windows%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%97%B6%E5%80%99%E9%99%84%E5%8A%A0%E5%9B%BE%E6%A0%87.html' />
+<link rel='next' title='百度网盘API调用[ZH]' href='/blog/2014/07/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98api%E8%B0%83%E7%94%A8zh.html' />
+<link rel="canonical" href="/blog/2014/07/how-to-diy-your-firefox.html" />
 <link rel='shortlink' href='/?p=1289' />
-<link rel="alternate" type="application/json+oembed" href="./wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F07%2Fhow-to-diy-your-firefox.html" />
-<link rel="alternate" type="text/xml+oembed" href="./wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F07%2Fhow-to-diy-your-firefox.html&#038;format=xml" />
+<link rel="alternate" type="application/json+oembed" href="/blog/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F07%2Fhow-to-diy-your-firefox.html" />
+<link rel="alternate" type="text/xml+oembed" href="/blog/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F07%2Fhow-to-diy-your-firefox.html&#038;format=xml" />
 <meta name="keywords" content="Software">
 <meta name="description" content="如何定制一套属于自己的火狐浏览器呢？给自己的火狐浏览器加上特别的标志？想要做到这一点是不难的，火狐为 OEM 提供了简单的方法来做到这一点。我们不需要修改火狐这个应用程序，也不需要使用其他的工具，仅仅只需要敲几下键盘即可完成这一点。  How to custom Firefox for yourself? Adding some sgins to your Firefox? To do that is so easy, Firefox ">
 <!--[if lt IE 9]><script src="https://dfc643.github.io/blog/wp-content/themes/yusi_cache1.0/js/html5.js"></script><![endif]-->
@@ -51,19 +51,19 @@ img.emoji {
     <ul class="nav">
         <li class="title">Norckon</li>
         <li id="menu-item-1262" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1262"><a href="http://dfc643.github.io/">Top</a></li>
-<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-1046"><a href="./category/software">Soft</a>
+<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-1046"><a href="/blog/category/software">Soft</a>
 <ul class="sub-menu">
-	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1064"><a href="./category/software">Software</a></li>
-	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1062"><a href="./category/software/os">OS</a></li>
-	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1049"><a href="./category/software/programming">Programming</a></li>
+	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1064"><a href="/blog/category/software">Software</a></li>
+	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1062"><a href="/blog/category/software/os">OS</a></li>
+	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1049"><a href="/blog/category/software/programming">Programming</a></li>
 </ul>
 </li>
-<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="./category/hardware">Hard</a></li>
-<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1047"><a href="./category/network">Net</a>
+<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="/blog/category/hardware">Hard</a></li>
+<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1047"><a href="/blog/category/network">Net</a>
 <ul class="sub-menu">
-	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1063"><a href="./category/network">Network</a></li>
-	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1496"><a href="./category/network/server">Server</a></li>
-	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="./category/network/website">Web</a></li>
+	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1063"><a href="/blog/category/network">Network</a></li>
+	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1496"><a href="/blog/category/network/server">Server</a></li>
+	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="/blog/category/network/website">Web</a></li>
 </ul>
 </li>
 <li id="menu-item-1220" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1220"><a>Tool</a>
@@ -86,10 +86,10 @@ img.emoji {
 	<li id="menu-item-1825" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1825"><a href="http://mybeibei.net/">Guge&#8217;s blog</a></li>
 	<li id="menu-item-1162" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1162"><a href="http://www.yjsys.tk/">寂写心灵之幽</a></li>
 	<li id="menu-item-1045" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1045"><a href="http://hanicc.com/">HoneyCC</a></li>
-	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="./add-link">+ Add Link</a></li>
+	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="/blog/add-link">+ Add Link</a></li>
 </ul>
 </li>
-<li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="./">Blog</a></li>
+<li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="/blog/">Blog</a></li>
 <li style="float:right;">
                 <div class="toggle-search"><i class="fa fa-search"></i></div>
 <div class="search-expand" style="display: none;"><div class="search-expand-inner"><form method="get" class="searchform themeform" onsubmit="location.href='https://dfc643.github.io/blog/?s=' + encodeURIComponent(this.s.value).replace(/%20/g, '+'); return false;" action="/"><div> <input type="ext" class="search" name="s" onblur="if(this.value=='')this.value='search...';" onfocus="if(this.value=='search...')this.value='';" value="search..."></div></form></div></div>
@@ -100,7 +100,7 @@ img.emoji {
 
 <div class="container-inner" style="display:none">
  <div class="yusi-logo">
-<a href="./">
+<a href="/blog/">
 <h1>
 <span class="yusi-mono">Norckon&#039;s blog</span>
 <span class="yusi-bloger">Norckon&#039;s blog</span>
@@ -120,22 +120,22 @@ img.emoji {
 	<div class="content">
 
 				<header class="article-header">
-			<h1 class="article-title"><a href="./2014/07/how-to-diy-your-firefox.html">How to DIY your Firefox</a></h1>
+			<h1 class="article-title"><a href="/blog/2014/07/how-to-diy-your-firefox.html">How to DIY your Firefox</a></h1>
 			<div class="meta">
-				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="./category/software"> Software</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="./author/dfc643">Norckon</a></span>
+				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="/blog/category/software"> Software</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="/blog/author/dfc643">Norckon</a></span>
 				<time class="muted"><i class="fa fa-clock-o"></i> 2014-07-25</time>
 				<span class="muted"><i class="fa fa-eye"></i> 719℃</span>
-				<span class="muted"><i class="fa fa-comments-o"></i> <a href="./2014/07/how-to-diy-your-firefox.html#respond">0评论</a></span>							</div>
+				<span class="muted"><i class="fa fa-comments-o"></i> <a href="/blog/2014/07/how-to-diy-your-firefox.html#respond">0评论</a></span>							</div>
 		</header>
 		<article class="article-content">
 			<p>如何定制一套属于自己的火狐浏览器呢？给自己的火狐浏览器加上特别的标志？想要做到这一点是不难的，火狐为 OEM 提供了简单的方法来做到这一点。我们不需要修改火狐这个应用程序，也不需要使用其他的工具，仅仅只需要敲几下键盘即可完成这一点。</p>
 <p>How to custom Firefox for yourself? Adding some sgins to your Firefox? To do that is so easy, Firefox provide some settings for OEM to do this. We needn&#8217;t modify Firefox, needn&#8217;t other tools, Keyboard only, you can realize this!</p>
-<p><a class="wp2pcs-image-link" href="./?image/QQ截图20140725145548.png"><img class="wp2pcs-image aligncenter" src="/?image/QQ截图20140725145548.png" alt="QQ截图20140725145548.png" /></a></p>
+<p><a class="wp2pcs-image-link" href="/blog/?image/QQ截图20140725145548.png"><img class="wp2pcs-image aligncenter" src="/?image/QQ截图20140725145548.png" alt="QQ截图20140725145548.png" /></a></p>
 <p>或许是火狐为了方便 OEM 制造商，因此火狐提供了一些特殊的设置值在 about:config 当中，我们只需要在火狐浏览器的地址栏中输入 about:config 并按下回车键。此时屏幕上会出现警告，表示该页面许多选项可能会影响系统工作，我们需要点击继续。</p>
 <p>For some reason, Maybe Firefox convenient for OEM, Firefox provided some special value in about:config, We need type about:config in Firefox&#8217;s address box and press Enter key only. Then Firefox will show you a notice, means all the settings will change Firefox or make Firefox crash, Click continue.</p>
 <p>这个列表中显示的所有项目都是火狐浏览器的系统设置，最好不要去轻易改变它的值。然后我们在搜索框中输入 distribution 稍等片刻，我们就发现列表框里面少了不少内容。然后对照下列说明修改， 如果改后没有效果的话，那么可以继续修改 fx21.distribution 的相关内容。</p>
 <p>In this list will show you all the settings of Firefox, But don&#8217;t change it better. We type &#8220;distribution&#8221; in searchbox and wait for a moment. We will found list item less that before. Then compare with following instructions to modify setting. If take no effect then modify fx21.distribution.</p>
-<p><a class="wp2pcs-image-link" href="./?image/QQ截图20140725145409.png"><img class="wp2pcs-image aligncenter" src="/?image/QQ截图20140725145409.png" alt="QQ截图20140725145409.png" /></a></p>
+<p><a class="wp2pcs-image-link" href="/blog/?image/QQ截图20140725145409.png"><img class="wp2pcs-image aligncenter" src="/?image/QQ截图20140725145409.png" alt="QQ截图20140725145409.png" /></a></p>
 <pre class="lang:default decode:true">distribution.about       红框内容     Redbox
 distribution.id             篮框内容     Bluebox
 distribution.version     绿框内容     Greenbox</pre>
@@ -151,40 +151,40 @@ distribution.version     绿框内容     Greenbox</pre>
 				<footer class="article-footer">
 			</footer>
 	<nav class="article-nav">
-			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="./2014/07/%E4%BD%BFgcc%E5%9C%A8%E7%BC%96%E8%AF%91windows%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%97%B6%E5%80%99%E9%99%84%E5%8A%A0%E5%9B%BE%E6%A0%87.html" rel="prev">使GCC在编译Windows程序的时候附加图标</a></span>
-			<span class="article-nav-next"><a href="./2014/07/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98api%E8%B0%83%E7%94%A8zh.html" rel="next">百度网盘API调用[ZH]</a>  <i class="fa fa-angle-double-right"></i></span>
+			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="/blog/2014/07/%E4%BD%BFgcc%E5%9C%A8%E7%BC%96%E8%AF%91windows%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%97%B6%E5%80%99%E9%99%84%E5%8A%A0%E5%9B%BE%E6%A0%87.html" rel="prev">使GCC在编译Windows程序的时候附加图标</a></span>
+			<span class="article-nav-next"><a href="/blog/2014/07/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98api%E8%B0%83%E7%94%A8zh.html" rel="next">百度网盘API调用[ZH]</a>  <i class="fa fa-angle-double-right"></i></span>
 		</nav>
 
 		<div class="related_top">
 			<div class="related_posts"><ul class="related_img">
 
 	<li class="related_box"  >
-		<a href="./2017/06/customize-cpuid-virtual-machine.html" title="Customize CPUID in Virtual Machine" target="_blank">
-		<img src="./wp-content/uploads/2017/06/1496304107-1263-cpuid-wallpaper-1600x1000.jpg" alt="Customize CPUID in Virtual Machine" /><br><span class="r_title">Customize CPUID in Virtual Machine</span></a>
+		<a href="/blog/2017/06/customize-cpuid-virtual-machine.html" title="Customize CPUID in Virtual Machine" target="_blank">
+		<img src="/blog/wp-content/uploads/2017/06/1496304107-1263-cpuid-wallpaper-1600x1000.jpg" alt="Customize CPUID in Virtual Machine" /><br><span class="r_title">Customize CPUID in Virtual Machine</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="./2014/08/qemu-supported-cpu-model-en%E4%B8%AD.html" title="QEMU Supported CPU Model [EN/中]" target="_blank">
-		<img src="./wp-content/uploads/2014/07/cat-software.jpg" alt="QEMU Supported CPU Model [EN/中]" /><br><span class="r_title">QEMU Supported CPU Model [EN/中]</span></a>
+		<a href="/blog/2014/08/qemu-supported-cpu-model-en%E4%B8%AD.html" title="QEMU Supported CPU Model [EN/中]" target="_blank">
+		<img src="/blog/wp-content/uploads/2014/07/cat-software.jpg" alt="QEMU Supported CPU Model [EN/中]" /><br><span class="r_title">QEMU Supported CPU Model [EN/中]</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="./2014/07/%E6%9C%80%E8%80%97%E7%94%B5%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AB%9F%E7%84%B6%E6%98%AFchrome%EF%BC%9F.html" title="最耗电的浏览器竟然是Chrome？" target="_blank">
-		<img src="./wp-content/uploads/2014/07/cat-software.jpg" alt="最耗电的浏览器竟然是Chrome？" /><br><span class="r_title">最耗电的浏览器竟然是Chrome？</span></a>
+		<a href="/blog/2014/07/%E6%9C%80%E8%80%97%E7%94%B5%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AB%9F%E7%84%B6%E6%98%AFchrome%EF%BC%9F.html" title="最耗电的浏览器竟然是Chrome？" target="_blank">
+		<img src="/blog/wp-content/uploads/2014/07/cat-software.jpg" alt="最耗电的浏览器竟然是Chrome？" /><br><span class="r_title">最耗电的浏览器竟然是Chrome？</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="./2014/02/wifi%E4%B8%87%E8%83%BD%E9%92%A5%E5%8C%99%E7%94%B5%E8%84%91%E7%89%88.html" title="WIFI万能钥匙电脑版" target="_blank">
+		<a href="/blog/2014/02/wifi%E4%B8%87%E8%83%BD%E9%92%A5%E5%8C%99%E7%94%B5%E8%84%91%E7%89%88.html" title="WIFI万能钥匙电脑版" target="_blank">
 		<img src="/?image/d8a041c5a35f834e7c2b130af1e6fa18.png" alt="WIFI万能钥匙电脑版" /><br><span class="r_title">WIFI万能钥匙电脑版</span></a>
 		</li>
 	</ul>
 
 <div class="relates">
 <ul>
-<li><i class="fa fa-minus"></i><a target="_blank" href="./2017/06/customize-cpuid-virtual-machine.html">Customize CPUID in Virtual Machine</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/08/qemu-supported-cpu-model-en%E4%B8%AD.html">QEMU Supported CPU Model [EN/中]</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/07/%E6%9C%80%E8%80%97%E7%94%B5%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AB%9F%E7%84%B6%E6%98%AFchrome%EF%BC%9F.html">最耗电的浏览器竟然是Chrome？</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/02/wifi%E4%B8%87%E8%83%BD%E9%92%A5%E5%8C%99%E7%94%B5%E8%84%91%E7%89%88.html">WIFI万能钥匙电脑版</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/01/%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85net-framework-3-5.html">离线安装NET Framework 3.5</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/01/%E5%BE%AE%E8%BD%AF%E8%87%AA%E8%A7%A3%E5%8E%8B%E7%A8%8B%E5%BA%8F%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96.html">微软自解压程序文件提取</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/01/net-framework-4-0-lite-version-net4-%E7%B2%BE%E7%AE%80%E7%89%88.html">NET Framework 4.0 Lite Version (.Net Freamework 4 精简版)</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2013/12/%E5%B9%BF%E5%91%8A%E7%97%85%E6%AF%92win32-ads-auroralight.html">广告病毒Win32.Ads.Auroralight</a></li>
+<li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2017/06/customize-cpuid-virtual-machine.html">Customize CPUID in Virtual Machine</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2014/08/qemu-supported-cpu-model-en%E4%B8%AD.html">QEMU Supported CPU Model [EN/中]</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2014/07/%E6%9C%80%E8%80%97%E7%94%B5%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AB%9F%E7%84%B6%E6%98%AFchrome%EF%BC%9F.html">最耗电的浏览器竟然是Chrome？</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2014/02/wifi%E4%B8%87%E8%83%BD%E9%92%A5%E5%8C%99%E7%94%B5%E8%84%91%E7%89%88.html">WIFI万能钥匙电脑版</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2014/01/%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85net-framework-3-5.html">离线安装NET Framework 3.5</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2014/01/%E5%BE%AE%E8%BD%AF%E8%87%AA%E8%A7%A3%E5%8E%8B%E7%A8%8B%E5%BA%8F%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96.html">微软自解压程序文件提取</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2014/01/net-framework-4-0-lite-version-net4-%E7%B2%BE%E7%AE%80%E7%89%88.html">NET Framework 4.0 Lite Version (.Net Freamework 4 精简版)</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2013/12/%E5%B9%BF%E5%91%8A%E7%97%85%E6%AF%92win32-ads-auroralight.html">广告病毒Win32.Ads.Auroralight</a></li>
 </ul></div></div>		</div>
 						<div id="respond" class="no_webshot">
-		<form action="/wp-comments-post.php" method="post" id="commentform">
+		<form action="/blog/wp-comments-post.php" method="post" id="commentform">
 		
 		<div class="comt-title">
 			<div class="comt-avatar pull-left">
@@ -225,7 +225,7 @@ distribution.version     绿框内容     Greenbox</pre>
 <aside class="sidebar">	
 <div class="widget widget_text"><div class="textwidget text-social"><div class="social">
 
-<a href="http://weibo.com/dfc643" rel="external nofollow" title="Weibo" target="_blank"><i class="sinaweibo fa fa-weibo"></i></a><a  href="http://t.qq.com/dfc643" rel="external nofollow" title="t.qq.com" target="_blank"><i class="tencentweibo fa fa-tencent-weibo"></i></a><a href="https://twitter.com/dfc643" rel="external nofollow" title="Twitter" target="_blank"><i class="twitter fa fa-twitter"></i></a><a href="https://www.facebook.com/Norckon" rel="external nofollow" title="Facebook" target="_blank"><i class="facebook fa fa-facebook"></i></a><a href="http://mail.fcsys.org/" rel="external nofollow" title="Email" target="_blank"><i class="email fa fa-envelope-o"></i></a><a href="./?feed=rss2" rel="external nofollow" target="_blank"  title="RSS Feed"><i class="rss fa fa-rss"></i></a>
+<a href="http://weibo.com/dfc643" rel="external nofollow" title="Weibo" target="_blank"><i class="sinaweibo fa fa-weibo"></i></a><a  href="http://t.qq.com/dfc643" rel="external nofollow" title="t.qq.com" target="_blank"><i class="tencentweibo fa fa-tencent-weibo"></i></a><a href="https://twitter.com/dfc643" rel="external nofollow" title="Twitter" target="_blank"><i class="twitter fa fa-twitter"></i></a><a href="https://www.facebook.com/Norckon" rel="external nofollow" title="Facebook" target="_blank"><i class="facebook fa fa-facebook"></i></a><a href="http://mail.fcsys.org/" rel="external nofollow" title="Email" target="_blank"><i class="email fa fa-envelope-o"></i></a><a href="/blog/?feed=rss2" rel="external nofollow" target="_blank"  title="RSS Feed"><i class="rss fa fa-rss"></i></a>
 </div></div></div>
 
 <div class="widget widget_text"><div class="title"><h2>Staticized</h2></div>			<div class="textwidget"><p><strong>WARNING</strong>: This blog has been <strong>Staticized</strong>. All comment, like or other function will not working.</p>
@@ -246,9 +246,9 @@ distribution.version     绿框内容     Greenbox</pre>
 
 	<tfoot>
 	<tr>
-		<td colspan="3" id="prev"><a href="./2014/06">&laquo; Jun</a></td>
+		<td colspan="3" id="prev"><a href="/blog/2014/06">&laquo; Jun</a></td>
 		<td class="pad">&nbsp;</td>
-		<td colspan="3" id="next"><a href="./2014/08">Aug &raquo;</a></td>
+		<td colspan="3" id="next"><a href="/blog/2014/08">Aug &raquo;</a></td>
 	</tr>
 	</tfoot>
 
@@ -260,70 +260,70 @@ distribution.version     绿框内容     Greenbox</pre>
 		<td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
 	</tr>
 	<tr>
-		<td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td><a href="./2014/07/20" aria-label="Posts published on July 20, 2014">20</a></td>
+		<td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td><a href="/blog/2014/07/20" aria-label="Posts published on July 20, 2014">20</a></td>
 	</tr>
 	<tr>
-		<td>21</td><td>22</td><td>23</td><td>24</td><td><a href="./2014/07/25" aria-label="Posts published on July 25, 2014">25</a></td><td><a href="./2014/07/26" aria-label="Posts published on July 26, 2014">26</a></td><td>27</td>
+		<td>21</td><td>22</td><td>23</td><td>24</td><td><a href="/blog/2014/07/25" aria-label="Posts published on July 25, 2014">25</a></td><td><a href="/blog/2014/07/26" aria-label="Posts published on July 26, 2014">26</a></td><td>27</td>
 	</tr>
 	<tr>
-		<td>28</td><td><a href="./2014/07/29" aria-label="Posts published on July 29, 2014">29</a></td><td>30</td><td>31</td>
+		<td>28</td><td><a href="/blog/2014/07/29" aria-label="Posts published on July 29, 2014">29</a></td><td>30</td><td>31</td>
 		<td class="pad" colspan="3">&nbsp;</td>
 	</tr>
 	</tbody>
 	</table></div></div><div class="widget widget_categories"><div class="title"><h2>Categories</h2></div>		<ul>
-	<li class="cat-item cat-item-10"><a href="./category/hardware" >Hardware</a>
+	<li class="cat-item cat-item-10"><a href="/blog/category/hardware" >Hardware</a>
 </li>
-	<li class="cat-item cat-item-3"><a href="./category/network" >Network</a>
+	<li class="cat-item cat-item-3"><a href="/blog/category/network" >Network</a>
 </li>
-	<li class="cat-item cat-item-17"><a href="./category/software/os" >Operating System</a>
+	<li class="cat-item cat-item-17"><a href="/blog/category/software/os" >Operating System</a>
 </li>
-	<li class="cat-item cat-item-4"><a href="./category/software/programming" >Programming</a>
+	<li class="cat-item cat-item-4"><a href="/blog/category/software/programming" >Programming</a>
 </li>
-	<li class="cat-item cat-item-106"><a href="./category/network/server" >Server</a>
+	<li class="cat-item cat-item-106"><a href="/blog/category/network/server" >Server</a>
 </li>
-	<li class="cat-item cat-item-6"><a href="./category/software" >Software</a>
+	<li class="cat-item cat-item-6"><a href="/blog/category/software" >Software</a>
 </li>
-	<li class="cat-item cat-item-1"><a href="./category/uncategorized" >Uncategorized</a>
+	<li class="cat-item cat-item-1"><a href="/blog/category/uncategorized" >Uncategorized</a>
 </li>
-	<li class="cat-item cat-item-13"><a href="./category/network/website" >Website</a>
+	<li class="cat-item cat-item-13"><a href="/blog/category/network/website" >Website</a>
 </li>
 		</ul>
 </div><div class="widget widget_archive"><div class="title"><h2>Archives</h2></div>		<ul>
-			<li><a href='/2017/06'>June 2017</a></li>
-	<li><a href='/2017/01'>January 2017</a></li>
-	<li><a href='/2016/10'>October 2016</a></li>
-	<li><a href='/2016/06'>June 2016</a></li>
-	<li><a href='/2016/05'>May 2016</a></li>
-	<li><a href='/2015/11'>November 2015</a></li>
-	<li><a href='/2015/10'>October 2015</a></li>
-	<li><a href='/2015/07'>July 2015</a></li>
-	<li><a href='/2015/05'>May 2015</a></li>
-	<li><a href='/2015/04'>April 2015</a></li>
-	<li><a href='/2015/01'>January 2015</a></li>
-	<li><a href='/2014/12'>December 2014</a></li>
-	<li><a href='/2014/11'>November 2014</a></li>
-	<li><a href='/2014/10'>October 2014</a></li>
-	<li><a href='/2014/09'>September 2014</a></li>
-	<li><a href='/2014/08'>August 2014</a></li>
-	<li><a href='/2014/07'>July 2014</a></li>
-	<li><a href='/2014/06'>June 2014</a></li>
-	<li><a href='/2014/05'>May 2014</a></li>
-	<li><a href='/2014/04'>April 2014</a></li>
-	<li><a href='/2014/03'>March 2014</a></li>
-	<li><a href='/2014/02'>February 2014</a></li>
-	<li><a href='/2014/01'>January 2014</a></li>
-	<li><a href='/2013/12'>December 2013</a></li>
-	<li><a href='/2013/11'>November 2013</a></li>
-	<li><a href='/2013/10'>October 2013</a></li>
-	<li><a href='/2013/09'>September 2013</a></li>
-	<li><a href='/2013/08'>August 2013</a></li>
-	<li><a href='/2013/07'>July 2013</a></li>
-	<li><a href='/2013/06'>June 2013</a></li>
-	<li><a href='/2013/05'>May 2013</a></li>
-	<li><a href='/2013/03'>March 2013</a></li>
-	<li><a href='/2013/02'>February 2013</a></li>
-	<li><a href='/2012/07'>July 2012</a></li>
-	<li><a href='/1994/12'>December 1994</a></li>
+			<li><a href='/blog/2017/06'>June 2017</a></li>
+	<li><a href='/blog/2017/01'>January 2017</a></li>
+	<li><a href='/blog/2016/10'>October 2016</a></li>
+	<li><a href='/blog/2016/06'>June 2016</a></li>
+	<li><a href='/blog/2016/05'>May 2016</a></li>
+	<li><a href='/blog/2015/11'>November 2015</a></li>
+	<li><a href='/blog/2015/10'>October 2015</a></li>
+	<li><a href='/blog/2015/07'>July 2015</a></li>
+	<li><a href='/blog/2015/05'>May 2015</a></li>
+	<li><a href='/blog/2015/04'>April 2015</a></li>
+	<li><a href='/blog/2015/01'>January 2015</a></li>
+	<li><a href='/blog/2014/12'>December 2014</a></li>
+	<li><a href='/blog/2014/11'>November 2014</a></li>
+	<li><a href='/blog/2014/10'>October 2014</a></li>
+	<li><a href='/blog/2014/09'>September 2014</a></li>
+	<li><a href='/blog/2014/08'>August 2014</a></li>
+	<li><a href='/blog/2014/07'>July 2014</a></li>
+	<li><a href='/blog/2014/06'>June 2014</a></li>
+	<li><a href='/blog/2014/05'>May 2014</a></li>
+	<li><a href='/blog/2014/04'>April 2014</a></li>
+	<li><a href='/blog/2014/03'>March 2014</a></li>
+	<li><a href='/blog/2014/02'>February 2014</a></li>
+	<li><a href='/blog/2014/01'>January 2014</a></li>
+	<li><a href='/blog/2013/12'>December 2013</a></li>
+	<li><a href='/blog/2013/11'>November 2013</a></li>
+	<li><a href='/blog/2013/10'>October 2013</a></li>
+	<li><a href='/blog/2013/09'>September 2013</a></li>
+	<li><a href='/blog/2013/08'>August 2013</a></li>
+	<li><a href='/blog/2013/07'>July 2013</a></li>
+	<li><a href='/blog/2013/06'>June 2013</a></li>
+	<li><a href='/blog/2013/05'>May 2013</a></li>
+	<li><a href='/blog/2013/03'>March 2013</a></li>
+	<li><a href='/blog/2013/02'>February 2013</a></li>
+	<li><a href='/blog/2012/07'>July 2012</a></li>
+	<li><a href='/blog/1994/12'>December 1994</a></li>
 		</ul>
 		</div><div class="widget ilwp_widget_tag_cloud"><div class="title"><h2>Tag Cloud</h2></div><div class='colored-tag-cloud'><a href='/tag/wlan' class='tag-link-76' title='1 post is tagged with &ldquo;WLAN&rdquo;' rel="tag" style='font-size: 8px;  color: teal;'>WLAN</a>
 <a href='/tag/https' class='tag-link-170' title='2 posts are tagged with &ldquo;HTTPS&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: gray;'>HTTPS</a>
@@ -519,7 +519,7 @@ var _hmt = _hmt || [];
     </div>
 </footer>
 
-<script type='text/javascript' src='./wp-content/themes/yusi_cache1.0/js/jquery.js?ver=1.0'></script>
-<script type='text/javascript' src='./wp-includes/js/wp-embed.min.js?ver=4.9.1'></script>
+<script type='text/javascript' src='/blog/wp-content/themes/yusi_cache1.0/js/jquery.js?ver=1.0'></script>
+<script type='text/javascript' src='/blog/wp-includes/js/wp-embed.min.js?ver=4.9.1'></script>
 </body>
 </html>

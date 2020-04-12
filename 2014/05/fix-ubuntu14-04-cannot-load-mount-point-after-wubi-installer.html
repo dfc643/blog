@@ -28,15 +28,15 @@ img.emoji {
 	padding: 0 !important;
 }
 </style>
-<link rel='stylesheet' id='style-css'  href='/wp-content/themes/yusi_cache1.0/style.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='style-css'  href='/blog/wp-content/themes/yusi_cache1.0/style.css?ver=1.0' type='text/css' media='all' />
 <script type='text/javascript' src='//cdn.bootcss.com/jquery/1.8.3/jquery.min.js?ver=1.0'></script>
-<link rel='https://api.w.org/' href='/wp-json/' />
-<link rel='prev' title='解决Ubuntu14.04的Wubi安装后无法加载挂载点的问题' href='/2014/05/%E8%A7%A3%E5%86%B3ubuntu14-04%E7%9A%84wubi%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E6%8C%82%E8%BD%BD%E7%82%B9%E7%9A%84%E9%97%AE%E9%A2%98.html' />
-<link rel='next' title='使Sublime-Text2支持Fcitx输入法' href='/2014/05/%E4%BD%BFsublime-text2%E6%94%AF%E6%8C%81fcitx%E8%BE%93%E5%85%A5%E6%B3%95.html' />
-<link rel="canonical" href="./2014/05/fix-ubuntu14-04-cannot-load-mount-point-after-wubi-installer.html" />
+<link rel='https://api.w.org/' href='/blog/wp-json/' />
+<link rel='prev' title='解决Ubuntu14.04的Wubi安装后无法加载挂载点的问题' href='/blog/2014/05/%E8%A7%A3%E5%86%B3ubuntu14-04%E7%9A%84wubi%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E6%8C%82%E8%BD%BD%E7%82%B9%E7%9A%84%E9%97%AE%E9%A2%98.html' />
+<link rel='next' title='使Sublime-Text2支持Fcitx输入法' href='/blog/2014/05/%E4%BD%BFsublime-text2%E6%94%AF%E6%8C%81fcitx%E8%BE%93%E5%85%A5%E6%B3%95.html' />
+<link rel="canonical" href="/blog/2014/05/fix-ubuntu14-04-cannot-load-mount-point-after-wubi-installer.html" />
 <link rel='shortlink' href='/?p=1234' />
-<link rel="alternate" type="application/json+oembed" href="./wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F05%2Ffix-ubuntu14-04-cannot-load-mount-point-after-wubi-installer.html" />
-<link rel="alternate" type="text/xml+oembed" href="./wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F05%2Ffix-ubuntu14-04-cannot-load-mount-point-after-wubi-installer.html&#038;format=xml" />
+<link rel="alternate" type="application/json+oembed" href="/blog/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F05%2Ffix-ubuntu14-04-cannot-load-mount-point-after-wubi-installer.html" />
+<link rel="alternate" type="text/xml+oembed" href="/blog/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F05%2Ffix-ubuntu14-04-cannot-load-mount-point-after-wubi-installer.html&#038;format=xml" />
 <meta name="keywords" content="Operating System">
 <meta name="description" content="Release from Ubuntu 14.04 has been long time. As a part of LTS version, that 14.04 has a very easily overlooked problem.  For most users will install Ubuntu into themselves' hard disk. But for some Linux newbie, That's m">
 <!--[if lt IE 9]><script src="https://dfc643.github.io/blog/wp-content/themes/yusi_cache1.0/js/html5.js"></script><![endif]-->
@@ -51,19 +51,19 @@ img.emoji {
     <ul class="nav">
         <li class="title">Norckon</li>
         <li id="menu-item-1262" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1262"><a href="http://dfc643.github.io/">Top</a></li>
-<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-1046"><a href="./category/software">Soft</a>
+<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-1046"><a href="/blog/category/software">Soft</a>
 <ul class="sub-menu">
-	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-1064"><a href="./category/software">Software</a></li>
-	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1062"><a href="./category/software/os">OS</a></li>
-	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1049"><a href="./category/software/programming">Programming</a></li>
+	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-1064"><a href="/blog/category/software">Software</a></li>
+	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1062"><a href="/blog/category/software/os">OS</a></li>
+	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1049"><a href="/blog/category/software/programming">Programming</a></li>
 </ul>
 </li>
-<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="./category/hardware">Hard</a></li>
-<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1047"><a href="./category/network">Net</a>
+<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="/blog/category/hardware">Hard</a></li>
+<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1047"><a href="/blog/category/network">Net</a>
 <ul class="sub-menu">
-	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1063"><a href="./category/network">Network</a></li>
-	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1496"><a href="./category/network/server">Server</a></li>
-	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="./category/network/website">Web</a></li>
+	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1063"><a href="/blog/category/network">Network</a></li>
+	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1496"><a href="/blog/category/network/server">Server</a></li>
+	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="/blog/category/network/website">Web</a></li>
 </ul>
 </li>
 <li id="menu-item-1220" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1220"><a>Tool</a>
@@ -86,10 +86,10 @@ img.emoji {
 	<li id="menu-item-1825" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1825"><a href="http://mybeibei.net/">Guge&#8217;s blog</a></li>
 	<li id="menu-item-1162" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1162"><a href="http://www.yjsys.tk/">寂写心灵之幽</a></li>
 	<li id="menu-item-1045" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1045"><a href="http://hanicc.com/">HoneyCC</a></li>
-	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="./add-link">+ Add Link</a></li>
+	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="/blog/add-link">+ Add Link</a></li>
 </ul>
 </li>
-<li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="./">Blog</a></li>
+<li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="/blog/">Blog</a></li>
 <li style="float:right;">
                 <div class="toggle-search"><i class="fa fa-search"></i></div>
 <div class="search-expand" style="display: none;"><div class="search-expand-inner"><form method="get" class="searchform themeform" onsubmit="location.href='https://dfc643.github.io/blog/?s=' + encodeURIComponent(this.s.value).replace(/%20/g, '+'); return false;" action="/"><div> <input type="ext" class="search" name="s" onblur="if(this.value=='')this.value='search...';" onfocus="if(this.value=='search...')this.value='';" value="search..."></div></form></div></div>
@@ -100,7 +100,7 @@ img.emoji {
 
 <div class="container-inner" style="display:none">
  <div class="yusi-logo">
-<a href="./">
+<a href="/blog/">
 <h1>
 <span class="yusi-mono">Norckon&#039;s blog</span>
 <span class="yusi-bloger">Norckon&#039;s blog</span>
@@ -120,12 +120,12 @@ img.emoji {
 	<div class="content">
 
 				<header class="article-header">
-			<h1 class="article-title"><a href="./2014/05/fix-ubuntu14-04-cannot-load-mount-point-after-wubi-installer.html">Fix Ubuntu14.04 cannot load mount point after Wubi installer</a></h1>
+			<h1 class="article-title"><a href="/blog/2014/05/fix-ubuntu14-04-cannot-load-mount-point-after-wubi-installer.html">Fix Ubuntu14.04 cannot load mount point after Wubi installer</a></h1>
 			<div class="meta">
-				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="./category/software/os"> Operating System</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="./author/dfc643">Norckon</a></span>
+				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="/blog/category/software/os"> Operating System</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="/blog/author/dfc643">Norckon</a></span>
 				<time class="muted"><i class="fa fa-clock-o"></i> 2014-05-18</time>
 				<span class="muted"><i class="fa fa-eye"></i> 894℃</span>
-				<span class="muted"><i class="fa fa-comments-o"></i> <a href="./2014/05/fix-ubuntu14-04-cannot-load-mount-point-after-wubi-installer.html#respond">0评论</a></span>							</div>
+				<span class="muted"><i class="fa fa-comments-o"></i> <a href="/blog/2014/05/fix-ubuntu14-04-cannot-load-mount-point-after-wubi-installer.html#respond">0评论</a></span>							</div>
 		</header>
 		<article class="article-content">
 			<p>Release from Ubuntu 14.04 has been long time. As a part of LTS version, that 14.04 has a very easily overlooked problem.</p>
@@ -137,7 +137,7 @@ img.emoji {
 <p>Search after by the internet, I find that Grub&#8217;s config file caused this problem. We should modify grub&#8217;s config file only.</p>
 <p>First, the biggest problem we face is that cannot boot into desktop. If not all modify is invalid. (special exceptions)</p>
 <p>When we boot into ubuntu&#8217;s grub, and we select &#8220;Ubuntu&#8221; item. after this action we press &#8220;E&#8221; key on keyboard. And we find out &#8220;ro&#8221; in the last few lines. replace &#8220;ro&#8221; by &#8220;rw&#8221;. finally press &#8220;F10&#8221; key boot into desktop.</p>
-<p><a class="wp2pcs-image-link" href="./?image/3425435342524.png"><img class="wp2pcs-image" src="/?image/3425435342524.png" alt="3425435342524.png" /></a></p>
+<p><a class="wp2pcs-image-link" href="/blog/?image/3425435342524.png"><img class="wp2pcs-image" src="/?image/3425435342524.png" alt="3425435342524.png" /></a></p>
 <p>When we booted into desktop. Open terminal window, and type following code, press Enter:</p>
 <blockquote><p><span style="color: #999999;">sudo gedit /etc/grub.d/10_lupin</span></p></blockquote>
 <p>And press &#8220;Ctrl + F&#8221; key type &#8220;ro $&#8221; (there has a space between ro and $), replace &#8220;ro&#8221; by &#8220;rw&#8221; and save it.</p>
@@ -158,40 +158,40 @@ img.emoji {
 				<footer class="article-footer">
 			</footer>
 	<nav class="article-nav">
-			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="./2014/05/%E8%A7%A3%E5%86%B3ubuntu14-04%E7%9A%84wubi%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E6%8C%82%E8%BD%BD%E7%82%B9%E7%9A%84%E9%97%AE%E9%A2%98.html" rel="prev">解决Ubuntu14.04的Wubi安装后无法加载挂载点的问题</a></span>
-			<span class="article-nav-next"><a href="./2014/05/%E4%BD%BFsublime-text2%E6%94%AF%E6%8C%81fcitx%E8%BE%93%E5%85%A5%E6%B3%95.html" rel="next">使Sublime-Text2支持Fcitx输入法</a>  <i class="fa fa-angle-double-right"></i></span>
+			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="/blog/2014/05/%E8%A7%A3%E5%86%B3ubuntu14-04%E7%9A%84wubi%E5%AE%89%E8%A3%85%E5%90%8E%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E6%8C%82%E8%BD%BD%E7%82%B9%E7%9A%84%E9%97%AE%E9%A2%98.html" rel="prev">解决Ubuntu14.04的Wubi安装后无法加载挂载点的问题</a></span>
+			<span class="article-nav-next"><a href="/blog/2014/05/%E4%BD%BFsublime-text2%E6%94%AF%E6%8C%81fcitx%E8%BE%93%E5%85%A5%E6%B3%95.html" rel="next">使Sublime-Text2支持Fcitx输入法</a>  <i class="fa fa-angle-double-right"></i></span>
 		</nav>
 
 		<div class="related_top">
 			<div class="related_posts"><ul class="related_img">
 
 	<li class="related_box"  >
-		<a href="./2017/06/steps-signing-device-driver-package.html" title="Steps for Signing a Device Driver Package" target="_blank">
-		<img src="./wp-content/uploads/2017/06/Windows-10-wallpaper-New-Logo.jpg" alt="Steps for Signing a Device Driver Package" /><br><span class="r_title">Steps for Signing a Device Driver Package</span></a>
+		<a href="/blog/2017/06/steps-signing-device-driver-package.html" title="Steps for Signing a Device Driver Package" target="_blank">
+		<img src="/blog/wp-content/uploads/2017/06/Windows-10-wallpaper-New-Logo.jpg" alt="Steps for Signing a Device Driver Package" /><br><span class="r_title">Steps for Signing a Device Driver Package</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="./2016/05/linux-wifi-deauthenticated-reason-codes.html" title="Linux WiFi: Deauthenticated Reason Codes" target="_blank">
-		<img src="./wp-content/uploads/2016/05/1464155450-4108-linux-1x.png" alt="Linux WiFi: Deauthenticated Reason Codes" /><br><span class="r_title">Linux WiFi: Deauthenticated Reason Codes</span></a>
+		<a href="/blog/2016/05/linux-wifi-deauthenticated-reason-codes.html" title="Linux WiFi: Deauthenticated Reason Codes" target="_blank">
+		<img src="/blog/wp-content/uploads/2016/05/1464155450-4108-linux-1x.png" alt="Linux WiFi: Deauthenticated Reason Codes" /><br><span class="r_title">Linux WiFi: Deauthenticated Reason Codes</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="./2014/12/raspberry-pi-control-by-android.html" title="Raspberry Pi &#8211; Control by Android" target="_blank">
-		<img src="./wp-content/uploads/2014/12/imagesqtbnANd9GcQEKlLIIgvhtDyOjCgBUGgTlEnv4sJNGFNA33J6H8e-YitQG5A9" alt="Raspberry Pi &#8211; Control by Android" /><br><span class="r_title">Raspberry Pi &#8211; Control by Android</span></a>
+		<a href="/blog/2014/12/raspberry-pi-control-by-android.html" title="Raspberry Pi &#8211; Control by Android" target="_blank">
+		<img src="/blog/wp-content/uploads/2014/12/imagesqtbnANd9GcQEKlLIIgvhtDyOjCgBUGgTlEnv4sJNGFNA33J6H8e-YitQG5A9" alt="Raspberry Pi &#8211; Control by Android" /><br><span class="r_title">Raspberry Pi &#8211; Control by Android</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="./2014/11/change-ubuntu-screenshot-save-location.html" title="Change Ubuntu screenshot save location" target="_blank">
-		<img src="./wp-content/uploads/2014/11/screenshots.jpg" alt="Change Ubuntu screenshot save location" /><br><span class="r_title">Change Ubuntu screenshot save location</span></a>
+		<a href="/blog/2014/11/change-ubuntu-screenshot-save-location.html" title="Change Ubuntu screenshot save location" target="_blank">
+		<img src="/blog/wp-content/uploads/2014/11/screenshots.jpg" alt="Change Ubuntu screenshot save location" /><br><span class="r_title">Change Ubuntu screenshot save location</span></a>
 		</li>
 	</ul>
 
 <div class="relates">
 <ul>
-<li><i class="fa fa-minus"></i><a target="_blank" href="./2017/06/steps-signing-device-driver-package.html">Steps for Signing a Device Driver Package</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2016/05/linux-wifi-deauthenticated-reason-codes.html">Linux WiFi: Deauthenticated Reason Codes</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/12/raspberry-pi-control-by-android.html">Raspberry Pi &#8211; Control by Android</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/11/change-ubuntu-screenshot-save-location.html">Change Ubuntu screenshot save location</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/11/turn-off-monitor-using-command-line.html">Turn off monitor using command line</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/11/make-your-ubuntu-more-beautifully.html">Make your Ubuntu more beautifully</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/10/how-to-fix-corrupt-drive-icons-problem-in-my-computer-window.html">How to Fix Corrupt Drive Icons Problem in My Computer Window</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2014/09/macbook-pro-%E5%AE%89%E8%A3%85-windows-7-%E6%89%8B%E8%AE%B0.html">Macbook Pro 安装 Windows 7 手记 [中文]</a></li>
+<li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2017/06/steps-signing-device-driver-package.html">Steps for Signing a Device Driver Package</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2016/05/linux-wifi-deauthenticated-reason-codes.html">Linux WiFi: Deauthenticated Reason Codes</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2014/12/raspberry-pi-control-by-android.html">Raspberry Pi &#8211; Control by Android</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2014/11/change-ubuntu-screenshot-save-location.html">Change Ubuntu screenshot save location</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2014/11/turn-off-monitor-using-command-line.html">Turn off monitor using command line</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2014/11/make-your-ubuntu-more-beautifully.html">Make your Ubuntu more beautifully</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2014/10/how-to-fix-corrupt-drive-icons-problem-in-my-computer-window.html">How to Fix Corrupt Drive Icons Problem in My Computer Window</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2014/09/macbook-pro-%E5%AE%89%E8%A3%85-windows-7-%E6%89%8B%E8%AE%B0.html">Macbook Pro 安装 Windows 7 手记 [中文]</a></li>
 </ul></div></div>		</div>
 						<div id="respond" class="no_webshot">
-		<form action="/wp-comments-post.php" method="post" id="commentform">
+		<form action="/blog/wp-comments-post.php" method="post" id="commentform">
 		
 		<div class="comt-title">
 			<div class="comt-avatar pull-left">
@@ -232,7 +232,7 @@ img.emoji {
 <aside class="sidebar">	
 <div class="widget widget_text"><div class="textwidget text-social"><div class="social">
 
-<a href="http://weibo.com/dfc643" rel="external nofollow" title="Weibo" target="_blank"><i class="sinaweibo fa fa-weibo"></i></a><a  href="http://t.qq.com/dfc643" rel="external nofollow" title="t.qq.com" target="_blank"><i class="tencentweibo fa fa-tencent-weibo"></i></a><a href="https://twitter.com/dfc643" rel="external nofollow" title="Twitter" target="_blank"><i class="twitter fa fa-twitter"></i></a><a href="https://www.facebook.com/Norckon" rel="external nofollow" title="Facebook" target="_blank"><i class="facebook fa fa-facebook"></i></a><a href="http://mail.fcsys.org/" rel="external nofollow" title="Email" target="_blank"><i class="email fa fa-envelope-o"></i></a><a href="./?feed=rss2" rel="external nofollow" target="_blank"  title="RSS Feed"><i class="rss fa fa-rss"></i></a>
+<a href="http://weibo.com/dfc643" rel="external nofollow" title="Weibo" target="_blank"><i class="sinaweibo fa fa-weibo"></i></a><a  href="http://t.qq.com/dfc643" rel="external nofollow" title="t.qq.com" target="_blank"><i class="tencentweibo fa fa-tencent-weibo"></i></a><a href="https://twitter.com/dfc643" rel="external nofollow" title="Twitter" target="_blank"><i class="twitter fa fa-twitter"></i></a><a href="https://www.facebook.com/Norckon" rel="external nofollow" title="Facebook" target="_blank"><i class="facebook fa fa-facebook"></i></a><a href="http://mail.fcsys.org/" rel="external nofollow" title="Email" target="_blank"><i class="email fa fa-envelope-o"></i></a><a href="/blog/?feed=rss2" rel="external nofollow" target="_blank"  title="RSS Feed"><i class="rss fa fa-rss"></i></a>
 </div></div></div>
 
 <div class="widget widget_text"><div class="title"><h2>Staticized</h2></div>			<div class="textwidget"><p><strong>WARNING</strong>: This blog has been <strong>Staticized</strong>. All comment, like or other function will not working.</p>
@@ -253,9 +253,9 @@ img.emoji {
 
 	<tfoot>
 	<tr>
-		<td colspan="3" id="prev"><a href="./2014/04">&laquo; Apr</a></td>
+		<td colspan="3" id="prev"><a href="/blog/2014/04">&laquo; Apr</a></td>
 		<td class="pad">&nbsp;</td>
-		<td colspan="3" id="next"><a href="./2014/06">Jun &raquo;</a></td>
+		<td colspan="3" id="next"><a href="/blog/2014/06">Jun &raquo;</a></td>
 	</tr>
 	</tfoot>
 
@@ -267,70 +267,70 @@ img.emoji {
 		<td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td>
 	</tr>
 	<tr>
-		<td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td><a href="./2014/05/18" aria-label="Posts published on May 18, 2014">18</a></td>
+		<td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td><a href="/blog/2014/05/18" aria-label="Posts published on May 18, 2014">18</a></td>
 	</tr>
 	<tr>
 		<td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td>
 	</tr>
 	<tr>
-		<td>26</td><td>27</td><td>28</td><td><a href="./2014/05/29" aria-label="Posts published on May 29, 2014">29</a></td><td>30</td><td>31</td>
+		<td>26</td><td>27</td><td>28</td><td><a href="/blog/2014/05/29" aria-label="Posts published on May 29, 2014">29</a></td><td>30</td><td>31</td>
 		<td class="pad" colspan="1">&nbsp;</td>
 	</tr>
 	</tbody>
 	</table></div></div><div class="widget widget_categories"><div class="title"><h2>Categories</h2></div>		<ul>
-	<li class="cat-item cat-item-10"><a href="./category/hardware" >Hardware</a>
+	<li class="cat-item cat-item-10"><a href="/blog/category/hardware" >Hardware</a>
 </li>
-	<li class="cat-item cat-item-3"><a href="./category/network" >Network</a>
+	<li class="cat-item cat-item-3"><a href="/blog/category/network" >Network</a>
 </li>
-	<li class="cat-item cat-item-17"><a href="./category/software/os" >Operating System</a>
+	<li class="cat-item cat-item-17"><a href="/blog/category/software/os" >Operating System</a>
 </li>
-	<li class="cat-item cat-item-4"><a href="./category/software/programming" >Programming</a>
+	<li class="cat-item cat-item-4"><a href="/blog/category/software/programming" >Programming</a>
 </li>
-	<li class="cat-item cat-item-106"><a href="./category/network/server" >Server</a>
+	<li class="cat-item cat-item-106"><a href="/blog/category/network/server" >Server</a>
 </li>
-	<li class="cat-item cat-item-6"><a href="./category/software" >Software</a>
+	<li class="cat-item cat-item-6"><a href="/blog/category/software" >Software</a>
 </li>
-	<li class="cat-item cat-item-1"><a href="./category/uncategorized" >Uncategorized</a>
+	<li class="cat-item cat-item-1"><a href="/blog/category/uncategorized" >Uncategorized</a>
 </li>
-	<li class="cat-item cat-item-13"><a href="./category/network/website" >Website</a>
+	<li class="cat-item cat-item-13"><a href="/blog/category/network/website" >Website</a>
 </li>
 		</ul>
 </div><div class="widget widget_archive"><div class="title"><h2>Archives</h2></div>		<ul>
-			<li><a href='/2017/06'>June 2017</a></li>
-	<li><a href='/2017/01'>January 2017</a></li>
-	<li><a href='/2016/10'>October 2016</a></li>
-	<li><a href='/2016/06'>June 2016</a></li>
-	<li><a href='/2016/05'>May 2016</a></li>
-	<li><a href='/2015/11'>November 2015</a></li>
-	<li><a href='/2015/10'>October 2015</a></li>
-	<li><a href='/2015/07'>July 2015</a></li>
-	<li><a href='/2015/05'>May 2015</a></li>
-	<li><a href='/2015/04'>April 2015</a></li>
-	<li><a href='/2015/01'>January 2015</a></li>
-	<li><a href='/2014/12'>December 2014</a></li>
-	<li><a href='/2014/11'>November 2014</a></li>
-	<li><a href='/2014/10'>October 2014</a></li>
-	<li><a href='/2014/09'>September 2014</a></li>
-	<li><a href='/2014/08'>August 2014</a></li>
-	<li><a href='/2014/07'>July 2014</a></li>
-	<li><a href='/2014/06'>June 2014</a></li>
-	<li><a href='/2014/05'>May 2014</a></li>
-	<li><a href='/2014/04'>April 2014</a></li>
-	<li><a href='/2014/03'>March 2014</a></li>
-	<li><a href='/2014/02'>February 2014</a></li>
-	<li><a href='/2014/01'>January 2014</a></li>
-	<li><a href='/2013/12'>December 2013</a></li>
-	<li><a href='/2013/11'>November 2013</a></li>
-	<li><a href='/2013/10'>October 2013</a></li>
-	<li><a href='/2013/09'>September 2013</a></li>
-	<li><a href='/2013/08'>August 2013</a></li>
-	<li><a href='/2013/07'>July 2013</a></li>
-	<li><a href='/2013/06'>June 2013</a></li>
-	<li><a href='/2013/05'>May 2013</a></li>
-	<li><a href='/2013/03'>March 2013</a></li>
-	<li><a href='/2013/02'>February 2013</a></li>
-	<li><a href='/2012/07'>July 2012</a></li>
-	<li><a href='/1994/12'>December 1994</a></li>
+			<li><a href='/blog/2017/06'>June 2017</a></li>
+	<li><a href='/blog/2017/01'>January 2017</a></li>
+	<li><a href='/blog/2016/10'>October 2016</a></li>
+	<li><a href='/blog/2016/06'>June 2016</a></li>
+	<li><a href='/blog/2016/05'>May 2016</a></li>
+	<li><a href='/blog/2015/11'>November 2015</a></li>
+	<li><a href='/blog/2015/10'>October 2015</a></li>
+	<li><a href='/blog/2015/07'>July 2015</a></li>
+	<li><a href='/blog/2015/05'>May 2015</a></li>
+	<li><a href='/blog/2015/04'>April 2015</a></li>
+	<li><a href='/blog/2015/01'>January 2015</a></li>
+	<li><a href='/blog/2014/12'>December 2014</a></li>
+	<li><a href='/blog/2014/11'>November 2014</a></li>
+	<li><a href='/blog/2014/10'>October 2014</a></li>
+	<li><a href='/blog/2014/09'>September 2014</a></li>
+	<li><a href='/blog/2014/08'>August 2014</a></li>
+	<li><a href='/blog/2014/07'>July 2014</a></li>
+	<li><a href='/blog/2014/06'>June 2014</a></li>
+	<li><a href='/blog/2014/05'>May 2014</a></li>
+	<li><a href='/blog/2014/04'>April 2014</a></li>
+	<li><a href='/blog/2014/03'>March 2014</a></li>
+	<li><a href='/blog/2014/02'>February 2014</a></li>
+	<li><a href='/blog/2014/01'>January 2014</a></li>
+	<li><a href='/blog/2013/12'>December 2013</a></li>
+	<li><a href='/blog/2013/11'>November 2013</a></li>
+	<li><a href='/blog/2013/10'>October 2013</a></li>
+	<li><a href='/blog/2013/09'>September 2013</a></li>
+	<li><a href='/blog/2013/08'>August 2013</a></li>
+	<li><a href='/blog/2013/07'>July 2013</a></li>
+	<li><a href='/blog/2013/06'>June 2013</a></li>
+	<li><a href='/blog/2013/05'>May 2013</a></li>
+	<li><a href='/blog/2013/03'>March 2013</a></li>
+	<li><a href='/blog/2013/02'>February 2013</a></li>
+	<li><a href='/blog/2012/07'>July 2012</a></li>
+	<li><a href='/blog/1994/12'>December 1994</a></li>
 		</ul>
 		</div><div class="widget ilwp_widget_tag_cloud"><div class="title"><h2>Tag Cloud</h2></div><div class='colored-tag-cloud'><a href='/tag/windows-server' class='tag-link-103' title='1 post is tagged with &ldquo;Windows Server&rdquo;' rel="tag" style='font-size: 8px;  color: lime;'>Windows Server</a>
 <a href='/tag/cpu' class='tag-link-112' title='2 posts are tagged with &ldquo;CPU&rdquo;' rel="tag" style='font-size: 18.666666666667px;  color: olive;'>CPU</a>
@@ -526,7 +526,7 @@ var _hmt = _hmt || [];
     </div>
 </footer>
 
-<script type='text/javascript' src='./wp-content/themes/yusi_cache1.0/js/jquery.js?ver=1.0'></script>
-<script type='text/javascript' src='./wp-includes/js/wp-embed.min.js?ver=4.9.1'></script>
+<script type='text/javascript' src='/blog/wp-content/themes/yusi_cache1.0/js/jquery.js?ver=1.0'></script>
+<script type='text/javascript' src='/blog/wp-includes/js/wp-embed.min.js?ver=4.9.1'></script>
 </body>
 </html>

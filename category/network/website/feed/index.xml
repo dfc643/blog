@@ -9,7 +9,7 @@
 
 <channel>
 	<title>Website &#8211; Norckon&#039;s blog</title>
-	<atom:link href="/category/network/website/feed" rel="self" type="application/rss+xml" />
+	<atom:link href="/blog/category/network/website/feed" rel="self" type="application/rss+xml" />
 	<link>/</link>
 	<description>Norckon&#039;s blog</description>
 	<lastBuildDate>Thu, 24 Aug 2017 14:09:08 +0000</lastBuildDate>
@@ -31,7 +31,7 @@
 
 		<guid isPermaLink="false">/?p=1727</guid>
 		<description><![CDATA[When Alec Rust asked the HTML5 Boilerplate project to switch to a HiDPI favicon, I realized how little I knew about favorite icons, touch icons, and tile icons. When I decided to dive in a little deeper, things got interesting. Since they were first introduced by Internet Explorer in 1999, almost nothing about favicons has [&#8230;]]]></description>
-				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/05/1464158577-9837-02.jpg"><img class="attachment-full size-full aligncenter" src="./wp-content/uploads/2016/05/1464158577-9837-02.jpg" alt="1464158577-9837-02" width="600" height="450" /></a></p>
+				<content:encoded><![CDATA[<p><a href="/blog/wp-content/uploads/2016/05/1464158577-9837-02.jpg"><img class="attachment-full size-full aligncenter" src="/blog/wp-content/uploads/2016/05/1464158577-9837-02.jpg" alt="1464158577-9837-02" width="600" height="450" /></a></p>
 <p>When <a title="Alec Rust" href="https://twitter.com/AlecRust" target="_blank">Alec Rust</a> asked the <a href="http://html5boilerplate.com/" target="_blank">HTML5 Boilerplate</a> project to <a href="https://github.com/h5bp/html5-boilerplate/issues/1285" target="_blank">switch to a HiDPI favicon</a>, I realized how little I knew about <a href="http://www.w3.org/2005/10/howto-favicon" target="_blank">favorite icons</a>, <a href="http://developer.apple.com/library/ios/#documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html" target="_blank">touch icons</a>, and <a href="http://blogs.msdn.com/b/ie/archive/2012/06/08/high-quality-visuals-for-pinned-sites-in-windows-8.aspx" target="_blank">tile icons</a>. When I decided to dive in a little deeper, things got interesting.</p>
 <p>Since they were first introduced by Internet Explorer in 1999, almost nothing about favicons has changed. They have almost-always been <a href="http://en.wikipedia.org/wiki/ICO_(file_format)" target="_blank">ICO files</a>, either nested in the root of the domain as <code>/favicon.ico</code>, or organized by a CMS into a theme or images directory and displayed with:</p>
 <div>
@@ -51,7 +51,7 @@
 </div>
 <p><img src="http://www.jonathantneal.com/wp-content/uploads/2013/01/favicon-16.png" alt="" /> <img src="http://www.jonathantneal.com/wp-content/uploads/2013/01/favicon-32.png" alt="" /></p>
 <p>The classic favicon.ico is a 16×16 ICO file, often served in either 16-color or 24bit alpha-transparency format. More recently, favicons have been served as 32×32, which is appropriately scaled down in all major and popular-legacy browsers. In IE10 Metro, the 32×32 icon is used in the address bar.</p>
-<p><a href="/wp-content/uploads/2016/05/1464158236-7001-ie10-address-bar.png"><img class="attachment-full size-full" src="./wp-content/uploads/2016/05/1464158236-7001-ie10-address-bar.png" alt="1464158236-7001-ie10-address-bar" width="450" height="69" /></a></p>
+<p><a href="/blog/wp-content/uploads/2016/05/1464158236-7001-ie10-address-bar.png"><img class="attachment-full size-full" src="/blog/wp-content/uploads/2016/05/1464158236-7001-ie10-address-bar.png" alt="1464158236-7001-ie10-address-bar" width="450" height="69" /></a></p>
 <p>The <strong>rel</strong> attribute of a favicon is a product of evolution. Internet Explorer 5 intended<code>shortcut icon</code> to represent the relationship between the page and the icon, but when <a href="http://tools.ietf.org/html/rfc5988" target="_blank">the specification</a> separated relationships by space, this theoretically created two relationships,<code>shortcut</code> and <code>icon</code>. It wasn’t until 2010 when the HTML5 specification declared <code>icon</code>alone to be the standard identifier. In non-IE browsers, favicons can be served without the<code>shortcut</code> property.</p>
 <div>
 <div id="highlighter_142668">
@@ -95,10 +95,10 @@
 </table>
 </div>
 </div>
-<blockquote><p><a href="/wp-content/uploads/2016/05/1464158256-3731-happy-doctor.png"><img class="attachment-full size-full" src="./wp-content/uploads/2016/05/1464158256-3731-happy-doctor.png" alt="1464158256-3731-happy-doctor" width="175" height="160" /></a>Good news, everyone! Good browsers can use PNG favicons.</p>
+<blockquote><p><a href="/blog/wp-content/uploads/2016/05/1464158256-3731-happy-doctor.png"><img class="attachment-full size-full" src="/blog/wp-content/uploads/2016/05/1464158256-3731-happy-doctor.png" alt="1464158256-3731-happy-doctor" width="175" height="160" /></a>Good news, everyone! Good browsers can use PNG favicons.</p>
 <div></div>
 </blockquote>
-<blockquote><p><a href="/wp-content/uploads/2016/05/1464158242-8226-sad-doctor.png"><img class="attachment-full size-full" src="./wp-content/uploads/2016/05/1464158242-8226-sad-doctor.png" alt="1464158242-8226-sad-doctor" width="175" height="160" /></a>Bad news, everyone! Chrome and Safari will use the ICO favicons anyway.</p>
+<blockquote><p><a href="/blog/wp-content/uploads/2016/05/1464158242-8226-sad-doctor.png"><img class="attachment-full size-full" src="/blog/wp-content/uploads/2016/05/1464158242-8226-sad-doctor.png" alt="1464158242-8226-sad-doctor" width="175" height="160" /></a>Bad news, everyone! Chrome and Safari will use the ICO favicons anyway.</p>
 <div></div>
 </blockquote>
 <p>This really depresses me, because Chrome, Firefox, Opera 7+, and Safari 4+ all accept the PNG favicon, but Chrome and Safari will opt to use the ICO favicon when both are presented, regardless of the order in which they are declared. On the other hand, Internet Explorer does not support PNG favicons, but it will ignore the PNG favicon and use the ICO favicon, regardless of the order in which they are declared.</p>
@@ -143,7 +143,7 @@
 </div>
 <p>How do these PNG-favicon-compatible browsers determine which favicon should be used? Firefox and Safari will use the favicon that comes last. Chrome for Mac will use whichever favicon is ICO formatted, otherwise the 32×32 favicon. Chrome for Windows will use the favicon that comes first if it is 16×16, otherwise the ICO. If none of the aforementioned options are available, both Chromes will use whichever favicon comes first, exactly the opposite of Firefox and Safari. Indeed, Chrome for Mac will ignore the 16×16 favicon and use the 32×32 version if only to scale it back down to 16×16 on non-retina devices. Opera, not wanting to take sides, will choose from any of the available icons at complete random. I love that Opera does this.</p>
 <p>And that’s just the beginning. Now it’s time to learn about the Internet Explorer caveats.</p>
-<p><a href="/wp-content/uploads/2016/05/1464158246-6361-lqIAj.jpg"><img class="attachment-full size-full" src="./wp-content/uploads/2016/05/1464158246-6361-lqIAj.jpg" alt="1464158246-6361-lqIAj" width="256" height="243" /></a>While IE8-10 will display the favicon on first load of the page, IE7 will skip the first load and display the favicon during repeat visits. Worse yet, IE6 will only display the favicon once the site has been bookmarked and reopened in the browser. IE6 will also drop the favicon whenever the browser cache is cleared, and it will not display the favicon again until the site is either re-bookmarked, or the favicon is somehow reloaded. If IE6 and favicons mean a lot to you, you can force this reload with a little JavaScript snippet, preferably wrapped in a conditional comment.</p>
+<p><a href="/blog/wp-content/uploads/2016/05/1464158246-6361-lqIAj.jpg"><img class="attachment-full size-full" src="/blog/wp-content/uploads/2016/05/1464158246-6361-lqIAj.jpg" alt="1464158246-6361-lqIAj" width="256" height="243" /></a>While IE8-10 will display the favicon on first load of the page, IE7 will skip the first load and display the favicon during repeat visits. Worse yet, IE6 will only display the favicon once the site has been bookmarked and reopened in the browser. IE6 will also drop the favicon whenever the browser cache is cleared, and it will not display the favicon again until the site is either re-bookmarked, or the favicon is somehow reloaded. If IE6 and favicons mean a lot to you, you can force this reload with a little JavaScript snippet, preferably wrapped in a conditional comment.</p>
 <div>
 <div id="highlighter_720353">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -160,7 +160,7 @@
 </table>
 </div>
 </div>
-<p><a href="/wp-content/uploads/2016/05/1464158239-2579-YVKiF.png"><img class="attachment-full size-full" src="./wp-content/uploads/2016/05/1464158239-2579-YVKiF.png" alt="1464158239-2579-YVKiF" width="485" height="157" /></a></p>
+<p><a href="/blog/wp-content/uploads/2016/05/1464158239-2579-YVKiF.png"><img class="attachment-full size-full" src="/blog/wp-content/uploads/2016/05/1464158239-2579-YVKiF.png" alt="1464158239-2579-YVKiF" width="485" height="157" /></a></p>
 <hr />
 <p>Back to <strong>HiDPI</strong>; have you asked yourself this question yet?</p>
 <blockquote><p><i>If all good browsers support PNG favicons, and IE browsers need ICO favicons, but ICO favicons throw off Chrome and Safari, why not wrap the ICO favicon in IE conditional commments?</i></p></blockquote>
@@ -232,7 +232,7 @@
 </div>
 </div>
 <p>Unsatisfied with either solution? All is not lost. IE10 users are mostly Windows 8 users <a href="http://windows.microsoft.com/en-US/internet-explorer/ie-10-release-preview" target="_blank">for now</a>, and Windows 8 introduces a new kind of display icon for websites — <strong>tile icons</strong>.</p>
-<p><a href="/wp-content/uploads/2016/05/1464158245-1978-tile-icon.png"><img class="attachment-full size-full" src="./wp-content/uploads/2016/05/1464158245-1978-tile-icon.png" alt="1464158245-1978-tile-icon" width="144" height="144" /></a></p>
+<p><a href="/blog/wp-content/uploads/2016/05/1464158245-1978-tile-icon.png"><img class="attachment-full size-full" src="/blog/wp-content/uploads/2016/05/1464158245-1978-tile-icon.png" alt="1464158245-1978-tile-icon" width="144" height="144" /></a></p>
 <p>With IE10 Metro we can display a unique tile icon when the visitor <em>pins</em> our site to their Start screen. These tile icons are 144×144 PNG files, and for best results they use a transparent background. A background tile color can be specified using a hex RGB color (using the six-character #RRGGBB notation), a CSS color name, or the CSS rgb() function. The markup is pretty simple.</p>
 <div>
 <div id="highlighter_558663">
@@ -250,7 +250,7 @@
 </table>
 </div>
 </div>
-<p><a href="/wp-content/uploads/2016/05/1464158248-8847-tile-icon-pinnning.png"><img class="attachment-full size-full" src="./wp-content/uploads/2016/05/1464158248-8847-tile-icon-pinnning.png" alt="1464158248-8847-tile-icon-pinnning" width="286" height="292" /></a></p>
+<p><a href="/blog/wp-content/uploads/2016/05/1464158248-8847-tile-icon-pinnning.png"><img class="attachment-full size-full" src="/blog/wp-content/uploads/2016/05/1464158248-8847-tile-icon-pinnning.png" alt="1464158248-8847-tile-icon-pinnning" width="286" height="292" /></a></p>
 <p>Okay, so let’s put it all together, accepting the potential limitation of IE10, and keeping the sane parts of everything else.</p>
 <div>
 <div id="highlighter_324753">
@@ -318,7 +318,7 @@
 
 		<guid isPermaLink="false">/?p=1724</guid>
 		<description><![CDATA[INTRODUCE With the advent of HTML5, more and more meta has been supported. mostly of them are supported or designed for mobile devices. POSITION IN HTML5 CODE Meta code need insert into following position: &#60;!DOCTYPE html&#62; &#60;!-- Document type declaration --&#62; &#60;html lang="zh-cmn-Hans"&#62; &#60;!-- Document language declaration --&#62; &#60;head&#62; &#60;meta charset='utf-8'&#62; &#60;!-- Document charset declaration --&#62; [&#8230;]]]></description>
-				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/05/1464157994-9001-hxz0528html01.jpg"><img class="attachment-full size-full aligncenter" src="./wp-content/uploads/2016/05/1464157994-9001-hxz0528html01.jpg" alt="1464157994-9001-hxz0528html01" width="640" height="316" /></a></p>
+				<content:encoded><![CDATA[<p><a href="/blog/wp-content/uploads/2016/05/1464157994-9001-hxz0528html01.jpg"><img class="attachment-full size-full aligncenter" src="/blog/wp-content/uploads/2016/05/1464157994-9001-hxz0528html01.jpg" alt="1464157994-9001-hxz0528html01" width="640" height="316" /></a></p>
 <h2>INTRODUCE</h2>
 <p>With the advent of HTML5, more and more meta has been supported. mostly of them are supported or designed for mobile devices.</p>
 <h2>POSITION IN HTML5 CODE</h2>
@@ -462,7 +462,7 @@
 
 		<guid isPermaLink="false">/?p=1357</guid>
 		<description><![CDATA[定义 什么是回调函数？ 来自维基百科 Callback_(computer_programming) 条目： In computer programming, a callback is a reference to a piece of executable code that is passed as an argument to other code. 来自 JQuery 文档 How jQuery Works#Callback_and_Function 条目： A callback is a function that is passed as an argument to another function and is executed after its parent [&#8230;]]]></description>
-				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2014/10/node-js-callback-hell.jpg"><img class="aligncenter size-full wp-image-1464" src="./wp-content/uploads/2014/10/node-js-callback-hell.jpg" alt="node-js-callback-hell" width="616" height="324" /></a></p>
+				<content:encoded><![CDATA[<p><a href="/blog/wp-content/uploads/2014/10/node-js-callback-hell.jpg"><img class="aligncenter size-full wp-image-1464" src="/blog/wp-content/uploads/2014/10/node-js-callback-hell.jpg" alt="node-js-callback-hell" width="616" height="324" /></a></p>
 <h2>定义</h2>
 <p><strong>什么是回调函数？</strong></p>
 <p>来自维基百科 <a title="Callback_(computer_programming)" href="http://en.wikipedia.org/wiki/Callback_(computer_programming)" target="_blank" rel="nofollow">Callback_(computer_programming)</a> 条目：</p>
@@ -802,7 +802,7 @@ if(!+[1,]) {
 				<category><![CDATA[Website]]></category>
 
 		<guid isPermaLink="false">/?p=1077</guid>
-		<description><![CDATA[有时候可能会需要通过PHP来遍历某个目录中所有的文件，比如说制作一个PHP的文件浏览器，这样的话，就需要用到文件遍历。文件夹中有两个特殊路径「.」和「..」，这是表示本目录与上级目录，我们在遍历文件的过程中也要注意避开这两个特殊路径，同时还要对文件或者文件夹做出区分，下面是引用自其他网站的一段代码。 &#60;?php /********************** 一个简单的目录递归函数 第一种实现办法：用dir返回对象 ***********************/ function tree($directory) { $mydir = dir($directory); echo "&#60;ul&#62;\n"; while($file = $mydir-&#62;read()) { if((is_dir("$directory/$file")) AND ($file!=".") AND ($file!="..")) { echo "&#60;li&#62;&#60;font color=\"#ff00cc\"&#62;&#60;b&#62;$file&#60;/b&#62;&#60;/font&#62;&#60;/li&#62;\n"; tree("$directory/$file"); } else echo "&#60;li&#62;$file&#60;/li&#62;\n"; } echo "&#60;/ul&#62;\n"; $mydir-&#62;close(); } //开始运行 echo "&#60;h2&#62;目录为粉红色&#60;/h2&#62;&#60;br&#62;\n"; tree("./nowamagic"); /*********************** 第二种实现办法：用readdir()函数 ************************/ function listDir($dir) { if(is_dir($dir)) { if ($dh = opendir($dir)) { while [&#8230;]]]></description>
+		<description><![CDATA[有时候可能会需要通过PHP来遍历某个目录中所有的文件，比如说制作一个PHP的文件浏览器，这样的话，就需要用到文件遍历。文件夹中有两个特殊路径「.」和「..」，这是表示本目录与上级目录，我们在遍历文件的过程中也要注意避开这两个特殊路径，同时还要对文件或者文件夹做出区分，下面是引用自其他网站的一段代码。 &#60;?php /********************** 一个简单的目录递归函数 第一种实现办法：用dir返回对象 ***********************/ function tree($directory) { $mydir = dir($directory); echo "&#60;ul&#62;\n"; while($file = $mydir-&#62;read()) { if((is_dir("$directory/$file")) AND ($file!=".") AND ($file!="..")) { echo "&#60;li&#62;&#60;font color=\"#ff00cc\"&#62;&#60;b&#62;$file&#60;/b&#62;&#60;/font&#62;&#60;/li&#62;\n"; tree("$directory/$file"); } else echo "&#60;li&#62;$file&#60;/li&#62;\n"; } echo "&#60;/ul&#62;\n"; $mydir-&#62;close(); } //开始运行 echo "&#60;h2&#62;目录为粉红色&#60;/h2&#62;&#60;br&#62;\n"; tree("/blog/nowamagic"); /*********************** 第二种实现办法：用readdir()函数 ************************/ function listDir($dir) { if(is_dir($dir)) { if ($dh = opendir($dir)) { while [&#8230;]]]></description>
 				<content:encoded><![CDATA[<p>有时候可能会需要通过PHP来遍历某个目录中所有的文件，比如说制作一个PHP的文件浏览器，这样的话，就需要用到文件遍历。文件夹中有两个特殊路径「.」和「..」，这是表示本目录与上级目录，我们在遍历文件的过程中也要注意避开这两个特殊路径，同时还要对文件或者文件夹做出区分，下面是引用自其他网站的一段代码。</p>
 <pre class="brush: php; gutter: true; first-line: 1">&lt;?php
 /**********************
@@ -829,7 +829,7 @@ function tree($directory)
 //开始运行
 
 echo "&lt;h2&gt;目录为粉红色&lt;/h2&gt;&lt;br&gt;\n"; 
-tree("./nowamagic"); 
+tree("/blog/nowamagic"); 
 
 /***********************
 第二种实现办法：用readdir()函数
@@ -860,7 +860,7 @@ function listDir($dir)
    	}
 }
 //开始运行
-listDir("./nowamagic");
+listDir("/blog/nowamagic");
 ?&gt;</pre>
 <blockquote><p>文章来源：http://www.nowamagic.net/php/php_TraversalAllFilesInDir.php</p></blockquote>
 ]]></content:encoded>

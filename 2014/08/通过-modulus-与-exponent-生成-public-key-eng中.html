@@ -28,15 +28,15 @@ img.emoji {
 	padding: 0 !important;
 }
 </style>
-<link rel='stylesheet' id='style-css'  href='/wp-content/themes/yusi_cache1.0/style.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='style-css'  href='/blog/wp-content/themes/yusi_cache1.0/style.css?ver=1.0' type='text/css' media='all' />
 <script type='text/javascript' src='//cdn.bootcss.com/jquery/1.8.3/jquery.min.js?ver=1.0'></script>
-<link rel='https://api.w.org/' href='/wp-json/' />
-<link rel='prev' title='储量单位 MiB 与 MB 的不同之处' href='/2014/08/%E5%82%A8%E9%87%8F%E5%8D%95%E4%BD%8D-mib-%E4%B8%8E-mb-%E7%9A%84%E4%B8%8D%E5%90%8C%E4%B9%8B%E5%A4%84.html' />
-<link rel='next' title='怎样为 Ubuntu 12.04 安装非 PAE 兼容内核 [ENG/中文]' href='/2014/08/%E6%80%8E%E6%A0%B7%E4%B8%BA-ubuntu-12-04-%E5%AE%89%E8%A3%85%E9%9D%9E-pae-%E5%85%BC%E5%AE%B9%E5%86%85%E6%A0%B8-eng%E4%B8%AD%E6%96%87.html' />
-<link rel="canonical" href="/2014/08/%E9%80%9A%E8%BF%87-modulus-%E4%B8%8E-exponent-%E7%94%9F%E6%88%90-public-key-eng%E4%B8%AD.html" />
+<link rel='https://api.w.org/' href='/blog/wp-json/' />
+<link rel='prev' title='储量单位 MiB 与 MB 的不同之处' href='/blog/2014/08/%E5%82%A8%E9%87%8F%E5%8D%95%E4%BD%8D-mib-%E4%B8%8E-mb-%E7%9A%84%E4%B8%8D%E5%90%8C%E4%B9%8B%E5%A4%84.html' />
+<link rel='next' title='怎样为 Ubuntu 12.04 安装非 PAE 兼容内核 [ENG/中文]' href='/blog/2014/08/%E6%80%8E%E6%A0%B7%E4%B8%BA-ubuntu-12-04-%E5%AE%89%E8%A3%85%E9%9D%9E-pae-%E5%85%BC%E5%AE%B9%E5%86%85%E6%A0%B8-eng%E4%B8%AD%E6%96%87.html' />
+<link rel="canonical" href="/blog/2014/08/%E9%80%9A%E8%BF%87-modulus-%E4%B8%8E-exponent-%E7%94%9F%E6%88%90-public-key-eng%E4%B8%AD.html" />
 <link rel='shortlink' href='/?p=1307' />
-<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F08%2F%25E9%2580%259A%25E8%25BF%2587-modulus-%25E4%25B8%258E-exponent-%25E7%2594%259F%25E6%2588%2590-public-key-eng%25E4%25B8%25AD.html" />
-<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F08%2F%25E9%2580%259A%25E8%25BF%2587-modulus-%25E4%25B8%258E-exponent-%25E7%2594%259F%25E6%2588%2590-public-key-eng%25E4%25B8%25AD.html&#038;format=xml" />
+<link rel="alternate" type="application/json+oembed" href="/blog/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F08%2F%25E9%2580%259A%25E8%25BF%2587-modulus-%25E4%25B8%258E-exponent-%25E7%2594%259F%25E6%2588%2590-public-key-eng%25E4%25B8%25AD.html" />
+<link rel="alternate" type="text/xml+oembed" href="/blog/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2014%2F08%2F%25E9%2580%259A%25E8%25BF%2587-modulus-%25E4%25B8%258E-exponent-%25E7%2594%259F%25E6%2588%2590-public-key-eng%25E4%25B8%25AD.html&#038;format=xml" />
 <meta name="keywords" content="Programming">
 <meta name="description" content="原标题：USING RAW PUBLIC KEYS IN PHP // this function makes up for the fact that openssl doesn't // currently support direct use of modulus and exponent except // when PEM encoded in publicKeyInfo or Certificate ASN.1  // So">
 <!--[if lt IE 9]><script src="https://dfc643.github.io/blog/wp-content/themes/yusi_cache1.0/js/html5.js"></script><![endif]-->
@@ -51,19 +51,19 @@ img.emoji {
     <ul class="nav">
         <li class="title">Norckon</li>
         <li id="menu-item-1262" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1262"><a href="http://dfc643.github.io/">Top</a></li>
-<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-1046"><a href="/category/software">Soft</a>
+<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-1046"><a href="/blog/category/software">Soft</a>
 <ul class="sub-menu">
-	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-1064"><a href="/category/software">Software</a></li>
-	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1062"><a href="/category/software/os">OS</a></li>
-	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1049"><a href="/category/software/programming">Programming</a></li>
+	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-1064"><a href="/blog/category/software">Software</a></li>
+	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1062"><a href="/blog/category/software/os">OS</a></li>
+	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1049"><a href="/blog/category/software/programming">Programming</a></li>
 </ul>
 </li>
-<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="/category/hardware">Hard</a></li>
-<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1047"><a href="/category/network">Net</a>
+<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="/blog/category/hardware">Hard</a></li>
+<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1047"><a href="/blog/category/network">Net</a>
 <ul class="sub-menu">
-	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1063"><a href="/category/network">Network</a></li>
-	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1496"><a href="/category/network/server">Server</a></li>
-	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="/category/network/website">Web</a></li>
+	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1063"><a href="/blog/category/network">Network</a></li>
+	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1496"><a href="/blog/category/network/server">Server</a></li>
+	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="/blog/category/network/website">Web</a></li>
 </ul>
 </li>
 <li id="menu-item-1220" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1220"><a>Tool</a>
@@ -86,7 +86,7 @@ img.emoji {
 	<li id="menu-item-1825" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1825"><a href="http://mybeibei.net/">Guge&#8217;s blog</a></li>
 	<li id="menu-item-1162" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1162"><a href="http://www.yjsys.tk/">寂写心灵之幽</a></li>
 	<li id="menu-item-1045" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1045"><a href="http://hanicc.com/">HoneyCC</a></li>
-	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="/add-link">+ Add Link</a></li>
+	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="/blog/add-link">+ Add Link</a></li>
 </ul>
 </li>
 <li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="/">Blog</a></li>
@@ -120,12 +120,12 @@ img.emoji {
 	<div class="content">
 
 				<header class="article-header">
-			<h1 class="article-title"><a href="/2014/08/%E9%80%9A%E8%BF%87-modulus-%E4%B8%8E-exponent-%E7%94%9F%E6%88%90-public-key-eng%E4%B8%AD.html">通过 Modulus 与 Exponent 生成 Public Key [ENG/中]</a></h1>
+			<h1 class="article-title"><a href="/blog/2014/08/%E9%80%9A%E8%BF%87-modulus-%E4%B8%8E-exponent-%E7%94%9F%E6%88%90-public-key-eng%E4%B8%AD.html">通过 Modulus 与 Exponent 生成 Public Key [ENG/中]</a></h1>
 			<div class="meta">
-				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="/category/software/programming"> Programming</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="/author/dfc643">Norckon</a></span>
+				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="/blog/category/software/programming"> Programming</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="/author/dfc643">Norckon</a></span>
 				<time class="muted"><i class="fa fa-clock-o"></i> 2014-08-17</time>
 				<span class="muted"><i class="fa fa-eye"></i> 1327℃</span>
-				<span class="muted"><i class="fa fa-comments-o"></i> <a href="/2014/08/%E9%80%9A%E8%BF%87-modulus-%E4%B8%8E-exponent-%E7%94%9F%E6%88%90-public-key-eng%E4%B8%AD.html#respond">0评论</a></span>							</div>
+				<span class="muted"><i class="fa fa-comments-o"></i> <a href="/blog/2014/08/%E9%80%9A%E8%BF%87-modulus-%E4%B8%8E-exponent-%E7%94%9F%E6%88%90-public-key-eng%E4%B8%AD.html#respond">0评论</a></span>							</div>
 		</header>
 		<article class="article-content">
 			<p>原标题：USING RAW PUBLIC KEYS IN PHP</p>
@@ -218,40 +218,40 @@ function makeAsnSegment($type, $string)
 				<footer class="article-footer">
 			</footer>
 	<nav class="article-nav">
-			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="/2014/08/%E5%82%A8%E9%87%8F%E5%8D%95%E4%BD%8D-mib-%E4%B8%8E-mb-%E7%9A%84%E4%B8%8D%E5%90%8C%E4%B9%8B%E5%A4%84.html" rel="prev">储量单位 MiB 与 MB 的不同之处</a></span>
-			<span class="article-nav-next"><a href="/2014/08/%E6%80%8E%E6%A0%B7%E4%B8%BA-ubuntu-12-04-%E5%AE%89%E8%A3%85%E9%9D%9E-pae-%E5%85%BC%E5%AE%B9%E5%86%85%E6%A0%B8-eng%E4%B8%AD%E6%96%87.html" rel="next">怎样为 Ubuntu 12.04 安装非 PAE 兼容内核 [ENG/中文]</a>  <i class="fa fa-angle-double-right"></i></span>
+			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="/blog/2014/08/%E5%82%A8%E9%87%8F%E5%8D%95%E4%BD%8D-mib-%E4%B8%8E-mb-%E7%9A%84%E4%B8%8D%E5%90%8C%E4%B9%8B%E5%A4%84.html" rel="prev">储量单位 MiB 与 MB 的不同之处</a></span>
+			<span class="article-nav-next"><a href="/blog/2014/08/%E6%80%8E%E6%A0%B7%E4%B8%BA-ubuntu-12-04-%E5%AE%89%E8%A3%85%E9%9D%9E-pae-%E5%85%BC%E5%AE%B9%E5%86%85%E6%A0%B8-eng%E4%B8%AD%E6%96%87.html" rel="next">怎样为 Ubuntu 12.04 安装非 PAE 兼容内核 [ENG/中文]</a>  <i class="fa fa-angle-double-right"></i></span>
 		</nav>
 
 		<div class="related_top">
 			<div class="related_posts"><ul class="related_img">
 
 	<li class="related_box"  >
-		<a href="/2016/10/form-submit-via-javascript.html" title="Form submit via Javascript" target="_blank">
-		<img src="./wp-content/uploads/2016/10/1476955833-4486-ajax-min.jpg" alt="Form submit via Javascript" /><br><span class="r_title">Form submit via Javascript</span></a>
+		<a href="/blog/2016/10/form-submit-via-javascript.html" title="Form submit via Javascript" target="_blank">
+		<img src="/blog/wp-content/uploads/2016/10/1476955833-4486-ajax-min.jpg" alt="Form submit via Javascript" /><br><span class="r_title">Form submit via Javascript</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="/2015/01/raspberry-pi-distcc.html" title="Raspberry Pi &#8211; Distcc" target="_blank">
-		<img src="./wp-content/uploads/2015/01/distccmon-gnome-2003-09-23-01.png" alt="Raspberry Pi &#8211; Distcc" /><br><span class="r_title">Raspberry Pi &#8211; Distcc</span></a>
+		<a href="/blog/2015/01/raspberry-pi-distcc.html" title="Raspberry Pi &#8211; Distcc" target="_blank">
+		<img src="/blog/wp-content/uploads/2015/01/distccmon-gnome-2003-09-23-01.png" alt="Raspberry Pi &#8211; Distcc" /><br><span class="r_title">Raspberry Pi &#8211; Distcc</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="/2014/10/google-text-to-speech-api.html" title="Google Text-to-Speech API" target="_blank">
-		<img src="./wp-content/uploads/2014/10/google-tts.jpg" alt="Google Text-to-Speech API" /><br><span class="r_title">Google Text-to-Speech API</span></a>
+		<a href="/blog/2014/10/google-text-to-speech-api.html" title="Google Text-to-Speech API" target="_blank">
+		<img src="/blog/wp-content/uploads/2014/10/google-tts.jpg" alt="Google Text-to-Speech API" /><br><span class="r_title">Google Text-to-Speech API</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="/2014/07/%E4%BD%BFgcc%E5%9C%A8%E7%BC%96%E8%AF%91windows%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%97%B6%E5%80%99%E9%99%84%E5%8A%A0%E5%9B%BE%E6%A0%87.html" title="使GCC在编译Windows程序的时候附加图标" target="_blank">
-		<img src="./wp-content/uploads/2014/07/cat-programming.jpg" alt="使GCC在编译Windows程序的时候附加图标" /><br><span class="r_title">使GCC在编译Windows程序的时候附加图标</span></a>
+		<a href="/blog/2014/07/%E4%BD%BFgcc%E5%9C%A8%E7%BC%96%E8%AF%91windows%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%97%B6%E5%80%99%E9%99%84%E5%8A%A0%E5%9B%BE%E6%A0%87.html" title="使GCC在编译Windows程序的时候附加图标" target="_blank">
+		<img src="/blog/wp-content/uploads/2014/07/cat-programming.jpg" alt="使GCC在编译Windows程序的时候附加图标" /><br><span class="r_title">使GCC在编译Windows程序的时候附加图标</span></a>
 		</li>
 	</ul>
 
 <div class="relates">
 <ul>
-<li><i class="fa fa-minus"></i><a target="_blank" href="/2016/10/form-submit-via-javascript.html">Form submit via Javascript</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2015/01/raspberry-pi-distcc.html">Raspberry Pi &#8211; Distcc</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/10/google-text-to-speech-api.html">Google Text-to-Speech API</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/07/%E4%BD%BFgcc%E5%9C%A8%E7%BC%96%E8%AF%91windows%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%97%B6%E5%80%99%E9%99%84%E5%8A%A0%E5%9B%BE%E6%A0%87.html">使GCC在编译Windows程序的时候附加图标</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2014/04/dotnet%E6%8B%A8%E5%8F%B7%E5%99%A8%E7%BC%96%E7%A8%8B%E6%96%B9%E6%B3%95.html">DotNet拨号器编程方法</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2013/11/akari-c-procgram-code.html">Akari C.Procgram Code</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2013/10/using-qt-to-open-webpage-with-default-browser.html">Using Qt to open webpage with default browser</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2013/10/%E8%BD%AC%E8%BD%BDnspack-v3-4-v3-5%E5%8A%A0%E5%A3%B3%E7%9A%84%E6%98%93%E7%A8%8B%E5%BA%8F%E8%84%B1%E5%A3%B3%E6%89%8B%E8%AE%B0.html">[转载]NsPacK V3.4-V3.5加壳的易程序脱壳手记</a></li>
+<li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2016/10/form-submit-via-javascript.html">Form submit via Javascript</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2015/01/raspberry-pi-distcc.html">Raspberry Pi &#8211; Distcc</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2014/10/google-text-to-speech-api.html">Google Text-to-Speech API</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2014/07/%E4%BD%BFgcc%E5%9C%A8%E7%BC%96%E8%AF%91windows%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%97%B6%E5%80%99%E9%99%84%E5%8A%A0%E5%9B%BE%E6%A0%87.html">使GCC在编译Windows程序的时候附加图标</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2014/04/dotnet%E6%8B%A8%E5%8F%B7%E5%99%A8%E7%BC%96%E7%A8%8B%E6%96%B9%E6%B3%95.html">DotNet拨号器编程方法</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2013/11/akari-c-procgram-code.html">Akari C.Procgram Code</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2013/10/using-qt-to-open-webpage-with-default-browser.html">Using Qt to open webpage with default browser</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2013/10/%E8%BD%AC%E8%BD%BDnspack-v3-4-v3-5%E5%8A%A0%E5%A3%B3%E7%9A%84%E6%98%93%E7%A8%8B%E5%BA%8F%E8%84%B1%E5%A3%B3%E6%89%8B%E8%AE%B0.html">[转载]NsPacK V3.4-V3.5加壳的易程序脱壳手记</a></li>
 </ul></div></div>		</div>
 						<div id="respond" class="no_webshot">
-		<form action="/wp-comments-post.php" method="post" id="commentform">
+		<form action="/blog/wp-comments-post.php" method="post" id="commentform">
 		
 		<div class="comt-title">
 			<div class="comt-avatar pull-left">
@@ -313,9 +313,9 @@ function makeAsnSegment($type, $string)
 
 	<tfoot>
 	<tr>
-		<td colspan="3" id="prev"><a href="/2014/07">&laquo; Jul</a></td>
+		<td colspan="3" id="prev"><a href="/blog/2014/07">&laquo; Jul</a></td>
 		<td class="pad">&nbsp;</td>
-		<td colspan="3" id="next"><a href="/2014/09">Sep &raquo;</a></td>
+		<td colspan="3" id="next"><a href="/blog/2014/09">Sep &raquo;</a></td>
 	</tr>
 	</tfoot>
 
@@ -324,72 +324,72 @@ function makeAsnSegment($type, $string)
 		<td colspan="4" class="pad">&nbsp;</td><td>1</td><td>2</td><td>3</td>
 	</tr>
 	<tr>
-		<td>4</td><td>5</td><td>6</td><td>7</td><td><a href="/2014/08/08" aria-label="Posts published on August 8, 2014">8</a></td><td>9</td><td>10</td>
+		<td>4</td><td>5</td><td>6</td><td>7</td><td><a href="/blog/2014/08/08" aria-label="Posts published on August 8, 2014">8</a></td><td>9</td><td>10</td>
 	</tr>
 	<tr>
-		<td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td><a href="/2014/08/17" aria-label="Posts published on August 17, 2014">17</a></td>
+		<td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td><a href="/blog/2014/08/17" aria-label="Posts published on August 17, 2014">17</a></td>
 	</tr>
 	<tr>
-		<td>18</td><td><a href="/2014/08/19" aria-label="Posts published on August 19, 2014">19</a></td><td>20</td><td>21</td><td><a href="/2014/08/22" aria-label="Posts published on August 22, 2014">22</a></td><td>23</td><td>24</td>
+		<td>18</td><td><a href="/blog/2014/08/19" aria-label="Posts published on August 19, 2014">19</a></td><td>20</td><td>21</td><td><a href="/blog/2014/08/22" aria-label="Posts published on August 22, 2014">22</a></td><td>23</td><td>24</td>
 	</tr>
 	<tr>
 		<td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td>
 	</tr>
 	</tbody>
 	</table></div></div><div class="widget widget_categories"><div class="title"><h2>Categories</h2></div>		<ul>
-	<li class="cat-item cat-item-10"><a href="/category/hardware" >Hardware</a>
+	<li class="cat-item cat-item-10"><a href="/blog/category/hardware" >Hardware</a>
 </li>
-	<li class="cat-item cat-item-3"><a href="/category/network" >Network</a>
+	<li class="cat-item cat-item-3"><a href="/blog/category/network" >Network</a>
 </li>
-	<li class="cat-item cat-item-17"><a href="/category/software/os" >Operating System</a>
+	<li class="cat-item cat-item-17"><a href="/blog/category/software/os" >Operating System</a>
 </li>
-	<li class="cat-item cat-item-4"><a href="/category/software/programming" >Programming</a>
+	<li class="cat-item cat-item-4"><a href="/blog/category/software/programming" >Programming</a>
 </li>
-	<li class="cat-item cat-item-106"><a href="/category/network/server" >Server</a>
+	<li class="cat-item cat-item-106"><a href="/blog/category/network/server" >Server</a>
 </li>
-	<li class="cat-item cat-item-6"><a href="/category/software" >Software</a>
+	<li class="cat-item cat-item-6"><a href="/blog/category/software" >Software</a>
 </li>
-	<li class="cat-item cat-item-1"><a href="/category/uncategorized" >Uncategorized</a>
+	<li class="cat-item cat-item-1"><a href="/blog/category/uncategorized" >Uncategorized</a>
 </li>
-	<li class="cat-item cat-item-13"><a href="/category/network/website" >Website</a>
+	<li class="cat-item cat-item-13"><a href="/blog/category/network/website" >Website</a>
 </li>
 		</ul>
 </div><div class="widget widget_archive"><div class="title"><h2>Archives</h2></div>		<ul>
-			<li><a href='/2017/06'>June 2017</a></li>
-	<li><a href='/2017/01'>January 2017</a></li>
-	<li><a href='/2016/10'>October 2016</a></li>
-	<li><a href='/2016/06'>June 2016</a></li>
-	<li><a href='/2016/05'>May 2016</a></li>
-	<li><a href='/2015/11'>November 2015</a></li>
-	<li><a href='/2015/10'>October 2015</a></li>
-	<li><a href='/2015/07'>July 2015</a></li>
-	<li><a href='/2015/05'>May 2015</a></li>
-	<li><a href='/2015/04'>April 2015</a></li>
-	<li><a href='/2015/01'>January 2015</a></li>
-	<li><a href='/2014/12'>December 2014</a></li>
-	<li><a href='/2014/11'>November 2014</a></li>
-	<li><a href='/2014/10'>October 2014</a></li>
-	<li><a href='/2014/09'>September 2014</a></li>
-	<li><a href='/2014/08'>August 2014</a></li>
-	<li><a href='/2014/07'>July 2014</a></li>
-	<li><a href='/2014/06'>June 2014</a></li>
-	<li><a href='/2014/05'>May 2014</a></li>
-	<li><a href='/2014/04'>April 2014</a></li>
-	<li><a href='/2014/03'>March 2014</a></li>
-	<li><a href='/2014/02'>February 2014</a></li>
-	<li><a href='/2014/01'>January 2014</a></li>
-	<li><a href='/2013/12'>December 2013</a></li>
-	<li><a href='/2013/11'>November 2013</a></li>
-	<li><a href='/2013/10'>October 2013</a></li>
-	<li><a href='/2013/09'>September 2013</a></li>
-	<li><a href='/2013/08'>August 2013</a></li>
-	<li><a href='/2013/07'>July 2013</a></li>
-	<li><a href='/2013/06'>June 2013</a></li>
-	<li><a href='/2013/05'>May 2013</a></li>
-	<li><a href='/2013/03'>March 2013</a></li>
-	<li><a href='/2013/02'>February 2013</a></li>
-	<li><a href='/2012/07'>July 2012</a></li>
-	<li><a href='/1994/12'>December 1994</a></li>
+			<li><a href='/blog/2017/06'>June 2017</a></li>
+	<li><a href='/blog/2017/01'>January 2017</a></li>
+	<li><a href='/blog/2016/10'>October 2016</a></li>
+	<li><a href='/blog/2016/06'>June 2016</a></li>
+	<li><a href='/blog/2016/05'>May 2016</a></li>
+	<li><a href='/blog/2015/11'>November 2015</a></li>
+	<li><a href='/blog/2015/10'>October 2015</a></li>
+	<li><a href='/blog/2015/07'>July 2015</a></li>
+	<li><a href='/blog/2015/05'>May 2015</a></li>
+	<li><a href='/blog/2015/04'>April 2015</a></li>
+	<li><a href='/blog/2015/01'>January 2015</a></li>
+	<li><a href='/blog/2014/12'>December 2014</a></li>
+	<li><a href='/blog/2014/11'>November 2014</a></li>
+	<li><a href='/blog/2014/10'>October 2014</a></li>
+	<li><a href='/blog/2014/09'>September 2014</a></li>
+	<li><a href='/blog/2014/08'>August 2014</a></li>
+	<li><a href='/blog/2014/07'>July 2014</a></li>
+	<li><a href='/blog/2014/06'>June 2014</a></li>
+	<li><a href='/blog/2014/05'>May 2014</a></li>
+	<li><a href='/blog/2014/04'>April 2014</a></li>
+	<li><a href='/blog/2014/03'>March 2014</a></li>
+	<li><a href='/blog/2014/02'>February 2014</a></li>
+	<li><a href='/blog/2014/01'>January 2014</a></li>
+	<li><a href='/blog/2013/12'>December 2013</a></li>
+	<li><a href='/blog/2013/11'>November 2013</a></li>
+	<li><a href='/blog/2013/10'>October 2013</a></li>
+	<li><a href='/blog/2013/09'>September 2013</a></li>
+	<li><a href='/blog/2013/08'>August 2013</a></li>
+	<li><a href='/blog/2013/07'>July 2013</a></li>
+	<li><a href='/blog/2013/06'>June 2013</a></li>
+	<li><a href='/blog/2013/05'>May 2013</a></li>
+	<li><a href='/blog/2013/03'>March 2013</a></li>
+	<li><a href='/blog/2013/02'>February 2013</a></li>
+	<li><a href='/blog/2012/07'>July 2012</a></li>
+	<li><a href='/blog/1994/12'>December 1994</a></li>
 		</ul>
 		</div><div class="widget ilwp_widget_tag_cloud"><div class="title"><h2>Tag Cloud</h2></div><div class='colored-tag-cloud'><a href='/tag/raspberry-pis' class='tag-link-93' title='1 post is tagged with &ldquo;Raspberry Pis&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>Raspberry Pis</a>
 <a href='/tag/description-gaming' class='tag-link-148' title='1 post is tagged with &ldquo;Description Gaming&rdquo;' rel="tag" style='font-size: 8px;  color: olive;'>Description Gaming</a>
@@ -585,7 +585,7 @@ var _hmt = _hmt || [];
     </div>
 </footer>
 
-<script type='text/javascript' src='./wp-content/themes/yusi_cache1.0/js/jquery.js?ver=1.0'></script>
-<script type='text/javascript' src='./wp-includes/js/wp-embed.min.js?ver=4.9.1'></script>
+<script type='text/javascript' src='/blog/wp-content/themes/yusi_cache1.0/js/jquery.js?ver=1.0'></script>
+<script type='text/javascript' src='/blog/wp-includes/js/wp-embed.min.js?ver=4.9.1'></script>
 </body>
 </html>

@@ -9,7 +9,7 @@
 
 <channel>
 	<title>Server &#8211; Norckon&#039;s blog</title>
-	<atom:link href="/category/network/server/feed" rel="self" type="application/rss+xml" />
+	<atom:link href="/blog/category/network/server/feed" rel="self" type="application/rss+xml" />
 	<link>/</link>
 	<description>Norckon&#039;s blog</description>
 	<lastBuildDate>Thu, 24 Aug 2017 14:09:08 +0000</lastBuildDate>
@@ -29,7 +29,7 @@
 
 		<guid isPermaLink="false">/?p=1816</guid>
 		<description><![CDATA[What is Redis? Redis is an in-memory but persistent on disk database, that represents a different trade-off where very high write and read speed is achieved with the limitation of data sets that can’t be larger than the memory. Once larger than memory, it starts trading the data from the backend SQL databases by pushing [&#8230;]]]></description>
-				<content:encoded><![CDATA[<p><img class="aligncenter size-full wp-image-1817" src="./wp-content/uploads/2017/01/laravel1-1.jpg" alt="laravel1-1" width="800" height="420" srcset="/wp-content/uploads/2017/01/laravel1-1.jpg 800w, /wp-content/uploads/2017/01/laravel1-1-768x403.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /></p>
+				<content:encoded><![CDATA[<p><img class="aligncenter size-full wp-image-1817" src="/blog/wp-content/uploads/2017/01/laravel1-1.jpg" alt="laravel1-1" width="800" height="420" srcset="/blog/wp-content/uploads/2017/01/laravel1-1.jpg 800w, /wp-content/uploads/2017/01/laravel1-1-768x403.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /></p>
 <h2>What is Redis?</h2>
 <p>Redis is an in-memory but persistent on disk database, that represents a different trade-off where very high write and read speed is achieved with the limitation of data sets that can’t be larger than the memory. Once larger than memory, it starts trading the data from the backend SQL databases by pushing and pulling the data. This, in some scenarios, can bring out great speed to the overall system.</p>
 <p>For example, a number of people are liking or commenting on a post. While concurrent requests reach the server, it’s impossible to process all of them simultaneously at high speed because accessing the database requires a little section of the overall process time.</p>
@@ -43,9 +43,9 @@ cd redis-stable
 make</pre>
 <p>Now to check whether your Redis server is working or not.</p>
 <pre>$redis-clifol</pre>
-<p><img class="aligncenter size-full wp-image-1818" src="./wp-content/uploads/2017/01/Screenshotfrom2016-01-01124351.png" alt="Screenshotfrom2016-01-01124351" width="522" height="40" /></p>
+<p><img class="aligncenter size-full wp-image-1818" src="/blog/wp-content/uploads/2017/01/Screenshotfrom2016-01-01124351.png" alt="Screenshotfrom2016-01-01124351" width="522" height="40" /></p>
 <p>or if you are connected you will get this:</p>
-<p><img class="aligncenter size-full wp-image-1819" src="./wp-content/uploads/2017/01/Screenshotfrom2016-01-01124435.png" alt="Screenshotfrom2016-01-01124435" width="382" height="57" /></p>
+<p><img class="aligncenter size-full wp-image-1819" src="/blog/wp-content/uploads/2017/01/Screenshotfrom2016-01-01124435.png" alt="Screenshotfrom2016-01-01124435" width="382" height="57" /></p>
 <p>This shows the Redis is working fine.</p>
 <h2>Changes Required to Your Project</h2>
 <p>Make sure composer.json that is in your root directory has mentioned the package required for Redis.</p>
@@ -107,13 +107,13 @@ class LogMessage{                                                               
 <pre>$redis-cli
 127.0.0.1:6379&gt;lrange queues:default 0 -1</pre>
 <p>You will get the number of jobs present in the queue</p>
-<p><img class="aligncenter size-full wp-image-1820" src="./wp-content/uploads/2017/01/Screenshotfrom2016-01-01130919-768x50.png" alt="Screenshotfrom2016-01-01130919-768x50" width="768" height="50" /></p>
+<p><img class="aligncenter size-full wp-image-1820" src="/blog/wp-content/uploads/2017/01/Screenshotfrom2016-01-01130919-768x50.png" alt="Screenshotfrom2016-01-01130919-768x50" width="768" height="50" /></p>
 <p>Now on the other terminal</p>
 <pre>$php artisan queue:work</pre>
 <p>You will get this as an output</p>
-<p><img class="aligncenter size-full wp-image-1821" src="./wp-content/uploads/2017/01/Screenshotfrom2016-01-01131103.png" alt="Screenshotfrom2016-01-01131103" width="464" height="36" /></p>
+<p><img class="aligncenter size-full wp-image-1821" src="/blog/wp-content/uploads/2017/01/Screenshotfrom2016-01-01131103.png" alt="Screenshotfrom2016-01-01131103" width="464" height="36" /></p>
 <p>Now run lrange command again</p>
-<p><img class="aligncenter size-full wp-image-1822" src="./wp-content/uploads/2017/01/Screenshotfrom2016-01-01131442-768x39.png" alt="Screenshotfrom2016-01-01131442-768x39" width="768" height="39" /></p>
+<p><img class="aligncenter size-full wp-image-1822" src="/blog/wp-content/uploads/2017/01/Screenshotfrom2016-01-01131442-768x39.png" alt="Screenshotfrom2016-01-01131442-768x39" width="768" height="39" /></p>
 <p>Here you go! You’re done setting up your Redis queue successfully on Laravel 5.2. One can see the jobs moving up the queue as you call up the worker.</p>
 <h2>By Default</h2>
 <p>Laravel offers “SYNC” queuing driver by default. It needs no installation, no changes in your code but if you are switching back from the above configurations make sure you make following changes.</p>
@@ -145,7 +145,7 @@ QUEUE_DRIVER=sync</pre>
 
 		<guid isPermaLink="false">/?p=1813</guid>
 		<description><![CDATA[INTRODUCTION ECDSA as known as ECC, is more safer and faster than RSA, and its more suitable for use on mobile devices. But ECC not compatible with older devices, such as Windows XP or Android 2.3. Enable both ECC and RSA on nginx will get better security and compatible with older devices.  nginx will automatically [&#8230;]]]></description>
-				<content:encoded><![CDATA[<p><span style="color: #222222; font-size: 18px;"><a href="/wp-content/uploads/2017/01/1484621208-9831-https-icon.png"><img class="attachment-full size-full aligncenter" src="./wp-content/uploads/2017/01/1484621208-9831-https-icon.png" sizes="(max-width: 800px) 100vw, 800px" srcset="/wp-content/uploads/2017/01/1484621208-9831-https-icon.png 800w, /wp-content/uploads/2017/01/1484621208-9831-https-icon-768x384.png 768w" alt="1484621208-9831-https-icon" width="800" height="400" /></a></span></p>
+				<content:encoded><![CDATA[<p><span style="color: #222222; font-size: 18px;"><a href="/blog/wp-content/uploads/2017/01/1484621208-9831-https-icon.png"><img class="attachment-full size-full aligncenter" src="/blog/wp-content/uploads/2017/01/1484621208-9831-https-icon.png" sizes="(max-width: 800px) 100vw, 800px" srcset="/blog/wp-content/uploads/2017/01/1484621208-9831-https-icon.png 800w, /wp-content/uploads/2017/01/1484621208-9831-https-icon-768x384.png 768w" alt="1484621208-9831-https-icon" width="800" height="400" /></a></span></p>
 <h2><span style="color: #222222; font-size: 18px;">INTRODUCTION</span></h2>
 <p>ECDSA as known as ECC, is more safer and faster than RSA, and its more suitable for use on mobile devices. But ECC not compatible with older devices, such as Windows XP or Android 2.3.</p>
 <p>Enable both ECC and RSA on nginx will get better security and compatible with older devices.  nginx will automatically select a encrypt method for client when handshake with client via TLS protocol.</p>
@@ -226,7 +226,7 @@ ssl_trusted_certificate ssl/all.zeroling.com.server-middle-root.crt;</pre>
 
 		<guid isPermaLink="false">/?p=1806</guid>
 		<description><![CDATA[Introduction Warning: An earlier version of this guide included mention of Ubuntu 14.04 systems. While an upgrade from 14.04 may successfully complete, upgrades between LTS releases are not enabled by default until the first point release, and it is recommended to wait until the 16.04.1 point release to upgrade. On DigitalOcean systems, an upgraded Ubuntu [&#8230;]]]></description>
-				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/10/1476961501-1126-ubuntu16.04-Blog.png"><img class="attachment-full size-full aligncenter" src="./wp-content/uploads/2016/10/1476961501-1126-ubuntu16.04-Blog.png" alt="1476961501-1126-ubuntu16.04-Blog" width="750" height="401" /></a></p>
+				<content:encoded><![CDATA[<p><a href="/blog/wp-content/uploads/2016/10/1476961501-1126-ubuntu16.04-Blog.png"><img class="attachment-full size-full aligncenter" src="/blog/wp-content/uploads/2016/10/1476961501-1126-ubuntu16.04-Blog.png" alt="1476961501-1126-ubuntu16.04-Blog" width="750" height="401" /></a></p>
 <h3 id="introduction">Introduction</h3>
 <p><span class="warning"><strong>Warning:</strong> An earlier version of this guide included mention of Ubuntu 14.04 systems. While an upgrade from 14.04 <em>may</em> successfully complete, upgrades between LTS releases are not enabled by default until the first point release, and it is recommended to wait until the 16.04.1 point release to upgrade. On DigitalOcean systems, an upgraded Ubuntu 14.04 system will be left with an older kernel which may not be upgradeable for some time.<br />
 </span></p>
@@ -353,7 +353,7 @@ finished, the process cannot be canceled.
 </code></pre>
 <p>New packages will now be retrieved, then unpacked and installed. Even if your system is on a fast connection, this will take a while.</p>
 <p>During the installation, you may be presented with interactive dialogs for various questions. For example, you may be asked if you want to automatically restart services when required:</p>
-<p class="growable"><a href="/wp-content/uploads/2016/10/1476961501-8671-ow-to-upgrade-to-ubuntu-1604.png"><img class="attachment-full size-full" src="./wp-content/uploads/2016/10/1476961501-8671-ow-to-upgrade-to-ubuntu-1604.png" sizes="(max-width: 1903px) 100vw, 1903px" srcset="/wp-content/uploads/2016/10/1476961501-8671-ow-to-upgrade-to-ubuntu-1604.png 1903w, /wp-content/uploads/2016/10/1476961501-8671-ow-to-upgrade-to-ubuntu-1604-768x167.png 768w" alt="1476961501-8671-ow-to-upgrade-to-ubuntu-1604" width="1903" height="414" /></a></p>
+<p class="growable"><a href="/blog/wp-content/uploads/2016/10/1476961501-8671-ow-to-upgrade-to-ubuntu-1604.png"><img class="attachment-full size-full" src="/blog/wp-content/uploads/2016/10/1476961501-8671-ow-to-upgrade-to-ubuntu-1604.png" sizes="(max-width: 1903px) 100vw, 1903px" srcset="/blog/wp-content/uploads/2016/10/1476961501-8671-ow-to-upgrade-to-ubuntu-1604.png 1903w, /wp-content/uploads/2016/10/1476961501-8671-ow-to-upgrade-to-ubuntu-1604-768x167.png 768w" alt="1476961501-8671-ow-to-upgrade-to-ubuntu-1604" width="1903" height="414" /></a></p>
 <p>In this case, it is safe to answer &#8220;Yes&#8221;. In other cases, you may be asked if you wish to replace a configuration file that you have modified with the default version from the package that is being installed. This is often a judgment call, and is likely to require knowledge about specific software that is outside the scope of this tutorial.</p>
 <p>Once new packages have finished installing, you&#8217;ll be asked whether you&#8217;re ready to remove obsolete packages. On a stock system with no custom configuration, it should be safe to enter <strong>y</strong> here. On a system you have modified heavily, you may wish to enter <strong>d</strong> and inspect the list of packages to be removed, in case it includes anything you&#8217;ll need to reinstall later.</p>
 <pre class="code-pre "><code>Remove obsolete packages? 
@@ -402,16 +402,16 @@ Continue [yN] <span class="highlight">y</span>
 
 		<guid isPermaLink="false">/?p=1801</guid>
 		<description><![CDATA[INTRODUCE OpenShift default using the Apache web server and user cannot modify the virtual host configuration file. Is there any way to allow OpenShift support multiple domains? The answer is yes. You can just only using Apache htaccess rule to get multiple domain supports. STEP BY STEP 1. BIND YOUR DOMAINS OR SUB-DOMAINS TO OPENSHIFT [&#8230;]]]></description>
-				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/10/1476961369-8108-maxresdefault.jpg"><img class="attachment-full size-full aligncenter" src="./wp-content/uploads/2016/10/1476961369-8108-maxresdefault.jpg" sizes="(max-width: 1674px) 100vw, 1674px" srcset="/wp-content/uploads/2016/10/1476961369-8108-maxresdefault.jpg 1674w, /wp-content/uploads/2016/10/1476961369-8108-maxresdefault-768x415.jpg 768w" alt="1476961369-8108-maxresdefault" width="1674" height="904" /></a></p>
+				<content:encoded><![CDATA[<p><a href="/blog/wp-content/uploads/2016/10/1476961369-8108-maxresdefault.jpg"><img class="attachment-full size-full aligncenter" src="/blog/wp-content/uploads/2016/10/1476961369-8108-maxresdefault.jpg" sizes="(max-width: 1674px) 100vw, 1674px" srcset="/blog/wp-content/uploads/2016/10/1476961369-8108-maxresdefault.jpg 1674w, /wp-content/uploads/2016/10/1476961369-8108-maxresdefault-768x415.jpg 768w" alt="1476961369-8108-maxresdefault" width="1674" height="904" /></a></p>
 <h2>INTRODUCE</h2>
 <p>OpenShift default using the Apache web server and user cannot modify the virtual host configuration file. Is there any way to allow OpenShift support multiple domains? The answer is yes. You can just only using Apache htaccess rule to get multiple domain supports.</p>
 <h2>STEP BY STEP</h2>
 <h3>1. BIND YOUR DOMAINS OR SUB-DOMAINS TO OPENSHIFT</h3>
 <p>First please bind your domains or your sub-domains to your OpenShift cloud host. For example, I have 3 sub-domains and a root domain need bind to OpenShift. I did those changes in my domain control panel.</p>
-<p><a href="/wp-content/uploads/2016/10/1476961332-9254-dns.png"><img class="attachment-full size-full" src="./wp-content/uploads/2016/10/1476961332-9254-dns.png" sizes="(max-width: 794px) 100vw, 794px" srcset="/wp-content/uploads/2016/10/1476961332-9254-dns.png 794w, /wp-content/uploads/2016/10/1476961332-9254-dns-768x388.png 768w" alt="1476961332-9254-dns" width="794" height="401" /></a></p>
+<p><a href="/blog/wp-content/uploads/2016/10/1476961332-9254-dns.png"><img class="attachment-full size-full" src="/blog/wp-content/uploads/2016/10/1476961332-9254-dns.png" sizes="(max-width: 794px) 100vw, 794px" srcset="/blog/wp-content/uploads/2016/10/1476961332-9254-dns.png 794w, /wp-content/uploads/2016/10/1476961332-9254-dns-768x388.png 768w" alt="1476961332-9254-dns" width="794" height="401" /></a></p>
 <h3>2. ADDING YOUR DOMAINS OR SUB-DOMAINS IN OPENSHIFT</h3>
 <p>After binding domains, If you want access OpenShift from this domain, you need add your domain to OpenShift Cloud Host control panel. Just for example:</p>
-<p><a href="/wp-content/uploads/2016/10/1476961332-8574-alias.png"><img class="attachment-full size-full" src="./wp-content/uploads/2016/10/1476961332-8574-alias.png" alt="1476961332-8574-alias" width="622" height="357" /></a></p>
+<p><a href="/blog/wp-content/uploads/2016/10/1476961332-8574-alias.png"><img class="attachment-full size-full" src="/blog/wp-content/uploads/2016/10/1476961332-8574-alias.png" alt="1476961332-8574-alias" width="622" height="357" /></a></p>
 <h3>3. CREATE A HTACCESS FILE IN WEBROOT</h3>
 <p>Create a .htaccess file in your OpenShift web-root, and puts domain and directory relationship in it. Before do that please confirm those directory is in your web-root, if not please create it first.</p>
 <p>The sample .htaccess file:</p>
@@ -498,7 +498,7 @@ RewriteRule ^(.*)$ http://app.raineggplant.com/$1 [L]</pre>
 
 		<guid isPermaLink="false">/?p=1794</guid>
 		<description><![CDATA[INTRODUCE Environment variables are placeholders for values that are provided to a software program at runtime. They are particularly useful when the values are likely to be different from one host system to the next, or from one run to the next. Including these placeholders in applications makes the application code more portable and flexible. [&#8230;]]]></description>
-				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/10/1476955176-1488-Open-shift-enerprise.jpg"><img class="attachment-full size-full aligncenter" src="./wp-content/uploads/2016/10/1476955176-1488-Open-shift-enerprise.jpg" sizes="(max-width: 800px) 100vw, 800px" srcset="/wp-content/uploads/2016/10/1476955176-1488-Open-shift-enerprise.jpg 800w, /wp-content/uploads/2016/10/1476955176-1488-Open-shift-enerprise-768x480.jpg 768w" alt="1476955176-1488-Open-shift-enerprise" width="800" height="500" /></a></p>
+				<content:encoded><![CDATA[<p><a href="/blog/wp-content/uploads/2016/10/1476955176-1488-Open-shift-enerprise.jpg"><img class="attachment-full size-full aligncenter" src="/blog/wp-content/uploads/2016/10/1476955176-1488-Open-shift-enerprise.jpg" sizes="(max-width: 800px) 100vw, 800px" srcset="/blog/wp-content/uploads/2016/10/1476955176-1488-Open-shift-enerprise.jpg 800w, /wp-content/uploads/2016/10/1476955176-1488-Open-shift-enerprise-768x480.jpg 768w" alt="1476955176-1488-Open-shift-enerprise" width="800" height="500" /></a></p>
 <h2>INTRODUCE</h2>
 <p>Environment variables are placeholders for values that are provided to a software program at runtime. They are particularly useful when the values are likely to be different from one host system to the next, or from one run to the next. Including these placeholders in applications makes the application code more portable and flexible. This flexibility is critical for writing applications that are easily deployed and scaled on OpenShift Online.</p>
 <h2>SERVER VARS</h2>
@@ -1235,7 +1235,7 @@ RewriteRule ^(.*)$ http://app.raineggplant.com/$1 [L]</pre>
 
 		<guid isPermaLink="false">/?p=1776</guid>
 		<description><![CDATA[INTRODUCE Usually, we install a opensource software from source code directly. But if we want to transplant a opensource software from develop environment to server environment there have 2 ways: Build and install opensource software on server Build from development PC and install on server Install on server is a very easy way to do [&#8230;]]]></description>
-				<content:encoded><![CDATA[<p><img class="aligncenter size-full wp-image-1777" src="./wp-content/uploads/2016/06/ubuntu-deb-package.png" alt="ubuntu-deb-package" width="480" height="300" /></p>
+				<content:encoded><![CDATA[<p><img class="aligncenter size-full wp-image-1777" src="/blog/wp-content/uploads/2016/06/ubuntu-deb-package.png" alt="ubuntu-deb-package" width="480" height="300" /></p>
 <h2>INTRODUCE</h2>
 <p>Usually, we install a opensource software from source code directly. But if we want to transplant a opensource software from develop environment to server environment there have 2 ways:</p>
 <ul>
@@ -1287,7 +1287,7 @@ RewriteRule ^(.*)$ http://app.raineggplant.com/$1 [L]</pre>
 
 		<guid isPermaLink="false">/?p=1770</guid>
 		<description><![CDATA[INTRODUCE In Ubuntu or Debian, a default OpenSSH server will display OpenSSH version alongside with Ubuntu/Debian distribution banner: $ telnet repeater.my 172.16.91.20 22 Trying 172.16.91.20... Connected to 172.16.91.20. Escape character is '^]'. SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2 HOW TO HIDE You can hide the identifying part of Ubuntu-2ubuntu2 from the server banner by editing /etc/ssh/sshd_configfile, and adding “DebianBanner [&#8230;]]]></description>
-				<content:encoded><![CDATA[<p><img class="aligncenter size-full wp-image-1771" src="./wp-content/uploads/2016/06/ssh-logo.png" alt="ssh-logo" width="720" height="340" /></p>
+				<content:encoded><![CDATA[<p><img class="aligncenter size-full wp-image-1771" src="/blog/wp-content/uploads/2016/06/ssh-logo.png" alt="ssh-logo" width="720" height="340" /></p>
 <h2>INTRODUCE</h2>
 <p>In Ubuntu or Debian, a default OpenSSH server will display OpenSSH version alongside with Ubuntu/Debian distribution banner:</p>
 <pre>$ telnet repeater.my 172.16.91.20 22 
@@ -1335,7 +1335,7 @@ SSH-2.0-OpenSSH_6.6.1p1
 
 		<guid isPermaLink="false">/?p=1767</guid>
 		<description><![CDATA[Introduction While connecting to your server through SSH can be very secure, the SSH daemon itself is a service that must be exposed to the internet to function properly. This comes with some inherent risk and creates a vector of attack for would-be assailants. Any service that is exposed to the network is a potential [&#8230;]]]></description>
-				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/06/1466917166-7151-Login-Attack-in-Juniper-SRX.png"><img class="attachment-full size-full aligncenter" src="./wp-content/uploads/2016/06/1466917166-7151-Login-Attack-in-Juniper-SRX.png" alt="1466917166-7151-Login-Attack-in-Juniper-SRX" width="500" height="375" /></a></p>
+				<content:encoded><![CDATA[<p><a href="/blog/wp-content/uploads/2016/06/1466917166-7151-Login-Attack-in-Juniper-SRX.png"><img class="attachment-full size-full aligncenter" src="/blog/wp-content/uploads/2016/06/1466917166-7151-Login-Attack-in-Juniper-SRX.png" alt="1466917166-7151-Login-Attack-in-Juniper-SRX" width="500" height="375" /></a></p>
 <h2 id="introduction">Introduction</h2>
 <p>While connecting to your server through SSH can be very secure, the SSH daemon itself is a service that must be exposed to the internet to function properly. This comes with some inherent risk and creates a vector of attack for would-be assailants.</p>
 <p>Any service that is exposed to the network is a potential target in this way. If you pay attention to application logs for these services, you will often see repeated, systematic login attempts that represent brute force attacks by users and bots alike.</p>
@@ -1543,7 +1543,7 @@ https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ba
 
 		<guid isPermaLink="false">/?p=1764</guid>
 		<description><![CDATA[INTRODUCE This article will teach you how to use Git when you want to deploy your application. While there are many ways to use Git to deploy our application, this tutorial will focus on the one that is most straightforward. I assume you already know how to create and use a repository on your local [&#8230;]]]></description>
-				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/06/1466916309-3077-gitd.1.jpg"><img class="attachment-full size-full aligncenter" src="./wp-content/uploads/2016/06/1466916309-3077-gitd.1.jpg" alt="1466916309-3077-gitd.1" width="609" height="240" /></a></p>
+				<content:encoded><![CDATA[<p><a href="/blog/wp-content/uploads/2016/06/1466916309-3077-gitd.1.jpg"><img class="attachment-full size-full aligncenter" src="/blog/wp-content/uploads/2016/06/1466916309-3077-gitd.1.jpg" alt="1466916309-3077-gitd.1" width="609" height="240" /></a></p>
 <h2>INTRODUCE</h2>
 <p>This article will teach you how to use Git when you want to deploy your application. While there are many ways to use Git to deploy our application, this tutorial will focus on the one that is most straightforward. I assume you already know how to create and use a repository on your local machine.</p>
 <p>When you use Git, the workflow generally is toward version control only. You have a local repository where you work and a remote repository where you keep everything in sync and can work with a team and different machines. But you can also use Git to move your application to production.</p>
@@ -1647,7 +1647,7 @@ echo Website has been up to date.</pre>
 
 		<guid isPermaLink="false">/?p=1761</guid>
 		<description><![CDATA[INTRODUCE In some reason, HTTPS cannot using in everywhere. For example, a website has so many users are using an older system or browser does not support TLS protocol, or other hand reasons. But If configure nginx force redirect HTTPS traffics to HTTP, in newer version browser will cause an error &#8220;too many redirects&#8221;. Because newer browser [&#8230;]]]></description>
-				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2016/06/1466915066-5807-301-redirect-in-nginx.png"><img class="attachment-full size-full aligncenter" src="./wp-content/uploads/2016/06/1466915066-5807-301-redirect-in-nginx.png" sizes="(max-width: 800px) 100vw, 800px" srcset="/wp-content/uploads/2016/06/1466915066-5807-301-redirect-in-nginx.png 800w, /wp-content/uploads/2016/06/1466915066-5807-301-redirect-in-nginx-768x384.png 768w" alt="1466915066-5807-301-redirect-in-nginx" width="800" height="400" /></a></p>
+				<content:encoded><![CDATA[<p><a href="/blog/wp-content/uploads/2016/06/1466915066-5807-301-redirect-in-nginx.png"><img class="attachment-full size-full aligncenter" src="/blog/wp-content/uploads/2016/06/1466915066-5807-301-redirect-in-nginx.png" sizes="(max-width: 800px) 100vw, 800px" srcset="/blog/wp-content/uploads/2016/06/1466915066-5807-301-redirect-in-nginx.png 800w, /wp-content/uploads/2016/06/1466915066-5807-301-redirect-in-nginx-768x384.png 768w" alt="1466915066-5807-301-redirect-in-nginx" width="800" height="400" /></a></p>
 <h2>INTRODUCE</h2>
 <p>In some reason, HTTPS cannot using in everywhere. For example, a website has so many users are using an older system or browser does not support TLS protocol, or other hand reasons.</p>
 <p>But If configure nginx force redirect HTTPS traffics to HTTP, in newer version browser will cause an error &#8220;too many redirects&#8221;. Because newer browser prefer HTTPS if two protocols both available, Then the following will be shown up:</p>

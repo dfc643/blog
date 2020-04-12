@@ -28,15 +28,15 @@ img.emoji {
 	padding: 0 !important;
 }
 </style>
-<link rel='stylesheet' id='style-css'  href='/wp-content/themes/yusi_cache1.0/style.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='style-css'  href='/blog/wp-content/themes/yusi_cache1.0/style.css?ver=1.0' type='text/css' media='all' />
 <script type='text/javascript' src='//cdn.bootcss.com/jquery/1.8.3/jquery.min.js?ver=1.0'></script>
-<link rel='https://api.w.org/' href='/wp-json/' />
-<link rel='prev' title='Enable both ECC and RSA on nginx' href='/2017/01/enable-ecc-rsa-nginx.html' />
-<link rel='next' title='Steps for Signing a Device Driver Package' href='/2017/06/steps-signing-device-driver-package.html' />
-<link rel="canonical" href="/2017/01/use-redis-queuing-laravel-5.html" />
+<link rel='https://api.w.org/' href='/blog/wp-json/' />
+<link rel='prev' title='Enable both ECC and RSA on nginx' href='/blog/2017/01/enable-ecc-rsa-nginx.html' />
+<link rel='next' title='Steps for Signing a Device Driver Package' href='/blog/2017/06/steps-signing-device-driver-package.html' />
+<link rel="canonical" href="/blog/2017/01/use-redis-queuing-laravel-5.html" />
 <link rel='shortlink' href='/?p=1816' />
-<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2017%2F01%2Fuse-redis-queuing-laravel-5.html" />
-<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2017%2F01%2Fuse-redis-queuing-laravel-5.html&#038;format=xml" />
+<link rel="alternate" type="application/json+oembed" href="/blog/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2017%2F01%2Fuse-redis-queuing-laravel-5.html" />
+<link rel="alternate" type="text/xml+oembed" href="/blog/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2017%2F01%2Fuse-redis-queuing-laravel-5.html&#038;format=xml" />
 <meta name="keywords" content="SQL, SYNC, Server">
 <meta name="description" content="What is Redis? Redis is an in-memory but persistent on disk database, that represents a different trade-off where very high write and read speed is achieved with the limitation of data sets that can’t be larger than the ">
 <!--[if lt IE 9]><script src="https://dfc643.github.io/blog/wp-content/themes/yusi_cache1.0/js/html5.js"></script><![endif]-->
@@ -51,19 +51,19 @@ img.emoji {
     <ul class="nav">
         <li class="title">Norckon</li>
         <li id="menu-item-1262" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1262"><a href="http://dfc643.github.io/">Top</a></li>
-<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1046"><a href="/category/software">Soft</a>
+<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1046"><a href="/blog/category/software">Soft</a>
 <ul class="sub-menu">
-	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1064"><a href="/category/software">Software</a></li>
-	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1062"><a href="/category/software/os">OS</a></li>
-	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1049"><a href="/category/software/programming">Programming</a></li>
+	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1064"><a href="/blog/category/software">Software</a></li>
+	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1062"><a href="/blog/category/software/os">OS</a></li>
+	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1049"><a href="/blog/category/software/programming">Programming</a></li>
 </ul>
 </li>
-<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="/category/hardware">Hard</a></li>
-<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-1047"><a href="/category/network">Net</a>
+<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="/blog/category/hardware">Hard</a></li>
+<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-1047"><a href="/blog/category/network">Net</a>
 <ul class="sub-menu">
-	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-1063"><a href="/category/network">Network</a></li>
-	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1496"><a href="/category/network/server">Server</a></li>
-	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="/category/network/website">Web</a></li>
+	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-1063"><a href="/blog/category/network">Network</a></li>
+	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1496"><a href="/blog/category/network/server">Server</a></li>
+	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="/blog/category/network/website">Web</a></li>
 </ul>
 </li>
 <li id="menu-item-1220" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1220"><a>Tool</a>
@@ -86,7 +86,7 @@ img.emoji {
 	<li id="menu-item-1825" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1825"><a href="http://mybeibei.net/">Guge&#8217;s blog</a></li>
 	<li id="menu-item-1162" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1162"><a href="http://www.yjsys.tk/">寂写心灵之幽</a></li>
 	<li id="menu-item-1045" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1045"><a href="http://hanicc.com/">HoneyCC</a></li>
-	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="/add-link">+ Add Link</a></li>
+	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="/blog/add-link">+ Add Link</a></li>
 </ul>
 </li>
 <li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="/">Blog</a></li>
@@ -120,15 +120,15 @@ img.emoji {
 	<div class="content">
 
 				<header class="article-header">
-			<h1 class="article-title"><a href="/2017/01/use-redis-queuing-laravel-5.html">How To Use Redis For Queuing In Laravel 5</a></h1>
+			<h1 class="article-title"><a href="/blog/2017/01/use-redis-queuing-laravel-5.html">How To Use Redis For Queuing In Laravel 5</a></h1>
 			<div class="meta">
-				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="/category/network/server"> Server</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="/author/dfc643">Norckon</a></span>
+				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="/blog/category/network/server"> Server</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="/author/dfc643">Norckon</a></span>
 				<time class="muted"><i class="fa fa-clock-o"></i> 01-17</time>
 				<span class="muted"><i class="fa fa-eye"></i> 441℃</span>
-				<span class="muted"><i class="fa fa-comments-o"></i> <a href="/2017/01/use-redis-queuing-laravel-5.html#comments">0评论</a></span>							</div>
+				<span class="muted"><i class="fa fa-comments-o"></i> <a href="/blog/2017/01/use-redis-queuing-laravel-5.html#comments">0评论</a></span>							</div>
 		</header>
 		<article class="article-content">
-			<p><img class="aligncenter size-full wp-image-1817" src="./wp-content/uploads/2017/01/laravel1-1.jpg" alt="laravel1-1" width="800" height="420" srcset="/wp-content/uploads/2017/01/laravel1-1.jpg 800w, /wp-content/uploads/2017/01/laravel1-1-768x403.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /></p>
+			<p><img class="aligncenter size-full wp-image-1817" src="/blog/wp-content/uploads/2017/01/laravel1-1.jpg" alt="laravel1-1" width="800" height="420" srcset="/blog/wp-content/uploads/2017/01/laravel1-1.jpg 800w, /wp-content/uploads/2017/01/laravel1-1-768x403.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /></p>
 <h2>What is Redis?</h2>
 <p>Redis is an in-memory but persistent on disk database, that represents a different trade-off where very high write and read speed is achieved with the limitation of data sets that can’t be larger than the memory. Once larger than memory, it starts trading the data from the backend SQL databases by pushing and pulling the data. This, in some scenarios, can bring out great speed to the overall system.</p>
 <p>For example, a number of people are liking or commenting on a post. While concurrent requests reach the server, it’s impossible to process all of them simultaneously at high speed because accessing the database requires a little section of the overall process time.</p>
@@ -142,9 +142,9 @@ cd redis-stable
 make</pre>
 <p>Now to check whether your Redis server is working or not.</p>
 <pre>$redis-clifol</pre>
-<p><img class="aligncenter size-full wp-image-1818" src="./wp-content/uploads/2017/01/Screenshotfrom2016-01-01124351.png" alt="Screenshotfrom2016-01-01124351" width="522" height="40" /></p>
+<p><img class="aligncenter size-full wp-image-1818" src="/blog/wp-content/uploads/2017/01/Screenshotfrom2016-01-01124351.png" alt="Screenshotfrom2016-01-01124351" width="522" height="40" /></p>
 <p>or if you are connected you will get this:</p>
-<p><img class="aligncenter size-full wp-image-1819" src="./wp-content/uploads/2017/01/Screenshotfrom2016-01-01124435.png" alt="Screenshotfrom2016-01-01124435" width="382" height="57" /></p>
+<p><img class="aligncenter size-full wp-image-1819" src="/blog/wp-content/uploads/2017/01/Screenshotfrom2016-01-01124435.png" alt="Screenshotfrom2016-01-01124435" width="382" height="57" /></p>
 <p>This shows the Redis is working fine.</p>
 <h2>Changes Required to Your Project</h2>
 <p>Make sure composer.json that is in your root directory has mentioned the package required for Redis.</p>
@@ -206,13 +206,13 @@ class LogMessage{                                                               
 <pre>$redis-cli
 127.0.0.1:6379&gt;lrange queues:default 0 -1</pre>
 <p>You will get the number of jobs present in the queue</p>
-<p><img class="aligncenter size-full wp-image-1820" src="./wp-content/uploads/2017/01/Screenshotfrom2016-01-01130919-768x50.png" alt="Screenshotfrom2016-01-01130919-768x50" width="768" height="50" /></p>
+<p><img class="aligncenter size-full wp-image-1820" src="/blog/wp-content/uploads/2017/01/Screenshotfrom2016-01-01130919-768x50.png" alt="Screenshotfrom2016-01-01130919-768x50" width="768" height="50" /></p>
 <p>Now on the other terminal</p>
 <pre>$php artisan queue:work</pre>
 <p>You will get this as an output</p>
-<p><img class="aligncenter size-full wp-image-1821" src="./wp-content/uploads/2017/01/Screenshotfrom2016-01-01131103.png" alt="Screenshotfrom2016-01-01131103" width="464" height="36" /></p>
+<p><img class="aligncenter size-full wp-image-1821" src="/blog/wp-content/uploads/2017/01/Screenshotfrom2016-01-01131103.png" alt="Screenshotfrom2016-01-01131103" width="464" height="36" /></p>
 <p>Now run lrange command again</p>
-<p><img class="aligncenter size-full wp-image-1822" src="./wp-content/uploads/2017/01/Screenshotfrom2016-01-01131442-768x39.png" alt="Screenshotfrom2016-01-01131442-768x39" width="768" height="39" /></p>
+<p><img class="aligncenter size-full wp-image-1822" src="/blog/wp-content/uploads/2017/01/Screenshotfrom2016-01-01131442-768x39.png" alt="Screenshotfrom2016-01-01131442-768x39" width="768" height="39" /></p>
 <p>Here you go! You’re done setting up your Redis queue successfully on Laravel 5.2. One can see the jobs moving up the queue as you call up the worker.</p>
 <h2>By Default</h2>
 <p>Laravel offers “SYNC” queuing driver by default. It needs no installation, no changes in your code but if you are switching back from the above configurations make sure you make following changes.</p>
@@ -234,42 +234,42 @@ QUEUE_DRIVER=sync</pre>
 </div>
 	</article>	
 				<footer class="article-footer">
-			<div class="article-tags"><i class="fa fa-tags"></i><a href="/tag/sql" rel="tag">SQL</a><a href="/tag/sync" rel="tag">SYNC</a></div></footer>
+			<div class="article-tags"><i class="fa fa-tags"></i><a href="/blog/tag/sql" rel="tag">SQL</a><a href="/blog/tag/sync" rel="tag">SYNC</a></div></footer>
 	<nav class="article-nav">
-			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="/2017/01/enable-ecc-rsa-nginx.html" rel="prev">Enable both ECC and RSA on nginx</a></span>
-			<span class="article-nav-next"><a href="/2017/06/steps-signing-device-driver-package.html" rel="next">Steps for Signing a Device Driver Package</a>  <i class="fa fa-angle-double-right"></i></span>
+			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="/blog/2017/01/enable-ecc-rsa-nginx.html" rel="prev">Enable both ECC and RSA on nginx</a></span>
+			<span class="article-nav-next"><a href="/blog/2017/06/steps-signing-device-driver-package.html" rel="next">Steps for Signing a Device Driver Package</a>  <i class="fa fa-angle-double-right"></i></span>
 		</nav>
 
 		<div class="related_top">
 			<div class="related_posts"><ul class="related_img">
 
 	<li class="related_box"  >
-		<a href="/2017/01/enable-ecc-rsa-nginx.html" title="Enable both ECC and RSA on nginx" target="_blank">
-		<img src="./wp-content/uploads/2017/01/1484621208-9831-https-icon.png" alt="Enable both ECC and RSA on nginx" /><br><span class="r_title">Enable both ECC and RSA on nginx</span></a>
+		<a href="/blog/2017/01/enable-ecc-rsa-nginx.html" title="Enable both ECC and RSA on nginx" target="_blank">
+		<img src="/blog/wp-content/uploads/2017/01/1484621208-9831-https-icon.png" alt="Enable both ECC and RSA on nginx" /><br><span class="r_title">Enable both ECC and RSA on nginx</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="/2016/10/upgrade-ubuntu-16-04-lts.html" title="How To Upgrade to Ubuntu 16.04 LTS" target="_blank">
-		<img src="./wp-content/uploads/2016/10/1476961501-1126-ubuntu16.04-Blog.png" alt="How To Upgrade to Ubuntu 16.04 LTS" /><br><span class="r_title">How To Upgrade to Ubuntu 16.04 LTS</span></a>
+		<a href="/blog/2016/10/upgrade-ubuntu-16-04-lts.html" title="How To Upgrade to Ubuntu 16.04 LTS" target="_blank">
+		<img src="/blog/wp-content/uploads/2016/10/1476961501-1126-ubuntu16.04-Blog.png" alt="How To Upgrade to Ubuntu 16.04 LTS" /><br><span class="r_title">How To Upgrade to Ubuntu 16.04 LTS</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="/2016/10/openshift-bind-multiple-domains.html" title="OpenShift bind multiple domains" target="_blank">
-		<img src="./wp-content/uploads/2016/10/1476961369-8108-maxresdefault.jpg" alt="OpenShift bind multiple domains" /><br><span class="r_title">OpenShift bind multiple domains</span></a>
+		<a href="/blog/2016/10/openshift-bind-multiple-domains.html" title="OpenShift bind multiple domains" target="_blank">
+		<img src="/blog/wp-content/uploads/2016/10/1476961369-8108-maxresdefault.jpg" alt="OpenShift bind multiple domains" /><br><span class="r_title">OpenShift bind multiple domains</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="/2016/10/openshift-environment-variables.html" title="OpenShift Environment Variables" target="_blank">
-		<img src="./wp-content/uploads/2016/10/1476955176-1488-Open-shift-enerprise.jpg" alt="OpenShift Environment Variables" /><br><span class="r_title">OpenShift Environment Variables</span></a>
+		<a href="/blog/2016/10/openshift-environment-variables.html" title="OpenShift Environment Variables" target="_blank">
+		<img src="/blog/wp-content/uploads/2016/10/1476955176-1488-Open-shift-enerprise.jpg" alt="OpenShift Environment Variables" /><br><span class="r_title">OpenShift Environment Variables</span></a>
 		</li>
 	</ul>
 
 <div class="relates">
 <ul>
-<li><i class="fa fa-minus"></i><a target="_blank" href="/2017/01/enable-ecc-rsa-nginx.html">Enable both ECC and RSA on nginx</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2016/10/upgrade-ubuntu-16-04-lts.html">How To Upgrade to Ubuntu 16.04 LTS</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2016/10/openshift-bind-multiple-domains.html">OpenShift bind multiple domains</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2016/10/openshift-environment-variables.html">OpenShift Environment Variables</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2016/06/create-deb-package-source-install-automatically.html">How To Create A .deb Package From Source &#038; Install It Automatically</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2016/06/hide-openssh-system-version-nmap-scanners.html">Hide OpenSSH system version from nmap and other scanners</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2016/06/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04.html">How To Protect SSH with Fail2Ban on Ubuntu 14.04</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/2016/06/set-automatic-deployment-website-git.html">How to set up automatic deployment website with Git</a></li>
+<li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2017/01/enable-ecc-rsa-nginx.html">Enable both ECC and RSA on nginx</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2016/10/upgrade-ubuntu-16-04-lts.html">How To Upgrade to Ubuntu 16.04 LTS</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2016/10/openshift-bind-multiple-domains.html">OpenShift bind multiple domains</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2016/10/openshift-environment-variables.html">OpenShift Environment Variables</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2016/06/create-deb-package-source-install-automatically.html">How To Create A .deb Package From Source &#038; Install It Automatically</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2016/06/hide-openssh-system-version-nmap-scanners.html">Hide OpenSSH system version from nmap and other scanners</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2016/06/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04.html">How To Protect SSH with Fail2Ban on Ubuntu 14.04</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2016/06/set-automatic-deployment-website-git.html">How to set up automatic deployment website with Git</a></li>
 </ul></div></div>		</div>
 						<div id="respond" class="no_webshot">
-		<form action="/wp-comments-post.php" method="post" id="commentform">
+		<form action="/blog/wp-comments-post.php" method="post" id="commentform">
 		
 		<div class="comt-title">
 			<div class="comt-avatar pull-left">
@@ -310,9 +310,9 @@ QUEUE_DRIVER=sync</pre>
 		<i class="fa fa-comments-o"></i> <b> 2 </b>Comments
 	</div>
 	<ol class="commentlist">
-		<li class="comment even thread-even depth-1" id="comment-36609"><div class="c-avatar"><img data-original="https://secure.gravatar.com/avatar/1c62e327c6c30050647c4fb7898d4314?s=108" class="avatar avatar-108" height="108" width="108"><div class="c-main" id="div-comment-36609">受教了！呵呵！<div class="c-meta"><span class="c-author"><a href='http://www.kk8888kk.zengda.xin/' rel='external nofollow' class='url'>增达网</a></span>2017-05-14 16:31 <a rel='nofollow' class='comment-reply-link' href='/2017/01/use-redis-queuing-laravel-5.html?replytocom=36609#respond' onclick='return addComment.moveForm( "div-comment-36609", "36609", "respond", "1816" )' aria-label='Reply to 增达网'>Reply</a></div></div></div></li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-36609"><div class="c-avatar"><img data-original="https://secure.gravatar.com/avatar/1c62e327c6c30050647c4fb7898d4314?s=108" class="avatar avatar-108" height="108" width="108"><div class="c-main" id="div-comment-36609">受教了！呵呵！<div class="c-meta"><span class="c-author"><a href='http://www.kk8888kk.zengda.xin/' rel='external nofollow' class='url'>增达网</a></span>2017-05-14 16:31 <a rel='nofollow' class='comment-reply-link' href='/blog/2017/01/use-redis-queuing-laravel-5.html?replytocom=36609#respond' onclick='return addComment.moveForm( "div-comment-36609", "36609", "respond", "1816" )' aria-label='Reply to 增达网'>Reply</a></div></div></div></li><!-- #comment-## -->
 <li class="comment odd alt thread-odd thread-alt depth-1" id="comment-36401"><div class="c-avatar"><img data-original="https://secure.gravatar.com/avatar/d233fabf66dcf46b979484464a5a215b?s=108" class="avatar avatar-108" height="108" width="108"><div class="c-main" id="div-comment-36401">向大佬学习！
-xiang da lao xue xi !<div class="c-meta"><span class="c-author">CRoot</span>2017-01-17 19:30 <a rel='nofollow' class='comment-reply-link' href='/2017/01/use-redis-queuing-laravel-5.html?replytocom=36401#respond' onclick='return addComment.moveForm( "div-comment-36401", "36401", "respond", "1816" )' aria-label='Reply to CRoot'>Reply</a></div></div></div></li><!-- #comment-## -->
+xiang da lao xue xi !<div class="c-meta"><span class="c-author">CRoot</span>2017-01-17 19:30 <a rel='nofollow' class='comment-reply-link' href='/blog/2017/01/use-redis-queuing-laravel-5.html?replytocom=36401#respond' onclick='return addComment.moveForm( "div-comment-36401", "36401", "respond", "1816" )' aria-label='Reply to CRoot'>Reply</a></div></div></div></li><!-- #comment-## -->
 	</ol>
 	<div class="commentnav"	>
 			</div>
@@ -343,9 +343,9 @@ xiang da lao xue xi !<div class="c-meta"><span class="c-author">CRoot</span>2017
 
 	<tfoot>
 	<tr>
-		<td colspan="3" id="prev"><a href="/2016/10">&laquo; Oct</a></td>
+		<td colspan="3" id="prev"><a href="/blog/2016/10">&laquo; Oct</a></td>
 		<td class="pad">&nbsp;</td>
-		<td colspan="3" id="next"><a href="/2017/06">Jun &raquo;</a></td>
+		<td colspan="3" id="next"><a href="/blog/2017/06">Jun &raquo;</a></td>
 	</tr>
 	</tfoot>
 
@@ -360,7 +360,7 @@ xiang da lao xue xi !<div class="c-meta"><span class="c-author">CRoot</span>2017
 		<td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td>
 	</tr>
 	<tr>
-		<td>16</td><td><a href="/2017/01/17" aria-label="Posts published on January 17, 2017">17</a></td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td>
+		<td>16</td><td><a href="/blog/2017/01/17" aria-label="Posts published on January 17, 2017">17</a></td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td>
 	</tr>
 	<tr>
 		<td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td>
@@ -371,59 +371,59 @@ xiang da lao xue xi !<div class="c-meta"><span class="c-author">CRoot</span>2017
 	</tr>
 	</tbody>
 	</table></div></div><div class="widget widget_categories"><div class="title"><h2>Categories</h2></div>		<ul>
-	<li class="cat-item cat-item-10"><a href="/category/hardware" >Hardware</a>
+	<li class="cat-item cat-item-10"><a href="/blog/category/hardware" >Hardware</a>
 </li>
-	<li class="cat-item cat-item-3"><a href="/category/network" >Network</a>
+	<li class="cat-item cat-item-3"><a href="/blog/category/network" >Network</a>
 </li>
-	<li class="cat-item cat-item-17"><a href="/category/software/os" >Operating System</a>
+	<li class="cat-item cat-item-17"><a href="/blog/category/software/os" >Operating System</a>
 </li>
-	<li class="cat-item cat-item-4"><a href="/category/software/programming" >Programming</a>
+	<li class="cat-item cat-item-4"><a href="/blog/category/software/programming" >Programming</a>
 </li>
-	<li class="cat-item cat-item-106"><a href="/category/network/server" >Server</a>
+	<li class="cat-item cat-item-106"><a href="/blog/category/network/server" >Server</a>
 </li>
-	<li class="cat-item cat-item-6"><a href="/category/software" >Software</a>
+	<li class="cat-item cat-item-6"><a href="/blog/category/software" >Software</a>
 </li>
-	<li class="cat-item cat-item-1"><a href="/category/uncategorized" >Uncategorized</a>
+	<li class="cat-item cat-item-1"><a href="/blog/category/uncategorized" >Uncategorized</a>
 </li>
-	<li class="cat-item cat-item-13"><a href="/category/network/website" >Website</a>
+	<li class="cat-item cat-item-13"><a href="/blog/category/network/website" >Website</a>
 </li>
 		</ul>
 </div><div class="widget widget_archive"><div class="title"><h2>Archives</h2></div>		<ul>
-			<li><a href='/2017/06'>June 2017</a></li>
-	<li><a href='/2017/01'>January 2017</a></li>
-	<li><a href='/2016/10'>October 2016</a></li>
-	<li><a href='/2016/06'>June 2016</a></li>
-	<li><a href='/2016/05'>May 2016</a></li>
-	<li><a href='/2015/11'>November 2015</a></li>
-	<li><a href='/2015/10'>October 2015</a></li>
-	<li><a href='/2015/07'>July 2015</a></li>
-	<li><a href='/2015/05'>May 2015</a></li>
-	<li><a href='/2015/04'>April 2015</a></li>
-	<li><a href='/2015/01'>January 2015</a></li>
-	<li><a href='/2014/12'>December 2014</a></li>
-	<li><a href='/2014/11'>November 2014</a></li>
-	<li><a href='/2014/10'>October 2014</a></li>
-	<li><a href='/2014/09'>September 2014</a></li>
-	<li><a href='/2014/08'>August 2014</a></li>
-	<li><a href='/2014/07'>July 2014</a></li>
-	<li><a href='/2014/06'>June 2014</a></li>
-	<li><a href='/2014/05'>May 2014</a></li>
-	<li><a href='/2014/04'>April 2014</a></li>
-	<li><a href='/2014/03'>March 2014</a></li>
-	<li><a href='/2014/02'>February 2014</a></li>
-	<li><a href='/2014/01'>January 2014</a></li>
-	<li><a href='/2013/12'>December 2013</a></li>
-	<li><a href='/2013/11'>November 2013</a></li>
-	<li><a href='/2013/10'>October 2013</a></li>
-	<li><a href='/2013/09'>September 2013</a></li>
-	<li><a href='/2013/08'>August 2013</a></li>
-	<li><a href='/2013/07'>July 2013</a></li>
-	<li><a href='/2013/06'>June 2013</a></li>
-	<li><a href='/2013/05'>May 2013</a></li>
-	<li><a href='/2013/03'>March 2013</a></li>
-	<li><a href='/2013/02'>February 2013</a></li>
-	<li><a href='/2012/07'>July 2012</a></li>
-	<li><a href='/1994/12'>December 1994</a></li>
+			<li><a href='/blog/2017/06'>June 2017</a></li>
+	<li><a href='/blog/2017/01'>January 2017</a></li>
+	<li><a href='/blog/2016/10'>October 2016</a></li>
+	<li><a href='/blog/2016/06'>June 2016</a></li>
+	<li><a href='/blog/2016/05'>May 2016</a></li>
+	<li><a href='/blog/2015/11'>November 2015</a></li>
+	<li><a href='/blog/2015/10'>October 2015</a></li>
+	<li><a href='/blog/2015/07'>July 2015</a></li>
+	<li><a href='/blog/2015/05'>May 2015</a></li>
+	<li><a href='/blog/2015/04'>April 2015</a></li>
+	<li><a href='/blog/2015/01'>January 2015</a></li>
+	<li><a href='/blog/2014/12'>December 2014</a></li>
+	<li><a href='/blog/2014/11'>November 2014</a></li>
+	<li><a href='/blog/2014/10'>October 2014</a></li>
+	<li><a href='/blog/2014/09'>September 2014</a></li>
+	<li><a href='/blog/2014/08'>August 2014</a></li>
+	<li><a href='/blog/2014/07'>July 2014</a></li>
+	<li><a href='/blog/2014/06'>June 2014</a></li>
+	<li><a href='/blog/2014/05'>May 2014</a></li>
+	<li><a href='/blog/2014/04'>April 2014</a></li>
+	<li><a href='/blog/2014/03'>March 2014</a></li>
+	<li><a href='/blog/2014/02'>February 2014</a></li>
+	<li><a href='/blog/2014/01'>January 2014</a></li>
+	<li><a href='/blog/2013/12'>December 2013</a></li>
+	<li><a href='/blog/2013/11'>November 2013</a></li>
+	<li><a href='/blog/2013/10'>October 2013</a></li>
+	<li><a href='/blog/2013/09'>September 2013</a></li>
+	<li><a href='/blog/2013/08'>August 2013</a></li>
+	<li><a href='/blog/2013/07'>July 2013</a></li>
+	<li><a href='/blog/2013/06'>June 2013</a></li>
+	<li><a href='/blog/2013/05'>May 2013</a></li>
+	<li><a href='/blog/2013/03'>March 2013</a></li>
+	<li><a href='/blog/2013/02'>February 2013</a></li>
+	<li><a href='/blog/2012/07'>July 2012</a></li>
+	<li><a href='/blog/1994/12'>December 1994</a></li>
 		</ul>
 		</div><div class="widget ilwp_widget_tag_cloud"><div class="title"><h2>Tag Cloud</h2></div><div class='colored-tag-cloud'><a href='/tag/step' class='tag-link-125' title='1 post is tagged with &ldquo;STEP&rdquo;' rel="tag" style='font-size: 8px;  color: red;'>STEP</a>
 <a href='/tag/vps' class='tag-link-207' title='1 post is tagged with &ldquo;VPS&rdquo;' rel="tag" style='font-size: 8px;  color: yellow;'>VPS</a>
@@ -619,7 +619,7 @@ var _hmt = _hmt || [];
     </div>
 </footer>
 
-<script type='text/javascript' src='./wp-content/themes/yusi_cache1.0/js/jquery.js?ver=1.0'></script>
-<script type='text/javascript' src='./wp-includes/js/wp-embed.min.js?ver=4.9.1'></script>
+<script type='text/javascript' src='/blog/wp-content/themes/yusi_cache1.0/js/jquery.js?ver=1.0'></script>
+<script type='text/javascript' src='/blog/wp-includes/js/wp-embed.min.js?ver=4.9.1'></script>
 </body>
 </html>

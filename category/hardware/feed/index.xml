@@ -9,7 +9,7 @@
 
 <channel>
 	<title>Hardware &#8211; Norckon&#039;s blog</title>
-	<atom:link href="/category/hardware/feed" rel="self" type="application/rss+xml" />
+	<atom:link href="/blog/category/hardware/feed" rel="self" type="application/rss+xml" />
 	<link>/</link>
 	<description>Norckon&#039;s blog</description>
 	<lastBuildDate>Thu, 24 Aug 2017 14:09:08 +0000</lastBuildDate>
@@ -54,7 +54,7 @@ sudo ./script</pre>
 <li>Install NoMachine&#8217;s NX Client to your PC</li>
 <li>On your PC, open NX Session Administrator</li>
 </ul>
-<p><a href="/wp-content/uploads/2015/01/NX_Settings.jpg"><img class="attachment-full" src="./wp-content/uploads/2015/01/NX_Settings.jpg" alt="NX_Settings" width="765" height="719" /></a></p>
+<p><a href="/blog/wp-content/uploads/2015/01/NX_Settings.jpg"><img class="attachment-full" src="/blog/wp-content/uploads/2015/01/NX_Settings.jpg" alt="NX_Settings" width="765" height="719" /></a></p>
 <ul>
 <li>File &#8211;&gt; New NX Session</li>
 <li>Click &#8220;Configure&#8221; and set up a session name, login and password</li>
@@ -75,7 +75,7 @@ sudo ./script</pre>
 <li>Note: Depending on your network, your Pi&#8217;s IP address will likely change from time to time. If you have trouble connecting in the future, verify that you still have the correct IP address. Or just set up and use a hostname.</li>
 <li>Click &#8220;Login&#8221; to connect. (The first time connecting often fails, try it again.)</li>
 </ul>
-<p><a href="/wp-content/uploads/2015/01/NX_Window.jpg"><img class="attachment-full" src="./wp-content/uploads/2015/01/NX_Window.jpg" alt="NX_Window" width="1022" height="741" /></a></p>
+<p><a href="/blog/wp-content/uploads/2015/01/NX_Window.jpg"><img class="attachment-full" src="/blog/wp-content/uploads/2015/01/NX_Window.jpg" alt="NX_Window" width="1022" height="741" /></a></p>
 <p>http://jlr-server.com/persistant/Pi_Guide/install_freenx.html</p>
 ]]></content:encoded>
 			<wfw:commentRss>/2015/01/raspberry-pi-installing-the-freenx-client-and-server.html/feed</wfw:commentRss>
@@ -95,7 +95,7 @@ sudo ./script</pre>
 
 		<guid isPermaLink="false">/?p=1467</guid>
 		<description><![CDATA[INTRODUCE In some special reason, we need an advanced router. For example, we need a special dialer in Office or school. So we can using Raspberry Pi as an Advanced wired or wireless router. But Raspberry Pi has only one Ethernet port. So you can buy a USB based network adapater as Router&#8217;s LAN port. [&#8230;]]]></description>
-				<content:encoded><![CDATA[<p><a href="/wp-content/uploads/2014/12/d2xtlbzuah9vavwt4utq.jpg"><img class="attachment-full aligncenter" src="./wp-content/uploads/2014/12/d2xtlbzuah9vavwt4utq.jpg" alt="d2xtlbzuah9vavwt4utq" width="636" height="358" /></a></p>
+				<content:encoded><![CDATA[<p><a href="/blog/wp-content/uploads/2014/12/d2xtlbzuah9vavwt4utq.jpg"><img class="attachment-full aligncenter" src="/blog/wp-content/uploads/2014/12/d2xtlbzuah9vavwt4utq.jpg" alt="d2xtlbzuah9vavwt4utq" width="636" height="358" /></a></p>
 <h2>INTRODUCE</h2>
 <p>In some special reason, we need an advanced router. For example, we need a special dialer in Office or school. So we can using Raspberry Pi as an Advanced wired or wireless router.</p>
 <p>But Raspberry Pi has only one Ethernet port. So you can buy a USB based network adapater as Router&#8217;s LAN port. or you can buy a USB wireless adapter as WIFI hotspot.</p>
@@ -104,7 +104,7 @@ sudo ./script</pre>
 <p><span style="color: #ff0000;"><strong>ATTENTIONS</strong></span>: If you&#8217;re using RTL8179/8188EU chip adapter, please read <a href="/?p=1452">Driver for RTL8179/8188EU</a>.</p>
 <h2>EPISODE</h2>
 <p>Official provided a way to setup hotspot <em><a href="http://elinux.org/RPI-Wireless-Hotspot">RPI-Wireless-Hotspot</a></em>, But in-fact that&#8217;s always be failed. You can found your USB network adapter by command <code>lsusb</code> or <code>lsmod</code>.</p>
-<p><a href="/wp-content/uploads/2014/12/Snip20131109_1.png"><img class="attachment-full aligncenter" src="./wp-content/uploads/2014/12/Snip20131109_1.png" alt="Snip20131109_1" width="1454" height="232" /></a></p>
+<p><a href="/blog/wp-content/uploads/2014/12/Snip20131109_1.png"><img class="attachment-full aligncenter" src="/blog/wp-content/uploads/2014/12/Snip20131109_1.png" alt="Snip20131109_1" width="1454" height="232" /></a></p>
 <p>It&#8217;s shows my USB adapter based on Realtek <strong>RTL8188CUS</strong> chip. I think that problem caused by driver. Finally I found answer in <em><a href="http://www.daveconroy.com/turn-your-raspberry-pi-into-a-wifi-hotspot-with-edimax-nano-usb-ew-7811un-rtl8188cus-chipset/">Turn Your Raspberry Pi Into a WiFi Hotspot with Edimax Nano USB EW-7811Un (RTL8188CUS chipset)</a></em>.</p>
 <h2>INSTALL SYSTEM</h2>
 <p>Use newer operating system recommended. Download Official OS and then write into your SD card. For more please read <em><a title="Raspberry Pi – Getting Started" href="/?p=1408" target="_blank">Raspberry Pi – Getting Started</a></em>.</p>
@@ -236,7 +236,7 @@ sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT</pre>
 sudo service udhcpd start
 sudo update-rc.d hostapd enable
 sudo update-rc.d udhcpd enable</pre>
-<p><a href="/wp-content/uploads/2014/12/201311130900.jpg"><img class="attachment-full aligncenter" src="./wp-content/uploads/2014/12/201311130900.jpg" alt="201311130900" width="820" height="480" /></a></p>
+<p><a href="/blog/wp-content/uploads/2014/12/201311130900.jpg"><img class="attachment-full aligncenter" src="/blog/wp-content/uploads/2014/12/201311130900.jpg" alt="201311130900" width="820" height="480" /></a></p>
 <h2>REFERENCE</h2>
 <ul>
 <li><a href="http://wangye.org/blog/archives/845/">将树莓派Raspberry Pi设置为无线路由器(WiFi热点AP,RTL8188CUS芯片)</a></li>
@@ -448,7 +448,7 @@ sudo rm /etc/init.d/rpc_shellinaboxd</pre>
 		<description><![CDATA[INTRODUCE Raspbian without RTL8179/8188EU drivers. Raspberry Pi cannot found wlan0 when you plug-in a 8188eu base wireless dongle. So you need a 3rd-driver for 8188eu base wireless dongle. KNOWN CARD LIST TPLINK TL-WN725N v2 MERCURY MW150US FAST FW150US GET KERNEL VERSION IMPORTANT: First check the version of Linux you have. Use the command uname -a [&#8230;]]]></description>
 				<content:encoded><![CDATA[<h2>INTRODUCE</h2>
 <p>Raspbian without RTL8179/8188EU drivers. Raspberry Pi cannot found wlan0 when you plug-in a 8188eu base wireless dongle. So you need a 3rd-driver for 8188eu base wireless dongle.</p>
-<p><a href="/wp-content/uploads/2014/12/piwifi.jpg"><img class="attachment-full aligncenter" src="./wp-content/uploads/2014/12/piwifi.jpg" alt="Raspberry Pi Wireless Dongle" width="550" height="367" /></a></p>
+<p><a href="/blog/wp-content/uploads/2014/12/piwifi.jpg"><img class="attachment-full aligncenter" src="/blog/wp-content/uploads/2014/12/piwifi.jpg" alt="Raspberry Pi Wireless Dongle" width="550" height="367" /></a></p>
 <h2>KNOWN CARD LIST</h2>
 <ul>
 <li>TPLINK TL-WN725N v2</li>
@@ -712,7 +712,7 @@ sudo depmod -a</pre>
 				<content:encoded><![CDATA[<h2>WHAT IS A RASPBERRY PI</h2>
 <p>The Raspberry Pi is a low cost, credit-card sized computer that plugs into a computer monitor or TV, and uses a standard keyboard and mouse. It is a capable little device that enables people of all ages to explore computing, and to learn how to program in languages like Scratch and Python. It’s capable of doing everything you’d expect a desktop computer to do, from browsing the internet and playing high-definition video, to making spreadsheets, word-processing, and playing games.</p>
 <h2>PREVIEW</h2>
-<p><a href="/wp-content/uploads/2014/12/raspberry_pi_b_plus2.jpg"><img class="attachment-full aligncenter" src="./wp-content/uploads/2014/12/raspberry_pi_b_plus2.jpg" alt="raspberry_pi_b_plus2" width="444" height="252" /></a></p>
+<p><a href="/blog/wp-content/uploads/2014/12/raspberry_pi_b_plus2.jpg"><img class="attachment-full aligncenter" src="/blog/wp-content/uploads/2014/12/raspberry_pi_b_plus2.jpg" alt="raspberry_pi_b_plus2" width="444" height="252" /></a></p>
 <p style="text-align: center;">Raspberry Pi Model B+</p>
 <h2>PARAMETERS</h2>
 <p>&nbsp;</p>
@@ -770,7 +770,7 @@ sudo depmod -a</pre>
 <li>Select image file and SD card, click <strong>Write</strong> and wait for progress.</li>
 <li>Plug-out your SD card reader.</li>
 </ol>
-<p><a href="/wp-content/uploads/2014/12/tumblr_inline_mm9nzcUU2c1qz4rgp2.png"><img class="attachment-full aligncenter" src="./wp-content/uploads/2014/12/tumblr_inline_mm9nzcUU2c1qz4rgp2.png" alt="tumblr_inline_mm9nzcUU2c1qz4rgp2" width="425" height="211" /></a></p>
+<p><a href="/blog/wp-content/uploads/2014/12/tumblr_inline_mm9nzcUU2c1qz4rgp2.png"><img class="attachment-full aligncenter" src="/blog/wp-content/uploads/2014/12/tumblr_inline_mm9nzcUU2c1qz4rgp2.png" alt="tumblr_inline_mm9nzcUU2c1qz4rgp2" width="425" height="211" /></a></p>
 <h4>For Linux</h4>
 <ul>
 <li>Run <code>df -h</code> command to list all of disks you mounted before mount your SD Card</li>
@@ -823,7 +823,7 @@ devfs          184Ki  184Ki    0Bi   100%    /dev
 <li>If your display does not supports HDMI interface, Converter will be very usefully. like VGA converter or DVI converter.</li>
 <li><span style="color: #ff0000;"><strong>If using VGA converter</strong></span>, please using VGA converter with power supply, because VGA converter without power supply will damage Raspberry Pi.</li>
 </ul>
-<p><a href="/wp-content/uploads/2014/12/tumblr_inline_mm9nlodATy1qz4rgp2.jpg"><img class="attachment-full aligncenter" src="./wp-content/uploads/2014/12/tumblr_inline_mm9nlodATy1qz4rgp2.jpg" alt="tumblr_inline_mm9nlodATy1qz4rgp2" width="410" height="516" /></a></p>
+<p><a href="/blog/wp-content/uploads/2014/12/tumblr_inline_mm9nlodATy1qz4rgp2.jpg"><img class="attachment-full aligncenter" src="/blog/wp-content/uploads/2014/12/tumblr_inline_mm9nlodATy1qz4rgp2.jpg" alt="tumblr_inline_mm9nlodATy1qz4rgp2" width="410" height="516" /></a></p>
 <h3>For PuTTY / SSH</h3>
 <p>If do not have TV or Display, also can access Raspberry Pi thought SSH and VNC. but there some different between HDMI way.</p>
 <ul>
@@ -831,17 +831,17 @@ devfs          184Ki  184Ki    0Bi   100%    /dev
 <li>Open Router management webpage, find DHCP client list, find out <strong>raspberrypi</strong> IP address, this is Raspberry Pi IP address.</li>
 <li>Download PuTTY program from <a href="http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe">this link</a> and open it.</li>
 </ul>
-<p><a href="/wp-content/uploads/2014/12/putty-window2.png"><img class="attachment-full aligncenter" src="./wp-content/uploads/2014/12/putty-window2.png" alt="putty-window2" width="466" height="449" /></a></p>
+<p><a href="/blog/wp-content/uploads/2014/12/putty-window2.png"><img class="attachment-full aligncenter" src="/blog/wp-content/uploads/2014/12/putty-window2.png" alt="putty-window2" width="466" height="449" /></a></p>
 <ul>
 <li>Enter the Raspberry Pi IP address, select SSH as connection type and under the menu item <strong>Window –&gt; Translation</strong> select <strong>UTF-8</strong></li>
 </ul>
-<p><a href="/wp-content/uploads/2014/12/putty-utf-82.png"><img class="attachment-full aligncenter" src="./wp-content/uploads/2014/12/putty-utf-82.png" alt="putty-utf-82" width="466" height="449" /></a></p>
+<p><a href="/blog/wp-content/uploads/2014/12/putty-utf-82.png"><img class="attachment-full aligncenter" src="/blog/wp-content/uploads/2014/12/putty-utf-82.png" alt="putty-utf-82" width="466" height="449" /></a></p>
 <ul>
 <li>Click <strong>Open</strong> and youre ready to log on. Standard user <strong>pi</strong>, Standard password <strong>raspberry</strong>.</li>
 </ul>
 <h2>RASPBERRY BASE CONFIGURATION</h2>
 <p>If you boot Raspbian first time, Raspi-config will show on your screen, If doesnt show on screen, please run command <code>sudo raspi-config</code>.</p>
-<p><a href="/wp-content/uploads/2014/12/52b0a966757b7f7f2b8b456a2.png"><img class="attachment-full aligncenter" src="./wp-content/uploads/2014/12/52b0a966757b7f7f2b8b456a2.png" alt="52b0a966757b7f7f2b8b456a2" width="808" height="644" /></a></p>
+<p><a href="/blog/wp-content/uploads/2014/12/52b0a966757b7f7f2b8b456a2.png"><img class="attachment-full aligncenter" src="/blog/wp-content/uploads/2014/12/52b0a966757b7f7f2b8b456a2.png" alt="52b0a966757b7f7f2b8b456a2" width="808" height="644" /></a></p>
 <p>If youre booting Raspbian first time, please select <strong>Expand Filesystem</strong> and reboot your Raspberry Pi take effect. If you do not do this, Your Raspberry will no spce left on disk and be unstable.</p>
 <p>If you connected a display and want show desktop after boot, please change<strong> Enable Boot to Desktop/Scratch</strong> value to <strong>Desktop Log in as user pi at the graphical desktop</strong>.</p>
 <p>If you does not connect a display or TV, and want get more available memory, please change <strong>Advanced Options -&gt; Memory Split</strong> value to 16.</p>
@@ -877,15 +877,15 @@ Disk identifier: 0x000714e9
 <ul>
 <li>Run command <code>sudo apt-get install tightvncserver</code> to install Tight VNC Server.</li>
 </ul>
-<p><a href="/wp-content/uploads/2014/12/tumblr_inline_mm9oblBSJ21qz4rgp2.png"><img class="attachment-full aligncenter" src="./wp-content/uploads/2014/12/tumblr_inline_mm9oblBSJ21qz4rgp2.png" alt="tumblr_inline_mm9oblBSJ21qz4rgp2" width="500" height="203" /></a></p>
+<p><a href="/blog/wp-content/uploads/2014/12/tumblr_inline_mm9oblBSJ21qz4rgp2.png"><img class="attachment-full aligncenter" src="/blog/wp-content/uploads/2014/12/tumblr_inline_mm9oblBSJ21qz4rgp2.png" alt="tumblr_inline_mm9oblBSJ21qz4rgp2" width="500" height="203" /></a></p>
 <ul>
 <li>Run command <code>vncpasswd</code> to setup vnc remote access password. If ask for you <em>view-only password</em>, can skip it.</li>
 <li>Run command <code>vncserver :0 -geometry 800x600</code> or <code>vncserver :0</code> to startup vnc server.</li>
 </ul>
 <p><span style="text-decoration: underline;">In this command</span>, <strong>:0</strong> means<strong> No.0</strong> desktop, and No.0 desktop port is <strong>5900</strong>, <strong>:1</strong> means <strong>No.1</strong> desktop, and No.1 desktop port is <strong>5901</strong>, etc. Geometry means desktop resolution, like 1024&#215;768, 1440&#215;900 etc.</p>
 <p>If you want using windows to access your remote Raspbian, Please download <a href="http://www.realvnc.com/download/viewer/">RealVNC </a>and enter your Raspbian <span style="text-decoration: underline;">IP address <strong>and</strong> port</span>, click <strong>Connect</strong> to start new session.</p>
-<p><a href="/wp-content/uploads/2014/12/tumblr_inline_mm9odaE8901qz4rgp2.png"><img class="attachment-full aligncenter" src="./wp-content/uploads/2014/12/tumblr_inline_mm9odaE8901qz4rgp2.png" alt="tumblr_inline_mm9odaE8901qz4rgp2" width="354" height="193" /></a></p>
-<p><a href="/wp-content/uploads/2014/12/tumblr_inline_mm9ofmftkZ1qz4rgp2.png"><img class="attachment-full aligncenter" src="./wp-content/uploads/2014/12/tumblr_inline_mm9ofmftkZ1qz4rgp2.png" alt="tumblr_inline_mm9ofmftkZ1qz4rgp2" width="500" height="388" /></a></p>
+<p><a href="/blog/wp-content/uploads/2014/12/tumblr_inline_mm9odaE8901qz4rgp2.png"><img class="attachment-full aligncenter" src="/blog/wp-content/uploads/2014/12/tumblr_inline_mm9odaE8901qz4rgp2.png" alt="tumblr_inline_mm9odaE8901qz4rgp2" width="354" height="193" /></a></p>
+<p><a href="/blog/wp-content/uploads/2014/12/tumblr_inline_mm9ofmftkZ1qz4rgp2.png"><img class="attachment-full aligncenter" src="/blog/wp-content/uploads/2014/12/tumblr_inline_mm9ofmftkZ1qz4rgp2.png" alt="tumblr_inline_mm9ofmftkZ1qz4rgp2" width="500" height="388" /></a></p>
 <h2>REFERENCES</h2>
 <ul>
 <li><a href="http://www.raspberrypi.org/help/what-is-a-raspberry-pi/">WHAT IS A RASPBERRY PI?</a></li>

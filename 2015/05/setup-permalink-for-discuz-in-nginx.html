@@ -28,15 +28,15 @@ img.emoji {
 	padding: 0 !important;
 }
 </style>
-<link rel='stylesheet' id='style-css'  href='/wp-content/themes/yusi_cache1.0/style.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='style-css'  href='/blog/wp-content/themes/yusi_cache1.0/style.css?ver=1.0' type='text/css' media='all' />
 <script type='text/javascript' src='//cdn.bootcss.com/jquery/1.8.3/jquery.min.js?ver=1.0'></script>
-<link rel='https://api.w.org/' href='/wp-json/' />
-<link rel='prev' title='Optimization script for Ubuntu Server (Own use)' href='/2015/05/%E5%A4%87%E7%94%A8%E4%B8%AD.html' />
-<link rel='next' title='Enable customization index page for nginx' href='/2015/07/enable-customization-index-page-for-nginx.html' />
-<link rel="canonical" href="./2015/05/setup-permalink-for-discuz-in-nginx.html" />
+<link rel='https://api.w.org/' href='/blog/wp-json/' />
+<link rel='prev' title='Optimization script for Ubuntu Server (Own use)' href='/blog/2015/05/%E5%A4%87%E7%94%A8%E4%B8%AD.html' />
+<link rel='next' title='Enable customization index page for nginx' href='/blog/2015/07/enable-customization-index-page-for-nginx.html' />
+<link rel="canonical" href="/blog/2015/05/setup-permalink-for-discuz-in-nginx.html" />
 <link rel='shortlink' href='/?p=1536' />
-<link rel="alternate" type="application/json+oembed" href="./wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2015%2F05%2Fsetup-permalink-for-discuz-in-nginx.html" />
-<link rel="alternate" type="text/xml+oembed" href="./wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2015%2F05%2Fsetup-permalink-for-discuz-in-nginx.html&#038;format=xml" />
+<link rel="alternate" type="application/json+oembed" href="/blog/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2015%2F05%2Fsetup-permalink-for-discuz-in-nginx.html" />
+<link rel="alternate" type="text/xml+oembed" href="/blog/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2015%2F05%2Fsetup-permalink-for-discuz-in-nginx.html&#038;format=xml" />
 <meta name="keywords" content="HTTP, Nginx Discuz, Server">
 <meta name="description" content="INTRODUCE If you enabled discuz permalink function, and you access topic or thread get HTTP 404 error, means you do not have configure rewrite for nginx in your site configuration file. ADDING REWRITE CODE 1. Adding rewr">
 <!--[if lt IE 9]><script src="https://dfc643.github.io/blog/wp-content/themes/yusi_cache1.0/js/html5.js"></script><![endif]-->
@@ -51,19 +51,19 @@ img.emoji {
     <ul class="nav">
         <li class="title">Norckon</li>
         <li id="menu-item-1262" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1262"><a href="http://dfc643.github.io/">Top</a></li>
-<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1046"><a href="./category/software">Soft</a>
+<li id="menu-item-1046" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1046"><a href="/blog/category/software">Soft</a>
 <ul class="sub-menu">
-	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1064"><a href="./category/software">Software</a></li>
-	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1062"><a href="./category/software/os">OS</a></li>
-	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1049"><a href="./category/software/programming">Programming</a></li>
+	<li id="menu-item-1064" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1064"><a href="/blog/category/software">Software</a></li>
+	<li id="menu-item-1062" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1062"><a href="/blog/category/software/os">OS</a></li>
+	<li id="menu-item-1049" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1049"><a href="/blog/category/software/programming">Programming</a></li>
 </ul>
 </li>
-<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="./category/hardware">Hard</a></li>
-<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-1047"><a href="./category/network">Net</a>
+<li id="menu-item-1050" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1050"><a href="/blog/category/hardware">Hard</a></li>
+<li id="menu-item-1047" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-1047"><a href="/blog/category/network">Net</a>
 <ul class="sub-menu">
-	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-1063"><a href="./category/network">Network</a></li>
-	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1496"><a href="./category/network/server">Server</a></li>
-	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="./category/network/website">Web</a></li>
+	<li id="menu-item-1063" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-1063"><a href="/blog/category/network">Network</a></li>
+	<li id="menu-item-1496" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1496"><a href="/blog/category/network/server">Server</a></li>
+	<li id="menu-item-1048" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1048"><a href="/blog/category/network/website">Web</a></li>
 </ul>
 </li>
 <li id="menu-item-1220" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1220"><a>Tool</a>
@@ -86,10 +86,10 @@ img.emoji {
 	<li id="menu-item-1825" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1825"><a href="http://mybeibei.net/">Guge&#8217;s blog</a></li>
 	<li id="menu-item-1162" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1162"><a href="http://www.yjsys.tk/">寂写心灵之幽</a></li>
 	<li id="menu-item-1045" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1045"><a href="http://hanicc.com/">HoneyCC</a></li>
-	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="./add-link">+ Add Link</a></li>
+	<li id="menu-item-1055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1055"><a href="/blog/add-link">+ Add Link</a></li>
 </ul>
 </li>
-<li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="./">Blog</a></li>
+<li id="menu-item-1263" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1263"><a href="/blog/">Blog</a></li>
 <li style="float:right;">
                 <div class="toggle-search"><i class="fa fa-search"></i></div>
 <div class="search-expand" style="display: none;"><div class="search-expand-inner"><form method="get" class="searchform themeform" onsubmit="location.href='https://dfc643.github.io/blog/?s=' + encodeURIComponent(this.s.value).replace(/%20/g, '+'); return false;" action="/"><div> <input type="ext" class="search" name="s" onblur="if(this.value=='')this.value='search...';" onfocus="if(this.value=='search...')this.value='';" value="search..."></div></form></div></div>
@@ -100,7 +100,7 @@ img.emoji {
 
 <div class="container-inner" style="display:none">
  <div class="yusi-logo">
-<a href="./">
+<a href="/blog/">
 <h1>
 <span class="yusi-mono">Norckon&#039;s blog</span>
 <span class="yusi-bloger">Norckon&#039;s blog</span>
@@ -120,15 +120,15 @@ img.emoji {
 	<div class="content">
 
 				<header class="article-header">
-			<h1 class="article-title"><a href="./2015/05/setup-permalink-for-discuz-in-nginx.html">Setup permalink for discuz in nginx</a></h1>
+			<h1 class="article-title"><a href="/blog/2015/05/setup-permalink-for-discuz-in-nginx.html">Setup permalink for discuz in nginx</a></h1>
 			<div class="meta">
-				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="./category/network/server"> Server</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="./author/dfc643">Norckon</a></span>
+				<span id="mute-category" class="muted"><i class="fa fa-list-alt"></i><a href="/blog/category/network/server"> Server</a></span>				<span class="muted"><i class="fa fa-user"></i> <a href="/blog/author/dfc643">Norckon</a></span>
 				<time class="muted"><i class="fa fa-clock-o"></i> 2015-05-18</time>
 				<span class="muted"><i class="fa fa-eye"></i> 1236℃</span>
-				<span class="muted"><i class="fa fa-comments-o"></i> <a href="./2015/05/setup-permalink-for-discuz-in-nginx.html#respond">0评论</a></span>							</div>
+				<span class="muted"><i class="fa fa-comments-o"></i> <a href="/blog/2015/05/setup-permalink-for-discuz-in-nginx.html#respond">0评论</a></span>							</div>
 		</header>
 		<article class="article-content">
-			<p><a href="./wp-content/uploads/2015/05/220px-Permalink_logo.png"><img class="attachment-full aligncenter" src="./wp-content/uploads/2015/05/220px-Permalink_logo.png" alt="220px-Permalink_logo" width="220" height="184" /></a></p>
+			<p><a href="/blog/wp-content/uploads/2015/05/220px-Permalink_logo.png"><img class="attachment-full aligncenter" src="/blog/wp-content/uploads/2015/05/220px-Permalink_logo.png" alt="220px-Permalink_logo" width="220" height="184" /></a></p>
 <h2>INTRODUCE</h2>
 <p>If you enabled discuz permalink function, and you access topic or thread get HTTP 404 error, means you do not have configure rewrite for nginx in your site configuration file.</p>
 <h2>ADDING REWRITE CODE</h2>
@@ -164,42 +164,42 @@ if (!-e $request_filename) {
 </div>
 	</article>	
 				<footer class="article-footer">
-			<div class="article-tags"><i class="fa fa-tags"></i><a href="./tag/http" rel="tag">HTTP</a><a href="./tag/nginx-discuz" rel="tag">Nginx Discuz</a></div></footer>
+			<div class="article-tags"><i class="fa fa-tags"></i><a href="/blog/tag/http" rel="tag">HTTP</a><a href="/blog/tag/nginx-discuz" rel="tag">Nginx Discuz</a></div></footer>
 	<nav class="article-nav">
-			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="./2015/05/%E5%A4%87%E7%94%A8%E4%B8%AD.html" rel="prev">Optimization script for Ubuntu Server (Own use)</a></span>
-			<span class="article-nav-next"><a href="./2015/07/enable-customization-index-page-for-nginx.html" rel="next">Enable customization index page for nginx</a>  <i class="fa fa-angle-double-right"></i></span>
+			<span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="/blog/2015/05/%E5%A4%87%E7%94%A8%E4%B8%AD.html" rel="prev">Optimization script for Ubuntu Server (Own use)</a></span>
+			<span class="article-nav-next"><a href="/blog/2015/07/enable-customization-index-page-for-nginx.html" rel="next">Enable customization index page for nginx</a>  <i class="fa fa-angle-double-right"></i></span>
 		</nav>
 
 		<div class="related_top">
 			<div class="related_posts"><ul class="related_img">
 
 		<li class="related_box"  >
-		<a href="./2016/10/openshift-environment-variables.html" title="OpenShift Environment Variables" target="_blank">
-<img src="./wp-content/uploads/2016/10/1476955176-1488-Open-shift-enerprise.jpg" alt="OpenShift Environment Variables" />	<br><span class="r_title">OpenShift Environment Variables</span></a>
+		<a href="/blog/2016/10/openshift-environment-variables.html" title="OpenShift Environment Variables" target="_blank">
+<img src="/blog/wp-content/uploads/2016/10/1476955176-1488-Open-shift-enerprise.jpg" alt="OpenShift Environment Variables" />	<br><span class="r_title">OpenShift Environment Variables</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="./2017/01/use-redis-queuing-laravel-5.html" title="How To Use Redis For Queuing In Laravel 5" target="_blank">
-		<img src="./wp-content/uploads/2017/01/laravel1-1.jpg" alt="How To Use Redis For Queuing In Laravel 5" /><br><span class="r_title">How To Use Redis For Queuing In Laravel 5</span></a>
+		<a href="/blog/2017/01/use-redis-queuing-laravel-5.html" title="How To Use Redis For Queuing In Laravel 5" target="_blank">
+		<img src="/blog/wp-content/uploads/2017/01/laravel1-1.jpg" alt="How To Use Redis For Queuing In Laravel 5" /><br><span class="r_title">How To Use Redis For Queuing In Laravel 5</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="./2017/01/enable-ecc-rsa-nginx.html" title="Enable both ECC and RSA on nginx" target="_blank">
-		<img src="./wp-content/uploads/2017/01/1484621208-9831-https-icon.png" alt="Enable both ECC and RSA on nginx" /><br><span class="r_title">Enable both ECC and RSA on nginx</span></a>
+		<a href="/blog/2017/01/enable-ecc-rsa-nginx.html" title="Enable both ECC and RSA on nginx" target="_blank">
+		<img src="/blog/wp-content/uploads/2017/01/1484621208-9831-https-icon.png" alt="Enable both ECC and RSA on nginx" /><br><span class="r_title">Enable both ECC and RSA on nginx</span></a>
 		</li>
 	
 	<li class="related_box"  >
-		<a href="./2016/10/upgrade-ubuntu-16-04-lts.html" title="How To Upgrade to Ubuntu 16.04 LTS" target="_blank">
-		<img src="./wp-content/uploads/2016/10/1476961501-1126-ubuntu16.04-Blog.png" alt="How To Upgrade to Ubuntu 16.04 LTS" /><br><span class="r_title">How To Upgrade to Ubuntu 16.04 LTS</span></a>
+		<a href="/blog/2016/10/upgrade-ubuntu-16-04-lts.html" title="How To Upgrade to Ubuntu 16.04 LTS" target="_blank">
+		<img src="/blog/wp-content/uploads/2016/10/1476961501-1126-ubuntu16.04-Blog.png" alt="How To Upgrade to Ubuntu 16.04 LTS" /><br><span class="r_title">How To Upgrade to Ubuntu 16.04 LTS</span></a>
 		</li>
 	</ul>
 
 <div class="relates">
 <ul>
-<li><i class="fa fa-minus"></i><a href="./2016/10/openshift-environment-variables.html">OpenShift Environment Variables</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2017/01/use-redis-queuing-laravel-5.html">How To Use Redis For Queuing In Laravel 5</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2017/01/enable-ecc-rsa-nginx.html">Enable both ECC and RSA on nginx</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2016/10/upgrade-ubuntu-16-04-lts.html">How To Upgrade to Ubuntu 16.04 LTS</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2016/10/openshift-bind-multiple-domains.html">OpenShift bind multiple domains</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2016/06/create-deb-package-source-install-automatically.html">How To Create A .deb Package From Source &#038; Install It Automatically</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2016/06/hide-openssh-system-version-nmap-scanners.html">Hide OpenSSH system version from nmap and other scanners</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="./2016/06/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04.html">How To Protect SSH with Fail2Ban on Ubuntu 14.04</a></li>
+<li><i class="fa fa-minus"></i><a href="/blog/2016/10/openshift-environment-variables.html">OpenShift Environment Variables</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2017/01/use-redis-queuing-laravel-5.html">How To Use Redis For Queuing In Laravel 5</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2017/01/enable-ecc-rsa-nginx.html">Enable both ECC and RSA on nginx</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2016/10/upgrade-ubuntu-16-04-lts.html">How To Upgrade to Ubuntu 16.04 LTS</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2016/10/openshift-bind-multiple-domains.html">OpenShift bind multiple domains</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2016/06/create-deb-package-source-install-automatically.html">How To Create A .deb Package From Source &#038; Install It Automatically</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2016/06/hide-openssh-system-version-nmap-scanners.html">Hide OpenSSH system version from nmap and other scanners</a></li><li><i class="fa fa-minus"></i><a target="_blank" href="/blog/2016/06/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04.html">How To Protect SSH with Fail2Ban on Ubuntu 14.04</a></li>
 </ul></div></div>		</div>
 						<div id="respond" class="no_webshot">
-		<form action="/wp-comments-post.php" method="post" id="commentform">
+		<form action="/blog/wp-comments-post.php" method="post" id="commentform">
 		
 		<div class="comt-title">
 			<div class="comt-avatar pull-left">
@@ -240,7 +240,7 @@ if (!-e $request_filename) {
 <aside class="sidebar">	
 <div class="widget widget_text"><div class="textwidget text-social"><div class="social">
 
-<a href="http://weibo.com/dfc643" rel="external nofollow" title="Weibo" target="_blank"><i class="sinaweibo fa fa-weibo"></i></a><a  href="http://t.qq.com/dfc643" rel="external nofollow" title="t.qq.com" target="_blank"><i class="tencentweibo fa fa-tencent-weibo"></i></a><a href="https://twitter.com/dfc643" rel="external nofollow" title="Twitter" target="_blank"><i class="twitter fa fa-twitter"></i></a><a href="https://www.facebook.com/Norckon" rel="external nofollow" title="Facebook" target="_blank"><i class="facebook fa fa-facebook"></i></a><a href="http://mail.fcsys.org/" rel="external nofollow" title="Email" target="_blank"><i class="email fa fa-envelope-o"></i></a><a href="./?feed=rss2" rel="external nofollow" target="_blank"  title="RSS Feed"><i class="rss fa fa-rss"></i></a>
+<a href="http://weibo.com/dfc643" rel="external nofollow" title="Weibo" target="_blank"><i class="sinaweibo fa fa-weibo"></i></a><a  href="http://t.qq.com/dfc643" rel="external nofollow" title="t.qq.com" target="_blank"><i class="tencentweibo fa fa-tencent-weibo"></i></a><a href="https://twitter.com/dfc643" rel="external nofollow" title="Twitter" target="_blank"><i class="twitter fa fa-twitter"></i></a><a href="https://www.facebook.com/Norckon" rel="external nofollow" title="Facebook" target="_blank"><i class="facebook fa fa-facebook"></i></a><a href="http://mail.fcsys.org/" rel="external nofollow" title="Email" target="_blank"><i class="email fa fa-envelope-o"></i></a><a href="/blog/?feed=rss2" rel="external nofollow" target="_blank"  title="RSS Feed"><i class="rss fa fa-rss"></i></a>
 </div></div></div>
 
 <div class="widget widget_text"><div class="title"><h2>Staticized</h2></div>			<div class="textwidget"><p><strong>WARNING</strong>: This blog has been <strong>Staticized</strong>. All comment, like or other function will not working.</p>
@@ -261,9 +261,9 @@ if (!-e $request_filename) {
 
 	<tfoot>
 	<tr>
-		<td colspan="3" id="prev"><a href="./2015/04">&laquo; Apr</a></td>
+		<td colspan="3" id="prev"><a href="/blog/2015/04">&laquo; Apr</a></td>
 		<td class="pad">&nbsp;</td>
-		<td colspan="3" id="next"><a href="./2015/07">Jul &raquo;</a></td>
+		<td colspan="3" id="next"><a href="/blog/2015/07">Jul &raquo;</a></td>
 	</tr>
 	</tfoot>
 
@@ -275,69 +275,69 @@ if (!-e $request_filename) {
 		<td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
 	</tr>
 	<tr>
-		<td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td><a href="./2015/05/17" aria-label="Posts published on May 17, 2015">17</a></td>
+		<td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td><a href="/blog/2015/05/17" aria-label="Posts published on May 17, 2015">17</a></td>
 	</tr>
 	<tr>
-		<td><a href="./2015/05/18" aria-label="Posts published on May 18, 2015">18</a></td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td>
+		<td><a href="/blog/2015/05/18" aria-label="Posts published on May 18, 2015">18</a></td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td>
 	</tr>
 	<tr>
 		<td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td>
 	</tr>
 	</tbody>
 	</table></div></div><div class="widget widget_categories"><div class="title"><h2>Categories</h2></div>		<ul>
-	<li class="cat-item cat-item-10"><a href="./category/hardware" >Hardware</a>
+	<li class="cat-item cat-item-10"><a href="/blog/category/hardware" >Hardware</a>
 </li>
-	<li class="cat-item cat-item-3"><a href="./category/network" >Network</a>
+	<li class="cat-item cat-item-3"><a href="/blog/category/network" >Network</a>
 </li>
-	<li class="cat-item cat-item-17"><a href="./category/software/os" >Operating System</a>
+	<li class="cat-item cat-item-17"><a href="/blog/category/software/os" >Operating System</a>
 </li>
-	<li class="cat-item cat-item-4"><a href="./category/software/programming" >Programming</a>
+	<li class="cat-item cat-item-4"><a href="/blog/category/software/programming" >Programming</a>
 </li>
-	<li class="cat-item cat-item-106"><a href="./category/network/server" >Server</a>
+	<li class="cat-item cat-item-106"><a href="/blog/category/network/server" >Server</a>
 </li>
-	<li class="cat-item cat-item-6"><a href="./category/software" >Software</a>
+	<li class="cat-item cat-item-6"><a href="/blog/category/software" >Software</a>
 </li>
-	<li class="cat-item cat-item-1"><a href="./category/uncategorized" >Uncategorized</a>
+	<li class="cat-item cat-item-1"><a href="/blog/category/uncategorized" >Uncategorized</a>
 </li>
-	<li class="cat-item cat-item-13"><a href="./category/network/website" >Website</a>
+	<li class="cat-item cat-item-13"><a href="/blog/category/network/website" >Website</a>
 </li>
 		</ul>
 </div><div class="widget widget_archive"><div class="title"><h2>Archives</h2></div>		<ul>
-			<li><a href='/2017/06'>June 2017</a></li>
-	<li><a href='/2017/01'>January 2017</a></li>
-	<li><a href='/2016/10'>October 2016</a></li>
-	<li><a href='/2016/06'>June 2016</a></li>
-	<li><a href='/2016/05'>May 2016</a></li>
-	<li><a href='/2015/11'>November 2015</a></li>
-	<li><a href='/2015/10'>October 2015</a></li>
-	<li><a href='/2015/07'>July 2015</a></li>
-	<li><a href='/2015/05'>May 2015</a></li>
-	<li><a href='/2015/04'>April 2015</a></li>
-	<li><a href='/2015/01'>January 2015</a></li>
-	<li><a href='/2014/12'>December 2014</a></li>
-	<li><a href='/2014/11'>November 2014</a></li>
-	<li><a href='/2014/10'>October 2014</a></li>
-	<li><a href='/2014/09'>September 2014</a></li>
-	<li><a href='/2014/08'>August 2014</a></li>
-	<li><a href='/2014/07'>July 2014</a></li>
-	<li><a href='/2014/06'>June 2014</a></li>
-	<li><a href='/2014/05'>May 2014</a></li>
-	<li><a href='/2014/04'>April 2014</a></li>
-	<li><a href='/2014/03'>March 2014</a></li>
-	<li><a href='/2014/02'>February 2014</a></li>
-	<li><a href='/2014/01'>January 2014</a></li>
-	<li><a href='/2013/12'>December 2013</a></li>
-	<li><a href='/2013/11'>November 2013</a></li>
-	<li><a href='/2013/10'>October 2013</a></li>
-	<li><a href='/2013/09'>September 2013</a></li>
-	<li><a href='/2013/08'>August 2013</a></li>
-	<li><a href='/2013/07'>July 2013</a></li>
-	<li><a href='/2013/06'>June 2013</a></li>
-	<li><a href='/2013/05'>May 2013</a></li>
-	<li><a href='/2013/03'>March 2013</a></li>
-	<li><a href='/2013/02'>February 2013</a></li>
-	<li><a href='/2012/07'>July 2012</a></li>
-	<li><a href='/1994/12'>December 1994</a></li>
+			<li><a href='/blog/2017/06'>June 2017</a></li>
+	<li><a href='/blog/2017/01'>January 2017</a></li>
+	<li><a href='/blog/2016/10'>October 2016</a></li>
+	<li><a href='/blog/2016/06'>June 2016</a></li>
+	<li><a href='/blog/2016/05'>May 2016</a></li>
+	<li><a href='/blog/2015/11'>November 2015</a></li>
+	<li><a href='/blog/2015/10'>October 2015</a></li>
+	<li><a href='/blog/2015/07'>July 2015</a></li>
+	<li><a href='/blog/2015/05'>May 2015</a></li>
+	<li><a href='/blog/2015/04'>April 2015</a></li>
+	<li><a href='/blog/2015/01'>January 2015</a></li>
+	<li><a href='/blog/2014/12'>December 2014</a></li>
+	<li><a href='/blog/2014/11'>November 2014</a></li>
+	<li><a href='/blog/2014/10'>October 2014</a></li>
+	<li><a href='/blog/2014/09'>September 2014</a></li>
+	<li><a href='/blog/2014/08'>August 2014</a></li>
+	<li><a href='/blog/2014/07'>July 2014</a></li>
+	<li><a href='/blog/2014/06'>June 2014</a></li>
+	<li><a href='/blog/2014/05'>May 2014</a></li>
+	<li><a href='/blog/2014/04'>April 2014</a></li>
+	<li><a href='/blog/2014/03'>March 2014</a></li>
+	<li><a href='/blog/2014/02'>February 2014</a></li>
+	<li><a href='/blog/2014/01'>January 2014</a></li>
+	<li><a href='/blog/2013/12'>December 2013</a></li>
+	<li><a href='/blog/2013/11'>November 2013</a></li>
+	<li><a href='/blog/2013/10'>October 2013</a></li>
+	<li><a href='/blog/2013/09'>September 2013</a></li>
+	<li><a href='/blog/2013/08'>August 2013</a></li>
+	<li><a href='/blog/2013/07'>July 2013</a></li>
+	<li><a href='/blog/2013/06'>June 2013</a></li>
+	<li><a href='/blog/2013/05'>May 2013</a></li>
+	<li><a href='/blog/2013/03'>March 2013</a></li>
+	<li><a href='/blog/2013/02'>February 2013</a></li>
+	<li><a href='/blog/2012/07'>July 2012</a></li>
+	<li><a href='/blog/1994/12'>December 1994</a></li>
 		</ul>
 		</div><div class="widget ilwp_widget_tag_cloud"><div class="title"><h2>Tag Cloud</h2></div><div class='colored-tag-cloud'><a href='/tag/xml' class='tag-link-220' title='1 post is tagged with &ldquo;XML&rdquo;' rel="tag" style='font-size: 8px;  color: purple;'>XML</a>
 <a href='/tag/nul' class='tag-link-85' title='1 post is tagged with &ldquo;NUL&rdquo;' rel="tag" style='font-size: 8px;  color: black;'>NUL</a>
@@ -533,7 +533,7 @@ var _hmt = _hmt || [];
     </div>
 </footer>
 
-<script type='text/javascript' src='./wp-content/themes/yusi_cache1.0/js/jquery.js?ver=1.0'></script>
-<script type='text/javascript' src='./wp-includes/js/wp-embed.min.js?ver=4.9.1'></script>
+<script type='text/javascript' src='/blog/wp-content/themes/yusi_cache1.0/js/jquery.js?ver=1.0'></script>
+<script type='text/javascript' src='/blog/wp-includes/js/wp-embed.min.js?ver=4.9.1'></script>
 </body>
 </html>
